@@ -10,10 +10,8 @@
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
-        "easycorp/easyadmin-bundle": "^3.2",
         "phpdocumentor/reflection-docblock": "^5.2",
-        "sensio/framework-extra-bundle": "^6.1",
-        "stripe/stripe-php": "^7.75",
+        "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.4.*",
         "symfony/console": "4.4.*",
         "symfony/dotenv": "4.4.*",
@@ -48,7 +46,7 @@
         "symfony/stopwatch": "^4.4",
         "symfony/var-dumper": "^4.4",
         "symfony/web-profiler-bundle": "^4.4",
-        "symfony/web-server-bundle": "^4.4"
+        "symfony/web-server-bundle": "4.4.*"
     },
     "config": {
         "preferred-install": {
