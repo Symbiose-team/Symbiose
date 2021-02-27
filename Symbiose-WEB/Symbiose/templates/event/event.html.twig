@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evenements{% endblock %}
+
+{% block body %}
+    <div>
+        {% if events %}
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered table-sm table-primary border-light">
+                    <thead>
+                    <tr>
+                        <th scope="col">Event</th>
+                        <th scope="col">More</th>
+                        <th scope="col">More</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>{{ event }}</td>
+                            <td>placeholder</td>
+                            <td>placeholder</td>
+                            <td>
+                                <a href="" class="btn btn-primary btn-rounded">
+                                    Show
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+
+        {% else %}
+            <p>No events yet !</p>
+        {% endif %}
+    </div>
+{% endblock %}
