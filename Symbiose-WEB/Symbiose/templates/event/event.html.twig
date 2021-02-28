@@ -16,11 +16,11 @@
                     <tbody>
                     {% for event in events %}
                         <tr>
-                            <td>{{ event }}</td>
+                            <td>{{ event.name }}</td>
                             <td>placeholder</td>
                             <td>placeholder</td>
                             <td>
-                                <a href="" class="btn btn-primary btn-rounded">
+                                <a href="/event/{{ event.id }}" class="btn btn-primary btn-rounded">
                                     Show
                                 </a>
                             </td>
