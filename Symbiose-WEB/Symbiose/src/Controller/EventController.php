@@ -119,9 +119,10 @@ class EventController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($event);
         $entityManager->flush();
+        return $this->redirectToRoute('event_list');
 
-        $response = new Response();
-        $response->send();
+        //$response = new Response();
+        //$response->send();
     }
 
 }
