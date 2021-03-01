@@ -37,10 +37,10 @@ class Event
     /**
      * @ORM\Column(type="integer")
      */
-    private $NumPlaceRestant;
+    private $NumRemaining;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="text", length=100)
      */
     private $Type;
 
@@ -104,17 +104,17 @@ class Event
     /**
      * @return mixed
      */
-    public function getNumPlaceRestant()
+    public function getNumRemaining()
     {
-        return $this->NumPlaceRestant;
+        return $this->NumRemaining;
     }
 
     /**
-     * @param mixed $NumPlaceRestant
+     * @param mixed $NumRemaining
      */
-    public function setNumPlaceRestant($NumPlaceRestant): void
+    public function setNumRemaining($NumRemaining): void
     {
-        $this->NumPlaceRestant = $NumPlaceRestant;
+        $this->NumRemaining = $NumRemaining;
     }
 
     /**
@@ -132,6 +132,10 @@ class Event
     {
         $this->Type = $Type;
     }
+
+
+
+
 
 
 }

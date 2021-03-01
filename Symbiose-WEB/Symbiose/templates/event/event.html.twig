@@ -1,15 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+    {% block title %}Events list{% endblock %}
+
     <div>
         {% if events %}
             <div class="table-responsive">
-                <table class="table table-hover table-bordered table-sm table-primary border-light">
+                <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
                     <thead>
                     <tr>
                         <th scope="col">Event</th>
-                        <th scope="col">More</th>
-                        <th scope="col">More</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col">Players</th>
+                        <th scope="col">Remaining</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Actions</th>
                     </tr>
                     </thead>
@@ -17,11 +22,27 @@
                     {% for event in events %}
                         <tr>
                             <td>{{ event.name }}</td>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
+                            <td>{{ event.supplier }}</td>
+                            <td>{{ event.NumParticipants }}</td>
+                            <td>{{ event.NumRemaining }}</td>
+                            <td>{{ event.type }}</td>
                             <td>
-                                <a href="/event/{{ event.id }}" class="btn btn-primary btn-rounded">
+                                <a href="/event/{{ event.id }}" class="btn btn-primary">
                                     Show
+                                </a>
+
+                                <a href="event/edit/{{ event.id }}" class="btn btn-light">
+                                    Edit
+                                </a>
+
+                                <!--
+                                <a href="event/delete/{{ event.id }}" class="btn btn-danger">
+                                    Delete
+                                </a>
+                                !-->
+
+                                <a href="#" class="btn btn-danger delete-event" data-id="{{ event.id }}">
+                                    Cancel
                                 </a>
                             </td>
                         </tr>
@@ -34,5 +55,16 @@
         {% else %}
             <p>No events yet !</p>
         {% endif %}
+
     </div>
+
+
+    {% block Javascripts %}
+        <script
+                type="text/javascript"
+                src="/js/delete_event.js">
+        </script>
+    {% endblock %}
+
 {% endblock %}
+

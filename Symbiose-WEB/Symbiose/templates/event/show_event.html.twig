@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
+
+    {% block title %}{{ event.name }}{% endblock %}
+
     <h1>{{ event.name }}</h1>
     <p>{{ event.supplier }}</p>
     <hr>
