@@ -40,9 +40,7 @@
 
     <body>
         {{ include('shared/header.html.twig') }}
-        <div class="container">
-            {% block body %}{% endblock %}
-        </div>
+        {% block body %}{% endblock %}
         {{ include('shared/footer.html.twig') }}
     </body>
 

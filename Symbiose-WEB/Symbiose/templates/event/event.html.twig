@@ -2,9 +2,12 @@
 
 {% block body %}
 
-    <h1>Your Events</h1>
+    {% block title %}<h3 align="center"> All the events In one place !</h3>{% endblock %}
+    <h1 align="center">Events</h1>
+    <!--
     <a class="btn btn-outline-primary" aria-current="page" href="/event/add">Add Event</a>
-    <div>
+    -->
+    <div class="container">
         {% if events %}
             <div class="table-responsive">
                 <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
@@ -33,15 +36,21 @@
                                     Show
                                 </a>
 
+                                <a href="/event/join/{{ event.id }}" class="btn btn-primary">
+                                    Join This Event
+                                </a>
+
+                                <!--
                                 <a href="event/edit/{{ event.id }}" class="btn btn-light">
                                     Edit
                                 </a>
+                                -->
 
-
+                                <!--
                                 <a href="event/delete/{{ event.id }}" class="btn btn-danger">
                                     Delete
                                 </a>
-
+                                -->
 
                                 <!--
                                 <a href="#" class="btn btn-danger delete-event" data-id="{{ event.id }}">
@@ -62,8 +71,7 @@
 
     </div>
 
-
-    <!--TODO Fix javascript notifs
+    <!--
     {% block Javascripts %}
         <script
                 type="text/javascript"

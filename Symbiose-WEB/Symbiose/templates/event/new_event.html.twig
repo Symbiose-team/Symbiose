@@ -8,10 +8,16 @@
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
 
+    <div class="container">
+
     {% block title %}Add a new Event{% endblock %}
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
+
+    <a href="/events">Go Back</a>
+
+    </div>
 
 {% endblock %}

@@ -22,7 +22,7 @@ class EventController extends AbstractController
 {
     //Get event list
     /**
-     * @Route("/clientevent", name="event_list")
+     * @Route("/events", name="event_list")
      * @Method({"GET"})
      */
     public function index(): Response
@@ -68,6 +68,7 @@ class EventController extends AbstractController
         return $this->render('event/new_event.html.twig', array('form'=>$form->createView()));
     }
 
+    //Edit an event
     /**
      * @Route("/event/edit/{id}", name="edit_event")
      * @Method({"GET","POST"})
@@ -84,7 +85,7 @@ class EventController extends AbstractController
             ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))
             ->add('Type',TextType::class,array('attr' => array('class'=>'form-control')))
             ->add('Date',DateType::class,array('attr' => array('class'=>'form-control')))
-            ->add('save',SubmitType::class, array('label'=>'Create',
+            ->add('save',SubmitType::class, array('label'=>'Update',
                 'attr'=>array('class'=>'btn btn-primary mt-3')))
 
             ->getForm();
@@ -101,6 +102,16 @@ class EventController extends AbstractController
         return $this->render('event/edit_event.html.twig', array('form'=>$form->createView()));
     }
 
+    //TODO Work on the logic
+    /**
+     * @Route("/event/join/{id}", name="join_event")
+     */
+    public function join_event(): Response
+    {
+        return $this->render('/event/join_event.html.twig');
+    }
+
+    //TODO Show only events related to the logged in supplier
     /**
      * @Route("/eventsupplier", name="event_supplier")
      */
@@ -114,6 +125,8 @@ class EventController extends AbstractController
 
 
 
+
+
     //Order matters!
     //Show event by id
     /**
@@ -124,7 +137,6 @@ class EventController extends AbstractController
         return $this->render('event/show_event.html.twig',array('event' => $event));
     }
 
-    //TODO Figure this out
     //DELETE event
     /**
      * @Route ("/event/delete/{id}")
