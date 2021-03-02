@@ -1,31 +1,58 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-    {% block title %}Events list{% endblock %}
-
+    <h1>All Events</h1>
     <div>
+        <a class="btn btn-outline-primary" aria-current="page" href="/event/add">Add Event</a>
+
         {% if events %}
             <div class="table-responsive">
-                <table class="table table-hover table-bordered table-sm table-primary border-light">
+                <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
                     <thead>
                     <tr>
                         <th scope="col">Event</th>
-                        <th scope="col">More</th>
-                        <th scope="col">More</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col">Players</th>
+                        <th scope="col">Remaining</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Date</th>
                         <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for event in events %}
                         <tr>
-                            <td>{{ event }}</td>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
+                            <td>{{ event.name }}</td>
+                            <td>{{ event.supplier }}</td>
+                            <td>{{ event.NumParticipants }}</td>
+                            <td>{{ event.NumRemaining }}</td>
+                            <td>{{ event.type }}</td>
+                            <td>{{ event.date|date }}</td>
                             <td>
-                                <a href="" class="btn btn-primary btn-rounded">
+                                <a href="/event/{{ event.id }}" class="btn btn-primary">
                                     Show
                                 </a>
+
+                                <a href="event/edit/{{ event.id }}" class="btn btn-light">
+                                    Edit
+                                </a>
+
+
+                                <a href="event/delete/{{ event.id }}" class="btn btn-danger">
+                                    Delete
+                                </a>
+
+
+                                <!--
+                                <a href="#" class="btn btn-danger delete-event" data-id="{{ event.id }}">
+                                    Cancel
+                                </a>
+                                -->
                             </td>
                         </tr>
                     {% endfor %}
@@ -37,5 +64,67 @@
         {% else %}
             <p>No events yet !</p>
         {% endif %}
+
     </div>
+
+    <h1>All special Events</h1>
+    <div>
+        {% if SpecialEvents %}
+            <div class="table-responsive">
+                <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
+                    <thead>
+                    <tr>
+                        <th scope="col">Event</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col">Players</th>
+                        <th scope="col">Remaining</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for SpecialEvent in SpecialEvents %}
+                        <tr>
+                            <td>{{ SpecialEvent.name }}</td>
+                            <td>{{ event.supplier }}</td>
+                            <td>{{ event.NumParticipants }}</td>
+                            <td>{{ event.NumRemaining }}</td>
+                            <td>{{ event.type }}</td>
+                            <td>{{ event.date|date }}</td>
+                            <td>
+                                <a href="/event/{{ event.id }}" class="btn btn-primary">
+                                    Show
+                                </a>
+
+                                <a href="event/edit/{{ event.id }}" class="btn btn-light">
+                                    Edit
+                                </a>
+
+
+                                <a href="event/delete/{{ event.id }}" class="btn btn-danger">
+                                    Delete
+                                </a>
+
+
+                                <!--
+                                <a href="#" class="btn btn-danger delete-event" data-id="{{ event.id }}">
+                                    Cancel
+                                </a>
+                                -->
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+
+        {% else %}
+            <p>No events yet !</p>
+        {% endif %}
+
+    </div>
+
 {% endblock %}
+

@@ -44,6 +44,11 @@ class Event
      */
     private $Type;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $Date;
+
 
 
 
@@ -131,6 +136,22 @@ class Event
     public function setType($Type): void
     {
         $this->Type = $Type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->Date;
+    }
+
+    /**
+     * @param mixed $Date
+     */
+    public function setDate($Date): void
+    {
+        $this->Date = $Date;
     }
 
 
