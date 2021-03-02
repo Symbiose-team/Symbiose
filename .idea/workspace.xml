@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/.env" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/inc/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/inc/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -63,7 +65,8 @@
       <option name="presentableId" value="Default" />
       <updated>1614437693920</updated>
       <workItem from="1614437694926" duration="2992000" />
-      <workItem from="1614514008840" duration="20721000" />
+      <workItem from="1614514008840" duration="21270000" />
+      <workItem from="1614619236573" duration="12640000" />
     </task>
     <servers />
   </component>
@@ -80,15 +83,21 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2631" y="343" key="#Notifications" timestamp="1614530856539">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2631" y="343" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614530856539" />
-    <state x="2623" y="141" width="998" height="708" key="SettingsEditor" timestamp="1614530417557">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="703" y="141" width="998" height="708" key="SettingsEditor" timestamp="1614634122188">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="2623" y="141" width="998" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614530417557" />
+    <state x="703" y="141" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1614634122188" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614637206152">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1614637206152" />
   </component>
 </project>
