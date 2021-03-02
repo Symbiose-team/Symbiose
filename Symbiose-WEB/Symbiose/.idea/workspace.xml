@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="entity field(terrain)">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301103902.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Availability.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/AvailabilityRepository.php" afterDir="false" />
+    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="entity Availability.php">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210301140527.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210302074621.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210302075309.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210302075614.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210302093243.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210302101236.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210302113128.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/FieldController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Test.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/TestRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/availability/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dispo/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/field/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/SportsFieldRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +167,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -161,7 +179,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614553763340</updated>
       <workItem from="1614553765313" duration="3291000" />
-      <workItem from="1614590523531" duration="3975000" />
+      <workItem from="1614590523531" duration="44341000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -184,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614593026272</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="entity Availability.php">
+      <created>1614595324592</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614595324592</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +231,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="config" />
     <MESSAGE value="entity field(terrain)" />
-    <option name="LAST_COMMIT_MESSAGE" value="entity field(terrain)" />
+    <MESSAGE value="entity Availability.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="entity Availability.php" />
   </component>
 </project>

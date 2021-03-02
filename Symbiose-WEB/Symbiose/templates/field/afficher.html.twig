@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title%} List des fields {% endblock %}
+
+{% block  body %}
+{% if  fields %}
+    <table  id = " fields "  class = " table table-striped ">
+      <thead>
+        <tr>
+          <th> fields </th>
+          <th> details </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for   field in  fields %}
+          < tr >
+            <td> {{ field }} </td>
+            <td>
+                <form action="{{ path('detail') }}">
+                    <button>detail</button>
+                </form>
+
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p> Audun field </p>
+  {% endif %}
+{% endblock %}

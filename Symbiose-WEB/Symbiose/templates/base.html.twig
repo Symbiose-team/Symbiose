@@ -6,12 +6,29 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            <!-- Font Awesome -->
+            <link
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+                    rel="stylesheet"
+            />
+            <!-- Google Fonts -->
+            <link
+                    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+                    rel="stylesheet"
+            />
+            <!-- MDB -->
+            <link
+                    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+                    rel="stylesheet"
+            />
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+            <!-- MDB -->
+            <script
+                    type="text/javascript"
+                    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+            ></script>        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
