@@ -1,0 +1,76 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title %}Gestion d'utilisateurs{% endblock %}
+
+{% block body %}
+    <main style="margin-top: 58px">
+    <section class="mb-4">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        <div class="card">
+            <div class="card-header text-center py-3">
+                <h5 class="mb-0 text-center">
+                    <strong>Gestions des users</strong>
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover text-nowrap table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Prénom & Nom</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">CIN</th>
+                            <th scope="col">Date de naissance</th>
+                            <th scope="col">Adresse</th>
+                            <th scope="col">N° Tel</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            {% for user in users  %}
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.fullname }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.CIN }}</td>
+                            <td>{{ user.birthday|date('d/m/Y')}}</td>
+                            <td>{{ user.Adresse }}</td>
+                            <td>{{ user.phoneNumber }}</td>
+                            <td><img src="{{ user.picture }}"
+                                     height="32"
+                                     class="rounded-circle"
+                                     alt=""
+                                     loading="lazy"></td>
+                            <td>
+                                <a href="{{ path('admin_utilisateurs_edit',{'id':user.id}) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="{{ path('admin_user_delete',{'id':user.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <nav aria-label="...">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item {% if page == 1 %}disabled{% endif %}">
+                        <a class="page-link" href="{{ path('admin_utilisateurs',{'page':page -1}) }}" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    {% for i in 1..pages%}
+                    <li class="page-item {% if page == i %}active{% endif %}"><a class="page-link" href="{{ path('admin_utilisateurs',{'page': i}) }}">{{ i }}</a></li>
+                    {% endfor %}
+                    <li class="page-item {% if page == pages %}disabled{% endif %}">
+                        <a class="page-link" href="{{ path('admin_utilisateurs',{'page':page + 1}) }}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <!--Section: Sales Performance KPIs-->
+    </main>
+{% endblock %}
