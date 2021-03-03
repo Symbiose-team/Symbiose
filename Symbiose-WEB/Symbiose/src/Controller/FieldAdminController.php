@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Field;
+use App\Form\FieldType;
 
 
 class FieldAdminController extends AbstractController
@@ -51,4 +54,26 @@ class FieldAdminController extends AbstractController
 
 
     }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return Symfony\Component\HttpFoundation\Response
+     * @Route ("/addfield")
+     */
+    public function add(\Symfony\Component\HttpFoundation\Request $request){
+        $field=new Field();
+        $form=$this->createForm(FieldType::class,$field);
+        $form->add('ajouter',SubmitType::class);
+        $form->handleRequest($request);
+        if ( $form->isSubmitted() && $form->isValid())
+        {
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($field);
+            $em->flush();
+
+        }
+        return $this->render('field_admin/add.html.twig',['form'=>$form->createView()]);
+
+
+}
 }
