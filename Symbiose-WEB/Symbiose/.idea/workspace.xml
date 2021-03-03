@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="client admin">
-      <change afterPath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/field_provider/addfield.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/field_provider/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="provider">
       <change beforePath="$PROJECT_DIR$/src/Entity/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Field.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +160,7 @@
       <updated>1614553763340</updated>
       <workItem from="1614553765313" duration="3291000" />
       <workItem from="1614590523531" duration="44341000" />
-      <workItem from="1614778941155" duration="26391000" />
+      <workItem from="1614778941155" duration="26918000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -217,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614805289097</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="provider">
+      <created>1614810535689</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1614810535689</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +244,7 @@
     <MESSAGE value="crud admin/client et lien entre les page" />
     <MESSAGE value="formulaire d'ajout" />
     <MESSAGE value="client admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="client admin" />
+    <MESSAGE value="provider" />
+    <option name="LAST_COMMIT_MESSAGE" value="provider" />
   </component>
 </project>
