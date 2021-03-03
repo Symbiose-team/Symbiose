@@ -28,30 +28,19 @@ class EventController extends AbstractController
     public function index(): Response
     {
 
-        $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
+        //TODO
+        $allevents=$this->getDoctrine()->getRepository(Event::class)->findAll();
 
-        return $this->render('event/event.html.twig', array('events' => $events));
+        return $this->render('event/event.html.twig', array('events' => $allevents));
     }
 
-    //TODO Work on the logic
+    //TODO Work on the logic (as a client i want to join an event)
     /**
      * @Route("/event/join/{id}", name="join_event")
      */
     public function join_event(): Response
     {
         return $this->render('/event/join_event.html.twig');
-    }
-
-    //TODO Show only events related to the logged in supplier
-    /**
-     * @Route("/eventsupplier", name="event_supplier")
-     */
-    public function supplier_events(): Response
-    {
-
-        $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
-
-        return $this->render('event_supplier/supplier_event.html.twig', array('events' => $events));
     }
 
     //Order matters!
@@ -64,13 +53,5 @@ class EventController extends AbstractController
         return $this->render('event/show_event.html.twig',array('event' => $event));
     }
 
-    //Show event by id
-    /**
-     * @Route("/supplierevent/{id}",name="event_show")
-     */
-    public function supplierShow($id){
-        $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-        return $this->render('event_supplier/show_supplier_event.html.twig',array('event' => $event));
-    }
 
 }
