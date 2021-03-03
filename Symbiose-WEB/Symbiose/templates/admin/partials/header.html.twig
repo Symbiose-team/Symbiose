@@ -83,8 +83,7 @@
                     >
                         <li><a class="dropdown-item-text text-center bg-dark text-white">{{ app.user.fullname }}</a> </li>
                         <div class="dropdown-divider"></div>
-                        <li><a class="dropdown-item" href="#">Mon profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="{{ path('homepage') }}"><i class="fas fa-eye"></i> Voir le site</a></li>
                         <li><a class="dropdown-item" href="{{ path('admin_account_logout') }}">Logout</a></li>
                     </ul>
                 </li>
