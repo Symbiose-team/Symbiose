@@ -9,24 +9,24 @@
 
     <div class="container p-3 my-3">
         <h3 align="center">All your events in one place!</h3>
-        <h1 align="center">Events</h1>
 
-        <a class="btn btn-outline-primary" aria-current="page" href="/event/add">Add Event</a>
-        <a class="btn btn-outline-primary" aria-current="page" href="/specialevent/add">Add a Special Event</a>
+
+
+        <h1 align="center">Events</h1>
 
         {% if events %}
             <div class="table-responsive">
                 <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
                     <thead>
-                    <tr>
-                        <th scope="col">Event</th>
-                        <th scope="col">Supplier</th>
-                        <th scope="col">Players</th>
-                        <th scope="col">Remaining</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Actions</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">Event</th>
+                            <th scope="col">Supplier</th>
+                            <th scope="col">Players</th>
+                            <th scope="col">Remaining</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                     {% for event in events %}
@@ -62,8 +62,8 @@
                         </tr>
                     {% endfor %}
                     </tbody>
-
                 </table>
+                    <a class="btn btn-outline-primary" aria-current="page" href="/event/add" >Add Event</a>
             </div>
 
         {% else %}
@@ -72,8 +72,8 @@
 
     </div>
 
-    <h1 align="center">All Special Events</h1>
-    <div class="container">
+        <h1 align="center">All Special Events</h1>
+        <div class="container">
         {% if SpecialEvents %}
             <div class="table-responsive">
                 <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
@@ -123,6 +123,7 @@
                     </tbody>
 
                 </table>
+                    <a class="btn btn-outline-primary" aria-current="page" href="/specialevent/add">Add a Special Event</a>
             </div>
 
         {% else %}
@@ -130,6 +131,5 @@
         {% endif %}
 
     </div>
-
 {% endblock %}
 
