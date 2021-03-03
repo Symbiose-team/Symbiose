@@ -4,7 +4,10 @@
 
 {% block body %}
     <h1>{{ product.name }}</h1>
+    <h3>{{ product.description }}</h3>
     <p>{{ product.type }}</p>
+    <p>{{ product.price }}</p>
+    <p>{{ product.state }}</p>
     <hr>
     <a href="/products">Go back</a>
 {% endblock %}

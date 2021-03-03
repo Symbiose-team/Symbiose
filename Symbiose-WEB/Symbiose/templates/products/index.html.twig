@@ -4,7 +4,7 @@
 
 {% block body %}
     {% if products %}
-        <table class="table table-stripped">
+        <table id="products" class="table table-stripped">
             <thead>
             <tr>
                 <th>Product Title</th>
@@ -14,9 +14,12 @@
             <tbody>
             {%  for product in products %}
                 <tr>
-                    <td>{{ product.type }}</td>
+                    <td>{{ product.name }}</td>
                     <td>
                         <a href="/product/{{ product.id }}" class="btn btn-dark">Show</a>
+                        <a href="/product/edit/{{ product.id }}" class="btn btn-light">Edit</a>
+                        <a href="/product/delete/{{ product.id }}" class="btn btn-danger delete-product"
+                           onclick="return confirm('Are you sure ?')">Delete</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -25,4 +28,7 @@
     {% else %}
         <p>No products available</p>
     {% endif %}
+{% endblock %}
+
+{% block javascripts %}
 {% endblock %}

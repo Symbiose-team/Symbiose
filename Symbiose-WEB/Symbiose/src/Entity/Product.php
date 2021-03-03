@@ -22,20 +22,25 @@ class Product
      */
     private $Name;
 
-    /**-
-     * @ORM\Column(type="float")
+    /**
+     * @ORM\Column(type="string", length=255)
      */
-    private $price;
+    private $Description;
+
+    /**
+     * @ORM\Column(type="decimal", nullable=false)
+     */
+    private $Price;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $type;
+    private $Type;
 
     /**
-     * @ORM\Column(type="boolean" ,nullable=true)
+     * @ORM\Column(type="boolean" ,nullable=false)
      */
-    private $state;
+    private $State;
 
 
     //THESE HERE ARE THE GETTERS AND SETTERS
@@ -56,38 +61,50 @@ class Product
         return $this;
     }
 
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(string $Description): self
+    {
+        $this->Description = $Description;
+
+        return $this;
+    }
+
     public function getPrice(): ?float
     {
-        return $this->price;
+        return $this->Price;
     }
 
     public function setPrice(float $price): self
     {
-        $this->price = $price;
+        $this->Price = $price;
 
         return $this;
     }
 
     public function getType(): ?string
     {
-        return $this->type;
+        return $this->Type;
     }
 
     public function setType(string $type): self
     {
-        $this->type = $type;
+        $this->Type = $type;
 
         return $this;
     }
 
     public function getState(): ?bool
     {
-        return $this->state;
+        return $this->State;
     }
 
     public function setState(bool $state): self
     {
-        $this->state = $state;
+        $this->State = $state;
 
         return $this;
     }
