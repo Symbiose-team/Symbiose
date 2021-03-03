@@ -1,0 +1,25 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modification de l'utilisateur numéro {{ user.id }}{% endblock %}
+
+{% block body %}
+    <main style="margin-top: 58px">
+        <section class="mb-4">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+    <div class="container">
+        <h1>Modification de l'utilisateur {{ user.fullname }}</h1>
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary my-3">
+            <i class="fas fa-check"></i>
+            Enregistrer les modifications
+        </button>
+        {{ form_end(form) }}
+    </div>
+        </section>
+    </main>
+{% endblock %}

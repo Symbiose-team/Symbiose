@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Symbiose -{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/css/app_admin.css">
 {#        <link rel="stylesheet" href="/css/bootstrap.min.css">#}
         <!-- Font Awesome -->
         <link
@@ -23,9 +23,11 @@
 
     </head>
     <body>
-    {% include 'partials/header.html.twig' %}
-        {% block body %}{% endblock %}
-    {% include 'partials/footer.html.twig' %}
+    {% include 'admin/partials/header.html.twig' %}
+        {% block body %}
+
+        {% endblock %}
+    {% include 'admin/partials/footer.html.twig' %}
     <!-- MDB -->
     <script
             type="text/javascript"
