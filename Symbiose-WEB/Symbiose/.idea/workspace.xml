@@ -2,27 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="entity Availability.php">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301140527.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210302074621.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210302075309.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210302075614.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210302093243.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210302101236.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210302113128.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/FieldController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Test.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TestRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/availability/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dispo/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/field/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/FieldAdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SportsFieldRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TestRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dispo/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/afficher.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +168,7 @@
       <updated>1614553763340</updated>
       <workItem from="1614553765313" duration="3291000" />
       <workItem from="1614590523531" duration="44341000" />
+      <workItem from="1614778941155" duration="5313000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>

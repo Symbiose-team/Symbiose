@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
-{% block title%} List des fields {% endblock %}
+{% block title%} List des terrain {% endblock %}
 
 {% block  body %}
-{% if  fields %}
-    <table  id = " fields "  class = " table table-striped ">
+{% if  terrain %}
+    <table  id = " terrain "  class = " table table-striped ">
       <thead>
         <tr>
           <th> fields </th>
@@ -11,13 +11,15 @@
         </tr>
       </thead>
       <tbody>
-        {% for   field in  fields %}
-          < tr >
-            <td> {{ field }} </td>
+        {% for   field in  terrain %}
+          <tr>
+            <td> {{ field.name }} </td>
             <td>
-                <form action="{{ path('detail') }}">
-                    <button>detail</button>
+                <form action="{{ path('detail',{ 'id':field.id }) }}">
+
+                <button>detail</button>
                 </form>
+
 
             </td>
           </tr>

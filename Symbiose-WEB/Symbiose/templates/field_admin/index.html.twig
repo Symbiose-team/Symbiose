@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FieldAdminController!{% endblock %}
+
+{% block body %}
+
+<table  id = " n "  class = " table table-striped ">
+    {% if  n %}
+        <table class="table">
+            <thead>
+            <tr>
+
+                <th scope="col">code</th>
+                <th scope="col">name</th>
+                <th scope="col">address</th>
+                <th scope="col">space</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ n.id }}</td>
+                <td>{{ n.name }}</td>
+                <td>{{ n.address }}</td>
+                <td>{{ n.space }}</td>
+
+
+            </tr>
+
+
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
