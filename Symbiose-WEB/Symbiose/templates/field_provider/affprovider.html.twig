@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title%} List des terrain {% endblock %}
+
+{% block  body %}
+    <form  action="{{ path('addterain') }}" class="container p-3" >
+
+        <button class="btn btn-dark">ADD</button>
+
+    </form>
+    {% if  terain %}
+<table  id = " terrain "  class = " table table-striped ">
+    <thead>
+    <tr>
+        <th> fields </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for   field in  terain %}
+    <tr>
+        <td> {{ field.name }} </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    {% endif %}
+{% endblock %}

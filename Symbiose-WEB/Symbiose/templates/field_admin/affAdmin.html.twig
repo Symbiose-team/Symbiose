@@ -2,12 +2,13 @@
 {% block title%} List des terrain {% endblock %}
 
 {% block  body %}
+    <form  action="{{ path('addfield') }}" class="container p-3" >
+
+        <button class="btn btn-dark">ADD</button>
+
+    </form>
     {% if  terain %}
-       <form  action="{{ path('addfield') }}" class="container p-3" >
 
-               <button class="btn btn-dark">ADD</button>
-
-       </form>
         <table  id = " terrain "  class = " table table-striped ">
             <thead>
             <tr>
