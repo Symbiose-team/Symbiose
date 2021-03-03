@@ -20,14 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Symbiose.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Symbiose.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/products.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +94,7 @@
       <workItem from="1614619236573" duration="12640000" />
       <workItem from="1614711773611" duration="10907000" />
       <workItem from="1614725348959" duration="5615000" />
+      <workItem from="1614781171479" duration="10167000" />
     </task>
     <servers />
   </component>
@@ -119,6 +118,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2631" y="343" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614530856539" />
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614790298222">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614790298222" />
     <state x="703" y="141" width="998" height="708" key="SettingsEditor" timestamp="1614634122188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -128,5 +131,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1614637206152" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614789715854">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614789715854" />
   </component>
 </project>

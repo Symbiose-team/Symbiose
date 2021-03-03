@@ -39,7 +39,7 @@ class ProductController extends AbstractController
         $form = $this->createFormBuilder($product)
             ->add('name', TextType::class, array('attr' => array('class' => 'form-control')))
             ->add('description', TextareaType::class, array('required' => false, 'attr' => array('class' => 'form-control')))
-            ->add('price', NumberType::class, array('attr' => array('class' => 'form_control')))
+            ->add('price', TextType::class, array('attr' => array('class' => 'form_control')))
             ->add('type', TextType::class, array('attr' => array('class' => 'form_control')))
             ->add('state', TextType::class, array('attr' => array('class' => 'form_control')))
             ->add('save', SubmitType::class, array('label' => 'Create', 'attr' => array('class' => 'btn btn-primary mt-3')))->getForm();

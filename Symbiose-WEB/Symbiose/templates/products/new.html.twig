@@ -3,8 +3,13 @@
 {% block title %}New product!{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-    <a href="/products" class="btn btn-primary mt-3">Cancel</a>
+    <div class="container">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        <a href="/products" class="btn btn-primary mt-3">Cancel</a>
+
+    </div>
+
 {% endblock %}
