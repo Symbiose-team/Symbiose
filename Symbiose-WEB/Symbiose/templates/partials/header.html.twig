@@ -10,6 +10,7 @@
                     loading="lazy"/>
             <strong>Symbiose</strong>
         </a>
+
         <button
                 class="navbar-toggler"
                 type="button"
@@ -26,12 +27,10 @@
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
             <!-- Left links -->
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('homepage') }}">Acceuil</a>
-                </li>
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+
                 <!-- Navbar dropdown -->
-                <ul class="navbar-nav ml-auto ms-auto">
+                <ul class="navbar-nav ml-auto">
                     {% if app.user %}
                         <li class="nav-item dropdown ">
                             <a href="#" class="nav-link dropdown-toggle" data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
@@ -48,6 +47,7 @@
                             </div>
 
                         </li>
+
 
                     {% else %}
                         <li class="nav-item">
@@ -66,6 +66,7 @@
     </div>
     <!-- Container wrapper -->
 </nav>
+
 
 {% for label,messages in app.flashes %}
     <div class="container mt-3">
