@@ -9,7 +9,10 @@
 
     <h1 align="center">My Events</h1>
     <div class="container">
+        <!--
         <a class="btn btn-primary" aria-current="page" href="/event/add">Add Event</a>
+        -->
+
 
         {% if events %}
             <div class="table-responsive">
@@ -35,19 +38,22 @@
                             <td>{{ event.type }}</td>
                             <td>{{ event.date|date }}</td>
                             <td>
-                                <a href="/event/{{ event.id }}" class="btn btn-primary">
+
+                                <a href="/supplierevent/{{ event.id }}" class="btn btn-primary">
                                     Show
                                 </a>
 
+                                <!--
                                 <a href="event/edit/{{ event.id }}" class="btn btn-light">
                                     Edit
                                 </a>
+                                !-->
 
-
+                                <!--
                                 <a href="event/delete/{{ event.id }}" class="btn btn-danger">
                                     Delete
                                 </a>
-
+                                -->
 
                                 <!--
                                 <a href="#" class="btn btn-danger delete-event" data-id="{{ event.id }}">

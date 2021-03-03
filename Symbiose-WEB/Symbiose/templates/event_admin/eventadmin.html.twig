@@ -38,16 +38,15 @@
                             <td>{{ event.type }}</td>
                             <td>{{ event.date|date }}</td>
                             <td>
-                                {# TODO Fix the go back method #}
-                                <a href="/event/{{ event.id }}" class="btn btn-primary">
+                                <a href="/eventadmin/{{ event.id }}" class="btn btn-primary">
                                     Show
                                 </a>
 
-                                <!--
+
                                 <a href="event/edit/{{ event.id }}" class="btn btn-light">
                                     Edit
                                 </a>
-                                -->
+
 
                                 <a href="event/delete/{{ event.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
                                     Delete
