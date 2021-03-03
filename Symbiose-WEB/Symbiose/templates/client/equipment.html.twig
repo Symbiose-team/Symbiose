@@ -1,27 +1,28 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Hello ProductController!{% endblock %}
 
 {% block body %}
     {% if products %}
-        <table id="products" class="table table-stripped">
+        <table class="table table-stripped">
             <thead>
+
             <tr>
                 <th>Product Title</th>
+                <th>Description</th>
+                <th>Price</th>
                 <th>Actions</th>
-                <th>
-                    <a href="/product/new" class="btn btn-dark">New Product</a>
-                </th>
             </tr>
             </thead>
             <tbody>
             {%  for product in products %}
                 <tr>
                     <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.price }}</td>
                     <td>
-                        <a href="/product/{{ product.id }}" class="btn btn-dark">Show</a>
-                        <a href="/product/edit/{{ product.id }}" class="btn btn-light">Edit</a>
-                        <a href="/product/delete/{{ product.id }}" class="btn btn-danger delete-product"
-                           onclick="return confirm('Are you sure ?')">Delete</a>
+                        <a href="/buy" class="btn btn-primary">Buy</a>
+                        <a href="/rent" class="btn btn-dark">Rent</a>
                     </td>
                 </tr>
             {% endfor %}

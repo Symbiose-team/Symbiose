@@ -26,9 +26,9 @@ class ClientController extends AbstractController
      */
     public function equipment(): Response
     {
-        return $this->render('client/equipment.html.twig', [
-            'controller_name' => 'ClientController',
-        ]);
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+
+        return $this->render('client/equipment.html.twig', array('products' => $products));
     }
 
     /**
@@ -39,5 +39,20 @@ class ClientController extends AbstractController
         return $this->render('client/clothing.html.twig', [
             'controller_name' => 'ClientController',
         ]);
+    }
+
+    /**
+     * @Route ("/buy", name="buy_equipment")
+     */
+    public function buy(): Response
+    {
+        return $this->render('client/buy.html.twig');
+    }
+    /**
+     * @Route ("/rent", name="rent_equipment")
+     */
+    public function rent(): Response
+    {
+        return $this->render('client/rent.html.twig');
     }
 }

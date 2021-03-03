@@ -21,11 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/products.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/clientPage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/clientPage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/clothing.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/clothing.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/equipment.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/equipment.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/inc/navbar.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/shared/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/shared/footer.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +96,7 @@
       <workItem from="1614619236573" duration="12640000" />
       <workItem from="1614711773611" duration="10907000" />
       <workItem from="1614725348959" duration="5615000" />
-      <workItem from="1614781171479" duration="10167000" />
+      <workItem from="1614781171479" duration="17108000" />
     </task>
     <servers />
   </component>
