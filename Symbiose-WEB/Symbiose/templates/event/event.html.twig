@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    {% block title %}<h3 align="center"> All the events In one place !</h3>{% endblock %}
-    <h1 align="center">Events</h1>
     <!--
     <a class="btn btn-outline-primary" aria-current="page" href="/event/add">Add Event</a>
     -->
-    <div class="container">
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container p-3 my-3">
+        <h3 align="center">All your events in one place!</h3>
+        <h1 align="center">Events</h1>
+
         {% if events %}
             <div class="table-responsive">
                 <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
@@ -59,6 +64,38 @@
                                 -->
                             </td>
                         </tr>
+                    {% endfor %}
+                    {# TODO Add another color to special event table #}
+                    {% for SpecialEvent in SpecialEvents %}
+                            <tr>
+                                <td>{{ SpecialEvent.name }}</td>
+                                <td>{{ SpecialEvent.supplier }}</td>
+                                <td>{{ SpecialEvent.NumParticipants }}</td>
+                                <td>{{ SpecialEvent.NumRemaining }}</td>
+                                <td>{{ SpecialEvent.type }}</td>
+                                <td>{{ SpecialEvent.date|date }}</td>
+                                <td>
+                                    <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-primary">
+                                        Show
+                                    </a>
+
+                                    <a href="/specialevent/join/{{ SpecialEvent.id }}" class="btn btn-primary">
+                                        Join This Event
+                                    </a>
+
+                                    <!--
+                                    <a href="specialevent/edit/{{ SpecialEvent.id }}" class="btn btn-light">
+                                        Edit
+                                    </a>
+                                    -->
+
+                                    <!--
+                                    <a href="specialevent/delete/{{ SpecialEvent.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                        Delete
+                                    </a>
+                                    -->
+                                </td>
+                            </tr>
                     {% endfor %}
                     </tbody>
 

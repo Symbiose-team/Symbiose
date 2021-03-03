@@ -28,10 +28,11 @@ class EventController extends AbstractController
     public function index(): Response
     {
 
-        //TODO
-        $allevents=$this->getDoctrine()->getRepository(Event::class)->findAll();
-
-        return $this->render('event/event.html.twig', array('events' => $allevents));
+        //TODO add all the events in one list (Events and Special events)
+        $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
+        $Sevents=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
+        return $this->render('event/event.html.twig', array(
+            'events' => $events, 'SpecialEvents'=> $Sevents));
     }
 
     //TODO Work on the logic (as a client i want to join an event)
@@ -41,6 +42,15 @@ class EventController extends AbstractController
     public function join_event(): Response
     {
         return $this->render('/event/join_event.html.twig');
+    }
+
+    //TODO Work on the logic (as a client i want to join an event)
+    /**
+     * @Route("/specialevent/join/{id}", name="join_special_event")
+     */
+    public function join_specialevent(): Response
+    {
+        return $this->render('/event/join_special_event.html.twig');
     }
 
     //Order matters!

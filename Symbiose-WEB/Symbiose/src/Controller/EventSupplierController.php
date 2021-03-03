@@ -33,7 +33,7 @@ class EventSupplierController extends AbstractController
 
     //Show event by id
     /**
-     * @Route("/supplierevent/{id}",name="event_show")
+     * @Route("/supplierevent/{id}",name="supplier_event_show")
      */
     public function supplierShow($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
