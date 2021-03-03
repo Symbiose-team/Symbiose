@@ -58,7 +58,7 @@ class FieldAdminController extends AbstractController
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return Symfony\Component\HttpFoundation\Response
-     * @Route ("/addfield")
+     * @Route ("/addfield",name="addfield")
      */
     public function add(\Symfony\Component\HttpFoundation\Request $request){
         $field=new Field();
@@ -70,10 +70,32 @@ class FieldAdminController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($field);
             $em->flush();
+            return $this->redirectToRoute('admin');
 
         }
         return $this->render('field_admin/add.html.twig',['form'=>$form->createView()]);
-
-
 }
+
+    /**
+     * @param $id
+     * @Route ("/update/{id}",name="update")
+     */
+public function update(\Symfony\Component\HttpFoundation\Request $request,$id)
+{
+    $repository=$this->getDoctrine()->getRepository(Field::class);
+    $field=$repository->find($id);
+    $form=$this->createForm(FieldType::class,$field);
+    $form->add('Update',SubmitType::class);
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid() ){
+        $em=$this->getDoctrine()->getManager();
+        $em->flush();
+        return $this->redirectToRoute('admin');
+
+    }
+return $this->render('field_admin/update.html.twig',['form'=>$form->createView()]);
+    }
+
+
+
 }

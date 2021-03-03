@@ -3,12 +3,18 @@
 
 {% block  body %}
     {% if  terain %}
+       <form  action="{{ path('addfield') }}" class="container p-3" >
+
+               <button class="btn btn-dark">ADD</button>
+
+       </form>
         <table  id = " terrain "  class = " table table-striped ">
             <thead>
             <tr>
                 <th> fields </th>
                 <th> details </th>
                 <th>delete</th>
+                <th>modifier</th>
             </tr>
             </thead>
             <tbody>
@@ -18,13 +24,18 @@
                     <td>
                         <form action="{{ path('detail',{ 'id':field.id }) }}">
 
-                            <button>detail</button>
+                            <button class="btn btn-dark">Details</button>
                         </form>
 
                     </td>
                     <td>
+                        <form action="{{ path('update',{ 'id':field.id }) }}">
+                            <button class="btn btn-light">Modify</button>
+                        </form>
+                    </td>
+                    <td>
                         <form action="{{ path('supp',{ 'id':field.id }) }}">
-                            <button>supprimer</button>
+                            <button class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</button>
                         </form>
                     </td>
                 </tr>
