@@ -26,6 +26,7 @@
                             <th scope="col">Date de naissance</th>
                             <th scope="col">Adresse</th>
                             <th scope="col">N° Tel</th>
+                            <th scope="col">Rôle</th>
                             <th scope="col">Image</th>
                             <th scope="col">Actions</th>
                         </tr>
@@ -40,6 +41,7 @@
                             <td>{{ user.birthday|date('d/m/Y')}}</td>
                             <td>{{ user.Adresse }}</td>
                             <td>{{ user.phoneNumber }}</td>
+                            <td>{{ user.role }}</td>
                             <td><img src="{{ user.picture }}"
                                      height="32"
                                      class="rounded-circle"
@@ -47,7 +49,7 @@
                                      loading="lazy"></td>
                             <td>
                                 <a href="{{ path('admin_utilisateurs_edit',{'id':user.id}) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                <a href="{{ path('admin_user_delete',{'id':user.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                <a href="{{ path('admin_user_delete',{'id':user.id}) }}" class="btn btn-danger {% if app.user.id == user.id and user.role=="Admin" %}disabled{% endif %}"><i class="fas fa-trash"></i></a>
 
                             </td>
                         </tr>
