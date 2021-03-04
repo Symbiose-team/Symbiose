@@ -8,7 +8,7 @@
                     height="30"
                     alt=""
                     loading="lazy"/>
-            <strong>Symbiose</strong>
+            <strong class="text-dark">Symbiose</strong>
         </a>
 
         <button
@@ -32,10 +32,10 @@
                 <!-- Navbar dropdown -->
                 <ul class="navbar-nav ml-auto">
                     {% if app.user %}
-                        <li class="nav-item dropdown ">
-                            <a href="#" class="nav-link dropdown-toggle" data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle " data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
                                 <img src="{{ app.user.picture }}" class="avatar avatar-mini" alt="Avatar de {{ app.user.fullname }}">
-                                {{ app.user.fullname }}
+                                <strong class="text-dark">{{ app.user.fullname }}</strong>
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="accountDropdownLink">
@@ -50,10 +50,10 @@
 
 
                     {% else %}
-                        <li class="nav-item">
+                        <li class="nav-item ms-auto">
                             <a href="{{ path('account_register') }}" class="nav-link">Inscription</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ms-auto">
                             <a href="{{ path('account_login') }}" class="nav-link">Connexion</a>
                         </li>
                     {% endif %}
