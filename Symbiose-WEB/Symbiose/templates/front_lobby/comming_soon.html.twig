@@ -1,0 +1,119 @@
+{% extends 'Lobbyfront.html.twig' %}
+
+{% block head %}
+    {% block title %}Welcome!{% endblock %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <!--Main Navigation-->
+    <header>
+        <!-- Intro settings -->
+        <style>
+            /* Default height for small devices */
+            #intro {
+                height: 600px;
+                /* Margin to fix overlapping fixed navbar */
+                margin-top: 58px;
+            }
+            @media (max-width: 991px) {
+                #intro {
+                    /* Margin to fix overlapping fixed navbar */
+                    margin-top: 45px;
+                }
+            }
+        </style>
+
+
+
+        <!-- Background image -->
+        <div id="intro" class="p-5 text-center bg-image shadow-1-strong"
+             style="background-image: url('https://i.pinimg.com/originals/96/b2/44/96b2445f75d1338341636a63e5cd26b7.jpg');">
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="text-white px-4">
+                        <h1 class="mb-3">Coming Soon!</h1>
+
+                        <!-- Time Counter -->
+                        <h3 id="time-counter" class="border border-light my-4 p-4"></h3>
+
+                        <p>We're working hard to finish the development of this site.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Background image -->
+    </header>
+
+
+    <!--Footer-->
+    <footer class="bg-light text-lg-start">
+
+
+        <hr class="m-0" />
+
+        <div class="text-center py-4 align-items-center">
+            <p>Follow Us on social media</p>
+            <a href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" class="btn btn-primary m-1" role="button"
+               rel="nofollow" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.facebook.com/mdbootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"
+               target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow"
+               target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow"
+               target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">Barmej.tn</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!--Footer-->
+
+    <!-- Time Counter -->
+    <script type="text/javascript">
+        // Set the date we're counting down to
+        var countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 30);
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now an the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById('time-counter').innerHTML =
+                days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById('time-counter').innerHTML = 'EXPIRED';
+            }
+        }, 1000);
+    </script>
+
+{% endblock %}

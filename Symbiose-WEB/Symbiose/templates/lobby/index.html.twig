@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lobby{% endblock %}
+
+{% block body %}
+    <h1>Lobbies</h1>
+
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Owner</th>
+                <th>Nbplayers</th>
+                <th>Maxplayers</th>
+                <th>Fillable</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lobby in lobbies %}
+            <tr>
+                <td>{{ lobby.id }}</td>
+                <td>{{ lobby.name }}</td>
+                <td>{{ lobby.owner }}</td>
+                <td>{{ lobby.nbplayers }}</td>
+                <td>{{ lobby.maxplayers }}</td>
+                <td>{{ lobby.status ? 'Yes' : 'No' }}</td>
+                <td>
+
+                    <a> {% include '/lobby/_delete_form.html.twig' %}</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('lobby_new') }}">Add new Lobby</a>
+{% endblock %}

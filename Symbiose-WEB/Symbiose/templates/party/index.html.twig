@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Party{% endblock %}
+
+{% block body %}
+    <h1>Parties</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Maxnumber</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for party in parties %}
+            <tr>
+                <td>{{ party.id }}</td>
+                <td>{{ party.maxnumber }}</td>
+                <td>
+                    <a> {% include '/party/_delete_form.html.twig' %}</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('party_new') }}">Add new Party</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Lobby{% endblock %}
+
+{% block body %}
+    <h1>Edit Lobby</h1>
+
+    {{ include('lobby/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('lobby_index') }}">back to list</a>
+
+{% endblock %}

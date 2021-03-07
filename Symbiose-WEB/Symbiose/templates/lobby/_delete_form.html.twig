@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('lobby_delete', {'id': lobby.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="POST">
+    <a href="{{ path('lobby_show', {'id': lobby.id}) }}" class="btn btn-primary">show</a>
+    <a href="{{ path('lobby_edit', {'id': lobby.id}) }}" class="btn btn-secondary">edit</a>
+    <button class="btn btn-danger">Delete</button>
+</form>
