@@ -39,7 +39,7 @@ class EventAdminController extends AbstractController
 
         $form= $this->createFormBuilder($event)
             ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array(//'required'=>false,
+            ->add('Supplier',TextType::class,array('required'=>false,
                 'attr' => array('class'=>'form-control')))
             ->add('NumParticipants',NumberType::class,array('attr' => array('class'=>'form-control')))
             ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))
@@ -86,7 +86,7 @@ class EventAdminController extends AbstractController
 
         $form= $this->createFormBuilder($event)
             ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array(//'required'=>false,
+            ->add('Supplier',TextType::class,array('required'=>false,
                 'attr' => array('class'=>'form-control')))
             ->add('NumParticipants',NumberType::class,array('attr' => array('class'=>'form-control')))
             ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))
@@ -146,7 +146,7 @@ class EventAdminController extends AbstractController
 
         $form= $this->createFormBuilder($Sevent)
             ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array(//'required'=>false,
+            ->add('Supplier',TextType::class,array('required'=>false,
                 'attr' => array('class'=>'form-control')))
             ->add('NumParticipants',NumberType::class,array('attr' => array('class'=>'form-control')))
             ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))
@@ -193,7 +193,7 @@ class EventAdminController extends AbstractController
 
         $form= $this->createFormBuilder($Sevent)
             ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array(//'required'=>false,
+            ->add('Supplier',TextType::class,array('required'=>false,
                 'attr' => array('class'=>'form-control')))
             ->add('NumParticipants',NumberType::class,array('attr' => array('class'=>'form-control')))
             ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))

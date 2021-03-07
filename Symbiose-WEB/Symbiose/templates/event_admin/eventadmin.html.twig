@@ -8,11 +8,11 @@
     </style>
 
     <div class="container p-3 my-3">
-        <h3 align="center">All your events in one place!</h3>
+        <h3 align="center">You are an admin you have all the power!</h3>
 
 
 
-        <h1 align="center">Events</h1>
+        <h1 align="center">Manage All Events</h1>
 
         {% if events %}
             <div class="table-responsive">
@@ -72,7 +72,7 @@
 
     </div>
 
-        <h1 align="center">All Special Events</h1>
+        <h1 align="center">Manage All Special Events</h1>
         <div class="container">
         {% if SpecialEvents %}
             <div class="table-responsive">
@@ -126,6 +126,9 @@
                     <a class="btn btn-outline-primary" aria-current="page" href="/specialevent/add">Add a Special Event</a>
             </div>
 
+            <div class="container" align="center">
+                <a class="btn btn-dark" aria-current="page" href="/admintemp" >Check out the dashboard</a>
+            </div>
         {% else %}
             <p>No Special events yet !</p>
         {% endif %}

@@ -1,6 +1,3 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,12 +5,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Material Design for Bootstrap</title>
+    <title>Admin Dashboard</title>
 
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        rel="stylesheet"
+        />
+
+        <!-- Google Fonts -->
+        <link
+         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        rel="stylesheet"
+        />
+
+        <!-- MDB -->
+        <link
+         href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+        rel="stylesheet"
+        />
+
+         <link href="admin_temp/css/style.css">
+
+        <link rel="stylesheet" href="/Symbiose-WEB/Symbiose/templates/admin_temp/css/style.css" />
+
+    <style>
+        body {
+            background-color: #fbfbfb;
+        }
+        @media (min-width: 991.98px) {
+            main {
+                padding-left: 240px;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 58px 0 0; /* Height of navbar */
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+            width: 240px;
+            z-index: 600;
+        }
+
+        @media (max-width: 991.98px) {
+            .sidebar {
+                width: 100%;
+            }
+        }
+        .sidebar .active {
+            border-radius: 5px;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+        }
+
+        .sidebar-sticky {
+            position: relative;
+            top: 0;
+            height: calc(100vh - 48px);
+            padding-top: 0.5rem;
+            overflow-x: hidden;
+            overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        }
+    </style>
     <!-- Custom styles -->
 </head>
 <body>
-<!--Main Navigation-->
+
 <header>
     <!-- Sidebar -->
     <nav
@@ -91,197 +150,77 @@
         </div>
     </nav>
     <!-- Sidebar -->
-
     <!-- Navbar -->
-    <nav
-            id="main-navbar"
-            class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
-    >
-        <!-- Container wrapper -->
+    <nav id="main-navbar"
+         class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container-fluid">
-            <!-- Toggle button -->
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="#">PIDEV</a>
             <button
                     class="navbar-toggler"
                     type="button"
                     data-mdb-toggle="collapse"
-                    data-mdb-target="#sidebarMenu"
-                    aria-controls="sidebarMenu"
+                    data-mdb-target="#navbarExample01"
+                    aria-controls="navbarExample01"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
             >
                 <i class="fas fa-bars"></i>
             </button>
-
-            <!-- Brand -->
-            <a class="navbar-brand" href="#">
-                <img
-                        src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
-                        height="25"
-                        alt=""
-                        loading="lazy"
-                />
-            </a>
-            <!-- Search form -->
-            <form class="d-none d-md-flex input-group w-auto my-auto">
-                <input
-                        autocomplete="off"
-                        type="search"
-                        class="form-control rounded"
-                        placeholder='Search (ctrl + "/" to focus)'
-                        style="min-width: 225px"
-                />
-                <span class="input-group-text border-0"
-                ><i class="fas fa-search"></i
-                    ></span>
-            </form>
-
-            <!-- Right links -->
-            <ul class="navbar-nav ms-auto d-flex flex-row">
-                <!-- Notification dropdown -->
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-mdb-toggle="dropdown"
-                            aria-expanded="false"
-                    >
-                        <i class="fas fa-bell"></i>
-                        <span class="badge rounded-pill badge-notification bg-danger"
-                        >1</span
+            <div class="collapse navbar-collapse" id="navbarExample01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/events">Home</a>
+                    </li>
+                    <!-- Navbar dropdown -->
+                    <li class="nav-item dropdown">
+                        <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-mdb-toggle="dropdown"
+                                aria-expanded="false"
                         >
-                    </a>
-                    <ul
-                            class="dropdown-menu dropdown-menu-end"
-                            aria-labelledby="navbarDropdownMenuLink"
-                    >
-                        <li><a class="dropdown-item" href="#">Some news</a></li>
-                        <li><a class="dropdown-item" href="#">Another news</a></li>
-                        <li>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </li>
-                    </ul>
-                </li>
+                            More
+                        </a>
 
-                <!-- Icon -->
-                <li class="nav-item">
-                    <a class="nav-link me-3 me-lg-0" href="#">
-                        <i class="fas fa-fill-drip"></i>
-                    </a>
-                </li>
-                <!-- Icon -->
-                <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="#">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/events">Client page</a></li>
+                            <li><a class="dropdown-item" href="/eventsupplier">Supplier page</a></li>
+                            <li><a class="dropdown-item" href="/eventadmin">Admin page</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admintemp">Admin Dashboard</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
 
-                <!-- Icon dropdown -->
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
-                            href="#"
-                            id="navbarDropdown"
-                            role="button"
-                            data-mdb-toggle="dropdown"
-                            aria-expanded="false"
-                    >
-                        <i class="united kingdom flag m-0"></i>
-                    </a>
-                    <ul
-                            class="dropdown-menu dropdown-menu-end"
-                            aria-labelledby="navbarDropdown"
-                    >
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="united kingdom flag"></i>English
-                                <i class="fa fa-check text-success ms-2"></i
-                                ></a>
-                        </li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="poland flag"></i>Polski</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="china flag"></i>中文</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="japan flag"></i>日本語</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="germany flag"></i>Deutsch</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="france flag"></i>Français</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="spain flag"></i>Español</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="russia flag"></i>Русский</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                            ><i class="portugal flag"></i>Português</a
-                            >
-                        </li>
-                    </ul>
-                </li>
+                <!-- Search form -->
+                <!--
+                <form class="d-flex input-group w-auto">
 
-                <!-- Avatar -->
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-mdb-toggle="dropdown"
-                            aria-expanded="false"
-                    >
-                        <img
-                                src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
-                                class="rounded-circle"
-                                height="22"
-                                alt=""
-                                loading="lazy"
-                        />
-                    </a>
-                    <ul
-                            class="dropdown-menu dropdown-menu-end"
-                            aria-labelledby="navbarDropdownMenuLink"
-                    >
-                        <li><a class="dropdown-item" href="#">My profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
+                    <a class="btn btn-outline-primary" aria-current="page" href="/event">Home</a>
+
+                </form>-->
+            </div>
         </div>
-        <!-- Container wrapper -->
     </nav>
     <!-- Navbar -->
 </header>
-<!--Main Navigation-->
-
 <!--Main layout-->
 <main style="margin-top: 58px">
     <div class="container pt-4">
         <!-- Section: Main chart -->
+        <!--
         <section class="mb-4">
             <div class="card">
                 <div class="card-header py-3">
@@ -292,6 +231,7 @@
                 </div>
             </div>
         </section>
+        -->
         <!-- Section: Main chart -->
 
         <!--Section: Sales Performance KPIs-->
@@ -726,7 +666,70 @@
 </main>
 <!--Main layout-->
 <!-- Custom scripts -->
-<script type="text/javascript" src="js/script.js"></script>
+<script>// Graph
+    var ctx = document.getElementById("myChart");
+
+    var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+            ],
+            datasets: [
+                {
+                    data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                    lineTension: 0,
+                    backgroundColor: "transparent",
+                    borderColor: "#007bff",
+                    borderWidth: 4,
+                    pointBackgroundColor: "#007bff",
+                },
+            ],
+        },
+        options: {
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            beginAtZero: false,
+                        },
+                    },
+                ],
+            },
+            legend: {
+                display: false,
+            },
+        },
+    });</script>
 </body>
+<!-- Footer -->
+<footer>
+    <div class="text-center p-3 container" style="background-color: white">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">Symbiose Team</a>
+        <section >
+            <!-- Facebook -->
+            <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-facebook-f"></i
+                ></a>
+
+            <!-- Linkedin -->
+            <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-linkedin-in"></i
+                ></a>
+
+            <!-- Github -->
+            <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/SkanderThabet/Symbiose" role="button"
+            ><i class="fab fa-github"></i
+                ></a>
+        </section>
+    </div>
+</footer>
+<!-- Footer -->
 </html>
-{% endblock%}

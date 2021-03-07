@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EventRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EventRepository::class)
@@ -21,31 +22,39 @@ class Event
 
     /**
      * @ORM\Column(type="text", length=100)
+     * @Assert\NotBlank(message="should not be blank")
      */
     private $Name;
 
     /**
      * @ORM\Column(type="text", length=100)
+     * @Assert\NotBlank(message="should not be blank")
      */
     private $Supplier;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="invalid input")
+     * @Assert\NotNull(message="value is null")
      */
     private $NumParticipants;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="invalid input")
+     * @Assert\NotNull(message="value is null")
      */
     private $NumRemaining;
 
     /**
      * @ORM\Column(type="text", length=100)
+     * @Assert\NotBlank(message="invalid input")
      */
     private $Type;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private $Date;
 
