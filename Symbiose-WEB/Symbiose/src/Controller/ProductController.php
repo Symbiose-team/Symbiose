@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\ProductType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -32,31 +33,15 @@ class ProductController extends AbstractController
      * @Route("/product/new", name="new_product")
      * @Method({"GET", "POST"})
      */
-    public function new(Request $request)
+    public function new(Product $product)
     {
-        $product = new Product();
 
-        $form = $this->createFormBuilder($product)
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control')))
-            ->add('description', TextareaType::class, array('required' => false, 'attr' => array('class' => 'form-control')))
-            ->add('price', NumberType::class, array('attr' => array('class' => 'form_control')))
-            ->add('type', TextType::class, array('attr' => array('class' => 'form_control')))
-            ->add('state', TextType::class, array('attr' => array('class' => 'form_control')))
-            ->add('save', SubmitType::class, array('label' => 'Create', 'attr' => array('class' => 'btn btn-primary mt-3')))->getForm();
+        $form = $this->createForm(ProductType::class, $product);
 
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-            $product = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($product);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('products');
-    }
-
-        return $this->render('products/new.html.twig', array('form'=>$form->createView()));
+        return $this->render('products/new.html.twig', [
+            'product' => $product,
+            'form' => $form->createView()
+        ]);
     }
 
     /**

@@ -1,3 +1,7 @@
+
+{% block body %}
+    <title>Dashboard !</title>
+
 <head>
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -213,7 +217,7 @@
 <!-- Navbar -->
 
 <main style="margin-top: 58px">
-    <div class="container p-3 my-3">
+    <div class="container p-3 my-3 mt-5">
         <h3 align="center">You are an admin you have all the power!</h3>
 
         <h1 align="center">Manage All Products</h1>
@@ -249,7 +253,24 @@
                     {% endfor %}
                     </tbody>
                 </table>
-                <a class="btn btn-outline-primary" aria-current="page" href="/product/new" >New Product</a>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <a class="btn btn-outline-primary" aria-current="page" href="/product/new">New Product</a>
             </div>
 
         {% else %}
@@ -705,3 +726,4 @@
     </div>
 </main>
 
+{% endblock %}
