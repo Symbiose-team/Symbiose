@@ -1,32 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="provider">
-      <change afterPath="$PROJECT_DIR$/src/Controller/AvailibilityProviderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/AvailabilityType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/availibility_provider/AddAvailability.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/availibility_provider/AdminAvailability.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/availibility_provider/index.html.twig" afterDir="false" />
+    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="disponibilite">
+      <change afterPath="$PROJECT_DIR$/public/datepicker/datepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/datepicker/datepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/MapController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/map/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/map/map.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210301100210.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20210308083506.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210301103902.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210301140527.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210302074621.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210302075309.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210302075614.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210302093243.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210302101236.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210302113128.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FieldAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Availability.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Availability.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Field.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/FieldType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FieldType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/availability/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/availability/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/afficher.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/field/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/field_admin/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/add.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shared/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shared/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +175,8 @@
       <workItem from="1615037607851" duration="570000" />
       <workItem from="1615102795333" duration="7620000" />
       <workItem from="1615129588867" duration="12859000" />
-      <workItem from="1615190109597" duration="3886000" />
+      <workItem from="1615190109597" duration="10382000" />
+      <workItem from="1615210554807" duration="12974000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -253,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614811007970</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="disponibilite">
+      <created>1615196777042</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1615196777101</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +275,7 @@
     <MESSAGE value="formulaire d'ajout" />
     <MESSAGE value="client admin" />
     <MESSAGE value="provider" />
-    <option name="LAST_COMMIT_MESSAGE" value="provider" />
+    <MESSAGE value="disponibilite" />
+    <option name="LAST_COMMIT_MESSAGE" value="disponibilite" />
   </component>
 </project>

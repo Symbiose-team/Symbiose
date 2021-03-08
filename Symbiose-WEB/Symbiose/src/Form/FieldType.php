@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Field;
+use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,8 +20,15 @@ class FieldType extends AbstractType
             ->add('provider')
             ->add('price')
             ->add('status')
-            ->add('Date_start')
-            ->add('Date_end')
+            ->add('Date_start',\Symfony\Component\Form\Extension\Core\Type\DateTimeType::class,[
+                'attr'=>['class'=>'form-control js-datepicker'],
+                    'widget'=>'single_text'
+                ]
+            )
+            ->add('Date_end',\Symfony\Component\Form\Extension\Core\Type\DateTimeType::class,[
+                'attr'=>['class'=>'form-control js-datepicker'],
+                'widget'=>'single_text'
+            ])
         ;
     }
 

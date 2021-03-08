@@ -13,9 +13,9 @@
       <tbody>
         {% for   field in  terrain %}
           <tr>
-            <td> {{ field.name }} </td>
+            <td> {{field.name}} </td>
             <td>
-                <form action="{{ path('detail',{ 'id':field.id }) }}">
+                <form action="{{ path('detail',{'id':field.id}) }}">
 
                 <button class="btn btn-light">detail</button>
                 </form>
