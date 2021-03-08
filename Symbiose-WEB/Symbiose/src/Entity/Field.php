@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\FieldRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=FieldRepository::class)
+
  */
 class Field
 {
@@ -18,8 +22,57 @@ class Field
     private $id;
 
     /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    /**
+     * @ORM\Column(type="integer", length=255)
+     */
+    private $serialNumber;
+
+    /**
+     * @return mixed
+     */
+    public function getSerialNumber()
+    {
+        return $this->serialNumber;
+    }
+
+    /**
+     * @param mixed $serialNumber
+     */
+    public function setSerialNumber($serialNumber): void
+    {
+        $this->serialNumber = $serialNumber;
+    }
+
+
+    /**
      * @ORM\Column(type="string",length=255)
+     * @Assert\NotBlank(message="wrong input")
+     * */
     private $name;
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -27,12 +80,14 @@ class Field
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="wrong input!")
      */
     private $space;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *  @Assert\NotBlank(message="wrong input!")
      */
     private $provider;
 
@@ -45,23 +100,55 @@ class Field
      * @ORM\Column(type="boolean")
      */
     private $status;
+    /**
+     * @ORM\Column(type="date")
+     * @Assert\GreaterThan("today")
+     */
+    private $Date_start;
 
-    public function getId(): ?int
+    /**
+     * @ORM\Column(type="date")
+     *   @Assert\Expression(
+     *     "this.getDateStart() < this.getDateEnd()",
+     *     message="La date fin ne doit pas être antérieure à la date début"
+     * )
+     */
+    private $Date_end;
+
+    /**
+     * @return mixed
+     */
+    public function getDateStart()
     {
-        return $this->id;
+        return $this->Date_start;
     }
 
-    public function getName(): ?string
+    /**
+     * @param mixed $Date_start
+     */
+    public function setDateStart($Date_start): void
     {
-        return $this->name;
+        $this->Date_start = $Date_start;
     }
 
-    public function setName(string $name): self
+    /**
+     * @return mixed
+     */
+    public function getDateEnd()
     {
-        $this->name = $name;
-
-        return $this;
+        return $this->Date_end;
     }
+
+    /**
+     * @param mixed $Date_end
+     */
+    public function setDateEnd($Date_end): void
+    {
+        $this->Date_end = $Date_end;
+    }
+
+
+
 
     public function getAddress(): ?string
     {
@@ -122,4 +209,6 @@ class Field
 
         return $this;
     }
+
+
 }

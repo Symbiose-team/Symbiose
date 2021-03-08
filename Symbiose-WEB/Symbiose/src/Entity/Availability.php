@@ -3,7 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\AvailabilityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use App\Entity\Field;
+
 
 /**
  * @ORM\Entity(repositoryClass=AvailabilityRepository::class)
@@ -12,46 +17,96 @@ class Availability
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="date")
+     * @param mixed $id
      */
-    private $startDate;
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param ArrayCollection $field_serialnumber
+     */
+    public function setFieldSerialnumber(ArrayCollection $field_serialnumber): void
+    {
+        $this->field_serialnumber = $field_serialnumber;
+    }
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThan("today")
      */
-    private $endDate;
+    private $Date_start;
+
+    /**
+     * @ORM\Column(type="date")
+     *   @Assert\Expression(
+     *     "this.getDateStart() < this.getDateEnd()",
+     *     message="La date fin ne doit pas être antérieure à la date début"
+     * )
+     */
+    private $Date_end;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getStartDate(): ?\DateTimeInterface
+    public function getDateStart(): ?\DateTimeInterface
     {
-        return $this->startDate;
+        return $this->Date_start;
     }
 
-    public function setStartDate(\DateTimeInterface $startDate): self
+    public function setDateStart(\DateTimeInterface $Date_start): self
     {
-        $this->startDate = $startDate;
+        $this->Date_start = $Date_start;
 
         return $this;
     }
 
-    public function getEndDate(): ?\DateTimeInterface
+    public function getDateEnd(): ?\DateTimeInterface
     {
-        return $this->endDate;
+        return $this->Date_end;
     }
 
-    public function setEndDate(\DateTimeInterface $endDate): self
+    public function setDateEnd(\DateTimeInterface $Date_end): self
     {
-        $this->endDate = $endDate;
+        $this->Date_end = $Date_end;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|field[]
+     */
+    public function getFieldSerialnumber(): Collection
+    {
+        return $this->field_serialnumber;
+    }
+
+    public function addFieldSerialnumber(field $fieldSerialnumber): self
+    {
+        if (!$this->field_serialnumber->contains($fieldSerialnumber)) {
+            $this->field_serialnumber[] = $fieldSerialnumber;
+            $fieldSerialnumber->setAvailability($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFieldSerialnumber(field $fieldSerialnumber): self
+    {
+        if ($this->field_serialnumber->removeElement($fieldSerialnumber)) {
+            // set the owning side to null (unless already changed)
+            if ($fieldSerialnumber->getAvailability() === $this) {
+                $fieldSerialnumber->setAvailability(null);
+            }
+        }
 
         return $this;
     }

@@ -2,23 +2,16 @@
 
 namespace App\Form;
 
-use App\Entity\Field;
+use App\Entity\Availability;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FieldType extends AbstractType
+class AvailabilityType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('serialNumber')
-            ->add('name')
-            ->add('address')
-            ->add('space')
-            ->add('provider')
-            ->add('price')
-            ->add('status')
             ->add('Date_start')
             ->add('Date_end')
         ;
@@ -27,7 +20,7 @@ class FieldType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Field::class,
+            'data_class' => Availability::class,
         ]);
     }
 }

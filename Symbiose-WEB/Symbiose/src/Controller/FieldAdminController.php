@@ -38,7 +38,7 @@ class FieldAdminController extends AbstractController
 
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $field=$repo->find($id);
-        return $this->render('field/index.html.twig',['n'=>$field]);
+        return $this->render('field_admin/index.html.twig',['n'=>$field]);
     }
 
     /**

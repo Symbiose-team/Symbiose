@@ -37,8 +37,8 @@ class FieldController extends AbstractController
     public function detail($id){
 
         $repo=$this->getDoctrine()->getRepository(Field::class);
-        $field=$repo->find($id);
-        return $this->render('field/index.html.twig',['n'=>$field]);
+        $f=$repo->find($id);
+        return $this->render('field/index.html.twig',['f'=>$f]);
     }
 
 

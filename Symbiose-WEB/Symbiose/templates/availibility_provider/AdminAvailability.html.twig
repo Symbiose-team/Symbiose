@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title%} List des terrain {% endblock %}
+
+{% block  body %}
+    {% for   dip in  dispo %}
+    <thead>
+    <tr>
+        <th> dispo </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>
+            {{ dip.id }}
+        </th>
+    </tr>
+    </tbody>
+{% endfor %}
+{% endblock %}
