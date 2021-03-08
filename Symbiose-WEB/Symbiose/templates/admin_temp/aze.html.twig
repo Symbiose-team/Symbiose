@@ -71,13 +71,13 @@
 
 <nav
         id="sidebarMenu"
-        class="collapse d-lg-block sidebar collapse sidebar-light bg-white"
+        class="collapse d-lg-block sidebar collapse bg-white"
 >
     <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4">
             <a
                     href="#"
-                    class="list-group-item list-group-item-action py-2 ripple active"
+                    class="list-group-item list-group-item-action py-2 ripple"
                     aria-current="true"
             >
                 <i class="fas fa-tachometer-alt fa-fw me-3"></i
@@ -85,7 +85,8 @@
             </a>
             <a
                     href="#"
-                    class="list-group-item list-group-item-action py-2 ripple">
+                    class="list-group-item list-group-item-action py-2 ripple active"
+            >
                 <i class="fas fa-chart-area fa-fw me-3"></i
                 ><span>Webiste traffic</span>
             </a>
@@ -148,9 +149,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="/products">
+        <a class="navbar-brand" href="/welcome">
             <img
-                    src="http://localhost:82/img/logo-mrigel-sghir.jpg"
+                    src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                     height="25"
                     alt=""
                     loading="lazy"
@@ -170,6 +171,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarExample01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/events">Home</a>
+                </li>
                 <!-- Navbar dropdown -->
                 <li class="nav-item dropdown">
                     <a
@@ -185,9 +189,8 @@
 
                     <!-- Dropdown menu -->
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/clientPage">Client page</a></li>
-                        <li><a class="dropdown-item" href="/products">Admin page</a></li>
-                        <li><a class="dropdown-item" href="/suppliarPage">Suppliar page</a></li>
+                        <li><a class="dropdown-item" href="/events">Client page</a></li>
+                        <li><a class="dropdown-item" href="/eventsupplier">Supplier page</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -195,6 +198,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/eventadmin">Admin Dashboard</a>
                 </li>
             </ul>
             <!-- Left links -->
@@ -216,48 +222,126 @@
     <div class="container p-3 my-3">
         <h3 align="center">You are an admin you have all the power!</h3>
 
-        <h1 align="center">Manage All Products</h1>
+        <h1 align="center">Manage All Events</h1>
 
-        {% if products %}
+        {% if events %}
             <div class="table-responsive">
-                <table id="prodcts" class="table table-hover table-bordered table-sm table-primary border-light">
+                <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
                     <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col">Players</th>
+                        <th scope="col">Remaining</th>
                         <th scope="col">Type</th>
-                        <th scope="col">State</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for product in products %}
+                    {% for event in events %}
                         <tr>
-                            <td>{{ product.name }}</td>
-                            <td>{{ product.description }}</td>
-                            <td>{{ product.price }}</td>
-                            <td>{{ product.type }}</td>
-                            <td>{{ product.state }}</td>
+                            <td>{{ event.name }}</td>
+                            <td>{{ event.supplier }}</td>
+                            <td>{{ event.NumParticipants }}</td>
+                            <td>{{ event.NumRemaining }}</td>
+                            <td>{{ event.type }}</td>
+                            <td>{{ event.date|date }}</td>
                             <td>
-                                <a href="/product/{{ product.id }}" class="btn btn-dark">Show</a>
-                                <a href="/product/edit/{{ product.id }}" class="btn btn-light">Edit</a>
-                                <a href="/product/delete/{{ product.id }}" class="btn btn-danger delete-product"
-                                   onclick="return confirm('Are you sure ?')">Delete</a>
+                                <a href="/eventadmin/{{ event.id }}" class="btn btn-primary">
+                                    Show
+                                </a>
+
+
+                                <a href="event/edit/{{ event.id }}" class="btn btn-light">
+                                    Edit
+                                </a>
+
+
+                                <a href="event/delete/{{ event.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                    Delete
+                                </a>
+
+
+                                <!--
+                                <a href="#" class="btn btn-danger delete-event" data-id="{{ event.id }}">
+                                    Cancel
+                                </a>
+                                -->
                             </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-                <a class="btn btn-outline-primary" aria-current="page" href="/product/new" >New Product</a>
+                <a class="btn btn-outline-primary" aria-current="page" href="/event/add" >Add Event</a>
             </div>
 
         {% else %}
             <p>No events yet !</p>
         {% endif %}
+    </div>
+    <h1 align="center">Manage All Special Events</h1>
+    <div class="container">
+        {% if SpecialEvents %}
+            <div class="table-responsive">
+                <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
+                    <thead>
+                    <tr>
+                        <th scope="col">Event</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col">Players</th>
+                        <th scope="col">Remaining</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for SpecialEvent in SpecialEvents %}
+                        <tr>
+                            <td>{{ SpecialEvent.name }}</td>
+                            <td>{{ SpecialEvent.supplier }}</td>
+                            <td>{{ SpecialEvent.NumParticipants }}</td>
+                            <td>{{ SpecialEvent.NumRemaining }}</td>
+                            <td>{{ SpecialEvent.type }}</td>
+                            <td>{{ SpecialEvent.date|date }}</td>
+                            <td>
+                                <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-primary">
+                                    Show
+                                </a>
+
+                                <a href="specialevent/edit/{{ SpecialEvent.id }}" class="btn btn-light">
+                                    Edit
+                                </a>
+
+
+                                <a href="specialevent/delete/{{ SpecialEvent.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                    Delete
+                                </a>
+
+
+                                <!--
+                                <a href="#" class="btn btn-danger delete-event" data-id="{{ SpecialEvent.id }}">
+                                    Cancel
+                                </a>
+                                -->
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+                <a class="btn btn-outline-primary" aria-current="page" href="/specialevent/add">Add a Special Event</a>
+            </div>
+
+            <div class="container" align="center">
+                <a class="btn btn-dark" aria-current="page" href="/admintemp" >Check out the dashboard</a>
+            </div>
+        {% else %}
+            <p>No Special events yet !</p>
+        {% endif %}
 
     </div>
-
     <div class="container pt-4">
         <!-- Section: Main chart -->
         <!--
