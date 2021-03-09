@@ -8,6 +8,8 @@ use App\Entity\User;
 use App\Form\AccountType;
 use App\Form\PasswordUpdateType;
 use App\Form\RegistrationType;
+use App\Services\SendEmail;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,9 +56,10 @@ class AccountController extends AbstractController
      * @Route("/register", name="account_register")
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
+     * @param SendEmail $sendEmail
      * @return Response
      */
-    public function register(Request $request,UserPasswordEncoderInterface $encoder){
+    public function register(Request $request,UserPasswordEncoderInterface $encoder,SendEmail $sendEmail){
 
 
         $user= new User();
@@ -89,6 +92,16 @@ class AccountController extends AbstractController
         }
 
         $em->flush();
+
+        $sendEmail->send([
+            'recipient_email'=>$user->getEmail(),
+            'subject'=>"Vérification de votre adresse email pour activer votre compte utilisateur",
+            'html_template'=> "account/conf_email.html.twig",
+            'context'=>[
+                'userID'=> $user->getId(),
+                 'userCIN'=>$user->getCin()
+                ]
+        ]);
 
         $this->addFlash(
             'success',
@@ -175,4 +188,18 @@ class AccountController extends AbstractController
     public function myAccount(){
         return $this->render("user/index.html.twig",['user'=>$this->getUser()]);
     }
+
+    /**
+     * @Route("/account/{id}/{cin}", name="account_verif")
+     */
+    public function verifyUserAccount(EntityManagerInterface $em,User $user){
+        $em->flush();
+        $this->addFlash("success","Compte vérifié !");
+
+        return $this->redirectToRoute('account_login');
+    }
+
+
+
 }
+

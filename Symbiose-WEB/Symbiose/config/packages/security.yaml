@@ -2,6 +2,9 @@ security:
     encoders:
         App\Entity\User:
             algorithm: bcrypt
+        App\Entity\Test:
+            algorithm: auto
+
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -10,6 +13,11 @@ security:
             entity:
                 class: App\Entity\User
                 property: Email
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\Test
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
