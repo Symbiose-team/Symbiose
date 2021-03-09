@@ -6,8 +6,10 @@ use App\Entity\Event;
 use App\Entity\SpecialEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -56,6 +58,13 @@ class EventAdminController extends AbstractController
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
             ])
+            ->add('Picture', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new Image(['maxSize' => '1024k'])
+                ],
+            ])
             ->add('save',SubmitType::class, array('label'=>'Create',
                 'attr'=>array('class'=>'btn btn-primary mt-3')))
 
@@ -102,6 +111,13 @@ class EventAdminController extends AbstractController
             ->add('Date',DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
+            ])
+            ->add('Picture', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new Image(['maxSize' => '1024k'])
+                ],
             ])
             ->add('save',SubmitType::class, array('label'=>'Update',
                 'attr'=>array('class'=>'btn btn-primary mt-3')))
@@ -163,6 +179,13 @@ class EventAdminController extends AbstractController
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
             ])
+            ->add('Picture', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new Image(['maxSize' => '1024k'])
+                ],
+            ])
             ->add('save',SubmitType::class, array('label'=>'Create',
                 'attr'=>array('class'=>'btn btn-primary mt-3')))
 
@@ -209,6 +232,13 @@ class EventAdminController extends AbstractController
             ->add('Date',DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
+            ])
+            ->add('Picture', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new Image(['maxSize' => '1024k'])
+                ],
             ])
             ->add('save',SubmitType::class, array('label'=>'Update',
                 'attr'=>array('class'=>'btn btn-primary mt-3')))

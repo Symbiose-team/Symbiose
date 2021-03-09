@@ -58,6 +58,18 @@ class Event
      */
     private $Date;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url(message="Veuillez donner un URL valide pour votre event")
+     */
+    private $picture;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="id_event")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $user;
+
 
 
 
@@ -161,6 +173,34 @@ class Event
     public function setDate($Date): void
     {
         $this->Date = $Date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param mixed $picture
+     */
+    public function setPicture($picture): void
+    {
+        $this->picture = $picture;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
 
