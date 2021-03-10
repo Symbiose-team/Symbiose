@@ -23,125 +23,125 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js">
     </script>
 </head>
-<style>
-    body {
-        background-color: #fbfbfb;
-    }
-    @media (min-width: 991.98px) {
-        main {
-            padding-left: 240px;
+    <style>
+        body {
+            background-color: #fbfbfb;
         }
-    }
+        @media (min-width: 991.98px) {
+            main {
+                padding-left: 240px;
+            }
+        }
 
-    /* Sidebar */
-    .sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        padding: 58px 0 0; /* Height of navbar */
-        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-        width: 240px;
-        z-index: 600;
-    }
-
-    @media (max-width: 991.98px) {
+        /* Sidebar */
         .sidebar {
-            width: 100%;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 58px 0 0; /* Height of navbar */
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+            width: 240px;
+            z-index: 600;
         }
-    }
-    .sidebar .active {
-        border-radius: 5px;
-        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-    }
 
-    .sidebar-sticky {
-        position: relative;
-        top: 0;
-        height: calc(100vh - 48px);
-        padding-top: 0.5rem;
-        overflow-x: hidden;
-        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    }
-</style>
-<nav
-        id="sidebarMenu"
-        class="collapse d-lg-block sidebar collapse bg-white"
->
-    <div class="position-sticky">
-        <div class="list-group list-group-flush mx-3 mt-4">
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-                    aria-current="true"
-            >
-                <i class="fas fa-tachometer-alt fa-fw me-3"></i
-                ><span>Main dashboard</span>
-            </a>
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple active"
-            >
-                <i class="fas fa-chart-area fa-fw me-3"></i
-                ><span>Webiste traffic</span>
-            </a>
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a
-            >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-chart-line fa-fw me-3"></i
-                ><span>Analytics</span></a
-            >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            >
-                <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
-            </a>
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a
-            >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-globe fa-fw me-3"></i
-                ><span>International</span></a
-            >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-building fa-fw me-3"></i
-                ><span>Partners</span></a
-            >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-calendar fa-fw me-3"></i
-                ><span>Calendar</span></a
-            >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
-            >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a
-            >
+        @media (max-width: 991.98px) {
+            .sidebar {
+                width: 100%;
+            }
+        }
+        .sidebar .active {
+            border-radius: 5px;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+        }
+
+        .sidebar-sticky {
+            position: relative;
+            top: 0;
+            height: calc(100vh - 48px);
+            padding-top: 0.5rem;
+            overflow-x: hidden;
+            overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        }
+    </style>
+    <nav
+            id="sidebarMenu"
+            class="collapse d-lg-block sidebar collapse bg-white"
+    >
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                        aria-current="true"
+                >
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i
+                    ><span>Main dashboard</span>
+                </a>
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple active"
+                >
+                    <i class="fas fa-chart-area fa-fw me-3"></i
+                    ><span>Webiste traffic</span>
+                </a>
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a
+                >
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-chart-line fa-fw me-3"></i
+                    ><span>Analytics</span></a
+                >
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                >
+                    <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+                </a>
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a
+                >
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-globe fa-fw me-3"></i
+                    ><span>International</span></a
+                >
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-building fa-fw me-3"></i
+                    ><span>Partners</span></a
+                >
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-calendar fa-fw me-3"></i
+                    ><span>Calendar</span></a
+                >
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
+                >
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a
+                >
+            </div>
         </div>
-    </div>
-</nav>
-<!-- Sidebar -->
+    </nav>
+    <!-- Sidebar -->
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
         <!-- Navbar brand -->
         <a class="navbar-brand" href="/welcome">
@@ -200,10 +200,10 @@
             </ul>
         </div>
     </div>
-</nav>
-<!-- Navbar -->
+    </nav>
+    <!-- Navbar -->
 
-<main style="margin-top: 58px">
+    <main style="margin-top: 58px">
     <div class="container pt-4">
         <h3 align="center">You are an admin you have all the power!</h3>
 
@@ -219,42 +219,42 @@
                     <div class="table-responsive">
                         {% if  terain %}
 
-                            <table  id = " terrain "  class = " table table-striped ">
-                                <thead>
+                        <table  id = " terrain "  class = " table table-striped ">
+                            <thead>
+                            <tr>
+                                <th>fields</th>
+                                <th>details</th>
+                                <th>delete</th>
+                                <th>modifier</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for   field in  terain %}
                                 <tr>
-                                    <th>fields</th>
-                                    <th>details</th>
-                                    <th>delete</th>
-                                    <th>modifier</th>
+                                    <td> {{ field.name}} </td>
+                                    <td>
+                                        <form action="{{ path('detail',{ 'id':field.id }) }}">
+
+                                            <button class="btn btn-dark">Details</button>
+                                        </form>
+
+                                    </td>
+                                    <td>
+                                        <form action="{{ path('update',{ 'id':field.id }) }}">
+                                            <button class="btn btn-light">Modify</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="{{ path('supp',{ 'id':field.id }) }}">
+                                            <button class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                {% for   field in  terain %}
-                                    <tr>
-                                        <td> {{ field.name}} </td>
-                                        <td>
-                                            <form action="{{ path('detail',{ 'id':field.id }) }}">
-
-                                                <button class="btn btn-dark">Details</button>
-                                            </form>
-
-                                        </td>
-                                        <td>
-                                            <form action="{{ path('update',{ 'id':field.id }) }}">
-                                                <button class="btn btn-light">Modify</button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <form action="{{ path('supp',{ 'id':field.id }) }}">
-                                                <button class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
+                            {% endfor %}
+                            </tbody>
+                        </table>
                         {% else %}
-                            <p> Audun field </p>
+                        <p> Audun field </p>
                         {% endif %}
 
 
@@ -596,5 +596,5 @@
         </section>
         <!--Section: Statistics with subtitles-->
     </div>
-</main>
+    </main>
 

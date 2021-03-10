@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="dfdvf">
-      <change afterPath="$PROJECT_DIR$/templates/field/reserver.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/field_provider/suprovider.html.twig" afterDir="false" />
+    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="controle de suppression pour le fournisseur">
+      <change afterPath="$PROJECT_DIR$/public/img/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PaillementController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/field_admin/terrain.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/image/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/paillement/Paillement.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/paillement/error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/paillement/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/paillement/success.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/field/afficher.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map/map.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map/map.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +143,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/stripe/stripe-php" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p89HJdnnQzhV4tTV2s09zeZMrA" />
@@ -172,7 +186,7 @@
       <workItem from="1615129588867" duration="12859000" />
       <workItem from="1615190109597" duration="10382000" />
       <workItem from="1615210554807" duration="13065000" />
-      <workItem from="1615289802039" duration="9324000" />
+      <workItem from="1615289802039" duration="33754000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -251,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615239066280</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="controle de suppression pour le fournisseur">
+      <created>1615374554918</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1615374554918</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +301,7 @@
     <MESSAGE value="provider" />
     <MESSAGE value="disponibilite" />
     <MESSAGE value="dfdvf" />
-    <option name="LAST_COMMIT_MESSAGE" value="dfdvf" />
+    <MESSAGE value="controle de suppression pour le fournisseur" />
+    <option name="LAST_COMMIT_MESSAGE" value="controle de suppression pour le fournisseur" />
   </component>
 </project>

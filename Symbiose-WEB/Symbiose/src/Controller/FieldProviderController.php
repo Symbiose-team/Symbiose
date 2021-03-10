@@ -58,7 +58,7 @@ class FieldProviderController extends AbstractController
         $this->$now = new \DateTime('now');
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $field=$repo->find($id);
-        if ($field->getDateEnd() > $now ) {
+        if ($field->getDateEnd()< $now ) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($field);
             $em->flush();
