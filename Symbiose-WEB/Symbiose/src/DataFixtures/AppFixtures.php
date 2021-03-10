@@ -44,7 +44,8 @@ class AppFixtures extends Fixture
             ->setBirthday($faker->dateTime)
             ->setRole('Admin')
             ->setAdresse('Tunis Ariana')
-            ->setPhoneNumber(25896541)
+            ->setPhoneNumber(258965418)
+            ->setIsVerified(true)
             ->addUserRole($adminRole);
         $manager->persist($adminUser);
 
@@ -54,11 +55,12 @@ class AppFixtures extends Fixture
         $users = [];
         $genres = ['male', 'female'];
         $lesroles = ['Fournisseur', 'Client'];
+        $isVerified=[true,false];
         for ($i = 1; $i <= 10; $i++) {
             $user = new User();
             $r = $faker->randomElement($lesroles);
             $genre = $faker->randomElement($genres);
-
+            $isVerified= $faker->boolean(50);
             $picture = "https://randomuser.me/api/portraits/";
             $pictureId = $faker->numberBetween(1, 99) . '.jpg';
 
@@ -72,9 +74,10 @@ class AppFixtures extends Fixture
                 ->setAdresse($faker->address)
                 ->setBirthday($faker->dateTime)
                 ->setCin($faker->randomDigit)
-                ->setPhoneNumber($faker->regexify('((\+|00)216)?[0-9]{8}'))
+                ->setPhoneNumber($faker->regexify('(216)?[0-9]{8}'))
                 ->setHash($hash)
                 ->setPicture($picture)
+                ->setIsVerified($isVerified)
                 ->setRole($r);
             if ($r == 'Fournisseur') {
                 $user->addUserRole($fournisseurRole);

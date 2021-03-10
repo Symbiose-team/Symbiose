@@ -351,7 +351,9 @@
                                 <div class="text" style="padding: 0 2.5em; text-align: center;">
                                     <h2>Veuillez vérifier votre email</h2>
                                     <h3>Amazing deals, updates, interesting news right in your inbox</h3>
-                                    <p><a href="{{ path('account_verif',{'id': userID,'cin':userCIN}) }}" class="btn btn-primary">Yes! Subscribe Me</a></p>
+                                    <p><a href="{{ absolute_url(path('account_verif',{'id': userID,'token':registrationToken})) }}" class="btn btn-primary">Confimrez votre compte</a>
+                                    <small>Ce lien expire le {{ tokenLifeTime }}</small>
+                                    </p>
                                 </div>
                             </td>
                         </tr>

@@ -13,11 +13,15 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AccountController extends AbstractController
@@ -57,9 +61,11 @@ class AccountController extends AbstractController
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
      * @param SendEmail $sendEmail
+     * @param TokenGeneratorInterface $tokenGenerator
      * @return Response
+     * @throws TransportExceptionInterface
      */
-    public function register(Request $request,UserPasswordEncoderInterface $encoder,SendEmail $sendEmail){
+    public function register(Request $request,UserPasswordEncoderInterface $encoder,SendEmail $sendEmail,TokenGeneratorInterface $tokenGenerator){
 
 
         $user= new User();
@@ -72,6 +78,8 @@ class AccountController extends AbstractController
     $form->handleRequest($request);
 
     if($form->isSubmitted() && $form->isValid()){
+        $registrationToken= $tokenGenerator->generateToken();
+        $user->setRegistrationToken($registrationToken);
         $hash = $encoder->encodePassword($user,$user->getHash());
         $user->setHash($hash);
         if($user->getRole()=='Fournisseur'){
@@ -79,18 +87,13 @@ class AccountController extends AbstractController
             $user->addUserRole($role);
             $em->persist($role);
             $em->persist($user);
-
-
         }
         elseif ($user->getRole()=='Client'){
             $role->setTitle("ROLE_CLIENT");
-
             $user->addUserRole($role);
             $em->persist($role);
             $em->persist($user);
-
         }
-
         $em->flush();
 
         $sendEmail->send([
@@ -99,7 +102,9 @@ class AccountController extends AbstractController
             'html_template'=> "account/conf_email.html.twig",
             'context'=>[
                 'userID'=> $user->getId(),
-                 'userCIN'=>$user->getCin()
+                 'userCIN'=>$user->getCin(),
+                'registrationToken'=> $registrationToken,
+                'tokenLifeTime'=>$user->getAccountMustBeVerifiedBefore()->format('d/m/Y à H:i')
                 ]
         ]);
 
@@ -190,15 +195,30 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @Route("/account/{id}/{cin}", name="account_verif")
+     * @Route("/account/{id<\d+>}/{token}", name="account_verif")
+     * @param EntityManagerInterface $em
+     * @param User $user
+     * @param string $token
+     * @return RedirectResponse
      */
-    public function verifyUserAccount(EntityManagerInterface $em,User $user){
+    public function verifyUserAccount(EntityManagerInterface $em,User $user, string $token){
+
+        if(($user->getRegistrationToken()=== null) || ($user->getRegistrationToken() !==$token) || ($this->isNotRequestedInTime($user->getAccountMustBeVerifiedBefore()))){
+            throw new AccessDeniedException();
+        }
+        $user->setIsVerified(true);
+        $user->setAccountVerifiedAt(new \DateTimeImmutable('now'));
+
         $em->flush();
         $this->addFlash("success","Compte vérifié !");
 
         return $this->redirectToRoute('account_login');
     }
 
+    private function isNotRequestedInTime(?\DateTimeImmutable $getAccountMustBeVerifiedBefore)
+    {
+        return (new \DateTimeImmutable('now')> $getAccountMustBeVerifiedBefore);
+    }
 
 
 }
