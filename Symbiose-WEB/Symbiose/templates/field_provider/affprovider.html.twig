@@ -11,14 +11,22 @@
 <table  id = " terrain "  class = " table table-striped ">
     <thead>
     <tr>
-        <th> fields </th>
+        <th> Terrain </th>
+        <th> Supprimer </th>
+
     </tr>
     </thead>
     <tbody>
     {% for   field in  terain %}
     <tr>
         <td> {{ field.name }} </td>
+        <td> <form action="{{ path('supprime',{ 'id':field.id }) }}">
+
+                <button class="btn btn-dark">supprimer</button>
+            </form>
+        </td>
     </tr>
+
     {% endfor %}
     </tbody>
 </table>

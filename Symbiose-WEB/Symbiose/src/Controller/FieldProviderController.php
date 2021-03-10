@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Field;
 use App\Form\FieldType;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 
 class FieldProviderController extends AbstractController
@@ -48,5 +49,23 @@ class FieldProviderController extends AbstractController
 
         }
         return $this->render('field_provider/addfield.html.twig',['form'=>$form->createView()]);
+    }
+    /**
+     * @Route ("delete/{id}",name="supprime")
+     */
+    public function supprimer($id){
+        $now =DateTime::DEFAULT_GROUP;
+        $this->$now = new \DateTime('now');
+        $repo=$this->getDoctrine()->getRepository(Field::class);
+        $field=$repo->find($id);
+        if ($field->getDateEnd() > $now ) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($field);
+            $em->flush();
+            return $this->redirectToRoute('provider');
+        }
+        else
+            return $this->redirectToRoute('admin');
+
     }
 }

@@ -41,8 +41,14 @@ class FieldController extends AbstractController
         return $this->render('field/index.html.twig',['f'=>$f]);
     }
 
+    /**
+     * @Route ("/reserve/{id}",name="reserver")
+     */
 
+public function reserver($id){
+   return $this->render('field/reserver.html.twig',['id'=>$id]);
 
+}
 
 
 

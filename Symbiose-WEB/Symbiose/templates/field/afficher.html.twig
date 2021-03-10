@@ -6,8 +6,10 @@
     <table  id = " terrain "  class = " table table-striped ">
       <thead>
         <tr>
-          <th> fields </th>
-          <th> details </th>
+            <th> Terrain </th>
+            <th> Detail  </th>
+            <th> Reserver  </th>
+
         </tr>
       </thead>
       <tbody>
@@ -17,11 +19,20 @@
             <td>
                 <form action="{{ path('detail',{'id':field.id}) }}">
 
-                <button class="btn btn-light">detail</button>
+                <button class="btn btn-light">Detail</button>
                 </form>
 
 
             </td>
+
+              <td>
+                  <form action="{{ path('reserver',{'id':field.id}) }}">
+
+                      <button class="btn btn-light">Reserver</button>
+                  </form>
+
+
+              </td>
           </tr>
         {% endfor %}
       </tbody>
