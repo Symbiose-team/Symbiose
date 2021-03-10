@@ -30,37 +30,37 @@ class User implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez renseinger votre prénom")
      */
-    private $firstName;
+    private ?string $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez renseigner votre nom de famille")
      */
-    private $lastName;
+    private ?string $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
      */
-    private $Email;
+    private ?string $Email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url(message="Veuillez donner un URL valide pour votre avatar")
      */
-    private $picture;
+    private ?string $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8",minMessage="Votre mot de passe doit faire au moins 8 caracteres ! ")
      */
-    private $hash;
+    private ?string $hash;
     /**
      * @Assert\EqualTo(propertyPath="hash",message="Vous n'avez pas correctement confirmer votre mot de passe ")
      */
@@ -69,30 +69,30 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      * @Assert\Length(min="8",minMessage="Votre numéro de cin doit faire 8 caracteres !")
      */
-    private $Cin;
+    private ?int $Cin;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Veuillez selectionner votre date de naissance")
      */
-    private $Birthday;
+    private ?\DateTimeInterface $Birthday;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;
+    private ?string $slug;
 
     /**
      * @ORM\Column(type="string", length=255)
      *
      */
-    private $role;
+    private ?string $role;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="16",max="32",maxMessage="Vous avez dépasser les 32 caracteres !",minMessage="l'Adresse ne peut avoir moins de 16 caracteres !")
      */
-    private $Adresse;
+    private ?string $Adresse;
 
     /**
      * @ORM\Column(type="integer")
@@ -105,9 +105,60 @@ class User implements UserInterface
      */
     private $userRoles;
 
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private ?\DateTimeImmutable $registeredAt;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private ?\DateTimeImmutable $accountMustBeVerifiedBefore;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $registrationToken;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private ?bool $isVerified;
+
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private ?\DateTimeImmutable $accountVerifiedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $forgotPasswordToken;
+
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private ?\DateTimeImmutable $forgotPasswordTokenRequestedAt;
+
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private ?\DateTimeImmutable $forgotPasswordTokenMustBeVerifiedBefore;
+
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private ?\DateTimeImmutable $ForgotPasswordTokenVerifiedAt;
+
+
     public function __construct()
     {
         $this->userRoles = new ArrayCollection();
+        //add this new if error undo below
+        $this->isVerified=false;
+        $this->registeredAt=new \DateTimeImmutable('now');
+        $this->accountMustBeVerifiedBefore=(new \DateTimeImmutable('now'))->add(new \DateInterval("P1D"));
     }
 
     public function getFullname(){
@@ -321,6 +372,114 @@ class User implements UserInterface
         if ($this->userRoles->removeElement($userRole)) {
             $userRole->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getRegisteredAt(): \DateTimeImmutable
+    {
+        return $this->registeredAt;
+    }
+
+    public function setRegisteredAt(\DateTimeImmutable $registeredAt): self
+    {
+        $this->registeredAt = $registeredAt;
+
+        return $this;
+    }
+
+    public function getAccountMustBeVerifiedBefore(): \DateTimeImmutable
+    {
+        return $this->accountMustBeVerifiedBefore;
+    }
+
+    public function setAccountMustBeVerifiedBefore(\DateTimeImmutable $accountMustBeVerifiedBefore): self
+    {
+        $this->accountMustBeVerifiedBefore = $accountMustBeVerifiedBefore;
+
+        return $this;
+    }
+
+    public function getRegistrationToken(): ?string
+    {
+        return $this->registrationToken;
+    }
+
+    public function setRegistrationToken(?string $registrationToken): self
+    {
+        $this->registrationToken = $registrationToken;
+
+        return $this;
+    }
+
+    public function getIsVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getAccountVerifiedAt(): ?\DateTimeImmutable
+    {
+        return $this->accountVerifiedAt;
+    }
+
+    public function setAccountVerifiedAt(?\DateTimeImmutable $accountVerifiedAt): self
+    {
+        $this->accountVerifiedAt = $accountVerifiedAt;
+
+        return $this;
+    }
+
+    public function getForgotPasswordToken(): ?string
+    {
+        return $this->forgotPasswordToken;
+    }
+
+    public function setForgotPasswordToken(?string $forgotPasswordToken): self
+    {
+        $this->forgotPasswordToken = $forgotPasswordToken;
+
+        return $this;
+    }
+
+    public function getForgotPasswordTokenRequestedAt(): ?\DateTimeImmutable
+    {
+        return $this->forgotPasswordTokenRequestedAt;
+    }
+
+    public function setForgotPasswordTokenRequestedAt(?\DateTimeImmutable $forgotPasswordTokenRequestedAt): self
+    {
+        $this->forgotPasswordTokenRequestedAt = $forgotPasswordTokenRequestedAt;
+
+        return $this;
+    }
+
+    public function getForgotPasswordTokenMustBeVerifiedBefore(): ?\DateTimeImmutable
+    {
+        return $this->forgotPasswordTokenMustBeVerifiedBefore;
+    }
+
+    public function setForgotPasswordTokenMustBeVerifiedBefore(?\DateTimeImmutable $forgotPasswordTokenMustBeVerifiedBefore): self
+    {
+        $this->forgotPasswordTokenMustBeVerifiedBefore = $forgotPasswordTokenMustBeVerifiedBefore;
+
+        return $this;
+    }
+
+    public function getForgotPasswordTokenVerifiedAt(): ?\DateTimeImmutable
+    {
+        return $this->ForgotPasswordTokenVerifiedAt;
+    }
+
+    public function setForgotPasswordTokenVerifiedAt(?\DateTimeImmutable $ForgotPasswordTokenVerifiedAt): self
+    {
+        $this->ForgotPasswordTokenVerifiedAt = $ForgotPasswordTokenVerifiedAt;
 
         return $this;
     }

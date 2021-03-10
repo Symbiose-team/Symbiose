@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User as AppUser;
-use App\Exception\AccountDeletedException;
-use Symfony\Component\Security\Core\Exception\AccountExpiredException;
+use Symfony\Component\Security\Core\Exception\Custom;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -17,10 +17,7 @@ class AccountCheckerController implements UserCheckerInterface
             return;
         }
 
-        // user is deleted, show a generic Account Not Found message.
-        if ($user->isDeleted()) {
-            throw new AccountDeletedException();
-        }
+
     }
 
     public function checkPostAuth(UserInterface $user)
@@ -28,10 +25,9 @@ class AccountCheckerController implements UserCheckerInterface
         if (!$user instanceof AppUser) {
             return;
         }
-
-        // user account is expired, the user may be notified
-        if ($user->isExpired()) {
-            throw new AccountExpiredException('...');
+        if(!$user->getIsVerified()){
+            throw new CustomUserMessageAuthenticationException("Votre compte n'est pas actif , veuillez l'activer depuis l'email qu'on vous a envoyé ");
         }
+
     }
 }

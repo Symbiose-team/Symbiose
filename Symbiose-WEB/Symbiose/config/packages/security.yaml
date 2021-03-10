@@ -46,6 +46,9 @@ security:
                 path: account_logout
                 target: account_login
 
+            user_checker: App\Controller\AccountCheckerController
+
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
