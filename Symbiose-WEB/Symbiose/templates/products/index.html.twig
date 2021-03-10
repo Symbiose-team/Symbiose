@@ -229,7 +229,7 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Price (dt)</th>
                         <th scope="col">Type</th>
                         <th scope="col">State</th>
                         <th scope="col">Action</th>
@@ -239,10 +239,10 @@
                     {% for product in products %}
                         <tr>
                             <td>{{ product.name }}</td>
-                            <td>{{ product.description }}</td>
-                            <td>{{ product.price }}</td>
-                            <td>{{ product.type }}</td>
-                            <td>{{ product.state }}</td>
+                            <td>{{ product.description | nl2br }}</td>
+                            <td>{{ product.formattedPrice }}</td>
+                            <td>{{ product.articleType }}</td>
+                            <td>{{ product.stateType }}</td>
                             <td>
                                 <a href="/product/{{ product.id }}" class="btn btn-dark">Show</a>
                                 <a href="/product/edit/{{ product.id }}" class="btn btn-light">Edit</a>

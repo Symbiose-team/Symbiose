@@ -11,6 +11,17 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Product
 {
+
+    const ARTICLE = [
+        0 => 'Equipment',
+        1 => 'Clothing'
+    ];
+
+    const STATE = [
+        0 => 'Sold',
+        1 => 'In Stock'
+    ];
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -36,15 +47,15 @@ class Product
      */
     private $Price;
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Veuillez specifier le type de votre produit")
      */
     private $Type;
 
     /**
-     * @ORM\Column(type="boolean" ,nullable=false)
+     * @ORM\Column(type="boolean" ,options={"default" = false})
      */
-    private $State;
+    private $State = false;
 
 
     //THESE HERE ARE THE GETTERS AND SETTERS
@@ -89,6 +100,11 @@ class Product
         return $this;
     }
 
+    public function getFormattedPrice(): string
+    {
+        return number_format($this->Price, 0, '', ' ');
+    }
+
     public function getType(): ?string
     {
         return $this->Type;
@@ -101,6 +117,11 @@ class Product
         return $this;
     }
 
+    public function getArticleType(): string
+    {
+        return self::ARTICLE[$this->Type];
+    }
+
     public function getState(): ?bool
     {
         return $this->State;
@@ -111,5 +132,9 @@ class Product
         $this->State = $state;
 
         return $this;
+    }
+    public function getStateType(): string
+    {
+        return self::STATE[$this->State];
     }
 }

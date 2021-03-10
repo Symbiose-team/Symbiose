@@ -18,8 +18,8 @@
             {%  for product in products %}
                 <tr>
                     <td>{{ product.name }}</td>
-                    <td>{{ product.description }}</td>
-                    <td>{{ product.price }}</td>
+                    <td>{{ product.description | nl2br }}</td>
+                    <td>{{ product.formattedPrice }}</td>
                     <td>
                         <a href="/buy" class="btn btn-primary">Buy</a>
                         <a href="/rent" class="btn btn-dark">Rent</a>

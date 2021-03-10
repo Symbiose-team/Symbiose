@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Repository\ProductRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,15 +11,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ClientController extends AbstractController
 {
+
+    private $repository;
+
+    public function __construct(ProductRepository $repository)
+    {
+
+        $this->repository = $repository;
+    }
+
     /**
      * @Route("/clientPage", name="clientPage")
      * @Method ({"GET"})
      */
     public function clientPage(): Response
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-
-        return $this->render('client/clientPage.html.twig', array('products' => $products));
+        return $this->render('client/clientPage.html.twig');
     }
 
     /**
@@ -26,8 +34,7 @@ class ClientController extends AbstractController
      */
     public function equipment(): Response
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-
+        $products = $this->repository->findVisibleEquipment();
         return $this->render('client/equipment.html.twig', array('products' => $products));
     }
 
@@ -36,10 +43,12 @@ class ClientController extends AbstractController
      */
     public function clothing(): Response
     {
-        return $this->render('client/clothing.html.twig', [
-            'controller_name' => 'ClientController',
-        ]);
+        $products = $this->repository->findVisibleClothing();
+        return $this->render('client/clothing.html.twig', array('products' => $products));
+
     }
+
+
 
     /**
      * @Route ("/buy", name="buy_equipment")

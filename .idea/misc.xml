@@ -2,5 +2,9 @@
 <project version="4">
   <component name="ProjectPlainTextFileTypeManager">
     <file url="file://$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/AdminTempController.php" />
+    <file url="file://$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/ProdaaRepository.php" />
+    <file url="file://$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/ProdaRepository.php" />
+    <file url="file://$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/ProdRepository.php" />
+    <file url="file://$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/ProduitRepository.php" />
   </component>
 </project>

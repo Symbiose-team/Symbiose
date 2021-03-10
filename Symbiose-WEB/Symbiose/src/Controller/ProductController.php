@@ -6,13 +6,9 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ProductController extends AbstractController
@@ -33,15 +29,26 @@ class ProductController extends AbstractController
      * @Route("/product/new", name="new_product")
      * @Method({"GET", "POST"})
      */
-    public function new(Product $product)
+    public function new(Request $request)
     {
 
-        $form = $this->createForm(ProductType::class, $product);
+        $product = new Product();
 
-        return $this->render('products/new.html.twig', [
-            'product' => $product,
-            'form' => $form->createView()
-        ]);
+        $form = $this->createForm(ProductType::class, $product);
+        $form->add('Create', SubmitType::class, array('label' => 'Create', 'attr' => array('class' => 'btn btn-primary mt-3')));
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager -> persist($product);
+            $entityManager -> flush();
+
+            return $this->redirectToRoute('products');
+
+        }
+
+        return $this->render('products/new.html.twig', array('form'=>$form->createView()));
     }
 
     /**
@@ -50,21 +57,16 @@ class ProductController extends AbstractController
      */
     public function edit(Request $request, $id)
     {
+
         $product = new Product();
         $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
 
-
-        $form = $this->createFormBuilder($product)
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control')))
-            ->add('description', TextareaType::class, array('required' => false, 'attr' => array('class' => 'form-control')))
-            ->add('price', NumberType::class, array('attr' => array('class' => 'form_control')))
-            ->add('type', TextType::class, array('attr' => array('class' => 'form_control')))
-            ->add('state', TextType::class, array('attr' => array('class' => 'form_control')))
-            ->add('save', SubmitType::class, array('label' => 'Update', 'attr' => array('class' => 'btn btn-primary mt-3')))->getForm();
+        $form = $this->createForm(ProductType::class, $product);
+        $form->add('Update', SubmitType::class, array('label' => 'Update', 'attr' => array('class' => 'btn btn-primary mt-3')));
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()) {
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
