@@ -36,6 +36,7 @@ class SpecialEventType extends AbstractType
                 'format' => 'yyyy-MM-dd',
             ])
             ->add('Picture', FileType::class, [
+                'data_class' => null,
                 'required' => true,
                 'label' => 'Please upload this file',
                 'mapped' => true,

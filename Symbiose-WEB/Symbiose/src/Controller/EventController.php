@@ -82,25 +82,22 @@ class EventController extends AbstractController
 
     }
 
-    //TODO Work on the logic (as a client i want to join an event)
     /**
      * @Route("/event/join/{id}", name="join_event")
      */
     public function join_event($id): Response
     {
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
+        //TODO Work on the logic (as a client i want to join an event)
         /*
-        $remaining = $this.$event.num_remaining
+        $remaining = $event.NumRemaining
             if($remaining = 0) {
                 print("cant join event");
                 $event.state = "closed";
             }
             else
-                $this.event.num_remaining = $this.event.num_remaining - 1
+                $event.NumRemaining = $event.NumRemaining - 1
         */
-        $remaining = $event ->getNumRemaining();
-        $remaining = $remaining - 1;
-
         return $this->render('/event/join_event.html.twig',array('event' => $event));
     }
 
@@ -108,9 +105,12 @@ class EventController extends AbstractController
     /**
      * @Route("/specialevent/join/{id}", name="join_special_event")
      */
-    public function join_specialevent(): Response
+    public function join_specialevent($id): Response
     {
-        return $this->render('/event/join_special_event.html.twig');
+
+        $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
+
+        return $this->render('/event/join_special_event.html.twig',array('Sevent' => $Sevent));
     }
 
     //Order matters!
