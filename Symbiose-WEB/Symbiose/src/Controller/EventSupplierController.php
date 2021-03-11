@@ -25,8 +25,15 @@ class EventSupplierController extends AbstractController
      */
     public function supplier_events(): Response
     {
+        $repository = $this->getDoctrine()->getRepository(Event::class);
 
-        $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
+
+        // look for multiple Product objects matching the name, ordered by price
+        $events = $repository->findBy(
+            ['Supplier' => 'Mahdi']
+        );
+
+        //$events=$this->getDoctrine()->getRepository(Event::class)->findAll();
 
         return $this->render('event_supplier/supplier_event.html.twig', array('events' => $events));
     }

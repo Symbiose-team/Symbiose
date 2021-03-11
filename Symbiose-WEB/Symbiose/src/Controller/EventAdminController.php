@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Event;
 use App\Entity\SpecialEvent;
+use App\Form\EventType;
+use App\Form\SpecialEventType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Validator\Constraints\Image;
@@ -39,40 +41,29 @@ class EventAdminController extends AbstractController
     public function new(Request $request){
         $event = new Event();
 
-        $form= $this->createFormBuilder($event)
-            ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array('required'=>false,
-                'attr' => array('class'=>'form-control')))
-            ->add('NumParticipants',NumberType::class,array('attr' => array('class'=>'form-control')))
-            ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))
-            ->add('Type', ChoiceType::class, [
-                'choices' => [
-                    'Football' => 'Football',
-                    'Basketball' =>'Basketball',
-                    'Tennis' => 'Tennis',
-                    'Paintball' => 'Paintball',
-                    'LazerTag' => 'LazerTag',
-                ],
-            ])
-            ->add('Date',DateType::class, [
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-            ])
-            ->add('Picture', FileType::class, [
-                'required' => false,
-                'mapped' => false,
-                'constraints' => [
-                    new Image(['maxSize' => '1024k'])
-                ],
-            ])
-            ->add('save',SubmitType::class, array('label'=>'Create',
-                'attr'=>array('class'=>'btn btn-primary mt-3')))
-
-            ->getForm();
+        $form= $this->createForm(EventType::class, $event);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
+
+            $file = $event->getPicture();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$filename);
+            $event->setPicture($filename);
+
             $event = $form->getData();
+
+            /*
+            $file = $request->files->get('post')['Picture'];
+
+            $uploads_directory=$this->getParameter('uploads_directory');
+
+            $filename = md5(uniqid()) . '.' . $file->guessExtension();
+
+            $file->move(
+                $uploads_directory,
+                $filename
+            );*/
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($event);
@@ -93,39 +84,15 @@ class EventAdminController extends AbstractController
         $event = new Event();
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
 
-        $form= $this->createFormBuilder($event)
-            ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array('required'=>false,
-                'attr' => array('class'=>'form-control')))
-            ->add('NumParticipants',NumberType::class,array('attr' => array('class'=>'form-control')))
-            ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))
-            ->add('Type', ChoiceType::class, [
-                'choices' => [
-                    'Football' => 'Football',
-                    'Basketball' =>'Basketball',
-                    'Tennis' => 'Tennis',
-                    'Paintball' => 'Paintball',
-                    'LazerTag' => 'LazerTag',
-                ],
-            ])
-            ->add('Date',DateType::class, [
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-            ])
-            ->add('Picture', FileType::class, [
-                'required' => false,
-                'mapped' => false,
-                'constraints' => [
-                    new Image(['maxSize' => '1024k'])
-                ],
-            ])
-            ->add('save',SubmitType::class, array('label'=>'Update',
-                'attr'=>array('class'=>'btn btn-primary mt-3')))
-
-            ->getForm();
+        $form= $this->createForm(EventType::class, $event);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
+
+            $file = $event->getPicture();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$filename);
+            $event->setPicture($filename);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
@@ -160,40 +127,16 @@ class EventAdminController extends AbstractController
     public function newSevent(Request $request){
         $Sevent = new SpecialEvent();
 
-        $form= $this->createFormBuilder($Sevent)
-            ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array('required'=>false,
-                'attr' => array('class'=>'form-control')))
-            ->add('NumParticipants',NumberType::class,array('attr' => array('class'=>'form-control')))
-            ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))
-            ->add('Type', ChoiceType::class, [
-                'choices' => [
-                    'Football' => 'Football',
-                    'Basketball' =>'Basketball',
-                    'Tennis' => 'Tennis',
-                    'Paintball' => 'Paintball',
-                    'LazerTag' => 'LazerTag',
-                ],
-            ])
-            ->add('Date',DateType::class, [
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-            ])
-            ->add('Picture', FileType::class, [
-                'required' => false,
-                'mapped' => false,
-                'constraints' => [
-                    new Image(['maxSize' => '1024k'])
-                ],
-            ])
-            ->add('save',SubmitType::class, array('label'=>'Create',
-                'attr'=>array('class'=>'btn btn-primary mt-3')))
-
-            ->getForm();
+        $form= $this->createForm(SpecialEventType::class, $Sevent);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $Sevent = $form->getData();
+
+            $file = $Sevent->getPicture();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$filename);
+            $Sevent->setPicture($filename);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($Sevent);
@@ -214,39 +157,15 @@ class EventAdminController extends AbstractController
         $Sevent = new SpecialEvent();
         $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
 
-        $form= $this->createFormBuilder($Sevent)
-            ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array('required'=>false,
-                'attr' => array('class'=>'form-control')))
-            ->add('NumParticipants',NumberType::class,array('attr' => array('class'=>'form-control')))
-            ->add('NumRemaining',NumberType::class,array('attr' => array('class'=>'form-control')))
-            ->add('Type', ChoiceType::class, [
-                'choices' => [
-                    'Football' => 'Football',
-                    'Basketball' =>'Basketball',
-                    'Tennis' => 'Tennis',
-                    'Paintball' => 'Paintball',
-                    'LazerTag' => 'LazerTag',
-                ],
-            ])
-            ->add('Date',DateType::class, [
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-            ])
-            ->add('Picture', FileType::class, [
-                'required' => false,
-                'mapped' => false,
-                'constraints' => [
-                    new Image(['maxSize' => '1024k'])
-                ],
-            ])
-            ->add('save',SubmitType::class, array('label'=>'Update',
-                'attr'=>array('class'=>'btn btn-primary mt-3')))
-
-            ->getForm();
+        $form= $this->createForm(SpecialEventType::class, $Sevent);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
+
+            $file = $Sevent->getPicture();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$filename);
+            $Sevent->setPicture($filename);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();

@@ -37,14 +37,14 @@ class Event
      * @Assert\NotBlank(message="invalid input")
      * @Assert\NotNull(message="value is null")
      */
-    private $NumParticipants;
+    private $NumParticipants = 100;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="invalid input")
      * @Assert\NotNull(message="value is null")
      */
-    private $NumRemaining;
+    private $NumRemaining = 100;
 
     /**
      * @ORM\Column(type="text", length=100)
@@ -55,12 +55,12 @@ class Event
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank
+     * @Assert\DateTime()
      */
     private $Date;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Url(message="Veuillez donner un URL valide pour votre event")
+     * @ORM\Column(type="string")
      */
     private $picture;
 

@@ -221,12 +221,13 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                             <tr>
-                                <th scope="col">Event</th>
+                                <th scope="col">Name</th>
                                 <th scope="col">Supplier</th>
                                 <th scope="col">Players</th>
                                 <th scope="col">Remaining</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">Previs</th>
                                 <th scope="col">Actions</th>
                             </tr>
                             </thead>
@@ -239,6 +240,9 @@
                                     <td>{{ event.NumRemaining }}</td>
                                     <td>{{ event.type }}</td>
                                     <td>{{ event.date|date }}</td>
+                                    <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                                             class="img-fluid rounded-circle"
+                                             alt=""></td>
                                     <td>
                                         <a href="/eventadmin/{{ event.id }}" class="btn btn-primary">
                                             Show
@@ -285,12 +289,13 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                             <tr>
-                                <th scope="col">Event</th>
+                                <th scope="col">Name</th>
                                 <th scope="col">Supplier</th>
                                 <th scope="col">Players</th>
                                 <th scope="col">Remaining</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">Previs</th>
                                 <th scope="col">Actions</th>
                             </tr>
                             </thead>
@@ -303,6 +308,9 @@
                                     <td>{{ SpecialEvent.NumRemaining }}</td>
                                     <td>{{ SpecialEvent.type }}</td>
                                     <td>{{ SpecialEvent.date|date }}</td>
+                                    <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                                             class="img-fluid rounded-circle"
+                                             alt=""></td>
                                     <td>
                                         <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-primary">
                                             Show
