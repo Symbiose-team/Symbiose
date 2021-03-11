@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -21,17 +23,33 @@
                     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
                     rel="stylesheet"
             />
+            <link href="admin_temp/css/style.css">
+
+            <link rel="stylesheet" href="/Symbiose-WEB/Symbiose/templates/admin_temp/css/style.css" />
         {% endblock %}
 
+
+
         {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
             <!-- MDB -->
             <script
                     type="text/javascript"
                     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
             ></script>
+            <script type="text/javascript" src="/Symbiose-WEB/Symbiose/templates/admin_temp/js/script.js"></script>
+
         {% endblock %}
     </head>
+
+
     <body>
-        {% block body %}{% endblock %}
+        {{ include('shared/header.html.twig') }}
+        <div class="container">
+            {% block body %}{% endblock %}
+
+        </div>
+        {{ include('shared/footer.html.twig') }}
     </body>
+
 </html>

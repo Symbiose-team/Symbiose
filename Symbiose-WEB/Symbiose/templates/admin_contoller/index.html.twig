@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment index{% endblock %}
+
+{% block body %}
+    <h1>Comment index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Content</th>
+            <th>CreatedAt</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.content }}</td>
+
+
+                <td>{{ comment.dateAjout ? comment.dateAjout|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('comment_show', {'id': comment.id}) }}" class="btn btn-dark">show</a>
+                    <a href="{{ path('comment_edit', {'id': comment.id}) }}" class="btn btn-light">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('comment_new') }}"class="btn btn-primary">Create new</a>
+
+{% endblock %}

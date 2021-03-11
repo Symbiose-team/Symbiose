@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication index{% endblock %}
+
+{% block body %}
+    <h1>Publication index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for publication in publications %}
+            <tr>
+                <td>{{ publication.id }}</td>
+                <td>{{ publication.content }}</td>
+                <td>
+                    <a href="{{ path('publication_show', {'id': publication.id}) }}">show</a>
+                    <a href="{{ path('publication_edit', {'id': publication.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('publication_new') }}">Create new</a>
+{% endblock %}
