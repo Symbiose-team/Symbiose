@@ -39,14 +39,17 @@
                             <td>{{ event.date|date }}</td>
                             {# TODO add dynamic images based on url in DB Events#}
                             <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                class="img-fluid rounded-circle"
-                                alt=""></td>
+                                     class="img-fluid rounded-circle"
+                                     alt=""
+                                     style="border-radius: 4px;
+                                             padding: 5px;
+                                             width: 50px;" ></td>
                             <td>
-                                <a href="/event/{{ event.id }}" class="btn btn-primary">
+                                <a href="/event/{{ event.id }}" class="btn btn-outline-dark">
                                     Show
                                 </a>
-
-                                <a href="/event/join/{{ event.id }}" class="btn btn-primary">
+                                <hr>
+                                <a href="/event/join/{{ event.id }}" class="btn btn-warning">
                                     Join This Event
                                 </a>
 
@@ -84,13 +87,16 @@
                                 <td>{{ SpecialEvent.date|date }}</td>
                                 <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                                          class="img-fluid rounded-circle"
-                                         alt=""></td>
+                                         alt=""
+                                         style="border-radius: 4px;
+                                             padding: 5px;
+                                             width: 50px;" ></td>
                                 <td>
-                                    <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-primary">
+                                    <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-outline-primary">
                                         Show
                                     </a>
-
-                                    <a href="/specialevent/join/{{ SpecialEvent.id }}" class="btn btn-primary">
+                                    <hr>
+                                    <a href="/specialevent/join/{{ SpecialEvent.id }}" class="btn btn-warning">
                                         Join This Event
                                     </a>
 

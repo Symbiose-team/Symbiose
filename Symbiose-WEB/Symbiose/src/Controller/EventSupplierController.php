@@ -28,7 +28,7 @@ class EventSupplierController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Event::class);
 
 
-        // look for multiple Product objects matching the name, ordered by price
+        // look for multiple Product objects matching the supplier
         $events = $repository->findBy(
             ['Supplier' => 'Mahdi']
         );

@@ -1,4 +1,17 @@
 {
+    "andchir/shopkeeper4-comments": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "8a05fa761a475e2e95f7b556e54d9ab33d532aa9"
+        },
+        "files": [
+            "./config/packages/comments.yaml",
+            "./config/routes/comments.yaml"
+        ]
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },

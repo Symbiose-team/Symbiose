@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9621aae9ddbf067f3bd64d3fd9d7726e",
+    "content-hash": "15c68dcfb465e8301bcb3f2c2ea9eff4",
     "packages": [
+        {
+            "name": "andchir/shopkeeper4-comments",
+            "version": "1.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andchir/shopkeeper4-comments.git",
+                "reference": "0cb94de8a50fd4a51c544db7a7fe06169fe31365"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andchir/shopkeeper4-comments/zipball/0cb94de8a50fd4a51c544db7a7fe06169fe31365",
+                "reference": "0cb94de8a50fd4a51c544db7a7fe06169fe31365",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/persistence": "*",
+                "symfony/form": "*",
+                "symfony/translation": "*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "symfony": {
+                    "require": "4.3.*"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Andchir\\CommentsBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "andchir",
+                    "email": "andchir@gmail.com"
+                }
+            ],
+            "description": "Reviews and ratings for Symfony4",
+            "homepage": "http://modx-shopkeeper.ru/",
+            "keywords": [
+                "comments",
+                "raiting",
+                "reviews",
+                "shopkeeper4",
+                "symfony-bundle",
+                "symfony4"
+            ],
+            "time": "2020-12-16T20:41:46+00:00"
+        },
         {
             "name": "composer/package-versions-deprecated",
             "version": "1.11.99.1",
