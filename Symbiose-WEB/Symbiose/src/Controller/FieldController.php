@@ -50,6 +50,23 @@ public function reserver($id){
 
 }
 
+    /**
+     * @Route("/routourner",name="return")
+     */
+public function retourner(){
+
+    return $this->redirectToRoute('afficheterrai',[]);
+
+}
+    /**
+     * @Route("/rutern",name="ret")
+     */
+    public function ret(){
+
+        return $this->redirectToRoute('afficheterrai',[]);
+
+    }
+
 
 
 }

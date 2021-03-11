@@ -23,11 +23,16 @@
     <p>
         sinon aucun remboursement ne sera effectué.
     </p>
-    <p class="flotte">
+    {# <p class="flotte">
         <img src="{{asset(('img/img.png'))}}" alt="" />
-    </p>
+    </p> #}
 
-    <button class="btn btn-dark" id="checkout-button" >Confirmer</button>
+    <form action="{{ path('return') }}">
+
+        <button class="btn btn-dark">go_back</button>
+        <button class="btn btn-dark" id="checkout-button" >Confirmer</button>
+
+    </form>
 
 
 {% block javascripts %}

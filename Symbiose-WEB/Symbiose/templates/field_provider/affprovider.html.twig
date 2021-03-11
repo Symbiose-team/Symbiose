@@ -4,7 +4,7 @@
 {% block  body %}
     <form  action="{{ path('addterain') }}" class="container p-3" >
 
-        <button class="btn btn-dark">ADD</button>
+        <button class="btn btn-danger">Ajouter</button>
 
     </form>
     {% if  terain %}
@@ -13,6 +13,7 @@
     <tr>
         <th> Terrain </th>
         <th> Supprimer </th>
+        <th> Modifier</th>
 
     </tr>
     </thead>
@@ -22,7 +23,12 @@
         <td> {{ field.name }} </td>
         <td> <form action="{{ path('supprime',{ 'id':field.id }) }}">
 
-                <button class="btn btn-dark">supprimer</button>
+                <button class="btn btn-dark" onclick="return confirm('Are you sure ?')">supprimer</button>
+            </form>
+        </td>
+        <td> <form action="{{ path('updateprovider',{ 'id':field.id }) }}">
+
+                <button class="btn btn-dark" onclick="return confirm('Are you sure ?')">modifier</button>
             </form>
         </td>
     </tr>

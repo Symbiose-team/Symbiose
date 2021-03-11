@@ -49,7 +49,7 @@ class PaillementController extends AbstractController
                     'product_data' => [
                         'name' => 'Terrain_Football',
                     ],
-                    'unit_amount' => 2000,
+                    'unit_amount' => 9870,
                 ],
                 'quantity' => 1,
             ]],

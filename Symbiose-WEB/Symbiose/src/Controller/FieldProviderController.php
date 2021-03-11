@@ -22,50 +22,80 @@ class FieldProviderController extends AbstractController
             'controller_name' => 'FieldProviderController',
         ]);
     }
+
     /**
      * @Route("/provider",name="provider")
      */
-    public function affiche(){
-        $repo=$this->getDoctrine()->getRepository(Field::class);
-        $field=$repo->findAll();
-        return $this->render('field_provider/affprovider.html.twig',['terain'=>$field]);
+    public function affiche()
+    {
+        $repo = $this->getDoctrine()->getRepository(Field::class);
+        $field = $repo->findAll();
+        return $this->render('field_provider/affprovider.html.twig', ['terain' => $field]);
     }
+
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return Symfony\Component\HttpFoundation\Response
      * @Route ("/addprovider",name="addterain")
      */
-    public function add(\Symfony\Component\HttpFoundation\Request $request){
-        $field=new Field();
-        $form=$this->createForm(FieldType::class,$field);
-        $form->add('Ajouter',SubmitType::class);
+    public function add(\Symfony\Component\HttpFoundation\Request $request)
+    {
+        $field = new Field();
+        $form = $this->createForm(FieldType::class, $field);
+        $form->add('Ajouter', SubmitType::class);
         $form->handleRequest($request);
-        if ( $form->isSubmitted() && $form->isValid())
-        {
-            $em=$this->getDoctrine()->getManager();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
             $em->persist($field);
             $em->flush();
-            return $this->redirectToRoute('provider');
+            return $this->redirectToRoute('provider',[]);
 
         }
-        return $this->render('field_provider/addfield.html.twig',['form'=>$form->createView()]);
+        return $this->render('field_provider/addfield.html.twig', ['form' => $form->createView()]);
     }
+
     /**
      * @Route ("delete/{id}",name="supprime")
      */
-    public function supprimer($id){
-        $now =DateTime::DEFAULT_GROUP;
+    public function supprimer($id)
+    {
+        $now = DateTime::DEFAULT_GROUP;
         $this->$now = new \DateTime('now');
-        $repo=$this->getDoctrine()->getRepository(Field::class);
-        $field=$repo->find($id);
-        if ($field->getDateEnd()< $now ) {
+        $repo = $this->getDoctrine()->getRepository(Field::class);
+        $field = $repo->find($id);
+        if ($field->getDateEnd() > $now) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($field);
             $em->flush();
-            return $this->redirectToRoute('provider');
+            return $this->redirectToRoute('provider',[]);
         }
-        else
-            return $this->redirectToRoute('admin');
+        else return $this->render('field_provider/error.html.twig');
+    }
+
+    /**
+     * @Route ("/provider/update/{id}",name="updateprovider")
+     */
+    public function update(\Symfony\Component\HttpFoundation\Request $request, $id)
+    {
+        $now = DateTime::DEFAULT_GROUP;
+        $this->$now = new \DateTime('now');
+        $repository = $this->getDoctrine()->getRepository(Field::class);
+        $field = $repository->find($id);
+        if ($field->getDateEnd() < $now) {
+            $form = $this->createForm(FieldType::class, $field);
+            $form->add('Update', SubmitType::class);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+                return $this->redirectToRoute('provider');
+
+            }
+            return $this->render('field_provider/update.html.twig', ['form' => $form->createView()]);
+        }
+        else return $this->render('field_provider/error.html.twig');
 
     }
+
+
 }

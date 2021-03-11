@@ -2,12 +2,18 @@
 {% block title%} List des terrain {% endblock %}
 
 {% block  body %}
-    <p>
-        Paiement réussi !
-    </p>
-    <form action="{{ path('ret') }}">
+
+
+
+
+         <p>
+        Votre terrain est toujours disponible pour un usage administratif !
+         </p>
+    <form action="{{ path('provider') }}">
 
         <button class="btn btn-dark">go_back</button>
 
+
     </form>
+
 {% endblock %}

@@ -207,12 +207,21 @@
     <div class="container pt-4">
         <h3 align="center">You are an admin you have all the power!</h3>
 
+        <div>
+            <form  action="{{ path('addfield') }}" class="container p-3" >
+
+                <button class="btn btn-dark">Ajouter</button>
+
+            </form>
+
+
+        </div>
         <!--Section: Manage All Events-->
         <section class="mb-4">
             <div class="card">
                 <div class="card-header text-center py-3">
                     <h5 class="mb-0 text-center">
-                        <strong>Manage All Events</strong>
+                        <strong></strong>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -222,10 +231,11 @@
                             <table  id = " terrain "  class = " table table-striped ">
                                 <thead>
                                 <tr>
-                                    <th>fields</th>
-                                    <th>details</th>
-                                    <th>delete</th>
-                                    <th>modifier</th>
+                                    <th>Terrain</th>
+                                    <th>Detail</th>
+                                    <th>Modifier</th>
+                                    <th>Supprimer</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -235,18 +245,18 @@
                                         <td>
                                             <form action="{{ path('detail',{ 'id':field.id }) }}">
 
-                                                <button class="btn btn-dark">Details</button>
+                                                <button class="btn btn-dark">Detail</button>
                                             </form>
 
                                         </td>
                                         <td>
                                             <form action="{{ path('update',{ 'id':field.id }) }}">
-                                                <button class="btn btn-light">Modify</button>
+                                                <button class="btn btn-light">Modifier</button>
                                             </form>
                                         </td>
                                         <td>
                                             <form action="{{ path('supp',{ 'id':field.id }) }}">
-                                                <button class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</button>
+                                                <button class="btn btn-danger" onclick="return confirm('Are you sure ?')">Supprimer</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -261,10 +271,7 @@
                     </div>
 
                 </div>
-                <a action="{{ path('addfield') }}" class="btn btn-outline-primary" aria-current="page" >Add field</a>
 
-
-            </div>
         </section>
 
         <section>
