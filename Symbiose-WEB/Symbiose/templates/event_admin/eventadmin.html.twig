@@ -1,6 +1,3 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
 <head>
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -34,10 +31,6 @@
             main {
                 padding-left: 240px;
             }
-        }
-
-        .previs {
-
         }
 
         /* Sidebar */
@@ -249,12 +242,9 @@
                                     <td>{{ event.date|date }}</td>
                                     <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                                              class="img-fluid rounded-circle"
-                                             alt=""
-                                             style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
+                                             alt=""></td>
                                     <td>
-                                        <a href="/eventadmin/{{ event.id }}" class="btn btn-dark">
+                                        <a href="/eventadmin/{{ event.id }}" class="btn btn-primary">
                                             Show
                                         </a>
 
@@ -279,7 +269,7 @@
                     </div>
 
                 </div>
-                <a class="btn btn-outline-dark" aria-current="page" href="/event/add" >Add Event</a>
+                <a class="btn btn-outline-primary" aria-current="page" href="/event/add" >Add Event</a>
 
             </div>
         </section>
@@ -320,18 +310,16 @@
                                     <td>{{ SpecialEvent.date|date }}</td>
                                     <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                                              class="img-fluid rounded-circle"
-                                             alt=""
-                                             style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
+                                             alt=""></td>
                                     <td>
-                                        <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-dark">
+                                        <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-primary">
                                             Show
                                         </a>
 
                                         <a href="specialevent/edit/{{ SpecialEvent.id }}" class="btn btn-light">
                                             Edit
                                         </a>
+
 
                                         <a href="specialevent/delete/{{ SpecialEvent.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
                                             Delete
@@ -347,7 +335,7 @@
 
                     </div>
                 </div>
-                <a class="btn btn-outline-dark" aria-current="page" href="/specialevent/add">Add a Special Event</a>
+                <a class="btn btn-outline-primary" aria-current="page" href="/specialevent/add">Add a Special Event</a>
 
             </div>
         </section>
@@ -684,4 +672,4 @@
         <!--Section: Statistics with subtitles-->
     </div>
     </main>
-{% endblock %}
+

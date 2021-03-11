@@ -77,41 +77,40 @@ class EventController extends AbstractController
             'cancel_url' => $this->generateUrl('error', [], UrlGeneratorInterface::ABSOLUTE_URL),
 
         ]);
-
+        
         return new JsonResponse(['id'=>$checkout_session->id]);
 
     }
 
+    //TODO Work on the logic (as a client i want to join an event)
     /**
      * @Route("/event/join/{id}", name="join_event")
      */
     public function join_event($id): Response
     {
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-
-        //TODO Work on the logic (as a client i want to join an event)
         /*
-        $remaining = $event.NumRemaining
+        $remaining = $this.$event.num_remaining
             if($remaining = 0) {
                 print("cant join event");
                 $event.state = "closed";
             }
             else
-                $event.NumRemaining = $event.NumRemaining - 1
+                $this.event.num_remaining = $this.event.num_remaining - 1
         */
+        $remaining = $event ->getNumRemaining();
+        $remaining = $remaining - 1;
 
         return $this->render('/event/join_event.html.twig',array('event' => $event));
     }
 
+    //TODO Work on the logic (as a client i want to join an event)
     /**
      * @Route("/specialevent/join/{id}", name="join_special_event")
      */
-    public function join_specialevent($id): Response
+    public function join_specialevent(): Response
     {
-
-        $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
-
-        return $this->render('/event/join_special_event.html.twig',array('Sevent' => $Sevent));
+        return $this->render('/event/join_special_event.html.twig');
     }
 
     //Order matters!

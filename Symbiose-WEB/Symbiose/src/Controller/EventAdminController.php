@@ -53,6 +53,18 @@ class EventAdminController extends AbstractController
 
             $event = $form->getData();
 
+            /*
+            $file = $request->files->get('post')['Picture'];
+
+            $uploads_directory=$this->getParameter('uploads_directory');
+
+            $filename = md5(uniqid()) . '.' . $file->guessExtension();
+
+            $file->move(
+                $uploads_directory,
+                $filename
+            );*/
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($event);
             $entityManager->flush();
@@ -102,6 +114,9 @@ class EventAdminController extends AbstractController
         $entityManager->remove($event);
         $entityManager->flush();
         return $this->redirectToRoute('event_admin');
+
+        //$response = new Response();
+        //$response->send();
     }
 
     //Add a Special event as an admin
@@ -173,6 +188,8 @@ class EventAdminController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('event_admin');
 
+        //$response = new Response();
+        //$response->send();
     }
 
     //Order matters!
