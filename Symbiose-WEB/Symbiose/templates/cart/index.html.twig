@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Cart !{% endblock %}
+
+{#{% block stylesheets %}#}
+{#    <link#}
+
+{#            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"#}
+{#            rel="stylesheet"#}
+
+{#    />#}
+{#{% endblock %}#}
+
+{% block body %}
+    <div class="bg-light up-3">
+        <h1>Your Cart</h1>
+    </div>
+
+    {% if items | length > 0 %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.product.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.product.price * item.quantity }}</td>
+                    <td>
+                        <a href="{{ path('cart_remove', {'id': item.product.id})}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> </i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Total : </td>
+                    <td>{{ total }}</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <p>It's empty !</p>
+    {% endif %}
+
+{% endblock %}

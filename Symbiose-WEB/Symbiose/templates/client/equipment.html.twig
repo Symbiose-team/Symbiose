@@ -21,7 +21,8 @@
                     <td>{{ product.description | nl2br }}</td>
                     <td>{{ product.formattedPrice }}</td>
                     <td>
-                        <a href="/buy" class="btn btn-primary">Buy</a>
+                        <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success"><i
+                                    class="fas fa-shopping-cart mr-1"></i> Add to cart</a>
                         <a href="/rent" class="btn btn-dark">Rent</a>
                     </td>
                 </tr>
