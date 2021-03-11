@@ -216,25 +216,32 @@
 </nav>
 <!-- Navbar -->
 
-<main style="margin-top: 58px">
-    <div class="container p-3 my-3 mt-5">
+    <main style="margin-top: 58px">
+    <div class="container pt-4">
         <h3 align="center">You are an admin you have all the power!</h3>
 
-        <h1 align="center">Manage All Products</h1>
-
-        {% if products %}
-            <div class="table-responsive">
-                <table id="prodcts" class="table table-hover table-bordered table-sm table-primary border-light">
-                    <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Price (dt)</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">State</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                    </thead>
+        <!--Section: Manage All Events-->
+        <section class="mb-4">
+            <div class="card">
+                <div class="card-header text-center py-3">
+                    <h5 class="mb-0 text-center">
+                        <strong>Manage All Events</strong>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                    {% if products %}
+                    <table id="prodcts" class="table table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price (dt)</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">State</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
                     <tbody>
                     {% for product in products %}
                         <tr>
@@ -270,13 +277,14 @@
                         </li>
                     </ul>
                 </nav>
-                <a class="btn btn-outline-primary" aria-current="page" href="/product/new">New Product</a>
+                        <a class="btn btn-outline-primary" aria-current="page" href="/product/new">New Product</a>
+                    </div>
+                    {% else %}
+                        <p>No events yet !</p>
+                    {% endif %}
+                </div>
             </div>
-
-        {% else %}
-            <p>No events yet !</p>
-        {% endif %}
-
+        </section>
     </div>
 
     <div class="container pt-4">
