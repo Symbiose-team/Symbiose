@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block title%} List des terrain {% endblock %}
 
-{% block body %}
+{% block  body %}
     {% if  f %}
-<table  id = " f "  class = " table table-striped ">
+<table  id = " t " class = " table table-striped ">
 
 
 
     <table class="table">
+
+
         <thead>
         <tr>
 
@@ -19,21 +21,19 @@
 
         </tr>
         </thead>
+
         <tbody>
         {% for details in f %}
-        <tr>
-            <td>{{ f.id }}</td>
-            <td>{{ f.price }}</td>
-            <td>{{ f.address }}</td>
-            <td>{{ f.space }}</td>
-
-
-
-
-        </tr>
+            <tr>
+            <td>{{ details.id }}</td>
+            <td>{{ details.price }}</td>
+            <td>{{ details.address }}</td>
+            <td>{{ details.space }}</td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>
+    {% else %}
+        <p> Audun field </p>
     {% endif %}
-
 {% endblock %}

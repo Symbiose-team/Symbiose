@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="paillement en ligne">
-      <change afterPath="$PROJECT_DIR$/templates/field_admin/error.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/field_provider/error.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/field_provider/update.html.twig" afterDir="false" />
+    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="go back">
+      <change afterPath="$PROJECT_DIR$/templates/field/test.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PaillementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaillementController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/field/afficher.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field/reserver.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/reserver.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field_admin/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/map/map.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map/map.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/paillement/Paillement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paillement/Paillement.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/paillement/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paillement/error.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/paillement/success.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paillement/success.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +175,10 @@
       <workItem from="1615210554807" duration="13065000" />
       <workItem from="1615289802039" duration="33754000" />
       <workItem from="1615413705781" duration="219000" />
-      <workItem from="1615450129172" duration="15606000" />
+      <workItem from="1615450129172" duration="15743000" />
+      <workItem from="1615478746148" duration="1098000" />
+      <workItem from="1615975756435" duration="4338000" />
+      <workItem from="1616322518010" duration="1024000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -277,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615413756848</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="go back">
+      <created>1615470046001</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1615470046002</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +309,7 @@
     <MESSAGE value="dfdvf" />
     <MESSAGE value="controle de suppression pour le fournisseur" />
     <MESSAGE value="paillement en ligne" />
-    <option name="LAST_COMMIT_MESSAGE" value="paillement en ligne" />
+    <MESSAGE value="go back" />
+    <option name="LAST_COMMIT_MESSAGE" value="go back" />
   </component>
 </project>
