@@ -1,0 +1,31 @@
+
+
+
+{% block  body %}
+    {% if testee%}
+    <table  id = " new "  class = "table table-striped">
+     <thead>
+        <tr>
+          <th> Terrain </th>
+            <th> Terrain </th>
+            <th> Terrain </th>
+            <th> Terrain </th>
+        </tr>
+     </thead>
+    <tbody>
+        {% for test in testee %}
+            <tr>
+               <td> {{ test.id }} </td>
+                <td> {{ test.name }} </td>
+                <td> {{ test.id }} </td>
+                <td> {{ test.id }} </td>
+
+            </tr>
+
+        {% endfor %}
+    </tbody>
+    {% else %}
+gdg
+    {% endif %}
+
+{% endblock %}

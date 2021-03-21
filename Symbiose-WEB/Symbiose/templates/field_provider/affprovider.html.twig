@@ -14,6 +14,7 @@
         <th> Terrain </th>
         <th> Supprimer </th>
         <th> Modifier</th>
+        <th>contrat</th>
 
     </tr>
     </thead>
@@ -31,6 +32,10 @@
                 <button class="btn btn-dark" onclick="return confirm('Are you sure ?')">modifier</button>
             </form>
         </td>
+        <td>  <form action="{{ path('contrat',{'id':field.id}) }}">
+
+                <button class="btn btn-light">Imprimer</button>
+            </form></td>
     </tr>
 
     {% endfor %}

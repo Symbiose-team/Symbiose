@@ -2,13 +2,17 @@
 
 namespace App\Controller;
 use http\Env\Request;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Field;
 use App\Form\FieldType;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 
 class FieldProviderController extends AbstractController
@@ -95,6 +99,36 @@ class FieldProviderController extends AbstractController
         }
         else return $this->render('field_provider/error.html.twig');
 
+    }
+
+    /**
+     * @Route("/contrat/{id}",name="contrat",methods={"Get"})
+     */
+    public function Pdf($id):Response
+    {
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+        $repo = $this->getDoctrine()->getRepository(Field::class);
+        $field = $repo->find($id);
+        $html = $this->renderView('Pdf/contrat.html.twig', ['testee' => $field]);
+       // return  $this->render('Pdf/contrat.html.twig', ['test' => $field]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("Contrat.pdf", [
+            "Attachment" => false
+        ]);
     }
 
 

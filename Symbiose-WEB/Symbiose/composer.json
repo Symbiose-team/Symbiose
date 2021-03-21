@@ -10,6 +10,8 @@
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
+        "dompdf/dompdf": "^1.0",
+        "knplabs/knp-snappy-bundle": "^1.8",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^6.1",
         "stripe/stripe-php": "^7.75",

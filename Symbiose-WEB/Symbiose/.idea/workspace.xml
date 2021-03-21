@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="go back">
-      <change afterPath="$PROJECT_DIR$/templates/field/test.html.twig" afterDir="false" />
+    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="avant le bundel">
+      <change afterPath="$PROJECT_DIR$/templates/Pdf/contrat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field/afficher.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/map/map.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map/map.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_provider/addfield.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_provider/addfield.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +133,12 @@
       <path value="$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
       <path value="$PROJECT_DIR$/vendor/stripe/stripe-php" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p89HJdnnQzhV4tTV2s09zeZMrA" />
@@ -178,7 +186,7 @@
       <workItem from="1615450129172" duration="15743000" />
       <workItem from="1615478746148" duration="1098000" />
       <workItem from="1615975756435" duration="4338000" />
-      <workItem from="1616322518010" duration="1024000" />
+      <workItem from="1616322518010" duration="14479000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -278,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615470046002</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="avant le bundel">
+      <created>1616336713921</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1616336713921</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +325,7 @@
     <MESSAGE value="controle de suppression pour le fournisseur" />
     <MESSAGE value="paillement en ligne" />
     <MESSAGE value="go back" />
-    <option name="LAST_COMMIT_MESSAGE" value="go back" />
+    <MESSAGE value="avant le bundel" />
+    <option name="LAST_COMMIT_MESSAGE" value="avant le bundel" />
   </component>
 </project>
