@@ -8,9 +8,13 @@ use App\Repository\UserRepository;
 use Cassandra\Type\UserType;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class AdminDashboardController extends AbstractController
 {
@@ -76,7 +80,7 @@ class AdminDashboardController extends AbstractController
 
     /**
      * @param User $user
-     * @Route("/admin/utilisateur/{id}/delete",name="admin_user_delete")
+     * @Route("/admin/utilisateurs/{id}/delete",name="admin_user_delete")
      */
     public function delete(User $user){
         $em=$this->getDoctrine()->getManager();
@@ -87,6 +91,43 @@ class AdminDashboardController extends AbstractController
         "l'utilisateur a été bien supprimé");
         return $this->redirectToRoute("admin_utilisateurs");
     }
+
+    /**
+     * Test is enabled / diabled
+
+     * @param User $user
+     * @return RedirectResponse
+     * @Route("/admin/utilisateurs/{id}/permute", name="admin_user_permute")
+     */
+    public function permuter(User $user){
+        $em=$this->getDoctrine()->getManager();
+        $permute = $user->getIsEnabled()? false : true;
+        $user->setIsEnabled($permute);
+        $em->flush();
+        $this->addFlash('success',
+            "l'utilisateur bloqué");
+        return $this->redirectToRoute("admin_utilisateurs");
+    }
+
+    /**
+     * Ceci est un test
+     * @Route("/admin/utilisateurs/recherche",name="admin_user_recherche")
+     * @param Request $request
+     * @param NormalizerInterface $Normalizer
+
+     * @return Response
+     * @throws ExceptionInterface
+     */
+        public function recherche(Request $request,NormalizerInterface $Normalizer){
+            $repository = $this->getDoctrine()->getRepository(User::class);
+            $requestString=$request->get('searchValue');
+            $user = $repository->findByAjax($requestString);
+            $jsonContent = $Normalizer->normalize($user, 'json',['groups'=>'post:read']);
+            $retour=json_encode($jsonContent);
+            return new JsonResponse($retour);
+        }
+
+
 
 
 }

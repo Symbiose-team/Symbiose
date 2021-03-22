@@ -46,6 +46,7 @@ class AppFixtures extends Fixture
             ->setAdresse('Tunis Ariana')
             ->setPhoneNumber(258965418)
             ->setIsVerified(true)
+            ->setIsEnabled(true)
             ->addUserRole($adminRole);
         $manager->persist($adminUser);
 
@@ -78,6 +79,7 @@ class AppFixtures extends Fixture
                 ->setHash($hash)
                 ->setPicture($picture)
                 ->setIsVerified($isVerified)
+                ->setIsEnabled(true)
                 ->setRole($r);
             if ($r == 'Fournisseur') {
                 $user->addUserRole($fournisseurRole);
