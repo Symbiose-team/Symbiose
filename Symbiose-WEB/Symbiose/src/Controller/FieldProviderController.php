@@ -102,7 +102,7 @@ class FieldProviderController extends AbstractController
     }
 
     /**
-     * @Route("/contrat/{id}",name="contrat",methods={"Get"})
+     * @Route("/contrat/{id}",name="contrat",methods={"Get","Post"})
      */
     public function Pdf($id):Response
     {
@@ -112,7 +112,7 @@ class FieldProviderController extends AbstractController
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
         $repo = $this->getDoctrine()->getRepository(Field::class);
-        $field = $repo->find($id);
+        $field = $repo->findAll();
         $html = $this->renderView('Pdf/contrat.html.twig', ['testee' => $field]);
        // return  $this->render('Pdf/contrat.html.twig', ['test' => $field]);
 

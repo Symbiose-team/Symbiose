@@ -9,28 +9,28 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class PaillementController extends AbstractController
+class paiementController extends AbstractController
 {
     /**
      * @Route("/paillement", name="paillement")
      */
     public function index(): Response
     {
-        return $this->render('paillement/Paillement.html.twig', []);
+        return $this->render('paiement/Paillement.html.twig', []);
     }
     /**
      * @Route("/success", name="success")
      */
     public function success(): Response
     {
-        return $this->render('paillement/success.html.twig', []);
+        return $this->render('paiement/success.html.twig', []);
     }
     /**
      * @Route("/error", name="error")
      */
     public function error(): Response
     {
-        return $this->render('paillement/error.html.twig', []);
+        return $this->render('paiement/error.html.twig', []);
     }
 
 

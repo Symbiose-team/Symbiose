@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="avant le bundel">
-      <change afterPath="$PROJECT_DIR$/templates/Pdf/contrat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="bundel pdf">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field_provider/addfield.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_provider/addfield.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PaillementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/paiementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Pdf/contrat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Pdf/contrat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paillement/Paillement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/Paillement.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paillement/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/error.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paillement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paillement/success.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/success.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shared/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shared/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +187,7 @@
       <workItem from="1615450129172" duration="15743000" />
       <workItem from="1615478746148" duration="1098000" />
       <workItem from="1615975756435" duration="4338000" />
-      <workItem from="1616322518010" duration="14479000" />
+      <workItem from="1616322518010" duration="23798000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -293,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616336713921</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="bundel pdf">
+      <created>1616353671471</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1616353671471</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +334,7 @@
     <MESSAGE value="paillement en ligne" />
     <MESSAGE value="go back" />
     <MESSAGE value="avant le bundel" />
-    <option name="LAST_COMMIT_MESSAGE" value="avant le bundel" />
+    <MESSAGE value="bundel pdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="bundel pdf" />
   </component>
 </project>

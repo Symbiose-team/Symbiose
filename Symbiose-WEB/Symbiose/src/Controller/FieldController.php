@@ -46,7 +46,7 @@ class FieldController extends AbstractController
      */
 
 public function reserver($id){
-   return $this->render('paillement/Paillement.html.twig',['id'=>$id]);
+   return $this->render('paiement/Paillement.html.twig',['id'=>$id]);
 
 }
 

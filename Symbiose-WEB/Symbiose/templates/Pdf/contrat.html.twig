@@ -2,7 +2,7 @@
 
 
 {% block  body %}
-    {% if testee%}
+
     <table  id = " new "  class = "table table-striped">
      <thead>
         <tr>
@@ -13,12 +13,13 @@
         </tr>
      </thead>
     <tbody>
+    {% if testee%}
         {% for test in testee %}
             <tr>
                <td> {{ test.id }} </td>
-                <td> {{ test.name }} </td>
-                <td> {{ test.id }} </td>
-                <td> {{ test.id }} </td>
+                <th> {{ test.name }} </th>
+                <th> {{ test.address }} </th>
+                <th> {{ test.provider }} </th>
 
             </tr>
 
