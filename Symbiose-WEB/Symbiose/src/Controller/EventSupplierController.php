@@ -14,7 +14,7 @@ class EventSupplierController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('event_supplier/welcome.html.twig', [
+        return $this->render('event_supplier/event-event-welcome.html.twig', [
             'controller_name' => 'EventSupplierController',
         ]);
     }
