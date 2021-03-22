@@ -63,12 +63,6 @@ class SpecialEvent
      */
     private $picture;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="id_special_event")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $user;
-
 
 
 
@@ -188,18 +182,6 @@ class SpecialEvent
     public function setPicture($picture): void
     {
         $this->picture = $picture;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
     }
 
 

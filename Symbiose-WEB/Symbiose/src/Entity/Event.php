@@ -64,14 +64,6 @@ class Event
      */
     private $picture;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="id_event")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $user;
-
-
-
 
     //Getters and setters
     public function getId(): ?int
@@ -190,20 +182,6 @@ class Event
     {
         $this->picture = $picture;
     }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-
 
 
 
