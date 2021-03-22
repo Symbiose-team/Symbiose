@@ -89,6 +89,7 @@ class EventController extends AbstractController
     {
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
         //TODO Work on the logic (as a client i want to join an event)
+        //use sql qurries for this script (custom function in querybuilder in the repository)
         /*
         $remaining = $event.NumRemaining
             if($remaining = 0) {
