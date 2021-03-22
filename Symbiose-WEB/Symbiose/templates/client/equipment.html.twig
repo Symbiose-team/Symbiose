@@ -4,52 +4,30 @@
 
 {% block body %}
     {% if products %}
-        <table class="table table-stripped">
-            <thead>
+        <div class="container mt-4">
+            <h2>Les equipments</h2>
+            <div class="row flex">
+                {% for product in products %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="#">{{ product.name }}</a>
+                            </h5>
+                            <p class="card_text">{{ product.description | nl2br }}</p>
+                            <div class="text-primary" style="font-weight: bold; font-size: 2rem">{{ product.formattedPrice }} dt</div>
+                            <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success">
+                                <i class="fas fa-shopping-cart mr-1"></i> Add to cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
 
-            <tr>
-                <th>Product Title</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {%  for product in products %}
-                <tr>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.description | nl2br }}</td>
-                    <td>{{ product.formattedPrice }}</td>
-                    <td>
-                        <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success"><i
-                                    class="fas fa-shopping-cart mr-1"></i> Add to cart</a>
-                        <a href="/rent" class="btn btn-dark">Rent</a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
     {% else %}
         <p>No products available</p>
     {% endif %}
-{#    <div class="container">#}
-{#        <h2>Les equipments</h2>#}
-{#        <div class="row flex">#}
-{#            {% for product in products %}#}
-{#            <div class="col-3">#}
-{#                <div class="card">#}
-{#                    <div class="card-body">#}
-{#                        <h5 class="card-title">#}
-{#                            <a href="#">{{ product.name }}</a>#}
-{#                        </h5>#}
-{#                        <p class="card_text">{{ product.description | nl2br }}</p>#}
-{#                        <div class="text-primary">{{ product.formattedPrice }} dt</div>#}
-{#                        <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success"><i#}
-{#                                    class="fas fa-shopping-cart mr-1"></i> Add to cart</a>#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+
 {% endblock %}

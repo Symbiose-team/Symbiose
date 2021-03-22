@@ -27,6 +27,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/equipment.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/equipment.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +110,9 @@
       <workItem from="1615385616295" duration="3776000" />
       <workItem from="1615402417377" duration="233000" />
       <workItem from="1615413136909" duration="16990000" />
-      <workItem from="1615459531282" duration="5759000" />
+      <workItem from="1615459531282" duration="9609000" />
+      <workItem from="1616254898963" duration="85000" />
+      <workItem from="1616438616444" duration="6140000" />
     </task>
     <servers />
   </component>
@@ -145,10 +148,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2631" y="343" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614530856539" />
-    <state x="2673" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1615421494901">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="753" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1616439154765">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="2673" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615421494901" />
+    <state x="753" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1616439154765" />
     <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615240106380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -186,9 +190,9 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2536" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615433218612" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614789715854">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1616439970208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614789715854" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616439970208" />
   </component>
 </project>
