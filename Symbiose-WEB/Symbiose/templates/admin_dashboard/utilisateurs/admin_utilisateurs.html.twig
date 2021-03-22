@@ -13,6 +13,15 @@
                 <h5 class="mb-0 text-center">
                     <strong>Gestions des users</strong>
                 </h5>
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="text" id="search" class="form-control" />
+                        <label class="form-label" for="search">Search</label>
+                    </div>
+                    <button type="button" class="btn btn-dark ">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -20,8 +29,10 @@
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Prénom & Nom</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Verification</th>
                             <th scope="col">CIN</th>
                             <th scope="col">Date de naissance</th>
                             <th scope="col">Adresse</th>
@@ -31,12 +42,25 @@
                             <th scope="col">Actions</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="all">
                         <tr>
                             {% for user in users  %}
                             <td>{{ user.id }}</td>
+                            <td>
+                                {% if user.isEnabled==1 %}
+                                <a href="{{ path('admin_user_permute',{'id':user.id}) }}" class="btn {% if app.user.id == user.id and user.role=="Admin" %}btn-dark disabled{% endif %} btn-danger">Disable</a>
+                                    {% else %}
+                                <a href="{{ path('admin_user_permute',{'id':user.id}) }}" class="btn btn-success">Enable</a>
+                                {% endif %}
+                            </td>
                             <td>{{ user.fullname }}</td>
                             <td>{{ user.email }}</td>
+                            <td>{% if user.isVerified==true %}
+                                <button type="button" class="btn btn-success btn-rounded">Vérifié <i class="fas fa-check"></i></button>
+                                {% else %}
+                                <button type="button" class="btn btn-danger btn-rounded">Non vérifié <i class="far fa-times-circle ml-3"></i></button>
+                                {% endif %}
+                            </td>
                             <td>{{ user.CIN }}</td>
                             <td>{{ user.birthday|date('d/m/Y')}}</td>
                             <td>{{ user.Adresse }}</td>
@@ -54,6 +78,9 @@
                             </td>
                         </tr>
                         {% endfor %}
+                        </tbody>
+                        <tbody id="search">
+
                         </tbody>
                     </table>
                 </div>
@@ -75,4 +102,63 @@
     </section>
     <!--Section: Sales Performance KPIs-->
     </main>
+    {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+        <script>
+            $(document).ready(function() {
+                {#$('#search').keyup(function(e){#}
+                {#    var value = $(this).val();#}
+                {#    $.ajax({#}
+                {#        url : "{{ path('admin_user_recherche') }}",#}
+                {#        type : 'GET',#}
+                {#        data: { 'searchValue' : value },#}
+                {#        success : function(retour){#}
+                {#            if(retour){#}
+                {#            $('tbody#search').empty();#}
+                {#            $.each(JSON.parse(retour),#}
+                {#                function(i, obj) {#}
+                {#                console.error('JSON recived :', retour);#}
+                {#                $('tbody#all').hide();#}
+                {#                $('tbody#search').append('<tr>' +#}
+                {#                    '<td>'+obj.id+' </td>'+#}
+                {#                    '<td><a href="admin_user_permute" class="btn btn-success">'+obj.isEnabled+'</a></td>' +#}
+                {#                    '<td> '+obj.firstName+" "+obj.lastName+' </td>' +#}
+                {#                    '<td> '+obj.Email+' </td>' +#}
+                {#                    '<td> '+obj.isVerified+' </td>' +#}
+                {#                    '<td> '+obj.Cin+' </td>' +#}
+                {#                    '<td> '+obj.Birthday+' </td>' +#}
+                {#                    '<td> '+obj.Adresse+' </td>' +#}
+                {#                    '<td> '+obj.Phone_Number+' </td>' +#}
+                {#                    '<td> '+obj.role+' </td>' +#}
+                {#                    '<td> '+obj.picture+' </td>' +#}
+                {#                    '</td><td><a href="admin_utilisateurs_edit/'+obj.id+'">modifier</a>' +#}
+                {#                    '</br><a href="deleteStudent/'+obj.id+'">supprimer</a></td>' +#}
+                {#                    '</tr>');#}
+                {#            });#}
+                {#            }#}
+                {#            else {#}
+                {#                $('tbody#all').show();#}
+                {#                $('tbody#search').empty();#}
+                {#                $('tbody#search').fadeIn('fast');#}
+                {#            }#}
+                {#            },#}
+                {#    });#}
+                {#    return false;#}
+                {#});#}
+                $("#search").keyup(function () {
+                    var value = this.value.toLowerCase().trim();
+
+                    $("table tr").each(function (index) {
+                        if (!index) return;
+                        $(this).find("td").each(function () {
+                            var id = $(this).text().toLowerCase().trim();
+                            var not_found = (id.indexOf(value) == -1);
+                            $(this).closest('tr').toggle(!not_found);
+                            return not_found;
+                        });
+                    });
+                });
+            });
+        </script>
+    {% endblock %}
 {% endblock %}

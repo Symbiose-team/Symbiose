@@ -34,45 +34,17 @@
                             </div>
                             <!-- Submit button -->
                             <button type="submit" class="btn btn-success btn-block">Connexion</button>
+                            <div class="col text-center">
+                                <!-- Simple link -->
+                                <a href="{{ path('app_forgot_password') }}" class="d-block text-center text-info text-decoration-none mt-3">Mot de passe oublié ?</a>
+                            </div>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Background image -->
-{#    <div class="container">#}
 
-{#        {% for message in app.flashes('success') %}#}
-{#        <div class="alert alert-success">{{ message }}</div>#}
-{#        {% endfor %}#}
-{#        <div class="row mt-3">#}
-{#            <div class="col-md-3">&nbsp;</div>#}
-{#            <div class="col-md-6">#}
-{#                <div class="bg-light py-3 px-3">#}
-{#                    <h1>Connectez-vous!</h1>#}
-{#                    <form action="{{ path('account_login') }}" method="post">#}
-{#                        {% if hasError %}#}
-{#                            <div class="alert alert-dismissible alert-danger">#}
-{#                            <button type="button" class="close" data-dismiss="alert">&times;</button>#}
-{#                            Une erreur est survenue, le nom d'utilisitateur ou le mot de passe est invalide#}
-{#                            </div>#}
-{#                        {% endif %}#}
-{#                        <div class="form-group">#}
-{#                            <label for="Email">Email</label>#}
-{#                            <input type="email" name="_username" id="Email" placeholder="Email"  class="form-control" required value="{{ username }}">#}
-{#                        </div>#}
-{#                        <div class="form-group">#}
-{#                            <label for="password">Mot de passe</label>#}
-{#                            <input type="password" name="_password" id="password" placeholder="Password" class="form-control" required>#}
-{#                        </div>#}
-{#                        <div class="form-group">#}
-{#                            <button type="submit" class="btn btn-success">Connexion !</button>#}
-{#                        </div>#}
-{#                    </form>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
 
 {% endblock %}

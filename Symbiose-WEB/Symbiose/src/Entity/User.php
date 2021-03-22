@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -29,36 +30,42 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez renseinger votre prénom")
+     * @Groups("post:read")
      */
     private ?string $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez renseigner votre nom de famille")
+     * @Groups("post:read")
      */
     private ?string $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
+     * @Groups("post:read")
      */
     private ?string $Email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url(message="Veuillez donner un URL valide pour votre avatar")
+     * @Groups("post:read")
      */
     private ?string $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8",minMessage="Votre mot de passe doit faire au moins 8 caracteres ! ")
+     *
      */
     private ?string $hash;
     /**
@@ -68,12 +75,14 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="integer")
      * @Assert\Length(min="8",minMessage="Votre numéro de cin doit faire 8 caracteres !")
+     * @Groups("post:read")
      */
     private ?int $Cin;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Veuillez selectionner votre date de naissance")
+     * @Groups("post:read")
      */
     private ?\DateTimeInterface $Birthday;
 
@@ -84,19 +93,21 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
+     * @Groups("post:read")
      */
     private ?string $role;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="16",max="32",maxMessage="Vous avez dépasser les 32 caracteres !",minMessage="l'Adresse ne peut avoir moins de 16 caracteres !")
+     * @Groups("post:read")
      */
     private ?string $Adresse;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\Length(min="8",minMessage="Votre numéro doit faire au moins 8 chiffres !")
+     * @Groups("post:read")
      */
     private $Phone_Number;
 
@@ -151,11 +162,18 @@ class User implements UserInterface
      */
     private ?\DateTimeImmutable $ForgotPasswordTokenVerifiedAt;
 
+    /**
+     * @ORM\Column(type="boolean")
+     * @Groups("post:read")
+     */
+    private ?bool $isEnabled;
+
 
     public function __construct()
     {
         $this->userRoles = new ArrayCollection();
         //add this new if error undo below
+        $this->isEnabled=true;
         $this->isVerified=false;
         $this->registeredAt=new \DateTimeImmutable('now');
         $this->accountMustBeVerifiedBefore=(new \DateTimeImmutable('now'))->add(new \DateInterval("P1D"));
@@ -480,6 +498,18 @@ class User implements UserInterface
     public function setForgotPasswordTokenVerifiedAt(?\DateTimeImmutable $ForgotPasswordTokenVerifiedAt): self
     {
         $this->ForgotPasswordTokenVerifiedAt = $ForgotPasswordTokenVerifiedAt;
+
+        return $this;
+    }
+
+    public function getIsEnabled(): ?bool
+    {
+        return $this->isEnabled;
+    }
+
+    public function setIsEnabled(bool $isEnabled): self
+    {
+        $this->isEnabled = $isEnabled;
 
         return $this;
     }

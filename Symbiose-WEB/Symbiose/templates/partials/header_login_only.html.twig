@@ -26,12 +26,11 @@
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
             <!-- Left links -->
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('homepage') }}">Acceuil</a>
-                </li>
+
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto d-flex flex-row">
+
                 <!-- Navbar dropdown -->
-                <ul class="navbar-nav ml-auto ms-auto">
+                <ul class="navbar-nav ">
                     {% if app.user %}
                         <li class="nav-item dropdown ">
                             <a href="#" class="nav-link dropdown-toggle" data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
@@ -50,16 +49,19 @@
                         </li>
 
                     {% else %}
-                        <li class="nav-item">
+
+                        <li class="nav-item ms-auto">
                             <a href="{{ path('account_register') }}" class="nav-link">Inscription</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ms-auto">
                             <a href="{{ path('account_login') }}" class="nav-link">Connexion</a>
                         </li>
                     {% endif %}
 
             </ul>
+
             </ul>
+
             <!-- Left links -->
         </div>
         <!-- Collapsible wrapper -->
