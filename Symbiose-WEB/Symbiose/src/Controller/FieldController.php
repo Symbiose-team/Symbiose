@@ -49,6 +49,14 @@ public function reserver($id){
    return $this->render('paiement/Paillement.html.twig',['id'=>$id]);
 
 }
+    /**
+     * @Route ("/reserver/{id}",name="reserve")
+     */
+
+    public function reserve($id){
+        return $this->render('field/reserver.html.twig',['id'=>$id]);
+
+    }
 
     /**
      * @Route("/routourner",name="return")

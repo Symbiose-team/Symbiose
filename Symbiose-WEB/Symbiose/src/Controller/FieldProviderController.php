@@ -33,6 +33,10 @@ class FieldProviderController extends AbstractController
     public function affiche()
     {
         $repo = $this->getDoctrine()->getRepository(Field::class);
+        // look for multiple Product objects matching the supplier
+        $events = $repo->findBy(
+            ['provider' => 'wassim']
+        );
         $field = $repo->findAll();
         return $this->render('field_provider/affprovider.html.twig', ['terain' => $field]);
     }
@@ -59,7 +63,7 @@ class FieldProviderController extends AbstractController
     }
 
     /**
-     * @Route ("delete/{id}",name="supprime")
+     * @Route ("delete/{id}",name="supprimerr")
      */
     public function supprimer($id)
     {
@@ -67,7 +71,7 @@ class FieldProviderController extends AbstractController
         $this->$now = new \DateTime('now');
         $repo = $this->getDoctrine()->getRepository(Field::class);
         $field = $repo->find($id);
-        if ($field->getDateEnd() > $now) {
+        if ($field->getDateEnd() < $now or $field->getDateEnd() > $now ) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($field);
             $em->flush();
@@ -85,7 +89,7 @@ class FieldProviderController extends AbstractController
         $this->$now = new \DateTime('now');
         $repository = $this->getDoctrine()->getRepository(Field::class);
         $field = $repository->find($id);
-        if ($field->getDateEnd() < $now) {
+        if ($field->getDateEnd() < $now or $field->getDateEnd() > $now ) {
             $form = $this->createForm(FieldType::class, $field);
             $form->add('Update', SubmitType::class);
             $form->handleRequest($request);

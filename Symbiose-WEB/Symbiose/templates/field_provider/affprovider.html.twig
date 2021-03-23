@@ -12,9 +12,9 @@
     <thead>
     <tr>
         <th> Terrain </th>
-        <th> Supprimer </th>
         <th> Modifier</th>
         <th>contrat</th>
+        <th> Supprimer </th>
 
     </tr>
     </thead>
@@ -22,10 +22,7 @@
     {% for   field in  terain %}
     <tr>
         <td> {{ field.name }} </td>
-        <td> <form action="{{ path('supprime',{ 'id':field.id }) }}">
 
-                <button class="btn btn-dark" onclick="return confirm('Are you sure ?')">supprimer</button>
-            </form>
         </td>
         <td> <form action="{{ path('updateprovider',{ 'id':field.id }) }}">
 
@@ -36,6 +33,10 @@
 
                 <button class="btn btn-light">Imprimer</button>
             </form></td>
+        <td> <form action="{{ path('supprimerr',{ 'id':field.id }) }}">
+                <button type="button" class="btn btn-danger btn-sm px-3" >
+                    supprimer</button>
+            </form>
     </tr>
 
     {% endfor %}

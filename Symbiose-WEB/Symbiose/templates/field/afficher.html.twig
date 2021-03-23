@@ -3,7 +3,44 @@
 
 {% block  body %}
 {% if  terrain %}
-    <table  id = " d "  class = " table table-striped ">
+    {% for field in terrain %}
+        <div align="center">
+            <img
+                    src="https://mdbootstrap.com/img/new/slides/041.jpg"
+                    class="card-img-top"
+                    alt="..."
+            />
+
+                <h5 class="card-title">Terrain</h5>
+                <p class="card-text">
+                    Notre terrain est situé à {{ field.address }}
+
+                </p>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <form action="{{ path('detail',{'id':field.id}) }}">
+
+                    <button class="btn btn-dark">Détail</button>
+                </form>
+
+                <form action="{{ path('reserve',{'id':field.id}) }}">
+
+                    <button class="btn btn-dark">Réserver</button>
+                </form>
+            </div>
+                <div>
+                    <ul class="list-group list-group-flush">
+                <li class="list-group-item">Nom de terrain: {{ field.name }}</li>
+                <li class="list-group-item">Prix: {{field.price }}</li>
+                <li class="list-group-item">Terrain_id: {{ field.id }}</li>
+                 </ul>
+                </div>
+
+
+
+        </div>
+
+    {% endfor %}
+    {# <table  id = " d "  class = " table table-striped ">
       <thead>
         <tr>
             <th> Terrain </th>
@@ -36,7 +73,8 @@
           </tr>
         {% endfor %}
       </tbody>
-    </table>
+    </table> #}
+
   {% else %}
     <p> Audun field </p>
   {% endif %}
