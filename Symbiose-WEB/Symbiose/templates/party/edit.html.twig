@@ -2,11 +2,11 @@
 
 {% block title %}Edit Party{% endblock %}
 
-{% block body %}
+{% block back %}
     <h1>Edit Party</h1>
 
     {{ include('party/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('party_index') }}">back to list</a>
 
-{% endblock %}
+{%  endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Lobby;
 use App\Entity\Party;
 use App\Form\PartyType;
 use App\Repository\PartyRepository;
@@ -88,4 +89,5 @@ class PartyController extends AbstractController
 
         return $this->redirectToRoute('party_index');
     }
+
 }

@@ -2,10 +2,11 @@
 
 {% block title %}New Lobby{% endblock %}
 
-{% block body %}
+{% block back %}
+
     <h1>Create new Lobby</h1>
 
     {{ include('lobby/_form.html.twig') }}
 
-    <a href="{{ path('lobby_index') }}">back to list</a>
+    <a href="{{ path('lobby_index') }}">Go back</a>
 {% endblock %}

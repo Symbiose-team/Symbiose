@@ -1,6 +1,6 @@
 {% extends 'Lobbyfront.html.twig' %}
 
-{% block title %}Hello FrontLobbyController!{% endblock %}
+{% block title %}Client Lobby{% endblock %}
 
 {% block body %}
     <style>
@@ -388,9 +388,9 @@
 
                         <!-- end:aside lobby kiri -->
                         <!-- start:aside lobby tengah -->
-                        <aside class="tengah-side">
+                        <aside >
                             <div class="chat-room-head">
-                                <h3>Lobby</h3>
+
 
                             </div>
                             <div class="room-desk">
@@ -404,6 +404,8 @@
                                             <th>Nbplayers</th>
                                             <th>Maxplayers</th>
                                             <th>Fillable</th>
+                                            <th>Join</th>
+
 
                                         </tr>
                                         </thead>
@@ -416,12 +418,15 @@
                                                 <td>{{ lobby.nbplayers }}</td>
                                                 <td>{{ lobby.maxplayers }}</td>
                                                 <td>{{ lobby.status ? 'Yes' : 'No' }}</td>
+                                         <td><a class="btn btn-primary" href="{{ path('user_join',{'id':lobby.id} )}}">Join</a></td>
+
                                             </tr>
                                         {% else %}
                                             <tr>
                                                 <td colspan="7">no records found</td>
                                             </tr>
                                         {% endfor %}
+
                                         </tbody>
                                     </table>
 

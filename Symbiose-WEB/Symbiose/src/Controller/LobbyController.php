@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Lobby;
+use App\Entity\User;
 use App\Form\Lobby1Type;
+use App\Form\UserjoinType;
 use App\Repository\LobbyRepository;
+use App\Repository\UserRepository;
+use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -88,4 +92,30 @@ class LobbyController extends AbstractController
 
         return $this->redirectToRoute('lobby_index');
     }
+
+    /**
+     * @Route("/lobby/join/{id}", name="user_join")
+     */
+    public function join(Request $request,Lobby $lobby, Lobby $lobby1, UserRepository $rep)
+    {
+       $user = $rep->find(1);
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $form = $this->createForm(UserjoinType::class , $lobby);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            (($lobby->addUser($user))&& ($lobby->getNbplayers()+1));
+            $entityManager->persist($lobby);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('front_lobby');
+        }
+
+        return $this->render('lobby/join.html.twig', [
+            'lobby' => $lobby,
+            'form' => $form->createView(),
+        ]);
+    }
+
 }

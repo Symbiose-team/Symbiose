@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Lobby;
 use App\Repository\LobbyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +15,9 @@ class FrontLobbyController extends AbstractController
      */
     public function index(LobbyRepository $lobbyRepository): Response
     {
+        $lobbyRepository = $this->getDoctrine()->getRepository(Lobby::class)->findBy([], ['name' => 'DESC']);
         return $this->render('front_lobby/index.html.twig', [
-            'lobbies' => $lobbyRepository->findAll(),
+            'lobbies' => $lobbyRepository,
         ]);
     }
     /**
