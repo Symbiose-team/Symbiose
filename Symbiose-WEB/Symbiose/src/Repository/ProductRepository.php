@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,24 +20,35 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function findVisibleEquipment()
+    /*
+     * @return Query
+     */
+    public function findAllVisibleQuery(): Query
+    {
+        return $this->createQueryBuilder('p')
+            ->getQuery();
+    }
+
+    /*
+     * @return Query
+     */
+    public function findVisibleEquipmentQuery(): Query
     {
         return $this->createQueryBuilder('p')
             ->where('p.State = true')
             ->andWhere('p.Type = 0')
-            ->getQuery()
-            ->getResult()
-            ;
+            ->getQuery();
     }
 
-    public function findVisibleClothing()
+    /*
+     * @return Query
+     */
+    public function findVisibleClothingQuery(): Query
     {
         return $this->createQueryBuilder('p')
             ->where('p.State = true')
             ->andWhere('p.Type = 1')
-            ->getQuery()
-            ->getResult()
-            ;
+            ->getQuery();
     }
 
     // /**

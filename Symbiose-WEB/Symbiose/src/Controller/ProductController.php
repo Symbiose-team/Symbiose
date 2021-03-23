@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Repository\ProductRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,14 +15,25 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ProductController extends AbstractController
 {
+    private $repository;
+
+    public function __construct(ProductRepository $repository)
+    {
+
+        $this->repository = $repository;
+    }
+
     /**
      * @Route("/products", name="products")
      * @Method ({"GET"})
      */
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-
+        $products = $paginator->paginate(
+            $this->repository->findAllVisibleQuery(),
+            $request->query->getInt('page', 1),
+            6
+        );
         return $this->render('products/index.html.twig', array('products' => $products));
 
     }

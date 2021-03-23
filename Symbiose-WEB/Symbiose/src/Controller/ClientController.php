@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Repository\ProductRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -32,18 +34,26 @@ class ClientController extends AbstractController
     /**
      * @Route ("/equipment", name="equipment")
      */
-    public function equipment(): Response
+    public function equipment(PaginatorInterface $paginator, Request $request): Response
     {
-        $products = $this->repository->findVisibleEquipment();
+        $products = $paginator->paginate(
+            $this->repository->findVisibleEquipmentQuery(),
+            $request->query->getInt('page', 1),
+            6
+        );
         return $this->render('client/equipment.html.twig', array('products' => $products));
     }
 
     /**
      * @Route ("/clothing", name="clothing")
      */
-    public function clothing(): Response
+    public function clothing(PaginatorInterface $paginator, Request $request): Response
     {
-        $products = $this->repository->findVisibleClothing();
+        $products = $paginator->paginate(
+            $this->repository->findVisibleClothingQuery(),
+            $request->query->getInt('page', 1),
+            6
+        );
         return $this->render('client/clothing.html.twig', array('products' => $products));
 
     }

@@ -30,7 +30,7 @@
             {% for item in items %}
                 <tr>
                     <td>{{ item.product.name }}</td>
-                    <td>{{ item.product.price }}</td>
+                    <td>{{ item.product.formattedPrice }}</td>
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.product.price * item.quantity }}</td>
                     <td>
@@ -41,7 +41,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3" class="text-right">Total : </td>
+                    <td colspan="3" align="right">Total :</td>
                     <td>{{ total }}</td>
                     <td></td>
                 </tr>
