@@ -34,11 +34,11 @@ class FieldProviderController extends AbstractController
     {
         $repo = $this->getDoctrine()->getRepository(Field::class);
         // look for multiple Product objects matching the supplier
-        $events = $repo->findBy(
+        $fields = $repo->findBy(
             ['provider' => 'wassim']
         );
         $field = $repo->findAll();
-        return $this->render('field_provider/affprovider.html.twig', ['terain' => $field]);
+        return $this->render('field_provider/affprovider.html.twig', ['terain' => $fields]);
     }
 
     /**
@@ -116,7 +116,7 @@ class FieldProviderController extends AbstractController
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
         $repo = $this->getDoctrine()->getRepository(Field::class);
-        $field = $repo->findAll();
+        $field = $repo->find($id);
         $html = $this->renderView('Pdf/contrat.html.twig', ['testee' => $field]);
        // return  $this->render('Pdf/contrat.html.twig', ['test' => $field]);
 

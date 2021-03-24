@@ -2,15 +2,14 @@
 
 
 {% block  body %}
-    {% if  f %}
-        <table  id = " t " class = " table table-striped ">
+
+    {% if  test %}
+        <table  class = " table ">
 
 
 
-        <table class="table">
 
-
-            <thead>
+            <thead class="table-light">
             <tr>
 
                 <th scope="col">code</th>
@@ -23,18 +22,26 @@
 
             </thead>
             <tbody>
-            {% for details in f %}
                 <tr>
-                    <td>{{ details.id }}</td>
-                    <td>{{ details.price }}</td>
-                    <td>{{ details.address }}</td>
-                    <td>{{ details.space }}</td>
+                    <td>{{ test.id }}</td>
+                    <td>{{ test.price }}</td>
+                    <td>{{ test.address }}</td>
+                    <td>{{ test.space }}</td>
                 </tr>
-            {% endfor %}
             </tbody>
 
         </table>
     {% else %}
-        <p> Audun field </p>
+        <p> Aucun field </p>
     {% endif %}
+    <div class="btn-group" role="group" aria-label="Basic example">
+
+    <form action="{{ path('afficheterrai',)}}">
+        <button class="btn btn-danger">Go_Back</button>
+    </form>
+    <form action="{{ path('reserve',{'id':test.id}) }}">
+
+        <button class="btn btn-dark">Réserver</button>
+    </form>
+    </div>
 {% endblock %}

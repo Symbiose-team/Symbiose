@@ -1,0 +1,61 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop !{% endblock %}
+
+{% block body %}
+    {% if products %}
+        <div class="container mt-4" >
+            <h2>All our Equipment</h2>
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-md-4">
+                        <div class="card mb-5">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="#"><h3>{{ product.name }}</h3></a></h5>
+                                <p class="card_text">{{ product.description | nl2br }}</p>
+                                <div class="text-primary" style="font-weight: bold; font-size: 2rem">{{ product.formattedPrice }} dt</div>
+                                <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success">
+                                    <i class="fas fa-shopping-cart mr-1"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="pagination">{{ knp_pagination_render(products) }}</div>
+        </div>
+
+
+        <!-- Card -->
+
+        <div>
+
+            <img
+                    {# src="https://mdbootstrap.com/img/new/slides/041.jpg"
+                    class=""
+                    alt="..." #}
+            />
+
+
+            <h5 class="card-title">Terrain</h5>
+            <p class="card-text">
+                Notre terrain est situé à {{ field.address }}
+
+            </p>
+
+            <div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nom de terrain: {{ field.name }}</li>
+                    <li class="list-group-item">Prix: {{field.price }}</li>
+                    <li class="list-group-item">Terrain_id: {{ field.id }}</li>
+                </ul>
+            </div>
+
+
+        </div>
+    {% else %}
+        <p>No products available</p>
+    {% endif %}
+
+{% endblock %}

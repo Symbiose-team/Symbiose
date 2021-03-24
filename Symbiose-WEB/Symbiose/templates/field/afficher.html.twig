@@ -2,44 +2,80 @@
 {% block title%}  {% endblock %}
 
 {% block  body %}
+    <div>
+    <div class="input-group rounded" >
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+               aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+    </div>
 {% if  terrain %}
+    <div style="clear: both">
+    <div class="ratio ratio-16x9">
+        <iframe
+                src="https://www.youtube.com/embed/vlDzYIIOYmM"
+                title="YouTube video"
+                allowfullscreen
+        ></iframe>
+    </div>
+    </div>
     {% for field in terrain %}
-        <div align="center">
-            <img
-                    src="https://mdbootstrap.com/img/new/slides/041.jpg"
-                    class="card-img-top"
-                    alt="..."
-            />
+        <div class="container mt-17">
 
-                <h5 class="card-title">Terrain</h5>
+            <ul class="stepper" data-mdb-stepper="stepper">
+                <!-- ... -->
+            </ul>
+            <div class="container mt-28">
+
+            <div class="col-md-5" >
+            <div class="card mb-5">
+
+
+<div class="row">
+
+
+            <div class="card">
+
+                <div class="card-body" style="width: 28rem " >
+        <!-- Card -->
+
+
+            <div
+
+                class="bg-image card shadow-1-strong"
+                style="
+            background-image: url('img/img_1.png');
+            "
+              >
+            <div class="card-body text-white"  >
+                <h5 class="card-title">Terrain Football</h5>
                 <p class="card-text">
-                    Notre terrain est situé à {{ field.address }}
+                    Terrain :{{ field.name }} </p>
+                    <p>Prix : {{ field.price }} </p>
+                    <p>Address :{{ field.address }}</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <form action="{{ path('detail',{'id':field.id}) }}">
 
-                </p>
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <form action="{{ path('detail',{'id':field.id}) }}">
+                        <button class="btn btn-dark">Détail</button>
+                    </form>
 
-                    <button class="btn btn-dark">Détail</button>
-                </form>
+                    <form action="{{ path('reserve',{'id':field.id}) }}">
 
-                <form action="{{ path('reserve',{'id':field.id}) }}">
-
-                    <button class="btn btn-dark">Réserver</button>
-                </form>
-            </div>
-                <div>
-                    <ul class="list-group list-group-flush">
-                <li class="list-group-item">Nom de terrain: {{ field.name }}</li>
-                <li class="list-group-item">Prix: {{field.price }}</li>
-                <li class="list-group-item">Terrain_id: {{ field.id }}</li>
-                 </ul>
+                        <button class="btn btn-dark">Réserver</button>
+                    </form>
                 </div>
-
-
-
+            </div>
         </div>
-
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
     {% endfor %}
+
     {# <table  id = " d "  class = " table table-striped ">
       <thead>
         <tr>
@@ -78,4 +114,20 @@
   {% else %}
     <p> Audun field </p>
   {% endif %}
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
 {% endblock %}

@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FieldAdminController!{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
-
-<table  id = " n "  class = " table table-striped ">
     {% if  n %}
-        <table class="table">
+
+        <table  id = " n "  class ="table table-striped">
+
             <thead>
             <tr>
 
@@ -18,10 +18,12 @@
             </thead>
             <tbody>
             <tr>
+
                 <td>{{ n.id }}</td>
-                <td>{{ n.name }}</td>
-                <td>{{ n.address }}</td>
-                <td>{{ n.space  }}</td>
+                <th>{{ n.id }}</th>
+                <td>{{ n.id }}</td>
+                <td>{{ n.id }}</td>
+                <td>{{ n.id  }}</td>
 
 
             </tr>
@@ -29,5 +31,7 @@
 
             </tbody>
         </table>
+        {% else %}
+        dsf;sgùp
     {% endif %}
 {% endblock %}

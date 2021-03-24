@@ -14,7 +14,7 @@ class FieldController extends AbstractController
     /**
      * @Route("/")
      */
-    public function index(): Response
+    public function index()
     {
         return $this->render('field/index.html.twig', [
             'controller_name' => 'FieldController',
@@ -37,8 +37,8 @@ class FieldController extends AbstractController
     public function detail($id){
 
         $repo=$this->getDoctrine()->getRepository(Field::class);
-        $fs=$repo->find($id);
-        return $this->render('field/test.html.twig',['f'=>$fs]);
+        $test=$repo->find($id);
+        return $this->render('field/test.html.twig',['test'=>$test]);
     }
 
     /**

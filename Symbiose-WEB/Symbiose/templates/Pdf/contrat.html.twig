@@ -2,6 +2,8 @@
 
 
 {% block  body %}
+    {% if testee%}
+
 <p>Si vous êtes sûr de vouloir effectuer une réservation,
 
     veuillez procéder au paiement en ligne.</p>
@@ -21,18 +23,15 @@
         </tr>
      </thead>
     <tbody>
-    {% if testee%}
-        {% for test in testee %}
             <tr>
-               <td> {{ test.id }} </td>
-                <th> {{ test.name }} </th>
-                <th> {{ test.address }} </th>
-                <th> {{ test.provider }} </th>
-
+               <td>{{testee.id}}</td>
+                <th>{{testee.name}}</th>
+                <th>{{testee.address}}</th>
+                <th>{{testee.provider}}</th>
             </tr>
 
-        {% endfor %}
     </tbody>
+
     {% else %}
 gdg
     {% endif %}

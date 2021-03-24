@@ -2,13 +2,46 @@
 {% block title%} List des terrain {% endblock %}
 
 {% block  body %}
+
     <form  action="{{ path('addterain') }}" class="container p-3" >
 
-        <button class="btn btn-danger">Ajouter</button>
+        <button class="btn btn-success">Ajouter</button>
 
     </form>
     {% if  terain %}
-<table  id = " terrain "  class = " table table-striped ">
+        {% for   field in  terain %}
+
+
+
+            <div class="card text-center">
+            <div class="card-header">{{ field.name }}</div>
+            <div class="card-body">
+                <h5 class="card-title">Address:{{ field.address }}</h5>
+                <h5 class="card-title">Prix:{{ field.price }}</h5>
+
+                <p class="card-text">
+                </p>
+                <div class="btn-group shadow-0" role="group">
+
+                    <form action="{{ path('updateprovider',{ 'id':field.id }) }}">
+
+                        <button class="btn btn-warning" onclick="return confirm('Are you sure ?')">modifier</button>
+                    </form>
+                    <form action="{{ path('supprimerr',{ 'id':field.id }) }}">
+                        <button type="button" class="btn btn-info" >
+                            supprimer</button>
+                    </form>
+                    <form action="{{ path('contrat',{'id':field.id}) }}">
+
+                        <button class="btn btn-light">Pdf <span class="badge bg-danger ms-2">{{ field.id }}</span></button>
+                    </form>
+                </div>
+
+
+
+        </div>
+        {% endfor %}
+{#  <table  id = " terrain "  class = " table table-striped ">
     <thead>
     <tr>
         <th> Terrain </th>
@@ -20,8 +53,10 @@
     </thead>
     <tbody>
     {% for   field in  terain %}
+
     <tr>
         <td> {{ field.name }} </td>
+
 
         </td>
         <td> <form action="{{ path('updateprovider',{ 'id':field.id }) }}">
@@ -29,18 +64,30 @@
                 <button class="btn btn-dark" onclick="return confirm('Are you sure ?')">modifier</button>
             </form>
         </td>
+
         <td>  <form action="{{ path('contrat',{'id':field.id}) }}">
 
-                <button class="btn btn-light">Imprimer</button>
+                <button class="btn btn-light">Pdf <span class="badge bg-danger ms-2">{{ field.id }}</span></button>
             </form></td>
         <td> <form action="{{ path('supprimerr',{ 'id':field.id }) }}">
                 <button type="button" class="btn btn-danger btn-sm px-3" >
                     supprimer</button>
             </form>
+
     </tr>
+        <tr>
+
+            <form  action="{{ path('addterain') }}" class="container p-3" >
+
+                <button class="btn btn-drink">Ajouter</button>
+
+            </form>
+        </tr>
+
 
     {% endfor %}
     </tbody>
-</table>
+</table>#}
+
     {% endif %}
 {% endblock %}
