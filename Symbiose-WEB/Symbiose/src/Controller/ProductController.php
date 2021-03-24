@@ -48,7 +48,7 @@ class ProductController extends AbstractController
         $product = new Product();
 
         $form = $this->createForm(ProductType::class, $product);
-        $form->add('Create', SubmitType::class, array('label' => 'Create', 'attr' => array('class' => 'btn btn-primary mt-3')));
+        $form->add('Create', SubmitType::class, array('label' => 'Create', 'attr' => array('class' => 'btn btn-block btn-primary mt-3')));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -75,7 +75,7 @@ class ProductController extends AbstractController
         $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
 
         $form = $this->createForm(ProductType::class, $product);
-        $form->add('Update', SubmitType::class, array('label' => 'Update', 'attr' => array('class' => 'btn btn-primary mt-3')));
+        $form->add('Update', SubmitType::class, array('label' => 'Update', 'attr' => array('class' => 'btn btn-block btn-primary mt-3')));
 
         $form->handleRequest($request);
 

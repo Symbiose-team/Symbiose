@@ -226,7 +226,7 @@
                     <div class="card">
                         <div class="card-header text-center py-3">
                             <h5 class="mb-0 text-center">
-                                <strong>Manage All Events</strong>
+                                <strong>Manage All Products</strong>
                             </h5>
                         </div>
                         <div class="card-body">
@@ -237,7 +237,7 @@
                                     <tr>
                                         <th scope="col">Name</th>
                                         <th scope="col">Description</th>
-                                        <th scope="col">Price (dt)</th>
+                                        <th scope="col">Price</th>
                                         <th scope="col">Type</th>
                                         <th scope="col">State</th>
                                         <th scope="col">Action</th>
@@ -248,7 +248,7 @@
                                         <tr>
                                             <td>{{ product.name }}</td>
                                             <td>{{ product.description | nl2br }}</td>
-                                            <td>{{ product.formattedPrice }}</td>
+                                            <td>{{ product.formattedPrice }} (dt)</td>
                                             <td>{{ product.articleType }}</td>
                                             <td>{{ product.stateType }}</td>
                                             <td>
@@ -262,12 +262,14 @@
                                     {% endfor %}
                                     </tbody>
                                 </table>
-                                <div class="pagination" align="center">{{ knp_pagination_render(products) }}</div>
-                                <a class="btn btn-outline-primary" aria-current="page" href="/product/new">New Product</a>
+                                <div class="pagination">{{ knp_pagination_render(products) }}</div>
                             </div>
                             {% else %}
                                 <p>No events yet !</p>
                             {% endif %}
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-block btn-outline-primary" aria-current="page" href="/product/new">New Product</a>
                         </div>
                     </div>
                 </section>

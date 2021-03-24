@@ -36,7 +36,7 @@ class CartController extends AbstractController
 
         return $this->render('cart/index.html.twig', [
             'items' => $cartWithData,
-            'total' => $total
+            'total' => number_format($total, 0, '', ' ')
         ]);
     }
 
