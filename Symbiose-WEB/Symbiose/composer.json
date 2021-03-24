@@ -10,6 +10,7 @@
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
+        "kartik-v/bootstrap-star-rating": "@dev",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.4.*",
@@ -46,7 +47,7 @@
         "symfony/stopwatch": "^4.4",
         "symfony/var-dumper": "^4.4",
         "symfony/web-profiler-bundle": "^4.4",
-        "symfony/web-server-bundle": "^4.4"
+        "symfony/web-server-bundle": "4.4.*"
     },
     "config": {
         "preferred-install": {
@@ -89,7 +90,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": "false",
+            "allow-contrib": false,
             "require": "4.4.*"
         }
     }
