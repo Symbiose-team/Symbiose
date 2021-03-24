@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="last commit">
-      <change afterPath="$PROJECT_DIR$/public/pas a pas/pas.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/pas a pas/pas.min.js" afterDir="false" />
+    <list default="true" id="556b0267-f9d0-4098-9028-7460813c2cdb" name="Default Changelist" comment="contrat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Pdf/contrat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Pdf/contrat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pas a pas/pas.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/pas a pas/pas.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FieldAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/field/afficher.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616616802093</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="contrat">
+      <created>1616625199599</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1616625199599</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +361,7 @@
     <MESSAGE value="bundel pdf" />
     <MESSAGE value="firstmerge" />
     <MESSAGE value="last commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="last commit" />
+    <MESSAGE value="contrat" />
+    <option name="LAST_COMMIT_MESSAGE" value="contrat" />
   </component>
 </project>

@@ -32,7 +32,7 @@ class FieldAdminController extends AbstractController
         return $this->render('field_admin/affAdmin.html.twig',['terain'=>$field]);
     }
     /**
-     * @Route ("/detail/{id}",name="detail")
+     * @Route ("/detail/{id}",name="detailss")
      */
     public function detail($id){
 

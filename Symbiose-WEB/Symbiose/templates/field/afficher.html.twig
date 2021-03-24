@@ -2,12 +2,31 @@
 {% block title%}  {% endblock %}
 
 {% block  body %}
+
+{% if  terrain %}
+
+    <div class="container mt-80" >
+
+        <div class="col-md-12" >
+            <div class="card mb-5">
+
+            <iframe class="ratio ratio-16x9"
+
+        src="https://www.youtube.com/embed/vlDzYIIOYmM"
+                title="YouTube video"
+                allowfullscreen></iframe>
+        </div>
+        </div>
+
+
+    </div>
     <ul class="stepper" data-mdb-stepper="stepper">
         <!-- ... -->
-        data-mdb-stepper-optional="true"
     </ul>
+  <div class="container mt-12" >
+    <div class="card mb-5">
 
-    <div>
+    <div class="center">
     <div class="input-group rounded" >
         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                aria-describedby="search-addon" />
@@ -15,14 +34,6 @@
     <i class="fas fa-search"></i>
   </span>
     </div>
-{% if  terrain %}
-    <div style="clear: both">
-    <div class="ratio ratio-16x9">
-        <iframe
-                src="https://www.youtube.com/embed/vlDzYIIOYmM"
-                title="YouTube video"
-                allowfullscreen
-        ></iframe>
     </div>
     </div>
     {% for field in terrain %}
@@ -117,6 +128,7 @@
   {% else %}
     <p> Audun field </p>
   {% endif %}
+
     <nav aria-label="...">
         <ul class="pagination">
             <li class="page-item disabled">
