@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Image;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class SpecialEventType extends AbstractType
 {
@@ -35,6 +36,7 @@ class SpecialEventType extends AbstractType
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
             ])
+            /*
             ->add('Picture', FileType::class, [
                 'data_class' => null,
                 'required' => true,
@@ -44,6 +46,9 @@ class SpecialEventType extends AbstractType
                     new Image(['maxSize' => '1024k'])
                 ],
             ])
+            */
+            ->add('imageFile', VichImageType::class, array('required'=>false,
+                'attr' => array('class'=>'form-control')))
             ->add('save',SubmitType::class, array('label'=>'Create',
                 'attr'=>array('class'=>'btn btn-primary mt-3')))
         ;
