@@ -58,7 +58,7 @@ class Event
     private $Type;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      * @Assert\NotBlank
      * @Assert\DateTime()
      */
