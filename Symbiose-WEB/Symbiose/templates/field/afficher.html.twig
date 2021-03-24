@@ -2,6 +2,11 @@
 {% block title%}  {% endblock %}
 
 {% block  body %}
+    <ul class="stepper" data-mdb-stepper="stepper">
+        <!-- ... -->
+        data-mdb-stepper-optional="true"
+    </ul>
+
     <div>
     <div class="input-group rounded" >
         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
@@ -23,9 +28,7 @@
     {% for field in terrain %}
         <div class="container mt-17">
 
-            <ul class="stepper" data-mdb-stepper="stepper">
-                <!-- ... -->
-            </ul>
+
             <div class="container mt-28">
 
             <div class="col-md-5" >
