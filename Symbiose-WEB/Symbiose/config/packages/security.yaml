@@ -16,10 +16,10 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
         admin:
             pattern: ^/admin
             anonymous: true
-
             provider: in_database
 
             form_login:
@@ -41,6 +41,9 @@ security:
                 target: account_login
 
             user_checker: App\Controller\AccountCheckerController
+            guard:
+                authenticators:
+                    - App\Controller\GuardAuthenticator
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
