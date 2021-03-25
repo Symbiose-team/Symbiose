@@ -17,42 +17,52 @@
         <div class="bg-light up-3">
             <h1>Your Cart</h1>
         </div>
-    <div class="container mt-4">
-        {% if items | length > 0 %}
-            <table class="table">
-                <thead>
+        <div class="container mt-4">
+            {% if items | length > 0 %}
+                <table class="table">
+                    <thead>
                     <tr>
                         <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Quantity</th>
+                        <th>Product total</th>
                         <th>Action</th>
                     </tr>
-                </thead>
-                <tbody>
-                {% for item in items %}
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item.product.name }}</td>
+                            <td class="text-center">{{ item.product.formattedPrice }} (dt)</td>
+                            <td>
+                                <div class="input-group input-group-sm justify-content-center">
+                                    <a href="{{ path("cart_decrease_quantity", { id: item.product.id }) }}" class="btn btn-sm-2 btn-outline-primary">
+                                        <span class="fas fa-minus"></span>
+                                    </a>
+                                    <span class="input-group-text bg-white border-top border-bottom">{{ item.quantity }}</span>
+                                    <a href="{{ path('cart_add', {'id': item.product.id}) }}" class="btn btn-sm-2 btn-outline-primary">
+                                        <span class="fas fa-plus"></span>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>{{ item.product.price * item.quantity }} (dt)</td>
+                            <td>
+                                <a href="{{ path('cart_remove', {'id': item.product.id})}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> </i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
                     <tr>
-                        <td>{{ item.product.name }}</td>
-                        <td>{{ item.product.formattedPrice }} (dt)</td>
-                        <td>{{ item.quantity }}</td>
-                        <td>{{ item.product.price * item.quantity }} (dt)</td>
-                        <td>
-                            <a href="{{ path('cart_remove', {'id': item.product.id})}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> </i></a>
-                        </td>
+                        <td class="fw-bold" colspan="3" align="right">Total :</td>
+                        <td class="fw-bold">{{ total }} (dt)</td>
                     </tr>
-                {% endfor %}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3" align="right">Total :</td>
-                        <td>{{ total }} (dt)</td>
-                    </tr>
-                </tfoot>
-            </table>
-        {% else %}
-            <p>It's empty !</p>
-        {% endif %}
-    </div>
+                    </tfoot>
+                </table>
+            {% else %}
+                <p>Your cart is empty !</p>
+            {% endif %}
+        </div>
     </div>
 
 {% endblock %}

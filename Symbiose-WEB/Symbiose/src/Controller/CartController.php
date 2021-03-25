@@ -2,11 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\CartItem;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -53,6 +50,23 @@ class CartController extends AbstractController
             $cart[$id] = 1;
         }
 
+        $session->set('cart', $cart);
+
+        return $this->redirectToRoute("cart_index");
+    }
+
+    /**
+     * @Route("cart/decrease_quantity/{id}", name="cart_decrease_quantity")
+     */
+    public function decreaseQuantity($id, SessionInterface $session)
+    {
+        $cart = $session->get('cart', []);
+
+        if (!empty($cart[$id])) {
+            $cart[$id]--;
+        }else{
+            unset($cart[$id]);
+        }
 
         $session->set('cart', $cart);
 
