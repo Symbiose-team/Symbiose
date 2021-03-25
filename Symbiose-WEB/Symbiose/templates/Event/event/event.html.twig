@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!--
+    <a class="btn btn-outline-primary" aria-current="page" href="/event/add">Add Event</a>
+    -->
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container p-3 my-3">
+        <h3 align="center">All your events in one place!</h3>
+        <h1 align="center">Events</h1>
+
+        {% if events %}
+            <div class="table-responsive">
+                <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col">Players</th>
+                        <th scope="col">Remaining</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Previs</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>{{ event.name }}</td>
+                            <td>{{ event.supplier }}</td>
+                            <td>{{ event.NumParticipants }}</td>
+                            <td>{{ event.NumRemaining }}</td>
+                            <td>{{ event.type }}</td>
+                            <td>{{ event.date|date }}</td>
+                            {# TODO add dynamic images based on url in DB Events#}
+                            <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                                     class="img-fluid rounded-circle"
+                                     alt=""
+                                     style="border-radius: 4px;
+                                             padding: 5px;
+                                             width: 50px;" ></td>
+                            <td>
+                                <a href="/event/{{ event.id }}" class="btn btn-outline-dark">
+                                    Show
+                                </a>
+
+                                <hr>
+                                <a href="/event/join/{{ event.id }}" class="btn btn-warning">
+                                    Join This Event
+                                </a>
+
+                                <!--
+                                <a href="event/edit/{{ event.id }}" class="btn btn-light">
+                                    Edit
+                                </a>
+                                -->
+
+                                <!--
+                                <a href="event/delete/{{ event.id }}" class="btn btn-danger">
+                                    Delete
+                                </a>
+                                -->
+
+                                <!--
+                                <a href="#" class="btn btn-danger delete-event" data-id="{{ event.id }}">
+                                    Cancel
+                                </a>
+                                -->
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                    {# TODO Add another color to special event table #}
+                    <tbody class="table-warning">
+                    {% for SpecialEvent in SpecialEvents %}
+                            <tr>
+                                <td>{{ SpecialEvent.name }}</td>
+                                <td>{{ SpecialEvent.supplier }}</td>
+                                <td>{{ SpecialEvent.NumParticipants }}</td>
+                                <td>{{ SpecialEvent.NumRemaining }}</td>
+                                <td>{{ SpecialEvent.type }}</td>
+                                <td>{{ SpecialEvent.date|date }}</td>
+                                <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                                         class="img-fluid rounded-circle"
+                                         alt=""
+                                         style="border-radius: 4px;
+                                             padding: 5px;
+                                             width: 50px;" ></td>
+                                <td>
+                                    <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-outline-primary">
+                                        Show
+                                    </a>
+
+                                    <hr>
+                                    <a href="/specialevent/join/{{ SpecialEvent.id }}" class="btn btn-warning">
+                                        Join This Event
+                                    </a>
+
+                                    <!--
+                                    <a href="specialevent/edit/{{ SpecialEvent.id }}" class="btn btn-light">
+                                        Edit
+                                    </a>
+                                    -->
+
+                                    <!--
+                                    <a href="specialevent/delete/{{ SpecialEvent.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                        Delete
+                                    </a>
+                                    -->
+                                </td>
+                            </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        {% else %}
+            <p>No events yet !</p>
+        {% endif %}
+
+    </div>
+
+    <!--
+    {% block Javascripts %}
+        <script
+                type="text/javascript"
+                src="/js/delete_event.js">
+        </script>
+    {% endblock %}
+    -->
+
+{% endblock %}
+

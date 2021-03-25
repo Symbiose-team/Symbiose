@@ -14,7 +14,7 @@ class EventSupplierController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('event_supplier/event-event-welcome.html.twig', [
+        return $this->render('Event/event_supplier/event-event-welcome.html.twig', [
             'controller_name' => 'EventSupplierController',
         ]);
     }
@@ -35,7 +35,7 @@ class EventSupplierController extends AbstractController
 
         //$events=$this->getDoctrine()->getRepository(Event::class)->findAll();
 
-        return $this->render('event_supplier/supplier_event.html.twig', array('events' => $events));
+        return $this->render('Event/event_supplier/supplier_event.html.twig', array('events' => $events));
     }
 
     //Show event by id
@@ -44,7 +44,7 @@ class EventSupplierController extends AbstractController
      */
     public function supplierShow($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-        return $this->render('event_supplier/show_supplier_event.html.twig',array('event' => $event));
+        return $this->render('Event/event_supplier/show_supplier_event.html.twig',array('event' => $event));
     }
 
 }

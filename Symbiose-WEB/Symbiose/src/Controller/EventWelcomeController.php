@@ -13,7 +13,7 @@ class EventWelcomeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('event-welcome/event-welcome.html.twig', [
+        return $this->render('Event/event-welcome/event-welcome.html.twig', [
             'controller_name' => 'EventWelcomeController',
         ]);
     }

@@ -31,7 +31,7 @@ class EventController extends AbstractController
     {
         $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
         $Sevents=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
-        return $this->render('event/event.html.twig', array(
+        return $this->render('Event/event/event.html.twig', array(
             'events' => $events, 'SpecialEvents'=> $Sevents));
     }
 
@@ -39,14 +39,14 @@ class EventController extends AbstractController
      * @Route("/success",name="success")
      */
     public function success(){
-        return $this->render('event/success.html.twig');
+        return $this->render('Event/event/success.html.twig');
     }
 
     /**
      * @Route("/error",name="error")
      */
     public function error(){
-        return $this->render('event/error.html.twig');
+        return $this->render('Event/event/error.html.twig');
     }
 
     //Paiement Stripe
@@ -99,7 +99,7 @@ class EventController extends AbstractController
             else
                 $event.NumRemaining = $event.NumRemaining - 1
         */
-        return $this->render('/event/join_event.html.twig',array('event' => $event));
+        return $this->render('Event/event/join_event.html.twig',array('event' => $event));
     }
 
     //TODO Work on the logic (as a client i want to join an event)
@@ -111,7 +111,7 @@ class EventController extends AbstractController
 
         $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
 
-        return $this->render('/event/join_special_event.html.twig',array('Sevent' => $Sevent));
+        return $this->render('Event/event/join_special_event.html.twig',array('Sevent' => $Sevent));
     }
 
     //Order matters!
@@ -121,7 +121,7 @@ class EventController extends AbstractController
      */
     public function show($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-        return $this->render('event/show_event.html.twig',array('event' => $event));
+        return $this->render('Event/event/show_event.html.twig',array('event' => $event));
     }
 
 
