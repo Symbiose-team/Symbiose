@@ -6,6 +6,8 @@ use App\Entity\Event;
 use App\Entity\SpecialEvent;
 use App\Form\EventType;
 use App\Form\SpecialEventType;
+use App\Repository\EventRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Validator\Constraints\Image;
@@ -21,16 +23,33 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EventAdminController extends AbstractController
 {
+    private $repository;
+    /**
+     * $var ObjectManager
+     */
+    private $em;
+    public function __construct(EventRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     //Admin page
     /**
      * @Route("/eventadmin", name="event_admin")
      */
-    public function admin(): Response
+    public function admin(PaginatorInterface $paginator, Request $request): Response
     {
-        $S_events=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
-        $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
 
-        return $this->render('event_admin/eventadmin.html.twig',array('SpecialEvents' => $S_events,'events' => $events));
+        $events = $paginator->paginate(
+            $this->repository->findAll(),
+            $request->query->getInt('page', 1),
+            12
+        );
+
+        $S_events=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
+
+        return $this->render('event_admin/eventadmin.html.twig', ['current_menu' => 'events', 'events' => $events , 'SpecialEvents'=>$S_events]);
+
     }
 
     //Add an event

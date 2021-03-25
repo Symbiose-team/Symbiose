@@ -25,7 +25,7 @@ class EventFixture extends Fixture
             $event->setImageFile(null);
             $event->setImageName("placeholder");
             $event->setImageSize(0);
-            $event->
+            $event->setUpdatedAt($faker->dateTime);
             $manager->persist($event);
         }
         $manager->flush();

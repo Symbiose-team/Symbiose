@@ -203,6 +203,10 @@
                         {% endif %}
 
                     </div>
+                    {# display navigation #}
+                    <div class="navigation">
+                        {{ knp_pagination_render(events) }}
+                    </div>
 
                 </div>
                 <a class="btn btn-outline-dark" aria-current="page" href="/event/add" >Add Event</a>

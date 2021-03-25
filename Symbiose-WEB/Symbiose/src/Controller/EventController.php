@@ -4,6 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Event;
 use App\Entity\SpecialEvent;
+use App\Repository\EventRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
+use Knp\Component\Pager\Paginator;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -22,17 +28,36 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class EventController extends AbstractController
 {
+
+
+    private $repository;
+    /**
+     * $var ObjectManager
+     */
+    private $em;
+    public function __construct(EventRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     //Get event list
     /**
      * @Route("/events", name="event_list")
      * @Method({"GET"})
      */
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
-        $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
+
+        $events = $paginator->paginate(
+            $this->repository->findAll(),
+            $request->query->getInt('page', 1),
+            12
+        );
+
         $Sevents=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
-        return $this->render('event/event.html.twig', array(
-            'events' => $events, 'SpecialEvents'=> $Sevents));
+
+
+        return $this->render('event/event.html.twig', ['current_menu' => 'events', 'events' => $events , 'SpecialEvents'=>$Sevents]);
     }
 
     /**

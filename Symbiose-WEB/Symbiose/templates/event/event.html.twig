@@ -13,6 +13,7 @@
         <h3 align="center">All your events in one place!</h3>
         <h1 align="center">Events</h1>
 
+
         {% if events %}
             <div class="table-responsive">
                 <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
@@ -75,48 +76,6 @@
                         </tr>
                     {% endfor %}
                     </tbody>
-
-                    {# TODO Add another color to special event table #}
-                    <tbody class="table-warning">
-                    {% for SpecialEvent in SpecialEvents %}
-                            <tr>
-                                <td>{{ SpecialEvent.name }}</td>
-                                <td>{{ SpecialEvent.supplier }}</td>
-                                <td>{{ SpecialEvent.NumParticipants }}</td>
-                                <td>{{ SpecialEvent.NumRemaining }}</td>
-                                <td>{{ SpecialEvent.type }}</td>
-                                <td>{{ SpecialEvent.date|date }}</td>
-                                <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                         class="img-fluid rounded-circle"
-                                         alt=""
-                                         style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
-                                <td>
-                                    <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-outline-primary">
-                                        Show
-                                    </a>
-
-                                    <hr>
-                                    <a href="/specialevent/join/{{ SpecialEvent.id }}" class="btn btn-warning">
-                                        Join This Event
-                                    </a>
-
-                                    <!--
-                                    <a href="specialevent/edit/{{ SpecialEvent.id }}" class="btn btn-light">
-                                        Edit
-                                    </a>
-                                    -->
-
-                                    <!--
-                                    <a href="specialevent/delete/{{ SpecialEvent.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
-                                        Delete
-                                    </a>
-                                    -->
-                                </td>
-                            </tr>
-                    {% endfor %}
-                    </tbody>
                 </table>
             </div>
 
@@ -124,6 +83,60 @@
             <p>No events yet !</p>
         {% endif %}
 
+
+
+
+        {# display navigation #}
+        <div class="navigation">
+            {{ knp_pagination_render(events) }}
+        </div>
+    </div>
+
+    <div class="container p-3 my-3">
+        <h3 align="center">Check out our Special events</h3>
+
+    <table id="Sevents" class="table table-hover table-bordered table-sm table-primary border-light">
+        <tbody>
+        {% for SpecialEvent in SpecialEvents %}
+            <tr>
+                <td>{{ SpecialEvent.name }}</td>
+                <td>{{ SpecialEvent.supplier }}</td>
+                <td>{{ SpecialEvent.NumParticipants }}</td>
+                <td>{{ SpecialEvent.NumRemaining }}</td>
+                <td>{{ SpecialEvent.type }}</td>
+                <td>{{ SpecialEvent.date|date }}</td>
+                <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                         class="img-fluid rounded-circle"
+                         alt=""
+                         style="border-radius: 4px;
+                                             padding: 5px;
+                                             width: 50px;" ></td>
+                <td>
+                    <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-outline-primary">
+                        Show
+                    </a>
+
+                    <hr>
+                    <a href="/specialevent/join/{{ SpecialEvent.id }}" class="btn btn-warning">
+                        Join This Event
+                    </a>
+
+                    <!--
+                                    <a href="specialevent/edit/{{ SpecialEvent.id }}" class="btn btn-light">
+                                        Edit
+                                    </a>
+                                    -->
+
+                    <!--
+                                    <a href="specialevent/delete/{{ SpecialEvent.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                        Delete
+                                    </a>
+                                    -->
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
     </div>
 
     <!--
