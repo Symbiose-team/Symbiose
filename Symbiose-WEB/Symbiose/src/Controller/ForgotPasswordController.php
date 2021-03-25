@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
 class ForgotPasswordController extends AbstractController
@@ -79,6 +80,7 @@ class ForgotPasswordController extends AbstractController
 
             return $this->redirectToRoute('account_login');
         }
+
         return $this->render('forgot_password/forgot_password_step1.html.twig', [
             'forgotPasswordFormStep1' => $form->createView(),
 
@@ -97,12 +99,11 @@ class ForgotPasswordController extends AbstractController
         User $user
     ): RedirectResponse
     {
+
         $this->session->set('Reset-Password-Token-URL',$token);
         $this->session->set('Reset-Password-User-Email',$user->getEmail());
 
         return $this->redirectToRoute('app_reset_password');
-
-
     }
 
     /**
@@ -117,13 +118,14 @@ class ForgotPasswordController extends AbstractController
             'userEmail'=>$userEmail
         ]=$this->getCredentialsFromSession();
 
-        $user=$this->repo->findOneBy([
-            'Email'=>$userEmail
-        ]);
+        $user=$this->repo->findOneBy(['Email' => $userEmail]);
 
         if(!$user){
-            return $this->redirectToRoute('app_forgot_password');
+            dump($userEmail);
+            throw new CustomUserMessageAuthenticationException('Email could not be found.');
+
         }
+
     /** @var  DateTimeImmutable $forgotPasswordTokenMustBeVerifiedBefore */
         $forgotPasswordTokenMustBeVerifiedBefore= $user->getForgotPasswordTokenMustBeVerifiedBefore();
 

@@ -352,9 +352,9 @@ class User implements UserInterface
         return $this->hash;
     }
 
-    public function getSalt()
+    public function getSalt(): ?string
     {
-        // TODO: Implement getSalt() method.
+        return null;
     }
 
     public function getUsername()
@@ -362,7 +362,7 @@ class User implements UserInterface
         return $this->Email;
     }
 
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // TODO: Implement eraseCredentials() method.
     }
