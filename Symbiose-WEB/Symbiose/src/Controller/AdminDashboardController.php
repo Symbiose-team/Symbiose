@@ -2,11 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Event;
+use App\Entity\SpecialEvent;
 use App\Entity\User;
 use App\Form\AccountType;
+use App\Form\EventType;
+use App\Form\SpecialEventType;
 use App\Repository\UserRepository;
 use Cassandra\Type\UserType;
 use Doctrine\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -127,7 +132,181 @@ class AdminDashboardController extends AbstractController
             return new JsonResponse($retour);
         }
 
+        //*********Gestion Evenement****************
+
+    /**
+     * @Route("/admin/events", name="event_admin")
+     */
+    public function admin(): Response
+    {
+        $S_events=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
+        $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
+
+        return $this->render('Event/event_admin/eventadmin.html.twig',array('SpecialEvents' => $S_events,'events' => $events));
+    }
+
+    //Add an event
+    /**
+     * @Route("/admin/event/add", name="admin_new_event")
+     * @Method({"GET","POST"})
+     */
 
 
+    public function new(Request $request){
+        $event = new Event();
 
+        $form= $this->createForm(EventType::class, $event);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $file = $event->getPicture();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$filename);
+            $event->setPicture($filename);
+
+            $event = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('event_admin');
+        }
+
+        return $this->render('Event/event_admin/new_event.html.twig', array('form'=>$form->createView()));
+    }
+
+    //Edit an event
+    /**
+     * @Route("/admin/event/edit/{id}", name="admin_edit_event")
+     * @Method({"GET","POST"})
+     */
+    public function Eventedit(Request $request, $id){
+        $event = new Event();
+        $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
+
+        $form= $this->createForm(EventType::class, $event);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $file = $event->getPicture();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$filename);
+            $event->setPicture($filename);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+
+            return $this->redirectToRoute('event_admin');
+        }
+
+        return $this->render('Event/event_admin/edit_event.html.twig', array('form'=>$form->createView()));
+    }
+
+    //DELETE event
+    /**
+     * @Route ("/admin/event/delete/{id}", name="admin_event_delete")
+     * @Method ({"DELETE"})
+     */
+    public function Eventdelete(Request $request, $id){
+        $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($event);
+        $entityManager->flush();
+        return $this->redirectToRoute('event_admin');
+
+    }
+
+    //Add a Special event as an admin
+    /**
+     * @Route("/admin/specialevent/add", name="admin_new_Sevent")
+     * @Method({"GET","POST"})
+     */
+    public function newSevent(Request $request){
+        $Sevent = new SpecialEvent();
+
+        $form= $this->createForm(SpecialEventType::class, $Sevent);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $Sevent = $form->getData();
+
+            $file = $Sevent->getPicture();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$filename);
+            $Sevent->setPicture($filename);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($Sevent);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('event_admin');
+        }
+
+        return $this->render('Event/event_admin/new_special_event.html.twig', array('form'=>$form->createView()));
+    }
+
+    //Edit a Special event
+    /**
+     * @Route("/admin/specialevent/edit/{id}", name="admin_edit_Sevent")
+     * @Method({"GET","POST"})
+     */
+    public function editSevent(Request $request, $id){
+        $Sevent = new SpecialEvent();
+        $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
+
+        $form= $this->createForm(SpecialEventType::class, $Sevent);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $file = $Sevent->getPicture();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$filename);
+            $Sevent->setPicture($filename);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+
+            return $this->redirectToRoute('event_admin');
+        }
+
+        return $this->render('Event/event_admin/edit_special_event.html.twig', array('form'=>$form->createView()));
+    }
+
+    //DELETE Special event
+    /**
+     * @Route ("/admin/specialevent/delete/{id}" , name="admin_delete_Sevent")
+     * @Method ({"DELETE"})
+     */
+    public function deleteSevent(Request $request, $id){
+        $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($Sevent);
+        $entityManager->flush();
+        return $this->redirectToRoute('event_admin');
+
+    }
+
+    //Order matters!
+    //Show admin event by id
+    /**
+     * @Route("/admin/eventadmin/{id}",name="admin_event_show")
+     */
+    public function show($id){
+        $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
+        return $this->render('Event/event_admin/show_admin_event.html.twig',array('event' => $event));
+    }
+
+    //Show Special event by id
+    /**
+     * @Route("/admin/specialevent/{id}",name="admin_Sevent_show")
+     */
+    public function showSevent($id){
+        $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
+        return $this->render('Event/event_admin/show_special_event.html.twig',array('Sevent' => $Sevent));
+    }
 }
+
