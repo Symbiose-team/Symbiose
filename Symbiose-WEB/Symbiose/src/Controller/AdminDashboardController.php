@@ -180,14 +180,7 @@ class AdminDashboardController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-
-            $file = $event->getPicture();
-            $filename = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory'),$filename);
-            $event->setPicture($filename);
-
             $event = $form->getData();
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($event);
             $entityManager->flush();
@@ -211,12 +204,6 @@ class AdminDashboardController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-
-            $file = $event->getPicture();
-            $filename = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory'),$filename);
-            $event->setPicture($filename);
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
@@ -253,12 +240,6 @@ class AdminDashboardController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $Sevent = $form->getData();
-
-            $file = $Sevent->getPicture();
-            $filename = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory'),$filename);
-            $Sevent->setPicture($filename);
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($Sevent);
             $entityManager->flush();
@@ -282,15 +263,8 @@ class AdminDashboardController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-
-            $file = $Sevent->getPicture();
-            $filename = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory'),$filename);
-            $Sevent->setPicture($filename);
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
-
             return $this->redirectToRoute('event_admin');
         }
 

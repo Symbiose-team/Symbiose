@@ -90,7 +90,7 @@
                     </h5>
                     <div class="input-group">
                         <div class="form-outline">
-                            <a class="btn btn-outline-dark" aria-current="page" href="/specialevent/add">Add a Special Event</a>
+                            <a class="btn btn-outline-dark" aria-current="page" href="{{ path('admin_new_Sevent') }}">Add a Special Event</a>
                         </div>
                     </div>
 
@@ -127,16 +127,16 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                                     <td>
-                                        <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-dark">
+                                        <a href="{{ path('admin_Sevent_show',{'id':SpecialEvent.id}) }}" class="btn btn-dark">
                                             Show
                                         </a>
 
-                                        <a href="specialevent/edit/{{ SpecialEvent.id }}" class="btn btn-light">
+                                        <a href="{{ path('admin_edit_Sevent',{'id':SpecialEvent.id}) }}" class="btn btn-light">
                                             Edit
                                         </a>
 
 
-                                        <a href="specialevent/delete/{{ SpecialEvent.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                        <a href="{{ path('admin_delete_Sevent',{'id':SpecialEvent.id}) }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
                                             Delete
                                         </a>
                                     </td>

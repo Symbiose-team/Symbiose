@@ -50,6 +50,22 @@ class AppFixtures extends Fixture
             ->addUserRole($adminRole);
         $manager->persist($adminUser);
 
+        $adminUserV2 = new User();
+        $adminUserV2->setFirstName('Admin')
+            ->setLastName('Admin')
+            ->setEmail('admin@symbiose.tn')
+            ->setHash($this->encoder->encodePassword($adminUser, 'password'))
+            ->setPicture('https://unavatar.now.sh/reddit.com')
+            ->setCin(666888774)
+            ->setBirthday($faker->dateTime)
+            ->setRole('Admin')
+            ->setAdresse('Tunis Ariana')
+            ->setPhoneNumber(214455875)
+            ->setIsVerified(true)
+            ->setIsEnabled(true)
+            ->addUserRole($adminRole);
+        $manager->persist($adminUserV2);
+
 
         //$slugify = new Slugify();
 
