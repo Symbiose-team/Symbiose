@@ -20,3 +20,4 @@
 ###< symfony/web-server-bundle ###
 
 /migrations/
+/public/images/
