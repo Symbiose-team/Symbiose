@@ -9,18 +9,19 @@
             <div class="container mt-4">
                 <div class="row">
                     {% for product in products %}
-                    <div class="col-md-4">
-                        <div class="card mb-5">
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#">{{ product.name }}</a></h3>
-                                <p class="card_text">{{ product.description | nl2br }}</p>
-                                <div class="text-primary" style="font-weight: bold; font-size: 2rem">{{ product.formattedPrice }} (dt)</div>
-                                <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success">
-                                    <i class="fas fa-shopping-cart mr-1"></i> Add to cart
-                                </a>
+                        <div class="col-md-4">
+                            <div class="card mb-5">
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="#">{{ product.name }}</a></h3>
+                                    <p class="card_text">{{ product.description | nl2br }}</p>
+                                    <div class="text-primary" style="font-weight: bold; font-size: 2rem">{{ product.formattedPrice }} (dt)</div>
+                                    <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success" onclick="return confirm('Are you sure ?')">
+                                        <i class="fas fa-shopping-cart mr-1"></i>
+                                        Add to cart
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
                 <div class="pagination">{{ knp_pagination_render(products) }}</div>

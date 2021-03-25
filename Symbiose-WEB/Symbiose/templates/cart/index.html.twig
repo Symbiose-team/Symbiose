@@ -47,7 +47,7 @@
                             </td>
                             <td>{{ item.product.price * item.quantity }} (dt)</td>
                             <td>
-                                <a href="{{ path('cart_remove', {'id': item.product.id})}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> </i></a>
+                                <a href="{{ path('cart_remove', {'id': item.product.id})}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -59,6 +59,7 @@
                     </tr>
                     </tfoot>
                 </table>
+                <a href="/equipment">Go to shop</a>
             {% else %}
                 <p>Your cart is empty !</p>
             {% endif %}
