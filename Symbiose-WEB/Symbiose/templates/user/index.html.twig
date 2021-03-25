@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de {{ user.fullname }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-3 text-center">
+            <img src="{{ user.picture }}" class="avatar mb-3" alt="Avatar de {{ user.fullname }}">
+            <br>
+            {% if is_granted("ROLE_FOURNISSEUR") %}
+            <span class="badge bg-primary">Annonces</span>
+            {% endif %}
+            {% if is_granted('ROLE_CLIENT') %}
+            <span class="badge bg-info">Joueur</span>
+            <span class="badge bg-warning">MVP</span>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+            <span class="badge bg-dark">Admin</span>
+            {% endif %}
+        </div>
+        <div class="col-9">
+            <h1>{{ user.fullname }}</h1>
+            {% if user is same as (app.user) %}
+                <div class="mt-3">
+                    <a href="{{ path('account_profile') }}" class="btn btn-primary mr-2 mb-2">Modifier mes informations</a>
+                    <a href="{{ path('account_password') }}" class="btn btn-primary mb-2">Modifier mon mot de passe</a>
+                    <a href="{{ path('homepage') }}" class="btn btn-outline-primary mb-2">Retourner à la page d'acceuil</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="text-center mt-3">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias culpa cum, dolores et explicabo fuga impedit incidunt magni minus nihil nobis numquam optio pariatur porro quas quia quisquam repellendus reprehenderit sed sequi totam vero. Aliquid, aut blanditiis, deleniti enim, esse facilis molestiae molestias mollitia pariatur saepe unde voluptates voluptatum.</p></div>
+    <hr>
+    {% if is_granted("ROLE_FOURNISSEUR") %}
+        <h2>Les annonces de {{ user.fullname }}</h2>
+    <div class="row">
+        <!--Premier produit-->
+        <div class="col-md-4">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center">
+                    Terrain derniere generation,<strong> 8DT/Joueur</strong><br>
+                    <small>Pas encore noté</small>
+                </div>
+
+                <img src="https://via.placeholder.com/1000x400" alt="Image du terrain" style="height: 200px;width:100%;display: block ">
+                <div class="card-body">
+                    <h4 class="card-title">Terrain de ouf ! </h4>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolor ipsam laudantium magni omnis porro quos sapiente                              soluta tempore ullam.
+                    </p>
+                    <a href="#" class="btn btn-secondary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Deuxieme produit-->
+        <div class="col-md-4">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center">
+                    Terrain gazon fibrillé,<strong> 6.5DT/Joueur</strong><br>
+                    <small>Pas encore noté</small>
+                </div>
+
+                <img src="https://via.placeholder.com/1000x400" alt="Image du terrain" style="height: 200px;width:100%;display: block ">
+                <div class="card-body">
+                    <h4 class="card-title">Terrain de ouf ! </h4>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolor ipsam laudantium magni omnis porro quos sapiente                              soluta tempore ullam.
+                    </p>
+                    <a href="#" class="btn btn-secondary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Troisieme produit-->
+        <div class="col-md-4">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center">
+                    Terrain gazon monofilament,<strong> 7.5DT/Joueur</strong><br>
+                    <small>Pas encore noté</small>
+                </div>
+
+                <img src="https://via.placeholder.com/1000x400" alt="Image du terrain" style="height: 200px;width:100%;display: block ">
+                <div class="card-body">
+                    <h4 class="card-title">Terrain de ouf ! </h4>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolor ipsam laudantium magni omnis porro quos sapiente soluta tempore ullam.
+                    </p>
+                    <a href="#" class="btn btn-secondary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% elseif is_granted("ROLE_CLIENT") %}
+            <h2>Les matchs de {{ user.fullname }}</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Resultat</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Nombre de but</th>
+                    <th scope="col">Durée</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-success">
+                    <th scope="row">Victoire</th>
+                    <td>8-2</td>
+                    <td>3</td>
+                    <td>45 minutes</td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">Défaite</th>
+                    <td>11-10</td>
+                    <td>4</td>
+                    <td>60 minutes</td>
+                </tr>
+
+                </tbody>
+            </table>
+    {% endif %}
+</div>
+
+{% endblock %}

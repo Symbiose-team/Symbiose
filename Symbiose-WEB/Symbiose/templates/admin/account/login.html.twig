@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Administration</title>
+    <link rel="stylesheet" href="/css/app.css">
+
+    <!-- Font Awesome -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"/>
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+            rel="stylesheet"/>
+</head>
+<body>
+<!-- Background image -->
+<header>
+    <div id="introv2" class="bg-image shadow-2-strong">
+        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-md-8">
+                        {% if hasError %}
+                        <div class="alert alert-warning">
+                            <p>
+                                Les informations que vous avez fournies sont erronées !
+                            </p>
+                        </div>
+                        {% endif %}
+                        <form class="bg-white rounded shadow-5-strong p-5" method="post">
+                            <h5>Connexion Admin</h5>
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="form1Example1" class="form-control" name="_username" value="{{ username }}"/>
+                                <label class="form-label" for="_username">Email address</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input type="password" id="form1Example2" class="form-control" name="_password"/>
+                                <label class="form-label" for="_password">Password</label>
+                            </div>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-lock-open "></i> Connexion
+                            </button>
+                            <a href="{{ path('homepage') }}" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i>  Retourner au site</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Background image -->
+
+<!--Main Navigation-->
+<!--Footer-->
+    <footer>
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgb(0,0,0);">
+            © 2021 Copyright:
+            <a class="text-white" href={{ path('homepage') }}>SYMBIOSE</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+<!--Footer-->
+</body>
+<!-- MDB -->
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js">
+
+</script>
+<!-- Custom scripts -->
+<script type="text/javascript" src="js/script.js"></script>
+{#          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>#}
+{#          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>#}
+{#        <script src="/js/vendor/jquery-3.5.1.slim.min.js"></script>#}
+{#        <script src="/js/bootstrap.min.js"></script>#}
+{% block javascripts %}{% endblock %}
+</body>
+</html>

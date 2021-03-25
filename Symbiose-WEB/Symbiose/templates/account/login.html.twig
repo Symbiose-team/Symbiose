@@ -1,0 +1,54 @@
+{% extends 'base_login_only.html.twig' %}
+
+{% block title %}Connexion au site{% endblock %}
+
+{% block body %}
+    <!-- Background image -->
+    <div id="intro" class="bg-image shadow-2-strong">
+        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+            <div class="container">
+
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-md-8">
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">{{ message }}</div>
+                        {% endfor %}
+                        <form class="bg-white rounded shadow-5-strong p-5" action="{{ path('account_login') }}" method="post">
+                            <h1>Connectez-vous!</h1>
+                            {% if hasError %}
+                                <div class="alert alert-dismissible alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    Une erreur est survenue, le nom d'utilisitateur ou le mot de passe est invalide
+                                </div>
+                            {% endif %}
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" name="_username" id="Email" placeholder="Email"  class="form-control" required value="{{ username }}">
+                                <label class="form-label" for="Email">Email</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                            <input type="password" name="_password" id="password" placeholder="Mot de passe" class="form-control" required>
+                            <label class="form-label" for="password">Mot de passe</label>
+                                <input type="hidden" name="_csrf_token"
+                                       value="{{ csrf_token('authenticate') }}"
+                                >
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-success btn-block">Connexion</button>
+                            <div class="col text-center">
+                                <!-- Simple link -->
+                                <a href="{{ path('app_forgot_password') }}" class="d-block text-center text-info text-decoration-none mt-3">Mot de passe oublié ?</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

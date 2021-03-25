@@ -1,0 +1,69 @@
+div.container{
+    margin-top: 20px;
+}
+
+.avatar{
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 50%;
+}
+
+.avatar-mini {
+    max-width: 24px;
+    max-height: 24px;
+}
+/* Carousel styling */
+#introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+    height: 100vh;
+}
+
+.carousel-item:nth-child(1) {
+    background-image: url('https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-item:nth-child(2) {
+    background-image: url('https://www.teahub.io/photos/full/268-2686086_nike-football-desktop-wallpaper-hd-1080p-nike-magista.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-item:nth-child(3) {
+    background-image: url('https://www.teahub.io/photos/full/49-497322_wallpaper-nike-football-extremely-hd-desktop-and-cell.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+    #introCarousel {
+        margin-top: -58.59px;
+    }
+}
+
+.navbar .nav-link {
+    color: #fff !important;
+}
+/*Login styling */
+#intro {
+    background-image: url(https://i.pinimg.com/originals/e0/a6/6c/e0a66c948640f0ec8cfbadfb715aadd4.jpg);
+    height: 100vh;
+}
+#introv2 {
+    background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2014/03/02/284063/d54e2be8f5f727303b3320923fddf926-700.jpg);
+    height: 100vh;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+    #intro {
+        margin-top: -58.59px;
+    }
+}

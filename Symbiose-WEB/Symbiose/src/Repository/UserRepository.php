@@ -19,6 +19,20 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    /**
+     * @param $id
+     * @return int|mixed|string
+     */
+    public function findByAjax($id) {
+        $db = $this->createQueryBuilder('user');
+
+        return $db->select('user')
+            ->where('user.id LIKE :id')
+            ->setParameter('id', '%'.$id.'%')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

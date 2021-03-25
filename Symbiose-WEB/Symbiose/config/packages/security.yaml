@@ -1,15 +1,49 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
+        in_database:
+            entity:
+                class: App\Entity\User
+                property: Email
+        # used to reload user from session & other features (e.g. switch_user)
+
+        # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: lazy
-            provider: users_in_memory
 
+        admin:
+            pattern: ^/admin
+            anonymous: true
+            provider: in_database
+
+            form_login:
+                login_path: admin_account_login
+                check_path: admin_account_login
+            logout:
+                path: admin_account_logout
+                target: homepage
+        main:
+            anonymous: true
+            provider: in_database
+
+            form_login:
+                login_path: account_login
+                check_path: account_login
+
+            logout:
+                path: account_logout
+                target: account_login
+
+            user_checker: App\Controller\AccountCheckerController
+            guard:
+                authenticators:
+                    - App\Controller\GuardAuthenticator
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -19,5 +53,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
