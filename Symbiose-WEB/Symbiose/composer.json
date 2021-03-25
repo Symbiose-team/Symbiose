@@ -5,6 +5,7 @@
         "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "cocur/slugify": "^4.0",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/annotations": "^1.0",
@@ -13,6 +14,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
         "fzaninotto/faker": "^1.9",
+        "knplabs/knp-paginator-bundle": "^5.4",
         "odolbeau/phone-number-bundle": "^3.3",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.1",
@@ -40,7 +42,7 @@
         "symfony/yaml": "4.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-      "ext-json": "*"
+        "vich/uploader-bundle": "^1.17"
     },
     "require-dev": {
         "symfony/browser-kit": "^4.4",

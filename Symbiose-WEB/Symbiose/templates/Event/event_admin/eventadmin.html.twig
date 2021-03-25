@@ -2,7 +2,7 @@
 
 {% block body %}
     <main style="margin-top: 58px">
-    <div class="container col-md-6">
+    <div class="container">
         <!--Section: Manage All Events-->
         <section class="mb-4">
             <div class="card">
@@ -10,6 +10,12 @@
                     <h5 class="mb-0 text-center">
                         <strong>Manage All Events</strong>
                     </h5>
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <a class="btn btn-outline-dark" aria-current="page" href="{{ path('admin_new_event') }}" >Add Event</a>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -61,11 +67,15 @@
                         {% else %}
                             <p>No events yet !</p>
                         {% endif %}
-
+                    </div>
+                    {# display navigation #}
+                    <div class="navigation">
+                        {{ knp_pagination_render(events) }}
+                    </div>
                     </div>
 
                 </div>
-                <a class="btn btn-outline-dark" aria-current="page" href="{{ path('admin_new_event') }}" >Add Event</a>
+
 
             </div>
         </section>
@@ -78,6 +88,12 @@
                     <h5 class="mb-0 text-center">
                         <strong>Manage All Special Events</strong>
                     </h5>
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <a class="btn btn-outline-dark" aria-current="page" href="/specialevent/add">Add a Special Event</a>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -131,10 +147,13 @@
                         {% else %}
                             <p>No Special events yet !</p>
                         {% endif %}
-
+                        {# display navigation #}
+                        <div class="navigation">
+                            {{ knp_pagination_render(events) }}
+                        </div>
                     </div>
                 </div>
-                <a class="btn btn-outline-dark" aria-current="page" href="/specialevent/add">Add a Special Event</a>
+
 
             </div>
         </section>

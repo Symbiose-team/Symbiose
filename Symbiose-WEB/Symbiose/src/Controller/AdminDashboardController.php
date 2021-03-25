@@ -8,7 +8,9 @@ use App\Entity\User;
 use App\Form\AccountType;
 use App\Form\EventType;
 use App\Form\SpecialEventType;
+use App\Repository\EventRepository;
 use App\Repository\UserRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Cassandra\Type\UserType;
 use Doctrine\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -134,15 +136,34 @@ class AdminDashboardController extends AbstractController
 
         //*********Gestion Evenement****************
 
+    private $repository;
+    /**
+     * $var ObjectManager
+     */
+    private $em;
+    public function __construct(EventRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * @Route("/admin/events", name="event_admin")
      */
-    public function admin(): Response
+    public function admin(PaginatorInterface $paginator, Request $request): Response
     {
+        $events = $paginator->paginate(
+            $this->repository->findAll(),
+            $request->query->getInt('page', 1),
+            10
+        );
+        $Sevents = $paginator->paginate(
+            $this->repository->findAll(),
+            $request->query->getInt('page', 1),
+            5
+        );
         $S_events=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
-        $events=$this->getDoctrine()->getRepository(Event::class)->findAll();
+        return $this->render('Event/event_admin/eventadmin.html.twig', ['current_menu' => 'events', 'events' => $events , 'SpecialEvents'=>$Sevents]);
 
-        return $this->render('Event/event_admin/eventadmin.html.twig',array('SpecialEvents' => $S_events,'events' => $events));
     }
 
     //Add an event

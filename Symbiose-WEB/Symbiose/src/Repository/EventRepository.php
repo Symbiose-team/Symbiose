@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,26 +20,22 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
-    public function Joining($value)
-    {
-        return $this->createQueryBuilder('e');
-    }
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findPlayersRemaining($value)
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
+            ->andWhere('e.NumRemaining = :val')
             ->setParameter('val', $value)
             ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
+            //->setMaxResults(10)
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Event
@@ -51,4 +48,7 @@ class EventRepository extends ServiceEntityRepository
         ;
     }
     */
+    private function findVisibleQuery()
+    {
+    }
 }

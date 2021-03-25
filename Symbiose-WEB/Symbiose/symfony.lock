@@ -111,6 +111,15 @@
     "giggsey/locale": {
         "version": "1.9"
     },
+    "jms/metadata": {
+        "version": "2.5.0"
+    },
+    "knplabs/knp-components": {
+        "version": "v3.0.2"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.4.2"
+    },
     "laminas/laminas-code": {
         "version": "4.0.0"
     },
@@ -367,6 +376,9 @@
             "./tests/bootstrap.php"
         ]
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.22.1"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.22.1"
     },
@@ -453,6 +465,9 @@
     "symfony/stopwatch": {
         "version": "v4.4.19"
     },
+    "symfony/string": {
+        "version": "v5.2.4"
+    },
     "symfony/test-pack": {
         "version": "v1.0.7"
     },
@@ -536,6 +551,15 @@
     },
     "twig/twig": {
         "version": "v3.3.0"
+    },
+    "vich/uploader-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "c4f5755b37fb65b9c6a3cbdae91205c15a137ed4"
+        }
     },
     "webmozart/assert": {
         "version": "1.9.1"
