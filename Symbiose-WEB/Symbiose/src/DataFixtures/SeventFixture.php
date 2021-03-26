@@ -14,15 +14,15 @@ class SeventFixture extends Fixture
     {
 
         $faker = Factory::create('fr_FR');
-        for ($i = 0; $i < 100; $i++){
+        for ($i = 0; $i < 5; $i++){
             $sevent = new SpecialEvent();
-            $sevent->setName($faker->words(2,true));
-            $sevent->setSupplier($faker->words(1,true));
-            $sevent->setType("Tennis");
+            $sevent->setName($faker->words(3,true));
+            $sevent->setSupplier("Symbiose");
+            $sevent->setType("Special");
             $sevent->setDate($faker->dateTime);
-            $sevent->setState($faker->boolean);
+            $sevent->setState(true);
             $sevent->setNumParticipants(100);
-            $sevent->setNumRemaining(0);
+            $sevent->setNumRemaining(100);
             $sevent->setImageFile(null);
             $sevent->setImageName("placeholder");
             $sevent->setImageSize(0);
