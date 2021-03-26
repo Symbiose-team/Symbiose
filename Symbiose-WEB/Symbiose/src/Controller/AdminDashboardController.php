@@ -35,9 +35,11 @@ class AdminDashboardController extends AbstractController
         $em=$this->getDoctrine()->getManager();
 
         $users= $em->createQuery('SELECT COUNT(u) from APP\Entity\User u')->getSingleScalarResult();
+        $events=$em->createQuery('SELECT COUNT(e) from APP\Entity\Event e')->getSingleScalarResult();
 
         return $this->render('admin_dashboard/index.html.twig', [
-            'stats' => compact('users')
+            'stats' => compact('users'),
+            's_ev'=>compact('events')
         ]);
     }
 
