@@ -7,11 +7,9 @@
     </style>
 
     <div class="container p-3 my-3">
-        <h3>Add a Special Event</h3>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
-        <a href="/seventadmin">Go Back</a>
+        <h1>{{ Sevent.name }}</h1>
+        <p>{{ Sevent.supplier }}</p>
+        <hr>
+        <a href="/sevents" class="btn btn-dark">Go Back</a>
     </div>
-
 {% endblock %}

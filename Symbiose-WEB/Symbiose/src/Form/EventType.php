@@ -41,7 +41,7 @@ class EventType extends AbstractType
                     'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
                 ]])
             ->add('State', CheckboxType::class, ['required' => false])
-            ->add('imageFile', VichImageType::class, array('required'=>false,
+            ->add('imageFile', VichImageType::class, array('required'=>true,
                 'attr' => array('class'=>'form-control')))
             ->add('save',SubmitType::class, array('label'=>'Create',
                 'attr'=>array('class'=>'btn btn-primary mt-3')))

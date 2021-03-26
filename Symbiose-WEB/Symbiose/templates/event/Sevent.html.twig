@@ -10,13 +10,12 @@
     </style>
 
     <div class="container p-3 my-3">
-        <h3 align="center">All your events in one place!</h3>
-        <h1 align="center">Events</h1>
+        <h1 align="center">Special events</h1>
 
 
-        {% if events %}
+        {% if Sevents %}
             <div class="table-responsive">
-                <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
+                <table id="events" class="table table-hover table-bordered table-sm table-warning border-light">
                     <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -30,14 +29,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for event in events %}
+                    {% for Sevent in Sevents %}
                         <tr>
-                            <td>{{ event.name }}</td>
-                            <td>{{ event.supplier }}</td>
-                            <td>{{ event.NumParticipants }}</td>
-                            <td>{{ event.NumRemaining }}</td>
-                            <td>{{ event.type }}</td>
-                            <td>{{ event.date|date }}</td>
+                            <td>{{ Sevent.name }}</td>
+                            <td>{{ Sevent.supplier }}</td>
+                            <td>{{ Sevent.NumParticipants }}</td>
+                            <td>{{ Sevent.NumRemaining }}</td>
+                            <td>{{ Sevent.type }}</td>
+                            <td>{{ Sevent.date|date }}</td>
                             {# TODO add dynamic images based on url in DB Events#}
                             <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                                      class="img-fluid rounded-circle"
@@ -46,12 +45,12 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                             <td>
-                                <a href="/event/{{ event.id }}" class="btn btn-outline-dark">
+                                <a href="/sevent/{{ Sevent.id }}" class="btn btn-outline-dark">
                                     Show
                                 </a>
 
                                 <hr>
-                                <a href="/event/join/{{ event.id }}" class="btn btn-warning">
+                                <a href="/sevent/join/{{ Sevent.id }}" class="btn btn-warning">
                                     Join This Event
                                 </a>
                             </td>
@@ -62,18 +61,16 @@
             </div>
 
         {% else %}
-            <p>No events yet !</p>
+            <p>No special events yet !</p>
         {% endif %}
-
 
         {# display navigation #}
         <div class="navigation">
-            {{ knp_pagination_render(events) }}
+            {{ knp_pagination_render(Sevents) }}
         </div>
 
         <div class="container p-3 my-3" align="center">
-            <h3 align="center">Check out our special events here</h3>
-            <a href="/sevents" class="btn btn-dark">Click here</a>
+            <a href="/events" class="btn btn-dark">Go back </a>
         </div>
     </div>
 

@@ -1,4 +1,3 @@
-
 {% block body %}
 <head>
     <link
@@ -78,20 +77,15 @@
                         aria-current="true"
                 >
                     <i class="fas fa-tachometer-alt fa-fw me-3"></i
-                    ><span>Main dashboard</span>
+                    ><span>Events</span>
                 </a>
                 <a
-                        href="/events"
+                        href="/seventadmin"
                         class="list-group-item list-group-item-action py-2 ripple"
                 >
                     <i class="fas fa-chart-area fa-fw me-3"></i
-                    ><span>Client</span>
+                    ><span>Special events</span>
                 </a>
-                <a
-                        href="/eventsupplier"
-                        class="list-group-item list-group-item-action py-2 ripple"
-                ><i class="fas fa-lock fa-fw me-3"></i><span>Supplier</span></a
-                >
             </div>
         </div>
     </nav>
@@ -271,7 +265,7 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                                     <td>
-                                        <a href="/eventadmin/{{ event.id }}" class="btn btn-dark">
+                                        <a href="/eventadmin/event/{{ event.id }}" class="btn btn-dark">
                                             Show
                                         </a>
 
@@ -305,76 +299,6 @@
             </div>
         </section>
         <!--Section: Manage All Events-->
-
-        <!--Section: Manage All Special Events-->
-        <section class="mb-4">
-            <div class="card">
-                <div class="card-header text-center py-3">
-                    <h5 class="mb-0 text-center">
-                        <strong>Manage All Special Events</strong>
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        {% if SpecialEvents %}
-                        <table class="table table-hover text-nowrap">
-                            <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Supplier</th>
-                                <th scope="col">Players</th>
-                                <th scope="col">Remaining</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Previs</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for SpecialEvent in SpecialEvents %}
-                                <tr>
-                                    <td>{{ SpecialEvent.name }}</td>
-                                    <td>{{ SpecialEvent.supplier }}</td>
-                                    <td>{{ SpecialEvent.NumParticipants }}</td>
-                                    <td>{{ SpecialEvent.NumRemaining }}</td>
-                                    <td>{{ SpecialEvent.type }}</td>
-                                    <td>{{ SpecialEvent.date|date }}</td>
-                                    <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                             class="img-fluid rounded-circle"
-                                             alt=""
-                                             style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
-                                    <td>
-                                        <a href="/specialevent/{{ SpecialEvent.id }}" class="btn btn-dark">
-                                            Show
-                                        </a>
-
-                                        <a href="specialevent/edit/{{ SpecialEvent.id }}" class="btn btn-light">
-                                            Edit
-                                        </a>
-
-
-                                        <a href="specialevent/delete/{{ SpecialEvent.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
-                                            Delete
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                        {% else %}
-                            <p>No Special events yet !</p>
-                        {% endif %}
-
-                    </div>
-                </div>
-                <a class="btn btn-outline-dark" aria-current="page" href="/specialevent/add">Add a Special Event</a>
-
-            </div>
-        </section>
-        <!--Section: Manage All Special Events-->
-
 
     </div>
         <!-- Footer -->

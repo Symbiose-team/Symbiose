@@ -20,7 +20,7 @@ class SeventFixture extends Fixture
             $sevent->setSupplier("Symbiose");
             $sevent->setType("Special");
             $sevent->setDate($faker->dateTime);
-            $sevent->setState(true);
+            $sevent->setState(1);
             $sevent->setNumParticipants(100);
             $sevent->setNumRemaining(100);
             $sevent->setImageFile(null);

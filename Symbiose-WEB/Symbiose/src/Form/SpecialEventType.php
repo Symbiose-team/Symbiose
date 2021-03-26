@@ -40,19 +40,7 @@ class SpecialEventType extends AbstractType
                     'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
                 ]])
             ->add('State', CheckboxType::class, ['required' => false])
-
-            /*
-            ->add('Picture', FileType::class, [
-                'data_class' => null,
-                'required' => true,
-                'label' => 'Please upload this file',
-                'mapped' => true,
-                'constraints' => [
-                    new Image(['maxSize' => '1024k'])
-                ],
-            ])
-            */
-            ->add('imageFile', VichImageType::class, array('required'=>false,
+            ->add('imageFile', VichImageType::class, array('required'=>true,
                 'attr' => array('class'=>'form-control')))
             ->add('save',SubmitType::class, array('label'=>'Create',
                 'attr'=>array('class'=>'btn btn-primary mt-3')))

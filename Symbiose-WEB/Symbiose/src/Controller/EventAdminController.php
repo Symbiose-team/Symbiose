@@ -7,6 +7,8 @@ use App\Entity\SpecialEvent;
 use App\Form\EventType;
 use App\Form\SpecialEventType;
 use App\Repository\EventRepository;
+use App\Repository\SpecialEventRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,38 +25,63 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EventAdminController extends AbstractController
 {
-    private $repository;
+
+    //constructor
+    private $event_repository;
+    private $sevent_repository;
+
     /**
      * $var ObjectManager
      */
     private $em;
-    public function __construct(EventRepository $repository)
+
+    public function __construct(EventRepository $event_repository,
+                                SpecialEventRepository $sevent_repository,
+                                EntityManagerInterface $em)
     {
-        $this->repository = $repository;
+        $this->event_repository = $event_repository;
+        $this->sevent_repository = $sevent_repository;
+        $this->em = $em;
     }
 
-    //Admin page
+    //dashboard : event
     /**
      * @Route("/eventadmin", name="event_admin")
      */
-    public function admin(PaginatorInterface $paginator, Request $request): Response
+    public function event_admin(PaginatorInterface $paginator, Request $request): Response
     {
 
+        //event pagination
         $events = $paginator->paginate(
-            $this->repository->findAll(),
+            $this->event_repository->findAll(),
             $request->query->getInt('page', 1),
             12
         );
 
-        $S_events=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
+        return $this->render('event_admin/eventadmin.html.twig', ['current_menu' => 'events', 'events' => $events]);
 
-        return $this->render('event_admin/eventadmin.html.twig', ['current_menu' => 'events', 'events' => $events , 'SpecialEvents'=>$S_events]);
+    }
+
+    //dashboard : special event
+    /**
+     * @Route("/seventadmin", name="sevent_admin")
+     */
+    public function sevent_admin(PaginatorInterface $paginator, Request $request): Response
+    {
+
+        $Sevents = $paginator->paginate(
+            $this->sevent_repository->findAll(),
+            $request->query->getInt('page', 1),
+            12
+        );
+
+        return $this->render('event_admin/eventadmin_sevent.html.twig', ['current_menu' => 'Sevents', 'Sevents' => $Sevents]);
 
     }
 
     //Add an event
     /**
-     * @Route("/event/add", name="new_event")
+     * @Route("/event/add", name="add_event")
      * @Method({"GET","POST"})
      */
     public function new(Request $request){
@@ -102,7 +129,7 @@ class EventAdminController extends AbstractController
 
     //DELETE event
     /**
-     * @Route ("/event/delete/{id}")
+     * @Route ("/event/delete/{id}", name="delete_event")
      * @Method ({"DELETE"})
      */
     public function delete(Request $request, $id){
@@ -116,7 +143,7 @@ class EventAdminController extends AbstractController
 
     //Add a Special event as an admin
     /**
-     * @Route("/specialevent/add", name="new_Sevent")
+     * @Route("/sevent/add", name="add_sevent")
      * @Method({"GET","POST"})
      */
     public function newSevent(Request $request){
@@ -132,7 +159,7 @@ class EventAdminController extends AbstractController
             $entityManager->persist($Sevent);
             $entityManager->flush();
 
-            return $this->redirectToRoute('event_admin');
+            return $this->redirectToRoute('sevent_admin');
         }
 
         return $this->render('event_admin/new_special_event.html.twig', array('form'=>$form->createView()));
@@ -140,7 +167,7 @@ class EventAdminController extends AbstractController
 
     //Edit a Special event
     /**
-     * @Route("/specialevent/edit/{id}", name="edit_Sevent")
+     * @Route("/sevent/edit/{id}", name="edit_sevent")
      * @Method({"GET","POST"})
      */
     public function editSevent(Request $request, $id){
@@ -155,7 +182,7 @@ class EventAdminController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
-            return $this->redirectToRoute('event_admin');
+            return $this->redirectToRoute('sevent_admin');
         }
 
         return $this->render('event_admin/edit_special_event.html.twig', array('form'=>$form->createView()));
@@ -163,7 +190,7 @@ class EventAdminController extends AbstractController
 
     //DELETE Special event
     /**
-     * @Route ("/specialevent/delete/{id}")
+     * @Route ("/sevent/delete/{id}", name="delete_sevent")
      * @Method ({"DELETE"})
      */
     public function deleteSevent(Request $request, $id){
@@ -171,14 +198,13 @@ class EventAdminController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($Sevent);
         $entityManager->flush();
-        return $this->redirectToRoute('event_admin');
-
+        return $this->redirectToRoute('sevent_admin');
     }
 
     //Order matters!
     //Show admin event by id
     /**
-     * @Route("/eventadmin/{id}",name="admin_event_show")
+     * @Route("/eventadmin/event/{id}",name="eventadmin_show")
      */
     public function show($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
@@ -187,7 +213,7 @@ class EventAdminController extends AbstractController
 
     //Show Special event by id
     /**
-     * @Route("/specialevent/{id}",name="Sevent_show")
+     * @Route("seventadmin/sevent/{id}",name="seventadmin_show")
      */
     public function showSevent($id){
         $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);

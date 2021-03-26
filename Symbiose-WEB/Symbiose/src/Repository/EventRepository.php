@@ -24,13 +24,10 @@ class EventRepository extends ServiceEntityRepository
     //  * @return Event[] Returns an array of Event objects
     //  */
 
-    public function findPlayersRemaining($value)
+    public function findPlayersRemaining() : array
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.NumRemaining = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            //->setMaxResults(10)
+        return $this->createQueryBuilder('p')
+            ->where('e.NumRemaining = 100')
             ->getQuery()
             ->getResult()
         ;
