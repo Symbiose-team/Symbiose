@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\Entity\ProductSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
@@ -23,10 +24,23 @@ class ProductRepository extends ServiceEntityRepository
     /*
      * @return Query
      */
-    public function findAllVisibleQuery(): Query
+    public function findAllVisibleQuery(ProductSearch $search): Query
     {
-        return $this->createQueryBuilder('p')
-            ->getQuery();
+        $query = $this->createQueryBuilder('p');
+
+        if ($search->getMaxPrice()) {
+            $query = $query
+                ->andWhere('p.Price <= :maxPrice')
+                ->setParameter('maxPrice', $search->getMaxPrice());
+        }
+
+        if ($search->getMinPrice()) {
+            $query = $query
+                ->andWhere('p.Price >= :minPrice')
+                ->setParameter('minPrice', $search->getMinPrice());
+        }
+
+        return $query->getQuery();
     }
 
     /*

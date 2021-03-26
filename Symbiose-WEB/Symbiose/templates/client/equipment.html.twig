@@ -15,7 +15,7 @@
                                     <h3 class="card-title"><a href="#">{{ product.name }}</a></h3>
                                     <p class="card_text">{{ product.description | nl2br }}</p>
                                     <div class="text-primary" style="font-weight: bold; font-size: 2rem">{{ product.formattedPrice }} (dt)</div>
-                                    <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success" onclick="return confirm('Are you sure ?')">
+                                    <a href="{{ path('cart_add_equipment', {'id': product.id}) }}" class="btn btn-success" onclick="return confirm('Are you sure ?')">
                                         <i class="fas fa-shopping-cart mr-1"></i>
                                         Add to cart
                                     </a>

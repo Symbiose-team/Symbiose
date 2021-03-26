@@ -38,9 +38,9 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/cart/add/{id}", name="cart_add")
+     * @Route("/cart/add_equipment/{id}", name="cart_add_equipment")
      */
-    public function add($id, SessionInterface $session)
+    public function addEquipment($id, SessionInterface $session)
     {
         $cart = $session->get('cart', []);
 
@@ -53,6 +53,42 @@ class CartController extends AbstractController
         $session->set('cart', $cart);
 
         return $this->redirectToRoute("equipment");
+    }
+
+    /**
+     * @Route("/cart/add_clothing/{id}", name="cart_add_clothing")
+     */
+    public function addClothing($id, SessionInterface $session)
+    {
+        $cart = $session->get('cart', []);
+
+        if (!empty($cart[$id])) {
+            $cart[$id]++;
+        }else{
+            $cart[$id] = 1;
+        }
+
+        $session->set('cart', $cart);
+
+        return $this->redirectToRoute("clothing");
+    }
+
+    /**
+     * @Route("cart/increase_quantity/{id}", name="cart_increase_quantity")
+     */
+    public function increaseQuantity($id, SessionInterface $session)
+    {
+        $cart = $session->get('cart', []);
+
+        if (!empty($cart[$id])) {
+            $cart[$id]++;
+        }else{
+            $cart[$id] = 1;
+        }
+
+        $session->set('cart', $cart);
+
+        return $this->redirectToRoute("cart_index");
     }
 
     /**

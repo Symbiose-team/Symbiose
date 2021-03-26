@@ -232,7 +232,24 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 {% if products %}
-                                <table id="prodcts" class="table table-hover text-nowrap">
+                                <div class="jumbotron">
+                                    <div class="container">
+                                        {{ form_start(form) }}
+                                        <div class="row">
+                                            <div class="col">
+                                                {{ form_row(form.maxPrice) }}
+                                            </div>
+                                            <div class="col">
+                                                {{ form_row(form.minPrice) }}
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-primary">Search</button>
+                                            </div>
+                                        </div>
+                                        {{ form_end(form) }}
+                                    </div>
+                                </div>
+                                <table id="products" class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
                                         <th scope="col">Name</th>
