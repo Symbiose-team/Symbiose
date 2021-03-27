@@ -5,8 +5,23 @@
 
 
 {% block body %}
-    <div id="calendrier" style="font-min-size: medium">
+    <div class="btn-group" role="group" aria-label="Basic example">
+    >
+
+        <form action="{{ path('afficheterrai',)}}">
+
+            <button class="btn btn-dark">Go_Back</button>
+        </form>
+
+        <form action="{{ path('calendar_new',)}}">
+        <button class="btn btn-dark">Reserver</button>
+        </form>
     </div>
+
+    <div id="calendrier" style="font-min-size: xx-large"  role="article"  >
+
+    </div>
+
 {% endblock %}
 
 {% block javascripts %}

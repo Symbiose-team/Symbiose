@@ -1,4 +1,34 @@
-{{ form_start(form) }}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendar index{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="btn-group" role="group" aria-label="Basic example">
+
+        <form action={{ path("paillement",)}}>
+            <button class="btn btn_drink">paiement</button>
+
+        </form>
+
+        <button class="btn">{{ button_label|default('Save') }}</button>
+
+    {# <form action={{  button_label|default('Save') }}>
+        <button class="btn btn_drink">save</button>
+    </form> #}
+        <form action={{ path("afficheterrai",)}}>
+            <button class="btn btn_drink">Exit</button>
+        </form>
+        <form action={{ path("calendar_index",)}}>
+            <button class="btn btn_drink">back to list</button>
+        </form>
+    </div>
+
+
+    </div>
 {{ form_end(form) }}
+
+{% endblock %}
+

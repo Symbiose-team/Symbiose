@@ -3,6 +3,7 @@
 {% block title %}Calendar index{% endblock %}
 
 {% block body %}
+
     <h1>Calendar index</h1>
 
     <table class="table">
@@ -15,7 +16,7 @@
                 <th>Description</th>
                 <th>All_day</th>
                 <th>Background_color</th>
-                <th>actions</th>
+                {# <th>actions</th> #}
             </tr>
         </thead>
         <tbody>
@@ -28,10 +29,10 @@
                 <td>{{ calendar.description }}</td>
                 <td>{{ calendar.allDay ? 'Yes' : 'No' }}</td>
                 <td>{{ calendar.backgroundColor }}</td>
-                <td>
-                    <a href="{{ path('calendar_show', {'id': calendar.id}) }}">show</a>
-                    <a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>
-                </td>
+
+                    {#  <a href="{{ path('calendar_show', {'id': calendar.id}) }}">show</a>#}
+                    {#<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>  #}
+
             </tr>
         {% else %}
             <tr>
@@ -40,6 +41,23 @@
         {% endfor %}
         </tbody>
     </table>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <form action="{{ path('afficheterrai') }}">
+        <button class="btn btn-dark">Exit</button>
+    </form>
 
-    <a href="{{ path('calendar_new') }}">Create new</a>
+    <form action="{{ path('main',) }}">
+
+        <button class="btn btn-dark">Go_Back</button>
+    </form>
+   <form action="{{ path('calendar_new',) }}">
+
+        <button class="btn btn-dark">Reserver</button>
+    </form>
+    <form action="{{ path('calendar_index',) }}">
+
+        <button class="btn btn-dark">show</button>
+    </form>
+
+</div>
 {% endblock %}
