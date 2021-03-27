@@ -1,12 +1,16 @@
 <?php
 
 namespace App\Entity;
+use App\Entity\Field;
+use Doctrine\ORM\Mapping\JoinColumn;
 
 use App\Repository\CalendarRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CalendarRepository::class)
+ *  * @ORM\Table(name="Calendar")
+
  */
 class Calendar
 {
@@ -17,6 +21,19 @@ class Calendar
      */
     private $id;
 
+    /**
+     * @return mixed
+     */
+    public function getField()
+    {
+        return $this->field;
+    }
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Field", mappedBy="Calendar")
+     */
+    private $field;
     /**
      * @ORM\Column(type="string", length=255)
      */

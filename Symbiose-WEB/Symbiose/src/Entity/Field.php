@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\Calendar;
 use App\Repository\FieldRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\OneToOne;
+
+
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
  * @ORM\Entity(repositoryClass=FieldRepository::class)
+ * @ORM\Table(name="Field")
 
  */
 class Field
@@ -20,6 +25,21 @@ class Field
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Calendar", inversedBy="Field")
+     */
+    private $calendar;
+
+    /**
+     * @return mixed
+     */
+    public function getCalendar()
+    {
+        return $this->calendar;
+    }
+
+
 
     /**
      * @return mixed
