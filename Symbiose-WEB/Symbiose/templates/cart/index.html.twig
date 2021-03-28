@@ -2,15 +2,6 @@
 
 {% block title %}My Cart !{% endblock %}
 
-{#{% block stylesheets %}#}
-{#    <link#}
-
-{#            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"#}
-{#            rel="stylesheet"#}
-
-{#    />#}
-{#{% endblock %}#}
-
 {% block body %}
 
     <div class="container mt-4">
@@ -19,22 +10,28 @@
         </div>
         <div class="container mt-4">
             {% if items | length > 0 %}
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Quantity</th>
-                        <th>Product total</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="row">
                     {% for item in items %}
-                        <tr>
-                            <td>{{ item.product.name }}</td>
-                            <td class="text-center">{{ item.product.formattedPrice }} (dt)</td>
-                            <td>
+
+                        <div class="col-md-8">
+                            <h5 class="card-header bg-dark text-white d-flex">
+                                {{ item.product.name }}
+                            </h5>
+                            <div class="card mb-5">
+                                <div class="card-body">
+                                    <div class="flex-fill mr-2">
+                                        <p class="card_text">{{ item.product.description[:50] | nl2br }}...</p>
+                                        <div class="text-primary" style="font-weight: bold; font-size: 2rem">Price : {{ item.product.formattedPrice }} (dt)</div>
+                                        <div class="text-primary" style="font-weight: bold; font-size: 2rem">Product Total : {{ item.product.price * item.quantity }} (dt)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mt-4 mt-md-0">
+                                <h5 class="card-header bg-dark text-white d-flex">Summary</h5>
+                                <div class="card-body">
                                 <div class="input-group input-group-sm justify-content-center">
                                     <a href="{{ path("cart_decrease_quantity", { id: item.product.id }) }}" class="btn btn-sm-2 btn-outline-primary">
                                         <span class="fas fa-minus"></span>
@@ -44,23 +41,28 @@
                                         <span class="fas fa-plus"></span>
                                     </a>
                                 </div>
-                            </td>
-                            <td>{{ item.product.price * item.quantity }} (dt)</td>
-                            <td>
-                                <a href="{{ path('cart_remove', {'id': item.product.id})}}" class="btn btn-danger btn-sm"
-                                   onclick="return confirm('Are you sure ?')"><i class="fas fa-trash"></i></a>
-                            </td>
-                        </tr>
+
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <div><b>Total</b></div>
+                                        <span><b>{{ total }} (dt)</b></span>
+                                    </li>
+                                </ul>
+                                    <a href="{{ path('cart_remove', {'id': item.product.id})}}" class="btn btn-danger w-100"
+                                       onclick="return confirm('Are you sure ?')"><i class="fas fa-trash"></i></a>
+                                    <a href="#" class="btn btn-warning" align="right">CHECKOUT</a>
+
+                                </div>
+                            </div>
+                        </div>
                     {% endfor %}
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td class="fw-bold" colspan="3" align="right">Total :</td>
-                        <td class="fw-bold">{{ total }} (dt)</td>
-                    </tr>
-                    </tfoot>
-                </table>
-                <a href="/clientPage">Go to shop</a>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <a href="/clientPage" class="btn">CONTINUE SHOPPING</a>
+                        <a href="#" class="btn btn-warning" align="right">CHECKOUT</a>
+                    </div>
+                </div>
             {% else %}
                 <p>Your cart is empty !</p>
             {% endif %}
