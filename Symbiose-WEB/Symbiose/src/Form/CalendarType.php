@@ -23,6 +23,8 @@ class CalendarType extends AbstractType
             ->add('description')
             ->add('all_day')
             ->add('background_color', ColorType::class)
+            ->add('field')
+
 
         ;
     }

@@ -27,7 +27,7 @@ class Field
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Calendar", inversedBy="Field")
+     * @ORM\OneToMany(targetEntity="App\Entity\Calendar", mappedBy="Field")
      */
     private $calendar;
 
@@ -231,4 +231,8 @@ class Field
     }
 
 
+    public function __toString()
+    {
+return($this->name) ;
+    }
 }

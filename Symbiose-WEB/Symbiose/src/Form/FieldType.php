@@ -2,10 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Calendar;
 use App\Entity\Field;
 use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\CalendarType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FieldType extends AbstractType
@@ -28,7 +30,9 @@ class FieldType extends AbstractType
             ->add('Date_end',\Symfony\Component\Form\Extension\Core\Type\DateTimeType::class,[
                 'attr'=>['class'=>'form-control js-datepicker'],
                 'widget'=>'single_text'
+
             ])
+
         ;
     }
 

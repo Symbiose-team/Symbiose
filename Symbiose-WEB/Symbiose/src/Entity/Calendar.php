@@ -20,6 +20,10 @@ class Calendar
      * @ORM\Column(type="integer")
      */
     private $id;
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Field", inversedBy="Calendar")
+     */
+    private $field;
 
     /**
      * @return mixed
@@ -29,11 +33,18 @@ class Calendar
         return $this->field;
     }
 
-
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Field", mappedBy="Calendar")
+     * @param mixed $field
      */
-    private $field;
+    public function setField($field): void
+    {
+        $this->field = $field;
+    }
+    /**
+
+
+
+
     /**
      * @ORM\Column(type="string", length=255)
      */
