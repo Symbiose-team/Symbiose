@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -27,14 +30,16 @@
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/ProductSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/ProductSearch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/ProductSearchType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/ProductSearchType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/ProductRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/cart/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/cart/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/clothing.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/clothing.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/equipment.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/client/equipment.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/products/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/shared/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/shared/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +128,9 @@
       <workItem from="1616508831077" duration="14209000" />
       <workItem from="1616595254187" duration="7927000" />
       <workItem from="1616678677010" duration="14874000" />
-      <workItem from="1616765171052" duration="14889000" />
+      <workItem from="1616765171052" duration="16141000" />
+      <workItem from="1616944150105" duration="2167000" />
+      <workItem from="1616946350750" duration="8728000" />
     </task>
     <servers />
   </component>
@@ -147,15 +154,19 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2631" y="343" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614530856539" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616949405272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616949405272" />
     <state x="753" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1616780005215">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="2673" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615421494901" />
     <state x="753" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1616780005215" />
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616541901059">
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616949190614">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616541901059" />
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616949190614" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1615461619474">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -168,10 +179,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="622" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616779780553" />
-    <state x="734" y="240" key="RollbackChangesDialog" timestamp="1615223976813">
+    <state x="734" y="240" key="RollbackChangesDialog" timestamp="1616946252432">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="734" y="240" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615223976813" />
+    <state x="734" y="240" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616946252432" />
     <state x="703" y="141" width="998" height="708" key="SettingsEditor" timestamp="1614634122188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -185,10 +196,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615335122111" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615340593605">
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616953775644">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615340593605" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1616953775644" />
     <state x="677" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1616540517553">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -197,9 +208,9 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2536" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615433218612" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1616439970208">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1616955868497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616439970208" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616955868497" />
   </component>
 </project>

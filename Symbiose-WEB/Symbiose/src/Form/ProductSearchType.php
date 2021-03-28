@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\ProductSearch;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,6 +16,13 @@ class ProductSearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('q', TextType::class, [
+                'required' => false,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Search'
+                ]
+            ])
             ->add('maxPrice', IntegerType::class, [
                 'required' => false,
                 'label' => false,
@@ -27,6 +36,10 @@ class ProductSearchType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Min Price'
                 ]
+            ])
+            ->add('State', CheckboxType::class, [
+                'required' => false,
+                'label' => 'In Stock',
             ])
         ;
     }

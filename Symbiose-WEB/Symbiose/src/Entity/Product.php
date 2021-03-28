@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -50,7 +52,7 @@ class Product
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Veuillez specifier le type de votre produit")
      */
-    private $Type;
+    public $Type;
 
     /**
      * @ORM\Column(type="boolean" ,options={"default" = false})

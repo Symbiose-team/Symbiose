@@ -5,6 +5,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class ProductSearch
 {
+
+    /**
+     * @var string
+     */
+    public $q = '';
+
     /**
      * @var int|null
      */
@@ -14,6 +20,12 @@ class ProductSearch
      * @var int|null
      */
     private $minPrice;
+
+    /**
+     * @var boolean
+     */
+    public $State = false;
+
 
     /**
      * @return int|null

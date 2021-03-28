@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
 
 
-    {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-    {% block stylesheets %}
-        <!-- Font Awesome -->
-        <link
-                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-                rel="stylesheet"
-        />
-        <!-- Google Fonts -->
-        <link
-                href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-                rel="stylesheet"
-        />
-        <!-- MDB -->
-        <link
-                href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
-                rel="stylesheet"
-        />
-    {% endblock %}
+        {# Run `composer require symfony/webpack-encore-bundle`
+               and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            <!-- Font Awesome -->
+            <link
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+                    rel="stylesheet"
+            />
+            <!-- Google Fonts -->
+            <link
+                    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+                    rel="stylesheet"
+            />
+            <!-- MDB -->
+            <link
+                    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+                    rel="stylesheet"
+            />
+        {% endblock %}
 
 
 
-    {% block javascripts %}
-        {#{{ encore_entry_script_tags('app') }}#}
-        <!-- MDB -->
-        <script
-                type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
-        ></script>
-    {% endblock %}
-</head>
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+            <!-- MDB -->
+            <script
+                    type="text/javascript"
+                    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+            ></script>
+        {% endblock %}
+    </head>
 
-
-<body>
-{{ include('shared/header.html.twig') }}
-<div class="container">
-    {% block body %}{% endblock %}
-</div>
-{{ include('shared/footer.html.twig') }}
-</body>
+    <body>
+    {{ include('shared/header.html.twig') }}
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    {{ include('shared/footer.html.twig') }}
+    </body>
 
 </html>

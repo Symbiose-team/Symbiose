@@ -28,6 +28,12 @@ class ProductRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('p');
 
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('p.Name LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
         if ($search->getMaxPrice()) {
             $query = $query
                 ->andWhere('p.Price <= :maxPrice')
@@ -38,6 +44,10 @@ class ProductRepository extends ServiceEntityRepository
             $query = $query
                 ->andWhere('p.Price >= :minPrice')
                 ->setParameter('minPrice', $search->getMinPrice());
+        }
+        if (!empty($search->State)) {
+            $query = $query
+                ->andWhere('p.State = 1');
         }
 
         return $query->getQuery();
