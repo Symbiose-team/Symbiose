@@ -86,6 +86,13 @@
                     <i class="fas fa-chart-area fa-fw me-3"></i
                     ><span>Special events</span>
                 </a>
+                <a
+                        href="/invalidevents"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                >
+                    <i class="fas fa-chart-area fa-fw me-3"></i
+                    ><span>Confirm events</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -132,99 +139,6 @@
     <main style="margin-top: 58px">
     <div class="container pt-4">
         <h3 align="center">You are an admin you have all the power!</h3>
-
-
-        <!--Section: Statistics with subtitles-->
-        <section>
-            <div class="row">
-                <div class="col-xl-6 col-md-12 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between p-md-1">
-                                <div class="d-flex flex-row">
-                                    <div class="align-self-center">
-                                        <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
-                                    </div>
-                                    <div>
-                                        <h4>Total Posts</h4>
-                                        <p class="mb-0">Monthly blog posts</p>
-                                    </div>
-                                </div>
-                                <div class="align-self-center">
-                                    <h2 class="h1 mb-0">18,000</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-12 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between p-md-1">
-                                <div class="d-flex flex-row">
-                                    <div class="align-self-center">
-                                        <i
-                                                class="far fa-comment-alt text-warning fa-3x me-4"
-                                        ></i>
-                                    </div>
-                                    <div>
-                                        <h4>Total Comments</h4>
-                                        <p class="mb-0">Monthly blog posts</p>
-                                    </div>
-                                </div>
-                                <div class="align-self-center">
-                                    <h2 class="h1 mb-0">84,695</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-md-12 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between p-md-1">
-                                <div class="d-flex flex-row">
-                                    <div class="align-self-center">
-                                        <h2 class="h1 mb-0 me-4">$76,456.00</h2>
-                                    </div>
-                                    <div>
-                                        <h4>Total Sales</h4>
-                                        <p class="mb-0">Monthly Sales Amount</p>
-                                    </div>
-                                </div>
-                                <div class="align-self-center">
-                                    <i class="far fa-heart text-danger fa-3x"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-12 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between p-md-1">
-                                <div class="d-flex flex-row">
-                                    <div class="align-self-center">
-                                        <h2 class="h1 mb-0 me-4">$36,000.00</h2>
-                                    </div>
-                                    <div>
-                                        <h4>Total Cost</h4>
-                                        <p class="mb-0">Monthly Cost</p>
-                                    </div>
-                                </div>
-                                <div class="align-self-center">
-                                    <i class="fas fa-wallet text-success fa-3x"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Section: Statistics with subtitles-->
-
         <!--Section: Manage All Events-->
         <section class="mb-4">
             <div class="card">
@@ -258,9 +172,9 @@
                                     <td>{{ event.NumRemaining }}</td>
                                     <td>{{ event.type }}</td>
                                     <td>{{ event.date|date }}</td>
-                                    <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                                    <td><img src="public\images\events\{{ event.imageName }}"
                                              class="img-fluid rounded-circle"
-                                             alt=""
+                                             alt="no_image :("
                                              style="border-radius: 4px;
                                              padding: 5px;
                                              width: 50px;" ></td>

@@ -22,6 +22,18 @@ class SpecialEventRepository extends ServiceEntityRepository
     // /**
     //  * @return SpecialEvent[] Returns an array of SpecialEvent objects
     //  */
+
+    public function status() : array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.State = 1')
+            ->getQuery()
+            ->getResult();
+    }
+
+    // /**
+    //  * @return SpecialEvent[] Returns an array of SpecialEvent objects
+    //  */
     /*
     public function findByExampleField($value)
     {

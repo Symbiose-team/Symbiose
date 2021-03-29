@@ -53,7 +53,7 @@ class EventAdminController extends AbstractController
 
         //event pagination
         $events = $paginator->paginate(
-            $this->event_repository->findAll(),
+            $this->event_repository->status_true(),
             $request->query->getInt('page', 1),
             12
         );
@@ -77,6 +77,38 @@ class EventAdminController extends AbstractController
 
         return $this->render('event_admin/eventadmin_sevent.html.twig', ['current_menu' => 'Sevents', 'Sevents' => $Sevents]);
 
+    }
+
+    //dashboard : invalid events
+    /**
+     * @Route("/invalidevents", name="invalid_event")
+     */
+    public function invalid_event(PaginatorInterface $paginator, Request $request): Response
+    {
+        $output = $paginator->paginate(
+            $this->event_repository->status_false(),
+            $request->query->getInt('page', 1),
+            12
+        );
+
+        return $this->render('event_admin/invalid_event.html.twig', ['current_menu' => 'events',
+            'events' => $output ]);
+
+    }
+
+    //verify event
+    /**
+     * @Route("/invalidevents/verify/{id}", name="verify_event")
+     */
+    public function verify_event($id): Response
+    {
+
+        $event = $this->event_repository->find($id);
+        $event-> setState(1);
+        $this->em->flush();
+        dump($event);
+
+        return $this->redirectToRoute('invalid_event');
     }
 
     //Add an event

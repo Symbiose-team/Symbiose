@@ -40,7 +40,7 @@ class EventType extends AbstractType
                     'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
                     'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
                 ]])
-            ->add('State', CheckboxType::class, ['required' => false])
+            ->add('State', CheckboxType::class, ['required' => true])
             ->add('imageFile', VichImageType::class, array('required'=>true,
                 'attr' => array('class'=>'form-control')))
             ->add('save',SubmitType::class, array('label'=>'Create',

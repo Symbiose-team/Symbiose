@@ -26,11 +26,31 @@ class EventRepository extends ServiceEntityRepository
 
     public function findPlayersRemaining() : array
     {
-        return $this->createQueryBuilder('p')
+        return $this->createQueryBuilder('e')
             ->where('e.NumRemaining = 100')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+    }
+
+
+    // /**
+    //  * @return Event[] Returns an array of Event objects
+    //  */
+
+    public function status_false() : array
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.State = 0')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function status_true() : array
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.State = 1')
+            ->getQuery()
+            ->getResult();
     }
 
 
