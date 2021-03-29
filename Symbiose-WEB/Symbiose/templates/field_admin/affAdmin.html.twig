@@ -119,17 +119,20 @@
             ><i class="fas fa-building fa-fw me-3"></i
                 ><span>Partners</span></a
             >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-calendar fa-fw me-3"></i
-                ><span>Calendar</span></a
-            >
-            <a
-                    href="#"
-                    class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
-            >
+
+
+
+                <a
+                        href="{{ path('adminmain') }}"
+                        class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar fa-fw me-3"></i
+                    ><span>Calendar</span></a>
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
+                >
+
+
             <a
                     href="#"
                     class="list-group-item list-group-item-action py-2 ripple"
@@ -207,72 +210,9 @@
     <div class="container pt-4">
         <h3 align="center">You are an admin you have all the power!</h3>
 
-        <div>
-            <form  action="{{ path('addfield') }}" class="container p-3" >
 
-                <button class="btn btn-dark">Ajouter</button>
-
-            </form>
-
-
-        </div>
         <!--Section: Manage All Events-->
-        <section class="mb-4">
-            <div class="card">
-                <div class="card-header text-center py-3">
-                    <h5 class="mb-0 text-center">
-                        <strong></strong>
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        {% if  terain %}
 
-                            <table  id = " terain "  class = " table table-striped ">
-                                <thead>
-                                <tr>
-                                    <th>Terrain</th>
-                                    <th>Detail</th>
-                                    <th>Modifier</th>
-                                    <th>Supprimer</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for   field in  terain %}
-                                    <tr>
-                                        <td> {{ field.name}} </td>
-                                        <td>
-                                            <form action="{{ path('detailss',{ 'id':field.id }) }}">
-
-                                                <button class="btn btn-dark">Detail</button>
-                                            </form>
-
-                                        </td>
-                                        <td>
-                                            <form action="{{ path('update',{ 'id':field.id }) }}">
-                                                <button class="btn btn-light">Modifier</button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <form action="{{ path('supp',{ 'id':field.id }) }}">
-                                                <button class="btn btn-danger" onclick="return confirm('Are you sure ?')">Supprimer</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        {% else %}
-                            <p> Audun field </p>
-                        {% endif %}
-
-
-                    </div>
-
-                </div>
-
-        </section>
 
         <section>
             <div class="row">
@@ -314,6 +254,9 @@
                                     <i class="fas fa-chart-line text-success fa-3x"></i>
                                 </div>
                                 <div class="text-end">
+                                    <form action="{{ path('admindett',) }}">
+                                        <button class="btn btn-info">field</button>
+                                    </form>
                                     <h3>64.89 %</h3>
                                     <p class="mb-0">Bounce Rate</p>
                                 </div>
@@ -370,15 +313,19 @@
                 </div>
                 <div class="col-xl-3 col-sm-6 col-12 mb-4">
                     <div class="card">
+
                         <div class="card-body">
+
                             <div class="d-flex justify-content-between px-md-1">
-                                <div>
+
                                     <h3 class="text-warning">64.89 %</h3>
-                                    <p class="mb-0">Conversion Rate</p>
-                                </div>
+                                    <p class="mb-0"></p>
+
+
                                 <div class="align-self-center">
                                     <i class="fas fa-chart-pie text-warning fa-3x"></i>
                                 </div>
+
                             </div>
                         </div>
                     </div>

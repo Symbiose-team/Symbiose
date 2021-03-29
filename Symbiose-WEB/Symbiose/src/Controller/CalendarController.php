@@ -24,6 +24,7 @@ class CalendarController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/new", name="calendar_new", methods={"GET","POST"})
      */

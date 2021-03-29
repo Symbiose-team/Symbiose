@@ -3,8 +3,21 @@
 {% block title %}Calendar index{% endblock %}
 
 {% block body %}
+    <h1>liste de reservation </h1>
 
-    <h1>Calendar index</h1>
+    <div class="btn-group" role="group" aria-label="Basic example">
+
+        <form action="{{ path('main',) }}">
+
+            <button class="btn btn-dark">Go_Back</button>
+        </form>
+        <form action="{{ path('calendar_new',) }}">
+
+            <button class="btn btn-dark">Nouvelle reservation</button>
+        </form>
+
+    </div>
+
 
     <table class="table">
         <thead>
@@ -17,7 +30,7 @@
                 <th>All_day</th>
                 <th>Background_color</th>
                 <th>field</th>
-                {# <th>actions</th> #}
+                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,11 +44,24 @@
                 <td>{{ calendar.allDay ? 'Yes' : 'No' }}</td>
                 <td>{{ calendar.backgroundColor }}</td>
                 <td>{{ calendar.field }}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
 
+                    <form action="{{ path('calendar_show', {'id': calendar.id}) }}">
+                        <button class="btn btn-warning">Afficher</button>
+                    </form>
+
+                    <form action="{{ path('calendar_edit', {'id': calendar.id}) }}">
+                        <button class="btn btn-info">supprimer</button>
+                    </form>
+                    <form action="{{ path('reserver',{'id': calendar.id}) }}">
+                        <button class="btn btn-light">Confirmer</button>
+                    </form>
+                </div>
+            </td>
+            </tr>
                     {#  <a href="{{ path('calendar_show', {'id': calendar.id}) }}">show</a>#}
                     {#<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>  #}
-
-            </tr>
         {% else %}
             <tr>
                 <td colspan="8">no records found</td>
@@ -43,23 +69,5 @@
         {% endfor %}
         </tbody>
     </table>
-<div class="btn-group" role="group" aria-label="Basic example">
-    <form action="{{ path('afficheterrai') }}">
-        <button class="btn btn-dark">Exit</button>
-    </form>
 
-    <form action="{{ path('main',) }}">
-
-        <button class="btn btn-dark">Go_Back</button>
-    </form>
-   <form action="{{ path('calendar_new',) }}">
-
-        <button class="btn btn-dark">Reserver</button>
-    </form>
-    <form action="{{ path('calendar_index',) }}">
-
-        <button class="btn btn-dark">show</button>
-    </form>
-
-</div>
 {% endblock %}

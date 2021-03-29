@@ -5,24 +5,16 @@
 
 
 {% block body %}
-    <div  role="group">
-    <div class="btn-group shadow-0" role="group">
 
 
-        <form action="{{ path('afficheterrai',)}}">
+    <form action="{{ path('admin',)}}">
+        <button  class="btn btn-light btn-rounded">Back</button>
 
-            <button class="btn btn-dark">Go_Back</button>
-        </form>
-        <form action="{{ path('calendar_new',)}}">
-            <button class="btn btn-dark">Reservation </button>
-        </form>
 
-    </div>
+    </form>
+        <div id="calendrier" style="font-min-size: xx-large"  role="article"  >
 
-    <div id="calendrier" style="font-min-size: xx-large"  role="article"  >
-
-    </div>
-    </div>
+        </div>
 
 {% endblock %}
 
@@ -31,7 +23,7 @@
         window.onload = () => {
             let calendarElt = document.querySelector("#calendrier")
             let calendar = new FullCalendar.Calendar(calendarElt, {
-                initialView: 'timeGridWeek',
+                initialView: 'dayGridMonth',
                 locale: 'fr',
                 timeZone: 'Europe/Paris',
                 headerToolbar: {
@@ -40,8 +32,8 @@
                     end: 'dayGridMonth,timeGridWeek'
                 },
                 events: {{ data|raw }},
-                //editable: true,
-                //eventResizableFromStart: true
+                editable: true,
+                eventResizableFromStart: true
             })
             calendar.on('eventChange', (e) => {
                 let url = `/api/${e.event.id}/edit`

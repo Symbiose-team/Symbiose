@@ -2,11 +2,11 @@
 {% block title%} List des terrain {% endblock %}
 
 {% block  body %}
+    <form action="{{ path('admin',)}}">
+        <button  class="btn btn-light btn-rounded">Back</button>
 
-    <a href="{{path('admin',)}}">Go_Back</a></td>
 
-
-
+    </form>
     <div class="container p-3 my-3">
     {{ form_start(form) }}
     {{ form_widget(form) }}

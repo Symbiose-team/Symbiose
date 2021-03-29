@@ -29,12 +29,14 @@
                     </form>
                     <form action="{{ path('supprimerr',{ 'id':field.id }) }}">
                         <button type="button" class="btn btn-info" >
-                            supprimer</button>
+                            supprimer<span class="badge bg-danger ms-2">{{ field.id }}</span></button>
                     </form>
-                    <form action="{{ path('contrat',{'id':field.id}) }}">
+                    <form action="{{ path('contrat', {'id':field.id }) }}">
 
-                        <button class="btn btn-light">Pdf <span class="badge bg-danger ms-2">{{ field.id }}</span></button>
+                        <button class="btn btn-primary btn-floating">
+                            <i class="fas fa-download"></i></button>
                     </form>
+
                 </div>
 
 

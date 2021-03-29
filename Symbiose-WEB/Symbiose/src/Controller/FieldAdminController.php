@@ -23,6 +23,15 @@ class FieldAdminController extends AbstractController
         ]);
 
     }
+
+    /**
+     * @Route ("/AFF",name="aff")
+     */
+public function aff(){
+        return $this->render('main/index.html.twig', [
+            'controller_name' => 'FieldAdminController',
+        ]);
+}
     /**
      * @Route("/admin",name="admin")
      */
@@ -30,6 +39,15 @@ class FieldAdminController extends AbstractController
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $field=$repo->findAll();
         return $this->render('field_admin/affAdmin.html.twig',['terain'=>$field]);
+    }
+
+    /**
+     * @Route("/admindett",name="admindett",methods={"GET","POST"})
+     */
+    public function affi(){
+        $repo=$this->getDoctrine()->getRepository(Field::class);
+        $field=$repo->findAll();
+        return $this->render('field_admin/detail.html.twig',['terain'=>$field]);
     }
     /**
      * @Route ("/detail/{id}",name="detailss")

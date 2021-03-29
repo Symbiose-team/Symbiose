@@ -42,15 +42,15 @@ class FieldController extends AbstractController
     }
 
     /**
-     * @Route ("/reserve/{id}",name="reserver")
+     * @Route ("/reserve/{id}",name="reserver",methods={"GET","POST"})
      */
 
-public function reserver($id){
-   return $this->render('paiement/Paillement.html.twig',['id'=>$id]);
+    public function reserver($id){
+        return $this->render('paiement/Paillement.html.twig',['id'=>$id]);
 
-}
+    }
     /**
-     * @Route ("/reserver/{id}",name="reserve")
+     * @Route ("/reserver/{id}",name="reserve",methods={"GET","POST"})
      */
 
     public function reserve($id){

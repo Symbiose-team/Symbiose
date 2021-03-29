@@ -3,23 +3,24 @@
 
 {% block  body %}
 
-{% if  terrain %}
 
-    <div class="container mt-80" >
-
-        <div class="col-md-12" >
-            <div class="card mb-5">
+    <div class="col-md-12" >
+        <div class="card mb-5">
 
             <iframe class="ratio ratio-16x9"
 
-        src="https://www.youtube.com/embed/vlDzYIIOYmM"
-                title="YouTube video"
-                allowfullscreen></iframe>
+                    src="https://www.youtube.com/embed/vlDzYIIOYmM"
+                    title="YouTube video"
+                    allowfullscreen></iframe>
         </div>
-        </div>
-
-
     </div>
+
+    <form action={{ path("calendar_index",)}}>
+        <button class="btn btn-info">liste de reservation</button>
+    </form>
+{% if  terrain %}
+
+    <div class="container mt-80" >
     <ul class="stepper" data-mdb-stepper="stepper">
         <!-- ... -->
     </ul>

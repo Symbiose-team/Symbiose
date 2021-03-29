@@ -6,22 +6,22 @@
 
 {% block body %}
     <div  role="group">
-    <div class="btn-group shadow-0" role="group">
+        <div class="btn-group shadow-0" role="group">
 
 
-        <form action="{{ path('afficheterrai',)}}">
+            <form action="{{ path('admin',)}}">
 
-            <button class="btn btn-dark">Go_Back</button>
-        </form>
-        <form action="{{ path('calendar_new',)}}">
-            <button class="btn btn-dark">Reservation </button>
-        </form>
+                <button class="btn btn-dark">Go_Back</button>
+            </form>
+            <form action="{{ path('calendar_new',)}}">
+                <button class="btn btn-dark">Reservation </button>
+            </form>
 
-    </div>
+        </div>
 
-    <div id="calendrier" style="font-min-size: xx-large"  role="article"  >
+        <div id="calendrier" style="font-min-size: xx-large"  role="article"  >
 
-    </div>
+        </div>
     </div>
 
 {% endblock %}

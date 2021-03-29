@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping\JoinColumn;
 
 use App\Repository\CalendarRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=CalendarRepository::class)
@@ -50,13 +52,19 @@ class Calendar
      */
     private $title;
 
+
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\GreaterThan("today")
      */
     private $start;
 
     /**
      * @ORM\Column(type="datetime")
+     *   @Assert\Expression(
+     *     "this.getStart() <= this.getEnd()",
+     *     message="La date fin ne doit pas être antérieure à la date début"
+     * )
      */
     private $end;
 
