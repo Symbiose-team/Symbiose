@@ -11,7 +11,7 @@
 
             <button class="btn btn-dark">Go_Back</button>
         </form>
-        <form action="{{ path('calendar_new',) }}">
+        <form action="{{ path('calendar_new')}}>
 
             <button class="btn btn-dark">Nouvelle reservation</button>
         </form>
@@ -35,6 +35,7 @@
         </thead>
         <tbody>
         {% for calendar in calendars %}
+
             <tr>
                 <td>{{ calendar.id }}</td>
                 <td>{{ calendar.title }}</td>

@@ -14,10 +14,11 @@
                     allowfullscreen></iframe>
         </div>
     </div>
-
     <form action={{ path("calendar_index",)}}>
         <button class="btn btn-info">liste de reservation</button>
     </form>
+
+
 {% if  terrain %}
 
     <div class="container mt-80" >
@@ -38,6 +39,7 @@
     </div>
     </div>
     {% for field in terrain %}
+
         <div class="container mt-17">
 
 
@@ -75,7 +77,7 @@
                         <button class="btn btn-dark">Détail</button>
                     </form>
 
-                    <form action="{{ path('main',) }}">
+                    <form action="{{ path('main',{'id':field.id}) }})}}">
 
                         <button class="btn btn-dark">Réserver</button>
                     </form>

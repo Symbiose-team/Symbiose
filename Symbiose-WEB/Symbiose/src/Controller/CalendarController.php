@@ -20,10 +20,18 @@ class CalendarController extends AbstractController
     public function index(CalendarRepository $calendarRepository): Response
     {
         return $this->render('calendar/index.html.twig', [
-            'calendars' => $calendarRepository->findAll(),
+            'calendars' => $calendarRepository->findAll()
         ]);
     }
-
+    /**
+     * @Route("/field/{id}", name="calendar_show", methods={"GET"})
+     */
+    public function details(CalendarRepository $calendarRepository,$id): Response
+    {
+        return $this->render('calendar/index.html.twig', [
+            'calendars' => $calendarRepository->findAll()
+        ]);
+    }
 
     /**
      * @Route("/new", name="calendar_new", methods={"GET","POST"})

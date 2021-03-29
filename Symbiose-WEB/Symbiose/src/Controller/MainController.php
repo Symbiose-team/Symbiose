@@ -9,11 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/show", name="main")
+     * @Route("/showw/{id}", name="main", methods={"GET"})
      */
-    public function index(CalendarRepository $calendar)
+    public function index(CalendarRepository $calendar,$id)
     {
-        $events = $calendar->findAll();
+        $events = $calendar->findBy(array('field'=>$id));
 
         $rdvs = [];
 
