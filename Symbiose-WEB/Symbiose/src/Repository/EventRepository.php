@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Event;
+use App\Entity\EventUser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -51,6 +53,19 @@ class EventRepository extends ServiceEntityRepository
             ->where('e.State = 1')
             ->getQuery()
             ->getResult();
+    }
+
+    public function find_by_user($name)
+    {
+        $qb = $this->createQueryBuilder('e');
+
+        $qb
+            ->where('e.Supplier like :Supplier')
+            ->setParameter('Supplier',$name);
+
+        dump($qb->getQuery()->getResult());
+
+        return $qb->getQuery()->getResult();
     }
 
 

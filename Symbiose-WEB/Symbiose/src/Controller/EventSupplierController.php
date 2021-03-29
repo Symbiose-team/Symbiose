@@ -37,12 +37,11 @@ class EventSupplierController extends AbstractController
     public function supplier_events(): Response
     {
         //TODO based on username of logged in user should be dynamic
-        $name = "Mahdi";
 
-        $events = $this->event_repository->findBy(
-            ['Supplier' => 'Mahdi']
-        );
-        
+        $name = 'Mahdi';
+
+        $events = $this->event_repository->find_by_user($name);
+
         return $this->render('event_supplier/supplier_event.html.twig', array('events' => $events));
     }
 

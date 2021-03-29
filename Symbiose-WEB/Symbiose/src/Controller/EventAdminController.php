@@ -111,6 +111,21 @@ class EventAdminController extends AbstractController
         return $this->redirectToRoute('invalid_event');
     }
 
+    //cancel event
+    /**
+     * @Route("/eventadmin/cancel/{id}", name="cancel_event")
+     */
+    public function cancel_event($id): Response
+    {
+
+        $event = $this->event_repository->find($id);
+        $event-> setState(0);
+        $this->em->flush();
+        dump($event);
+
+        return $this->redirectToRoute('event_admin');
+    }
+
     //Add an event
     /**
      * @Route("/event/add", name="add_event")
