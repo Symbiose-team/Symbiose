@@ -86,7 +86,7 @@ class ProductController extends AbstractController
         $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
 
         $form = $this->createForm(ProductType::class, $product);
-        $form->add('Update', SubmitType::class, array('label' => 'Update', 'attr' => array('class' => 'btn btn-block btn-primary mt-3')));
+        $form->add('Update', SubmitType::class, array('label' => 'Update', 'attr' => array('class' => 'btn btn-block btn-success mt-3')));
 
         $form->handleRequest($request);
 

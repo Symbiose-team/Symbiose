@@ -250,7 +250,7 @@
                                             <div class="col">
                                                 {{ form_row(form.minPrice) }}
                                             </div>
-                                            <div class="col-md mt-2">
+                                            <div class="col-md-2 align-self-center">
                                                 {{ form_row(form.State) }}
                                             </div>
                                             <div class="col">
@@ -275,7 +275,7 @@
                                     {% for product in products %}
                                         <tr>
                                             <td>{{ product.name }}</td>
-                                            <td>{{ product.description | nl2br }}</td>
+                                            <td>{{ product.description[:30] | nl2br }}...</td>
                                             <td>{{ product.formattedPrice }} (dt)</td>
                                             <td>{{ product.articleType }}</td>
                                             <td>{{ product.stateType }}</td>
@@ -290,8 +290,9 @@
                                     {% endfor %}
                                     </tbody>
                                 </table>
-                                <div class="pagination">{{ knp_pagination_render(products) }}</div>
                             </div>
+                            <div class="pagination">{{ knp_pagination_render(products) }}</div>
+
                             {% else %}
                                 <p>No events yet !</p>
                             {% endif %}
