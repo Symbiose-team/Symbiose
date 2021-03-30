@@ -32,6 +32,14 @@ class UserRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function findInactiveUsers($is_Verified){
+        $db = $this->createQueryBuilder('user');
+        return $db->select('user')
+            ->where($db->expr()->eq('user.isVerified', false))
+            ->setParameter('userVerification', '%'.$is_Verified.'%')
+            ->getQuery()
+            ->getResult();
+    }
 
     // /**
     //  * @return User[] Returns an array of User objects

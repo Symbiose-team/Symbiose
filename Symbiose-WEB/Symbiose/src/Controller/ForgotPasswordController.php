@@ -91,7 +91,7 @@ class ForgotPasswordController extends AbstractController
     /**
      * @param string $token
      * @param User $user
-     * @Route("account/forgot-password/{id<\d+>}/{token}",name="app_retrieve_credentials")
+     * @Route("/account/forgot-password/{id<\d+>}/{token}",name="app_retrieve_credentials")
      * @return RedirectResponse
      */
     public function retrieveCredentialFromTheUrl(

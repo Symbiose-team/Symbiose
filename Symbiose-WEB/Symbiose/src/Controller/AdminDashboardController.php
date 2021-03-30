@@ -10,6 +10,7 @@ use App\Form\EventType;
 use App\Form\SpecialEventType;
 use App\Repository\EventRepository;
 use App\Repository\UserRepository;
+use App\Services\Pagination;
 use Knp\Component\Pager\PaginatorInterface;
 use Cassandra\Type\UserType;
 use Doctrine\Persistence\ObjectManager;
@@ -47,20 +48,31 @@ class AdminDashboardController extends AbstractController
      * @Route("/admin/utilisateurs/{page<\d+>?1}", name="admin_utilisateurs")
      * @param UserRepository $repo
      * @param int $page
+     * @param Pagination $pagination
      * @return Response
      */
-    public function Gestion(UserRepository $repo,$page =1): Response
+    public function Gestion(UserRepository $repo, $page,Pagination $pagination): Response
     {
-        $limit=5;
-        $start = $page * $limit - $limit;
-        $total=count($repo->findAll());
-        $pages = ceil($total / $limit); //3.5 =4
+        $pagination->setEntityClass(User::class)
+                   ->setPage($page);
         return $this->render('admin_dashboard/utilisateurs/admin_utilisateurs.html.twig',[
-            'users'=>$repo->findBy([], [], $limit, $start),
-            'pages'=>$pages,
+            'users'=>$pagination->getData(),
+            'pages'=>$pagination->getPages(),
             'page'=>$page
         ]);
     }
+        //    public function Gestion(UserRepository $repo,$page =1): Response
+        //    {
+        //        $limit=5;
+        //        $start = $page * $limit - $limit;
+        //        $total=count($repo->findAll());
+        //        $pages = ceil($total / $limit); //3.5 =4
+        //        return $this->render('admin_dashboard/utilisateurs/admin_utilisateurs.html.twig',[
+        //            'users'=>$repo->findBy([], [], $limit, $start),
+        //            'pages'=>$pages,
+        //            'page'=>$page
+        //        ]);
+        //    }
 
     /**
      * Permet d'afficher le formulaire d'edition
@@ -118,23 +130,25 @@ class AdminDashboardController extends AbstractController
         return $this->redirectToRoute("admin_utilisateurs");
     }
 
-    /**
-     * Ceci est un test
-     * @Route("/admin/utilisateurs/recherche",name="admin_user_recherche")
-     * @param Request $request
-     * @param NormalizerInterface $Normalizer
+//    /**
+//     * Ceci est un test
+//     * @Route("/admin/utilisateurs/recherche",name="admin_user_recherche")
+//     * @param Request $request
+//     * @param NormalizerInterface $Normalizer
+//
+//     * @return Response
+//     * @throws ExceptionInterface
+//     */
+//        public function recherche(Request $request,NormalizerInterface $Normalizer){
+//            $repository = $this->getDoctrine()->getRepository(User::class);
+//            $requestString=$request->get('searchValue');
+//            $user = $repository->findByAjax($requestString);
+//            $jsonContent = $Normalizer->normalize($user, 'json',['groups'=>'post:read']);
+//            $retour=json_encode($jsonContent);
+//            return new JsonResponse($retour);
+//        }
 
-     * @return Response
-     * @throws ExceptionInterface
-     */
-        public function recherche(Request $request,NormalizerInterface $Normalizer){
-            $repository = $this->getDoctrine()->getRepository(User::class);
-            $requestString=$request->get('searchValue');
-            $user = $repository->findByAjax($requestString);
-            $jsonContent = $Normalizer->normalize($user, 'json',['groups'=>'post:read']);
-            $retour=json_encode($jsonContent);
-            return new JsonResponse($retour);
-        }
+
 
         //*********Gestion Evenement****************
 
