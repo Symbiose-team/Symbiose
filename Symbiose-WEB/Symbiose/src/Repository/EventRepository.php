@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Event;
+use App\Entity\EventSearch;
 use App\Entity\EventUser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
@@ -60,7 +61,8 @@ class EventRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('e');
 
         $qb
-            ->where('e.Supplier like :Supplier')
+            ->where('e.State = 1')
+            ->andWhere('e.Supplier like :Supplier')
             ->setParameter('Supplier',$name);
 
         dump($qb->getQuery()->getResult());
@@ -80,7 +82,27 @@ class EventRepository extends ServiceEntityRepository
         ;
     }
     */
-    private function findVisibleQuery()
+
+    /*
+     * @return Query
+     */
+    public function search(EventSearch $search): Query
     {
+        $qb = $this->createQueryBuilder('e');
+
+        if ($search->getType()) {
+            $qb
+                ->where('e.State = 1')
+                ->andWhere('e.Type like :Type')
+                ->setParameter('Type', $search->getType());
+
+            dump($qb->getQuery()->getResult());
+
+        }
+        else{
+            $qb
+                ->where('e.State = 1');
+        }
+        return $qb->getQuery();
     }
 }

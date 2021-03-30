@@ -172,7 +172,7 @@
                                     <td>{{ event.NumRemaining }}</td>
                                     <td>{{ event.type }}</td>
                                     <td>{{ event.date|date }}</td>
-                                    <td><img src="public\images\events\{{ event.imageName }}"
+                                    <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                                              class="img-fluid rounded-circle"
                                              alt="no_image :("
                                              style="border-radius: 4px;
@@ -193,7 +193,7 @@
                                         </a>
 
 
-                                        <a href="event/delete/{{ event.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                        <a href="event/delete/{{ event.id }}" class="btn btn-outline-danger" onclick="return confirm('Are you sure ?')">
                                             Delete
                                         </a>
                                     </td>

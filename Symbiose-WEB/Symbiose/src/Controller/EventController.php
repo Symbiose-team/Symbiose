@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\EventSearch;
 use App\Entity\SpecialEvent;
+use App\Form\EventSearchType;
 use App\Repository\EventRepository;
 use App\Repository\SpecialEventRepository;
 use Doctrine\ORM\EntityManager;
@@ -56,8 +58,12 @@ class EventController extends AbstractController
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
 
+        $search = new EventSearch();
+        $form = $this->createForm(EventSearchType::class, $search);
+        $form->handleRequest($request);
+
         $events = $paginator->paginate(
-            $this->event_repository->findAll(),
+            $this->event_repository->search($search),
             $request->query->getInt('page', 1),
             12
         );
@@ -65,7 +71,9 @@ class EventController extends AbstractController
 
         return $this->render('event/event.html.twig', [
             'current_menu' => 'events',
-            'events' => $events]);
+            'events' => $events,
+            'form' => $form->createView()
+        ]);
     }
 
     //Get Special event list
@@ -119,8 +127,8 @@ class EventController extends AbstractController
                     'currency' => 'eur',
                     'unit_amount' => 2000,
                     'product_data' => [
-                        'name' => 'Events',
-                        'images' => ["https://i.imgur.com/EHyR2nP.png"],
+                        'name' => 'Event',
+                        'images' => ["http://localhost/pidev/logo-mrigel-sghir.jpg"],
                     ],
                 ],
                 'quantity' => 1,
@@ -147,7 +155,7 @@ class EventController extends AbstractController
         $x =$event->getNumRemaining();
         dump($x);
 
-        if ($x <= 0){
+        if ($x <= 90){
             $event->setState(0);
         }
         $this->em->flush();

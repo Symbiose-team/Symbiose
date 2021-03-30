@@ -11,6 +11,22 @@
 
     <div class="container p-3 my-3">
         <h3 align="center">All your events in one place!</h3>
+
+        <div  class="container p-3 my-3" align="center">
+            <div class="form-row">
+                {{ form_start(form) }}
+                <div >
+                    <div class="col">
+                        {{ form_row(form.Type) }}
+                    </div>
+                    <div class="col">
+                        <button class="btn-outline-primary">Search</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
         <h1 align="center">Events</h1>
 
 
