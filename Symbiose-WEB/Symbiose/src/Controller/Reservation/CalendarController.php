@@ -24,23 +24,25 @@ class CalendarController extends AbstractController
         ]);
     }
     /**
-     * @Route("/field/{id}", name="calendar_show", methods={"GET"})
+     * @Route("/field", name="calendar_show", methods={"GET"})
      */
-    public function details(CalendarRepository $calendarRepository,$id): Response
+    public function details(CalendarRepository $calendarRepository): Response
     {
         return $this->render('Reservation/calendar/index.html.twig', [
             'calendars' => $calendarRepository->findAll()
         ]);
     }
-
     /**
      * @Route("/new", name="calendar_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,CalendarRepository $calen): Response
     {
         $calendar = new Calendar();
         $form = $this->createForm(CalendarType::class, $calendar);
         $form->handleRequest($request);
+        $events = $calen->findAll();
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -55,7 +57,6 @@ class CalendarController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="calendar_show", methods={"GET"})
      */
@@ -65,7 +66,6 @@ class CalendarController extends AbstractController
             'calendar' => $calendar,
         ]);
     }
-
     /**
      * @Route("/{id}/edit", name="calendar_edit", methods={"GET","POST"})
      */
@@ -73,19 +73,15 @@ class CalendarController extends AbstractController
     {
         $form = $this->createForm(CalendarType::class, $calendar);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('calendar_index');
         }
-
         return $this->render('Reservation/calendar/edit.html.twig', [
             'calendar' => $calendar,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="calendar_delete", methods={"DELETE"})
      */
@@ -96,7 +92,6 @@ class CalendarController extends AbstractController
             $entityManager->remove($calendar);
             $entityManager->flush();
         }
-
         return $this->redirectToRoute('calendar_index');
     }
 }

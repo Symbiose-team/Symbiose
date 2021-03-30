@@ -1,41 +1,39 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Calendar index{% endblock %}
-
 {% block body %}
     <h1>liste de reservation </h1>
 
     <div class="btn-group" role="group" aria-label="Basic example">
 
-        <form action="{{ path('main',) }}">
+        <form action="{{ path('afficheterrai',) }}">
 
-            <button class="btn btn-dark">Go_Back</button>
+            <button class="btn btn-info">Go_Back</button>
         </form>
-        <form action="{{ path('calendar_new')}}>
+        <form action="{{ path('calendar_new',)}}">
 
-            <button class="btn btn-dark">Nouvelle reservation</button>
+            <button class="btn btn-info">Nouvelle_reservation</button>
+
         </form>
-
     </div>
+
 
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Description</th>
-                <th>All_day</th>
-                <th>Background_color</th>
-                <th>field</th>
-                 <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Description</th>
+            <th>All_day</th>
+            <th>Background_color</th>
+            <th>field</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for calendar in calendars %}
-
             <tr>
                 <td>{{ calendar.id }}</td>
                 <td>{{ calendar.title }}</td>
@@ -45,24 +43,22 @@
                 <td>{{ calendar.allDay ? 'Yes' : 'No' }}</td>
                 <td>{{ calendar.backgroundColor }}</td>
                 <td>{{ calendar.field }}</td>
-            <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
-
-                    <form action="{{ path('calendar_show', {'id': calendar.id}) }}">
-                        <button class="btn btn-warning">Afficher</button>
-                    </form>
-
-                    <form action="{{ path('calendar_edit', {'id': calendar.id}) }}">
-                        <button class="btn btn-info">supprimer</button>
-                    </form>
-                    <form action="{{ path('reserver',{'id': calendar.id}) }}">
-                        <button class="btn btn-light">Confirmer</button>
-                    </form>
-                </div>
-            </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <form action="{{ path('calendar_show', {'id': calendar.id}) }}">
+                            <button class="btn btn-warning">Afficher</button>
+                        </form>
+                        <form action="{{ path('calendar_edit', {'id': calendar.id}) }}">
+                            <button class="btn btn-info">supprimer</button>
+                        </form>
+                        <form action="{{ path('reserver',{'id': calendar.id}) }}">
+                            <button class="btn btn-light">Confirmer</button>
+                        </form>
+                    </div>
+                </td>
             </tr>
-                    {#  <a href="{{ path('calendar_show', {'id': calendar.id}) }}">show</a>#}
-                    {#<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>  #}
+            {#  <a href="{{ path('calendar_show', {'id': calendar.id}) }}">show</a>#}
+            {#<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>  #}
         {% else %}
             <tr>
                 <td colspan="8">no records found</td>
@@ -70,5 +66,4 @@
         {% endfor %}
         </tbody>
     </table>
-
 {% endblock %}

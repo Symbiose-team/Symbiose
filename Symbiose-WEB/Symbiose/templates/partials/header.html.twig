@@ -32,6 +32,9 @@
                 <!-- Navbar dropdown -->
                 <ul class="navbar-nav ml-auto">
                     {% if app.user %}
+                        <li class="nav-item ml-auto d-flex flex-row">
+                            <a href="{{ path('afficheterrai') }}">Terrain</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle " data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
                                 <img src="{{ app.user.picture }}" class="avatar avatar-mini" alt="Avatar de {{ app.user.fullname }}">

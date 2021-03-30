@@ -31,10 +31,10 @@ class FieldController extends AbstractController
     }
 
 
-   /**
-     * @Route ("/detail/{id}",name="detail")
+    /**
+     * @Route ("/detaill/{id}",name="detaill")
      */
-    public function detail($id){
+    public function details($id){
 
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $test=$repo->find($id);

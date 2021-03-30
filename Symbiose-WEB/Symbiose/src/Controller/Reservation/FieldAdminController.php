@@ -33,7 +33,7 @@ public function aff(){
         ]);
 }
     /**
-     * @Route("/admin",name="admin")
+     * @Route("/fieldadmin",name="admin")
      */
     public function affiche(){
         $repo=$this->getDoctrine()->getRepository(Field::class);

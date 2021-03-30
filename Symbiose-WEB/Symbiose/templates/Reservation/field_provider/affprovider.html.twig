@@ -12,7 +12,7 @@
         {% for   field in  terain %}
 
 
-
+            {% if app.user.firstName == field.provider %}
             <div class="card text-center">
             <div class="card-header">{{ field.name }}</div>
             <div class="card-body">
@@ -42,6 +42,7 @@
 
 
         </div>
+            {% endif %}
         {% endfor %}
 {#  <table  id = " terrain "  class = " table table-striped ">
     <thead>

@@ -34,10 +34,7 @@ class FieldProviderController extends AbstractController
     {
         $repo = $this->getDoctrine()->getRepository(Field::class);
         // look for multiple Product objects matching the supplier
-        $fields = $repo->findBy(
-            ['provider' => 'wassim']
-        );
-        $field = $repo->findAll();
+        $fields = $repo->findall();
         return $this->render('Reservation/field_provider/affprovider.html.twig', ['terain' => $fields]);
     }
 
@@ -71,7 +68,7 @@ class FieldProviderController extends AbstractController
         $this->$now = new \DateTime('now');
         $repo = $this->getDoctrine()->getRepository(Field::class);
         $field = $repo->find($id);
-        if ($field->getDateEnd() < $now or $field->getDateEnd() > $now ) {
+        if ($field->getDateEnd() < $now ) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($field);
             $em->flush();

@@ -1,34 +1,34 @@
-
 {% extends 'base.html.twig' %}
-
 {% block title %}Calendar index{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-
-    {{ form_widget(form) }}
-
-    <div class="btn-group" role="group" aria-label="Basic example">
-
-     {# <form action={{ path("paillement",)}}>
-            <button class="btn btn_drink">paiement</button>
-
-        </form>#}
-    {# <form action={{  button_label|default('Save') }}>
-        <button class="btn btn_drink">save</button>
-    </form> #}
-        <form action={{ path("afficheterrai",)}}>
-            <button class="btn btn-warning">Exit</button>
-        </form>
+    <div align="center">
         <form action={{ path("calendar_index",)}}>
             <button class="btn btn-info">liste de reservation</button>
         </form>
-        <button class="btn btn-light">{{ button_label|default('Save') }}</button>
+    </div>
+
+    {{ form_start(form) }}
+    {{form_row(form.field, {'attr': {'value': 54}})}}
+    {{ form_widget(form) }}
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        @@ -17,18 +23,19 @@
+        {# <form action={{  button_label|default('Save') }}>
+        <button class="btn btn_drink">save</button>
+    </form> #}
+
+        <button class="btn btn-warning">{{ button_label|default('Save') }}</button>
+
+        {{ form_end(form) }}
+
+        <form action={{ path("afficheterrai",)}}>
+            <button class="btn btn-light">Exit</button>
+        </form>
 
     </div>
 
 
 
-    {{ form_end(form) }}
-{% endblock %}
 
+{% endblock %}

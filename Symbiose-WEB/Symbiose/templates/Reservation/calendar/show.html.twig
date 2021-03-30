@@ -1,52 +1,23 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}liste des reservation{% endblock %}
 
 {% block body %}
-    <h1>Calendar</h1>
+    <h1>Detail reservation</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ calendar.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ calendar.title }}</td>
-            </tr>
-            <tr>
-                <th>Start</th>
-                <td>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>End</th>
-                <td>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ calendar.description }}</td>
-            </tr>
-            <tr>
-                <th>All_day</th>
-                <td>{{ calendar.allDay ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Background_color</th>
-                <td>{{ calendar.backgroundColor }}</td>
-            </tr>
-        <tr>
-            <th>field</th>
-            <td>{{ calendar.field }}</td>
-
-        </tr>
+        @@ -43,9 +43,13 @@
         </tbody>
     </table>
-<div class="btn-group" role="group" aria-label="Basic example">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <form action="{{ path('calendar_index') }}">
+            <button class="btn btn-info">back to list</button>
+        </form>
 
-   <a href="{{ path('calendar_index') }}">back to list</a>
-    <a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>
+        <form action="{{ path('calendar_edit', {'id': calendar.id}) }}">
+            <button class="btn btn-info">edit</button>
+        </form>
 
-   {{ include('calendar/_delete_form.html.twig') }}
-</div>
+        {{ include('Reservation/calendar/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
