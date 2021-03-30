@@ -16,6 +16,8 @@
                 <th scope="col">name</th>
                 <th scope="col">address</th>
                 <th scope="col">space</th>
+                <th scope="col">provider</th>
+                <th scope="col">price</th>
 
 
             </tr>
@@ -27,6 +29,11 @@
                     <td>{{ test.price }}</td>
                     <td>{{ test.address }}</td>
                     <td>{{ test.space }}</td>
+                    <td>{{ test.provider }}</td>
+                    <td>{{ test.price }}</td>
+
+
+
                 </tr>
             </tbody>
 
@@ -36,12 +43,12 @@
     {% endif %}
     <div class="btn-group" role="group" aria-label="Basic example">
 
-    <form action="{{ path('afficheterrai',)}}">
-        <button class="btn btn-danger">Go_Back</button>
+    <form action="{{ path('afficheterrai')}}">
+        <button class="btn btn-info">Back</button>
     </form>
-    <form action="{{ path('reserve',{'id':test.id}) }}">
+    <form action="{{ path('mainn',{'id':test.id}) }}">
 
-        <button class="btn btn-dark">Réserver</button>
+        <button class="btn btn-info">Réserver</button>
     </form>
     </div>
 {% endblock %}

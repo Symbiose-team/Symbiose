@@ -24,9 +24,9 @@ class CalendarController extends AbstractController
         ]);
     }
     /**
-     * @Route("/field/{id}", name="calendar_show", methods={"GET"})
+     * @Route("/field", name="calendar_show", methods={"GET"})
      */
-    public function details(CalendarRepository $calendarRepository,$id): Response
+    public function details(CalendarRepository $calendarRepository): Response
     {
         return $this->render('calendar/index.html.twig', [
             'calendars' => $calendarRepository->findAll()
@@ -36,19 +36,22 @@ class CalendarController extends AbstractController
     /**
      * @Route("/new", name="calendar_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,CalendarRepository $calen): Response
     {
         $calendar = new Calendar();
         $form = $this->createForm(CalendarType::class, $calendar);
         $form->handleRequest($request);
+        $events = $calen->findAll();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($calendar);
-            $entityManager->flush();
 
-            return $this->redirectToRoute('main');
-        }
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($calendar);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('main');
+            }
 
         return $this->render('calendar/new.html.twig', [
             'calendar' => $calendar,

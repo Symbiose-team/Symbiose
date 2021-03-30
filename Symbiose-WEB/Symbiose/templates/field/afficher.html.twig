@@ -72,12 +72,12 @@
                     <p>Prix : {{ field.price }} </p>
                     <p>Address :{{ field.address }}</p>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <form action="{{ path('detail',{'id':field.id}) }}">
+                    <form action="{{ path('detaill',{'id':field.id}) }}">
 
                         <button class="btn btn-dark">Détail</button>
                     </form>
 
-                    <form action="{{ path('main',{'id':field.id}) }})}}">
+                    <form action="{{ path('mainn',{'id':field.id}) }})}}">
 
                         <button class="btn btn-dark">Réserver</button>
                     </form>

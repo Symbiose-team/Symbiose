@@ -3,7 +3,7 @@
 {% block title %}liste des reservation{% endblock %}
 
 {% block body %}
-    <h1>Calendar</h1>
+    <h1>Detail reservation</h1>
 
     <table class="table">
         <tbody>
@@ -43,9 +43,13 @@
         </tbody>
     </table>
 <div class="btn-group" role="group" aria-label="Basic example">
+    <form action="{{ path('calendar_index') }}">
+        <button class="btn btn-info">back to list</button>
+    </form>
 
-   <a href="{{ path('calendar_index') }}">back to list</a>
-    <a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>
+    <form action="{{ path('calendar_edit', {'id': calendar.id}) }}">
+        <button class="btn btn-info">edit</button>
+    </form>
 
    {{ include('calendar/_delete_form.html.twig') }}
 </div>

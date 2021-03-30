@@ -71,7 +71,7 @@ class FieldProviderController extends AbstractController
         $this->$now = new \DateTime('now');
         $repo = $this->getDoctrine()->getRepository(Field::class);
         $field = $repo->find($id);
-        if ($field->getDateEnd() < $now or $field->getDateEnd() > $now ) {
+        if ($field->getDateEnd() < $now  ) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($field);
             $em->flush();
@@ -86,10 +86,10 @@ class FieldProviderController extends AbstractController
     public function update(\Symfony\Component\HttpFoundation\Request $request, $id)
     {
         $now = DateTime::DEFAULT_GROUP;
-        $this->$now = new \DateTime('now');
+        $this->$now = new \DateTime('today');
         $repository = $this->getDoctrine()->getRepository(Field::class);
         $field = $repository->find($id);
-        if ($field->getDateEnd() < $now or $field->getDateEnd() > $now ) {
+        if ($field->getDateEnd() < $now) {
             $form = $this->createForm(FieldType::class, $field);
             $form->add('Update', SubmitType::class);
             $form->handleRequest($request);
