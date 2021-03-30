@@ -2,7 +2,7 @@
 
 namespace App\Repository\Communication;
 
-use App\Entity\Publication;
+use App\Entity\Communication\Publication;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

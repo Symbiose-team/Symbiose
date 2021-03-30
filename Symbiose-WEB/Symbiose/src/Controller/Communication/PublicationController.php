@@ -3,6 +3,7 @@
 namespace App\Controller\Communication;
 
 use App\Entity\User;
+use App\Entity\Communication\Publication;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
-use App\Repository\PublicationRepository;
+use App\Repository\Communication\PublicationRepository;
 
 class PublicationController extends AbstractController
 {
@@ -36,7 +37,7 @@ class PublicationController extends AbstractController
      */
     public function index(PublicationRepository $PublicationRepository): Response
     {
-        return $this->render('publication/index.html.twig', [
+        return $this->render('/Communication/publication/index.html.twig', [
             'Publications' => $PublicationRepository->findAll(),
         ]);
     }
@@ -46,7 +47,7 @@ class PublicationController extends AbstractController
      */
     public function admin(PublicationRepository $PublicationRepository): Response
     {
-        return $this->render('publication/indexadmin.html.twig', [
+        return $this->render('/Communication/publication/indexadmin.html.twig', [
             'Publications' => $PublicationRepository->findAll(),
         ]);
     }

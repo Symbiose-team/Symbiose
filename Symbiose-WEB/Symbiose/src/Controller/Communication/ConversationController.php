@@ -41,7 +41,7 @@ class ConversationController extends AbstractController
      */
     public function index(ConversationRepository $conversationRepository): Response
     {
-        return $this->render('conversation/index.html.twig', [
+        return $this->render('/Communication/conversation/index.html.twig', [
             'conversations' => $conversationRepository->findAll(),
         ]);
     }
@@ -147,11 +147,11 @@ class ConversationController extends AbstractController
         
            
 
-            return $this->render('conversation/show.html.twig', [
+            return $this->render('/Communication/conversation/show.html.twig', [
                 'conversation' => $conversation,
             ]);        }
 
-        return $this->render('conversation/new.html.twig', [
+        return $this->render('/Communication/conversation/new.html.twig', [
             'conversation' => $conversation,
             'form' => $form->createView(),
         ]);
@@ -162,7 +162,7 @@ class ConversationController extends AbstractController
      */
     public function show(Conversation $conversation): Response
     {
-        return $this->render('conversation/show.html.twig', [
+        return $this->render('/Communication/conversation/show.html.twig', [
             'conversation' => $conversation,
         ]);
     }
@@ -204,7 +204,7 @@ class ConversationController extends AbstractController
             return $this->redirectToRoute('conversation_index');
         }
 
-        return $this->render('conversation/edit.html.twig', [
+        return $this->render('/Communication/conversation/edit.html.twig', [
             'conversation' => $conversation,
             'form' => $form->createView(),
         ]);
