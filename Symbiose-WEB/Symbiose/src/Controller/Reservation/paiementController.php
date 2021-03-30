@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,21 +16,21 @@ class paiementController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('paiement/Paillement.html.twig', []);
+        return $this->render('Reservation/paiement/Paillement.html.twig', []);
     }
     /**
      * @Route("/success", name="success")
      */
     public function success(): Response
     {
-        return $this->render('paiement/success.html.twig', []);
+        return $this->render('Reservation/paiement/success.html.twig', []);
     }
     /**
      * @Route("/error", name="error")
      */
     public function error(): Response
     {
-        return $this->render('paiement/error.html.twig', []);
+        return $this->render('Reservation/paiement/error.html.twig', []);
     }
 
 

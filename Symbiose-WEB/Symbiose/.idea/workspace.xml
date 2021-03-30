@@ -2,12 +2,100 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="vesrion final">
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/Pdf/contrat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/api/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/availability/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/availibility_provider/AddAvailability.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/availibility_provider/AdminAvailability.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/availibility_provider/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/base.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/calendar/_delete_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/calendar/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/calendar/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/calendar/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/calendar/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/calendar/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field/afficher.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field/jareb.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field/reserver.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field/test.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_admin/add.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_admin/affAdmin.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_admin/calendar.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_admin/detail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_admin/error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_admin/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_admin/terrain.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_admin/update.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/addfield.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/affprovider.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/suprovider.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/update.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/main/admin.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/main/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/map/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/map/map.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/paiement/Paillement.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/paiement/error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/paiement/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/paiement/success.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/shared/footer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Reservation/shared/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CalendarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/calendar/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/calendar/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field/afficher.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field/afficher.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AvailibilityProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/AvailibilityProviderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/CalendarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FieldAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/FieldAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/FieldController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FieldProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/FieldProviderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/MapController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/paiementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/paiementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Pdf/contrat.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/api/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/availability/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/availibility_provider/AddAvailability.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/availibility_provider/AdminAvailability.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/availibility_provider/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/calendar/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/calendar/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/calendar/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/calendar/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/calendar/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/calendar/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/afficher.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/jareb.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/reserver.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field/test.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/add.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/affAdmin.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/calendar.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/detail.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/error.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/terrain.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_admin/update.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_provider/addfield.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_provider/affprovider.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_provider/error.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_provider/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_provider/suprovider.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/field_provider/update.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/image/img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/admin.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map/map.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paiement/Paillement.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paiement/error.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paiement/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paiement/success.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shared/footer.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shared/header.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +104,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -152,7 +242,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/Reservation" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -166,7 +256,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\templates\Reservation" />
       <recent name="C:\GitHub\Sy-2\Symbiose\Symbiose-WEB\Symbiose\public\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\templates\Reservation" />
+      <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\src\Controller\Reservation" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

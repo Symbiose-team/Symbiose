@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 
 use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,7 +18,7 @@ class FieldAdminController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('field_admin/index.html.twig', [
+        return $this->render('Reservation/field_admin/index.html.twig', [
             'controller_name' => 'FieldAdminController',
         ]);
 
@@ -28,7 +28,7 @@ class FieldAdminController extends AbstractController
      * @Route ("/AFF",name="aff")
      */
 public function aff(){
-        return $this->render('main/index.html.twig', [
+        return $this->render('Reservation/main/index.html.twig', [
             'controller_name' => 'FieldAdminController',
         ]);
 }
@@ -38,7 +38,7 @@ public function aff(){
     public function affiche(){
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $field=$repo->findAll();
-        return $this->render('field_admin/affAdmin.html.twig',['terain'=>$field]);
+        return $this->render('Reservation/field_admin/affAdmin.html.twig',['terain'=>$field]);
     }
 
     /**
@@ -47,7 +47,7 @@ public function aff(){
     public function affi(){
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $field=$repo->findAll();
-        return $this->render('field_admin/detail.html.twig',['terain'=>$field]);
+        return $this->render('Reservation/field_admin/detail.html.twig',['terain'=>$field]);
     }
     /**
      * @Route ("/detail/{id}",name="detailss")
@@ -56,7 +56,7 @@ public function aff(){
 
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $field=$repo->find($id);
-        return $this->render('field_admin/index.html.twig',['n'=>$field]);
+        return $this->render('Reservation/field_admin/index.html.twig',['n'=>$field]);
     }
 
     /**
@@ -91,7 +91,7 @@ public function aff(){
             return $this->redirectToRoute('admin');
 
         }
-        return $this->render('field_admin/add.html.twig',['form'=>$form->createView()]);
+        return $this->render('Reservation/field_admin/add.html.twig',['form'=>$form->createView()]);
 }
 
     /**
@@ -111,7 +111,7 @@ public function update(\Symfony\Component\HttpFoundation\Request $request,$id)
         return $this->redirectToRoute('admin');
 
     }
-return $this->render('field_admin/update.html.twig',['form'=>$form->createView()]);
+return $this->render('Reservation/field_admin/update.html.twig',['form'=>$form->createView()]);
     }
 
 

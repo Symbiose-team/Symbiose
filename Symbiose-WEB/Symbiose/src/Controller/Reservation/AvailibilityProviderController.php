@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,7 +16,7 @@ class AvailibilityProviderController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('availibility_provider/index.html.twig', [
+        return $this->render('Reservation/availibility_provider/index.html.twig', [
             'controller_name' => 'AvailibilityProviderController',
         ]);
     }
@@ -27,7 +27,7 @@ class AvailibilityProviderController extends AbstractController
     public function affiche(){
         $repo=$this->getDoctrine()->getRepository(Availability::class);
         $dispo=$repo->findAll();
-        return $this->render('availibility_provider/AdminAvailability.html.twig',['dispo'=>$dispo]);
+        return $this->render('Reservation/availibility_provider/AdminAvailability.html.twig',['dispo'=>$dispo]);
     }
 
     /**
@@ -47,7 +47,7 @@ class AvailibilityProviderController extends AbstractController
             return $this->redirectToRoute('dispo');
 
         }
-     return $this->render('availibility_provider/AddAvailability.html.twig',['form'=>$form->createView()]);
+     return $this->render('Reservation/availibility_provider/AddAvailability.html.twig',['form'=>$form->createView()]);
 
     }
 }

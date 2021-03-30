@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +13,7 @@ class MapController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('map/map.html.twig', [
+        return $this->render('Reservation/map/map.html.twig', [
             'controller_name' => 'MapController',
         ]);
     }

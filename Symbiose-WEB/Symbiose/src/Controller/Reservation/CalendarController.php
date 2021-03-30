@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 use App\Entity\Calendar;
 use App\Form\CalendarType;
 use App\Repository\CalendarRepository;
@@ -19,7 +19,7 @@ class CalendarController extends AbstractController
      */
     public function index(CalendarRepository $calendarRepository): Response
     {
-        return $this->render('calendar/index.html.twig', [
+        return $this->render('Reservation/calendar/index.html.twig', [
             'calendars' => $calendarRepository->findAll()
         ]);
     }
@@ -28,7 +28,7 @@ class CalendarController extends AbstractController
      */
     public function details(CalendarRepository $calendarRepository,$id): Response
     {
-        return $this->render('calendar/index.html.twig', [
+        return $this->render('Reservation/calendar/index.html.twig', [
             'calendars' => $calendarRepository->findAll()
         ]);
     }
@@ -50,7 +50,7 @@ class CalendarController extends AbstractController
             return $this->redirectToRoute('main');
         }
 
-        return $this->render('calendar/new.html.twig', [
+        return $this->render('Reservation/calendar/new.html.twig', [
             'calendar' => $calendar,
             'form' => $form->createView(),
         ]);
@@ -61,7 +61,7 @@ class CalendarController extends AbstractController
      */
     public function show(Calendar $calendar): Response
     {
-        return $this->render('calendar/show.html.twig', [
+        return $this->render('Reservation/calendar/show.html.twig', [
             'calendar' => $calendar,
         ]);
     }
@@ -80,7 +80,7 @@ class CalendarController extends AbstractController
             return $this->redirectToRoute('calendar_index');
         }
 
-        return $this->render('calendar/edit.html.twig', [
+        return $this->render('Reservation/calendar/edit.html.twig', [
             'calendar' => $calendar,
             'form' => $form->createView(),
         ]);

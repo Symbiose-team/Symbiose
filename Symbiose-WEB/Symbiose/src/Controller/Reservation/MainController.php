@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 
 use App\Repository\CalendarRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,7 +31,7 @@ class MainController extends AbstractController
 
         $data = json_encode($rdvs);
 
-        return $this->render('main/index.html.twig', compact('data'));
+        return $this->render('Reservation/main/index.html.twig', compact('data'));
     }
     /**
      * @Route("/showadmin", name="adminmain")
@@ -56,6 +56,6 @@ class MainController extends AbstractController
 
         $data = json_encode($rdvs);
 
-        return $this->render('main/admin.html.twig', compact('data'));
+        return $this->render('Reservation/main/admin.html.twig', compact('data'));
     }
 }
