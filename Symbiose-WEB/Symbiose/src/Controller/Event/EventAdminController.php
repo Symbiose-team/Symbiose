@@ -46,7 +46,7 @@ class EventAdminController extends AbstractController
 
     //dashboard : event
     /**
-     * @Route("/eventadmin", name="event_adminV2")
+     * @Route("/admin/event", name="event_adminV2")
      */
     public function event_admin(PaginatorInterface $paginator, Request $request): Response
     {
@@ -58,13 +58,13 @@ class EventAdminController extends AbstractController
             12
         );
 
-        return $this->render('event_admin/eventadmin.html.twig', ['current_menu' => 'events', 'events' => $events]);
+        return $this->render('Event/event_admin/eventadmin.html.twig', ['current_menu' => 'events', 'events' => $events]);
 
     }
 
     //dashboard : special event
     /**
-     * @Route("/seventadmin", name="sevent_admin")
+     * @Route("/admin/Sevent", name="sevent_admin")
      */
     public function sevent_admin(PaginatorInterface $paginator, Request $request): Response
     {
@@ -75,13 +75,13 @@ class EventAdminController extends AbstractController
             12
         );
 
-        return $this->render('event_admin/eventadmin_sevent.html.twig', ['current_menu' => 'Sevents', 'Sevents' => $Sevents]);
+        return $this->render('Event/event_admin/eventadmin_sevent.html.twig', ['current_menu' => 'Sevents', 'Sevents' => $Sevents]);
 
     }
 
     //dashboard : invalid events
     /**
-     * @Route("/invalidevents", name="invalid_event")
+     * @Route("/admin/invalidevents", name="invalid_event")
      */
     public function invalid_event(PaginatorInterface $paginator, Request $request): Response
     {
@@ -91,14 +91,14 @@ class EventAdminController extends AbstractController
             12
         );
 
-        return $this->render('event_admin/invalid_event.html.twig', ['current_menu' => 'events',
+        return $this->render('Event/event_admin/invalid_event.html.twig', ['current_menu' => 'events',
             'events' => $output ]);
 
     }
 
     //verify event
     /**
-     * @Route("/invalidevents/verify/{id}", name="verify_event")
+     * @Route("/admin/invalidevents/verify/{id}", name="verify_event")
      */
     public function verify_event($id): Response
     {
@@ -113,7 +113,7 @@ class EventAdminController extends AbstractController
 
     //cancel event
     /**
-     * @Route("/eventadmin/cancel/{id}", name="cancel_event")
+     * @Route("/admin/event/cancel/{id}", name="cancel_event")
      */
     public function cancel_event($id): Response
     {
@@ -128,7 +128,7 @@ class EventAdminController extends AbstractController
 
     //Add an event
     /**
-     * @Route("/event/add", name="add_event")
+     * @Route("/admin/event/add", name="add_event")
      * @Method({"GET","POST"})
      */
 
@@ -147,7 +147,7 @@ class EventAdminController extends AbstractController
             $entityManager->persist($event);
             $entityManager->flush();
 
-            return $this->redirectToRoute('Event/event_admin');
+            return $this->redirectToRoute('event_admin');
         }
 
         return $this->render('Event/event_admin/new_event.html.twig', array('form'=>$form->createView()));
@@ -155,7 +155,7 @@ class EventAdminController extends AbstractController
 
     //Edit an event
     /**
-     * @Route("Event/event/edit/{id}", name="edit_event")
+     * @Route("/admin/event/edit/{id}", name="edit_event")
      * @Method({"GET","POST"})
      */
     public function edit(Request $request, $id){
@@ -170,7 +170,7 @@ class EventAdminController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
-            return $this->redirectToRoute('Event/event_admin');
+            return $this->redirectToRoute('event_admin');
         }
 
         return $this->render('Event/event_admin/edit_event.html.twig', array('form'=>$form->createView()));
@@ -178,7 +178,7 @@ class EventAdminController extends AbstractController
 
     //DELETE event
     /**
-     * @Route ("/event/delete/{id}", name="delete_event")
+     * @Route ("/admin/event/delete/{id}", name="delete_event")
      * @Method ({"DELETE"})
      */
     public function delete(Request $request, $id){
@@ -186,13 +186,13 @@ class EventAdminController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($event);
         $entityManager->flush();
-        return $this->redirectToRoute('Event/event_admin');
+        return $this->redirectToRoute('event_admin');
 
     }
 
     //Add a Special event as an admin
     /**
-     * @Route("/sevent/add", name="add_sevent")
+     * @Route("/admin/sevent/add", name="add_sevent")
      * @Method({"GET","POST"})
      */
     public function newSevent(Request $request){
@@ -216,7 +216,7 @@ class EventAdminController extends AbstractController
 
     //Edit a Special event
     /**
-     * @Route("/sevent/edit/{id}", name="edit_sevent")
+     * @Route("/admin/sevent/edit/{id}", name="edit_sevent")
      * @Method({"GET","POST"})
      */
     public function editSevent(Request $request, $id){
@@ -239,7 +239,7 @@ class EventAdminController extends AbstractController
 
     //DELETE Special event
     /**
-     * @Route ("/sevent/delete/{id}", name="delete_sevent")
+     * @Route ("/admin/sevent/delete/{id}", name="delete_sevent")
      * @Method ({"DELETE"})
      */
     public function deleteSevent(Request $request, $id){
@@ -253,7 +253,7 @@ class EventAdminController extends AbstractController
     //Order matters!
     //Show admin event by id
     /**
-     * @Route("/eventadmin/event/{id}",name="eventadmin_show")
+     * @Route("/admin/event/{id}",name="eventadmin_show")
      */
     public function show($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
@@ -262,7 +262,7 @@ class EventAdminController extends AbstractController
 
     //Show Special event by id
     /**
-     * @Route("seventadmin/sevent/{id}",name="seventadmin_show")
+     * @Route("/admin/seventadmin/sevent/{id}",name="seventadmin_show")
      */
     public function showSevent($id){
         $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);

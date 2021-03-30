@@ -69,7 +69,7 @@ class EventController extends AbstractController
         );
 
 
-        return $this->render('event/event.html.twig', [
+        return $this->render('Event/event/event.html.twig', [
             'current_menu' => 'events',
             'events' => $events,
             'form' => $form->createView()
@@ -91,7 +91,7 @@ class EventController extends AbstractController
         );
 
 
-        return $this->render('event/Sevent.html.twig', [
+        return $this->render('Event/event/Sevent.html.twig', [
             'current_menu' => 'Sevents',
             'Sevents' => $Sevents ,]);
     }
@@ -100,14 +100,14 @@ class EventController extends AbstractController
      * @Route("/success",name="success")
      */
     public function success(){
-        return $this->render('event/success.html.twig');
+        return $this->render('Event/event/success.html.twig');
     }
 
     /**
      * @Route("/error",name="error")
      */
     public function error(){
-        return $this->render('event/error.html.twig');
+        return $this->render('Event/event/error.html.twig');
     }
 
     //Paiement Stripe
@@ -162,7 +162,7 @@ class EventController extends AbstractController
         dump($event);
 
 
-        return $this->render('/event/join_event.html.twig',array('event' => $event));
+        return $this->render('Event/event/join_event.html.twig',array('event' => $event));
     }
 
     /**
@@ -184,7 +184,7 @@ class EventController extends AbstractController
         $this->em->flush();
         dump($Sevent);
 
-        return $this->render('/event/join_special_event.html.twig',array('Sevent' => $Sevent));
+        return $this->render('Event/event/join_special_event.html.twig',array('Sevent' => $Sevent));
     }
 
     //Order matters!
@@ -194,7 +194,7 @@ class EventController extends AbstractController
      */
     public function show($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-        return $this->render('event/show_event.html.twig',array('event' => $event));
+        return $this->render('Event/event/show_event.html.twig',array('event' => $event));
     }
 
     //Show special event by id
@@ -203,7 +203,7 @@ class EventController extends AbstractController
      */
     public function sshow($id){
         $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
-        return $this->render('event/show_sevent.html.twig',array('Sevent' => $Sevent));
+        return $this->render('Event/event/show_sevent.html.twig',array('Sevent' => $Sevent));
     }
 
 

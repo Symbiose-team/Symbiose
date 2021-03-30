@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="vesrion final">
+    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="Integration">
+      <change afterPath="$PROJECT_DIR$/templates/event/base.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/event/event/Sevent.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/event/event/show_sevent.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/event/shared/footer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/event/shared/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Reservation/CalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/CalendarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Reservation/FieldAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/FieldAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Reservation/FieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/FieldController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Reservation/FieldProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/FieldProviderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Reservation/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Reservation/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/calendar/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/calendar/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/calendar/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/calendar/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/calendar/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/calendar/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/calendar/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/calendar/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/field_provider/affprovider.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/affprovider.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/main/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/main/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/main/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/main/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Event/EventAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Event/EventAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Event/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Event/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Event/EventSupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Event/EventSupplierController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event-welcome/event-welcome.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event-welcome/event-welcome.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event/error.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event/event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event/event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event/eventadmin_sevent.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/eventadmin_sevent.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event/invalid_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/invalid_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event/join_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event/join_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event/join_special_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event/join_special_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event/show_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/show_admin_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event/success.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event/success.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_admin/edit_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/edit_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_admin/edit_special_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/edit_special_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_admin/eventadmin.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_admin/new_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/new_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_admin/new_special_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/new_special_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_admin/show_admin_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event/show_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_admin/show_special_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/show_special_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_supplier/show_supplier_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_supplier/show_supplier_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Event/event_supplier/supplier_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_supplier/supplier_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/Sevent.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/error.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/event.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/join_event.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/join_special_event.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/show_event.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/show_sevent.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/success.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_admin/eventadmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_admin/eventadmin.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +198,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/Reservation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/Event" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -193,6 +212,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\templates\Event" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\templates\Reservation" />
       <recent name="C:\GitHub\Sy-2\Symbiose\Symbiose-WEB\Symbiose\public\img" />
     </key>
@@ -397,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617052252881</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Integration">
+      <created>1617142842010</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1617142842010</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,6 +465,7 @@
     <MESSAGE value="reservation" />
     <MESSAGE value="OnetoMany" />
     <MESSAGE value="vesrion final" />
-    <option name="LAST_COMMIT_MESSAGE" value="vesrion final" />
+    <MESSAGE value="Integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integration" />
   </component>
 </project>

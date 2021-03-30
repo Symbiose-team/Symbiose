@@ -7,9 +7,10 @@
     </style>
 
     <div class="container p-3 my-3">
-        <section>
-            <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
-        </section>
-        <a href="/events">Go Back</a>
+        <h3>Edit your Event</h3>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        <a href="/eventadmin">Go Back</a>
     </div>
 {% endblock %}

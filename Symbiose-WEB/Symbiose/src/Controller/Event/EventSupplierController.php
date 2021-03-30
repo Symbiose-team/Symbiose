@@ -42,7 +42,7 @@ class EventSupplierController extends AbstractController
 
         $events = $this->event_repository->find_by_user($name);
 
-        return $this->render('event_supplier/supplier_event.html.twig', array('events' => $events));
+        return $this->render('Event/event_supplier/supplier_event.html.twig', array('events' => $events));
     }
 
     //Show event by id
@@ -51,7 +51,7 @@ class EventSupplierController extends AbstractController
      */
     public function supplierShow($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-        return $this->render('event_supplier/show_supplier_event.html.twig',array('event' => $event));
+        return $this->render('Event/event_supplier/show_supplier_event.html.twig',array('event' => $event));
     }
 
 }

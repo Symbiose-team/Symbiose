@@ -80,14 +80,14 @@
                     ><span>Events</span>
                 </a>
                 <a
-                        href="/seventadmin"
+                        href="{{ path('sevent_admin') }}"
                         class="list-group-item list-group-item-action py-2 ripple"
                 >
                     <i class="fas fa-chart-area fa-fw me-3"></i
                     ><span>Special events</span>
                 </a>
                 <a
-                        href="/invalidevents"
+                        href="{{ path('invalid_event') }}"
                         class="list-group-item list-group-item-action py-2 ripple"
                 >
                     <i class="fas fa-chart-area fa-fw me-3"></i
@@ -102,7 +102,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="/event-welcome">
+        <a class="navbar-brand" href="{{ path('event-welcome') }}">
             <img
                     src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                     height="25"
@@ -144,7 +144,9 @@
             <div class="card">
                 <div class="card-header text-center py-3">
                     <h5 class="mb-0 text-center">
+                        <a class="btn btn-outline-dark " aria-current="page" href="/event/add" >Add Event</a>
                         <strong>Manage All Events</strong>
+
                     </h5>
                 </div>
                 <div class="card-body">
@@ -179,7 +181,7 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                                     <td>
-                                        <a href="/eventadmin/event/{{ event.id }}" class="btn btn-dark">
+                                        <a href="{{ path('admin_event_show',{'id':event.id}) }}" class="btn btn-dark">
                                             Show
                                         </a>
 
@@ -212,7 +214,7 @@
                     </div>
 
                 </div>
-                <a class="btn btn-outline-dark" aria-current="page" href="/event/add" >Add Event</a>
+
 
             </div>
         </section>
