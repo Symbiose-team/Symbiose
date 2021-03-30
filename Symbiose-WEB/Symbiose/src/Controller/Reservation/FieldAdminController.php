@@ -33,7 +33,7 @@ public function aff(){
         ]);
 }
     /**
-     * @Route("/admin",name="admin")
+     * @Route("/fieldadmin",name="admin")
      */
     public function affiche(){
         $repo=$this->getDoctrine()->getRepository(Field::class);
@@ -42,7 +42,7 @@ public function aff(){
     }
 
     /**
-     * @Route("/admindett",name="admindett",methods={"GET","POST"})
+     * @Route("/reservation/admindett",name="admindett",methods={"GET","POST"})
      */
     public function affi(){
         $repo=$this->getDoctrine()->getRepository(Field::class);
