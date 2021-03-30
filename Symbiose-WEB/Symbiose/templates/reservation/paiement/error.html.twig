@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title%} List des terrain {% endblock %}
+
+{% block  body %}
+    <p>
+        Échec du paiement !
+    </p>
+    <form action="{{ path('ret') }}">
+
+        <button class="btn btn-dark">go_back</button>
+
+    </form>
+
+{% endblock %}

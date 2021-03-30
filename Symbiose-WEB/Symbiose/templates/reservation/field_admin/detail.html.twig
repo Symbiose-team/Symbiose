@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <form action="{{ path('admin',)}}">
+            <button  class="btn btn-light btn-rounded">Back</button>
+
+
+        </form>
+        <form  action="{{ path('addfield') }}" >
+            <button  class="btn btn-dark btn-rounded">New</button>
+        </form>
+
+    </div>
+
+<div>
+                {% if  terain %}
+                    <div align="center">
+                    <table  id = " terain " >
+                        <thead>
+                        <tr>
+                            <th>Terrain</th>
+                            <th>----Detail -----  modifier -----  supprimer</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for   field in  terain %}
+                         <tr> <td> {{ field.name}} </td>
+
+                              <td>
+                                  <div class="btn-group" role="group" aria-label="Basic example">
+
+                                      <form action="{{ path('detailss',{ 'id':field.id }) }}">
+
+                                          <button class="btn btn-warning">Detail</button>
+                                      </form>
+
+                                      <form action="{{ path('update',{ 'id':field.id }) }}">
+                                          <button class="btn btn-light">Modifier</button>
+                                      </form>
+                                      <form action="{{ path('supp',{ 'id':field.id }) }}">
+                                          <button class="btn btn-info" onclick="return confirm('Are you sure ?')">Supprimer</button>
+                                      </form>
+                                  </div>
+                              </td>
+                          </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                {% else %}
+                    <p> Audun field </p>
+                {% endif %}
+
+
+            </div>
+
+
+{% endblock %}

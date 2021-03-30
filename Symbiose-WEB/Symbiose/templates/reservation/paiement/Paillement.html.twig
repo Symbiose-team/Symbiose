@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block title%}
+
+{% endblock %}
+
+{% block  body %}
+
+    <blockquote class="blockquote mb-0">
+    <p class="center">
+        Si vous êtes sûr de vouloir effectuer une réservation,
+
+        veuillez procéder au paiement en ligne.</p>
+    <p class="center">
+        Annulez toute réservation 3 jours ,
+        avant votre rendez-vous,
+
+        une pénalité de 30% vous sera facturée,</p>
+     <p>
+        sinon aucun remboursement ne sera effectué.
+    </p>
+    </blockquote>
+    {# <p class="flotte">
+        <img src="{{asset(('img/img.png'))}}" alt="" />
+    </p> #}
+
+    <form action="{{ path('return') }}">
+
+        <button class="btn btn-dark">go_back</button>
+        <button class="btn btn-dark" id="checkout-button" >Confirmer</button>
+
+    </form>
+
+
+{% block javascripts %}
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script type="text/javascript">
+        // Create an instance of the Stripe object with your publishable API key
+        var stripe = Stripe('pk_test_51ITS8FLNTPBfKfeUbbbzzX9p8YLZKVMCaJb1VmC3Gjxshrnskptyr8vxvbvEDHF9gP094DzEuTesvLPOxGm2FVZ6005z9AhsSM');
+        var checkoutButton = document.getElementById('checkout-button');
+
+        checkoutButton.addEventListener('click', function() {
+
+            fetch('/create-checkout-session', {
+                method: 'POST',
+            })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(session) {
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                })
+                .then(function(result) {
+                    // If redirectToCheckout fails due to a browser or network
+                    // error, you should display the localized error message to your
+                    // customer using error.message.
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+
+{% endblock %}
+
+{% endblock %}

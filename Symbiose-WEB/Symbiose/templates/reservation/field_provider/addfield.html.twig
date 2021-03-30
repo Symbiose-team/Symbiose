@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title%} List des terrain {% endblock %}
+
+{% block  body %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <form action="{{ path('provider',)}}">
+        <button class="btn btn-danger">Go_Back</button>
+    </form>
+{% endblock %}

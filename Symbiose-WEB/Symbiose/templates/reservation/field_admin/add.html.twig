@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title%} List des terrain {% endblock %}
+
+{% block  body %}
+    <form action="{{ path('admin',)}}">
+        <button  class="btn btn-light btn-rounded">Back</button>
+
+
+    </form>
+    <div class="container p-3 my-3">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    </div>
+
+
+
+   {% block javascripts %}
+       <script src="{{ asset('public/datepicker/datepicker.min.js')}}"></script>
+       <script>
+           jQuery(document).ready(function(){
+               $('.js-datepicker').datepicker();
+           });
+       </script>
+   {% endblock %}
+{% endblock %}
+

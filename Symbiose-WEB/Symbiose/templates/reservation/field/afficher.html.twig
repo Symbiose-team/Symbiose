@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+{% block title%}  {% endblock %}
+
+{% block  body %}
+
+
+    <div class="col-md-12" >
+        <div class="card mb-5">
+
+            <iframe class="ratio ratio-16x9"
+
+                    src="https://www.youtube.com/embed/vlDzYIIOYmM"
+                    title="YouTube video"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <form action={{ path("calendar_index",)}}>
+        <button class="btn btn-info">liste de reservation</button>
+    </form>
+
+
+{% if  terrain %}
+
+    <div class="container mt-80" >
+    <ul class="stepper" data-mdb-stepper="stepper">
+        <!-- ... -->
+    </ul>
+  <div class="container mt-12" >
+    <div class="card mb-5">
+
+    <div class="center">
+    <div class="input-group rounded" >
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+               aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+    </div>
+    </div>
+    </div>
+    {% for field in terrain %}
+
+        <div class="container mt-17">
+
+
+            <div class="container mt-28">
+
+            <div class="col-md-5" >
+            <div class="card mb-5">
+
+
+<div class="row">
+
+
+            <div class="card">
+
+                <div class="card-body" style="width: 28rem " >
+        <!-- Card -->
+
+
+            <div
+
+                class="bg-image card shadow-1-strong"
+                style="
+            background-image: url('img/img_1.png');
+            "
+              >
+            <div class="card-body text-white"  >
+                <h5 class="card-title">Terrain Football</h5>
+                <p class="card-text">
+                    Terrain :{{ field.name }} </p>
+                    <p>Prix : {{ field.price }} </p>
+                    <p>Address :{{ field.address }}</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <form action="{{ path('detail',{'id':field.id}) }}">
+
+                        <button class="btn btn-dark">Détail</button>
+                    </form>
+
+                    <form action="{{ path('main',{'id':field.id}) }})}}">
+
+                        <button class="btn btn-dark">Réserver</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    {% endfor %}
+
+    {# <table  id = " d "  class = " table table-striped ">
+      <thead>
+        <tr>
+            <th> Terrain </th>
+            <th> Detail  </th>
+            <th> Reserver  </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for   field in  terrain %}
+          <tr>
+            <td> {{field.name}} </td>
+            <td>
+                <form action="{{ path('detail',{'id':field.id}) }}">
+
+                <button class="btn btn-light">Detail</button>
+                </form>
+
+
+            </td>
+
+              <td>
+                  <form action="{{ path('paillement',{'id':field.id}) }}">
+
+                  <button class="btn btn-dark">Réserver</button>
+                  </form>
+
+
+              </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table> #}
+
+  {% else %}
+    <p> Audun field </p>
+  {% endif %}
+
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+{% endblock %}
