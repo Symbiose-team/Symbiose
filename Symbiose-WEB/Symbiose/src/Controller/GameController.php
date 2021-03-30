@@ -12,6 +12,7 @@ use App\Entity\User;
 use App\Repository\UserRepository;
 use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class GameController extends AbstractController
 {
@@ -27,10 +28,12 @@ class GameController extends AbstractController
     /**
      * @Route("/game/add", name="game_add", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, TokenStorageInterface $tokenStorage): Response
     {
+        $user= $tokenStorage->getToken()->getUser();
         $game = new Game();
         $game->setTime(new \DateTime());
+        $game->setUser($user);
         $form = $this->createForm(GameType::class, $game);
         $form->handleRequest($request);
 
@@ -47,5 +50,53 @@ class GameController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+
+    /**
+     * @Route("/game/edit/{id}", name="game_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Game $game): Response
+    {
+        $form = $this->createForm(GameType::class, $game);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('game_index');
+        }
+
+        return $this->render('game/add.html.twig', [
+            'game' => $game,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/game/delete/{id}/", name="game_delete")
+     */
+    public function delete(Request $request, Game $game): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($game);
+        $entityManager->flush();
+        $this->addFlash('notice','Lobby was deleted');
+
+        return $this->redirectToRoute('game_index');
+    }
+
+
+
+
+    /**
+     * @Route("/game/{id}", name="game_show", methods={"GET"})
+     */
+    public function show(Game $game): Response
+    {
+        return $this->render('game/show.html.twig', [
+            'game' => $game,
+        ]);
+    }
+
 
 }

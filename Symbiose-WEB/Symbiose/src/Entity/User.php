@@ -168,9 +168,15 @@ class User implements UserInterface
      */
     private ?bool $isEnabled;
 
+    /**
+     * @ORM\OneToMany (targetEntity="App\Entity\Game", mappedBy="user")
+     */
+    private $games;
+
 
     public function __construct()
     {
+        $this->games = new ArrayCollection();
         $this->userRoles = new ArrayCollection();
         //add this new if error undo below
         $this->isEnabled=true;
@@ -178,6 +184,16 @@ class User implements UserInterface
         $this->registeredAt=new \DateTimeImmutable('now');
         $this->accountMustBeVerifiedBefore=(new \DateTimeImmutable('now'))->add(new \DateInterval("P1D"));
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGames(): ArrayCollection
+    {
+        return $this->games;
+    }
+
+
 
     public function getFullname(){
         return "{$this->firstName} {$this->lastName}";

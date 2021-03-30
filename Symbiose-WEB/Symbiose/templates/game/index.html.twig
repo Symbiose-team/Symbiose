@@ -12,15 +12,18 @@
                 <!-- end:aside lobby kiri -->
                 <!-- start:aside lobby tengah -->
                 <aside >
-                    <div class="chat-room-head">
-
-
-                    </div>
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert alert-success" >
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                     <div class="room-desk">
                         <h4 class="pull-left">Lobbies</h4>
 
                         <table class="table-sm align-middle">
+
                             <thead>
+
                             <tr>
                                 <th>Owner</th>
 
@@ -32,9 +35,18 @@
                             <tbody>
                             {% for game in games %}
                                 <tr>
-                                    <td>@username </td>
+                                    <td>{{ game.user.fullname }} </td>
                                     <td>{{ game.name }}</td>
-                                    <td>{{ game.time|date }}</td>
+                                    <td>{{ game.time|date("d/m/Y") }}</td>
+                                    <td>   <a class="btn btn-primary" href="{{ path('game_show', {'id':game.id}) }}">Show Lobby</a></td>
+                                    {% if is_granted('edit',game) %}
+                                    <td>   <a class="btn btn-secondary" href="{{ path('game_edit', {'id':game.id}) }}">Edit Lobby</a></td>
+                                   {% endif %}
+                                    {% if is_granted('delete',game) %}
+                                    <td>   <a class="btn btn-danger" onclick="return confirm('Are you sure ?')" href="{{ path('game_delete', {'id':game.id}) }}">Delete Lobby</a></td>
+                                    {% endif %}
+
+
 
                                 </tr>
                             {% else %}
