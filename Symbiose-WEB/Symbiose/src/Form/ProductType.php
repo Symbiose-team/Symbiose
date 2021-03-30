@@ -24,7 +24,7 @@ class ProductType extends AbstractType
                 'choices' => $this->getChoices()
             ])
             ->add('State', null, [
-                'label' => 'Sold'
+                'label' => 'In Stock'
             ])
             ->add('imageFile', FileType::class, [
                 'required' => false

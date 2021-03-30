@@ -36,14 +36,14 @@ class Product
     private $id;
 
     /**
-     * @var string|null
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $filename;
 
     /**
      * @var File|null
-     * @Vich\UploadableField(mapping="property_image", fileNameProperty="filename")
+     * @Vich\UploadableField(mapping="products_image", fileNameProperty="filename")
      */
     private $imageFile;
 
