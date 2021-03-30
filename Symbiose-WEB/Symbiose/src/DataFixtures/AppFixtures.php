@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Game;
 use App\Entity\Role;
 use App\Entity\User;
 use Cocur\Slugify\Slugify;
@@ -94,5 +95,18 @@ class AppFixtures extends Fixture
 
             $manager->flush();
         }
+
+        for ($i = 1; $i <= 10; $i++) {
+            $game = new Game();
+            $game->setName("Match".rand(0,100));
+            $game->setTime(new \DateTime('2021-03-15'));
+            $manager->persist($game);
+
+        }
+        $manager->flush();
     }
+
+
+
+
 }

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client Lobby{% endblock %}
+
+{% block body %}
+
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+
+                <!-- end:aside lobby kiri -->
+                <!-- start:aside lobby tengah -->
+                <aside >
+                    <div class="chat-room-head">
+
+
+                    </div>
+                    <div class="room-desk">
+                        <h4 class="pull-left">Lobbies</h4>
+
+                        <table class="table-sm align-middle">
+                            <thead>
+                            <tr>
+                                <th>Owner</th>
+
+                                <th>Name</th>
+                                <th>Time</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for game in games %}
+                                <tr>
+                                    <td>@username </td>
+                                    <td>{{ game.name }}</td>
+                                    <td>{{ game.time|date }}</td>
+
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">No Lobbies Yet</td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                        <a class="btn btn-primary" href="{{ path('game_add') }}">Add a new Lobby</a>
+
+                    </div>
+                </aside>
+                <!-- end:aside lobby kanan -->
+            </div>
+        </div>
+        <!-- end:lobby -->
+
+    </div>
+
+{% endblock %}
