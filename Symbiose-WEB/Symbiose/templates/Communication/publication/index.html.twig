@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+html {
+    font-size: 20px !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+</style>
+
+
+
+    <h1>Publications</h1>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../js/star-rating.js" type="text/javascript"></script>
+ 
+    <table class="table">
+            <tbody>
+
+            <tr>
+                <td>Id</td>
+                <td>contenu</td>
+                               <td>rate</td>
+
+            </tr>
+        {% for Publications in Publications %}
+            <tr>
+                <td>{{ Publications.id }}</td>
+                <td>{{ Publications.contenu }}</td>
+                
+                      <td>
+ <input name="{{ Publications.id }}" id="input-21b" value="{{Publications.vote}}" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="sml"
+               required title="">
+            <input id="{{ Publications.id }}" type="hidden" value="{{Publications.id}}">
+                           <button id="btn" onclick="myF({{Publications.id}})" class="btn btn-primary">Voter</button>
+
+
+               </td>
+
+           </tr>
+                     <th>Commetaire : {{Publications.commentaires | length}} </th>
+
+
+                    {% for commentaire in Publications.commentaires %}
+                
+
+            <tr>
+            <td  colspan="3">
+  <div id="{{commentaire.id}}">   
+
+                      {{commentaire.user.username}} :
+  {{commentaire.contenu}} à  {{commentaire.date | date("H:i:s d/m/Y") }}
+                      {% if commentaire.user.id == app.user.id %}
+      <form id="form{{commentaire.id}}" method="post" action="{{ path('removeCommentaire') }}">
+      <input type="hidden" name="id" value="{{ commentaire.id }}">
+    <button type="submit" class="btn btn-danger btn-rounded btn-sm" >
+    <a style="color: white" href="#!" role="button" 
+  ><i class="fas fa-trash fa-lg"></i
+></a>
+</button>
+    <button onclick="myFunction({{commentaire.id}},'{{commentaire.contenu}}')"  class="btn btn-primary btn-rounded btn-sm">  <a style="color: white" href="#!" role="button"
+  ><i class="fas  fa-edit fa-lg"></i
+></a></button>
+
+      </form>
+
+
+</div>       
+<script>
+function myFunction(c,e) {
+     document.getElementById("form"+c).innerHTML=""; 
+  document.getElementById(c).innerHTML = "<form method='post' action='{{ path('updateCommentaire') }}'><input type='hidden' name='id' value='"+c+"'> <input type='text' value='"+e+"' name='contenu'> <button type='submit' class='btn btn-danger btn-rounded btn-sm' ><a style='color: white' href='#!' role='button'><i class='fas fa-edit fa-lg'></i></a></button></form>";
+}
+</script>
+
+                    {% endif %}
+
+                        </td>
+
+            </tr>
+
+                    {% endfor %}
+                                <tr>
+
+<td colspan="3">
+                 <form method="post" action="{{ path('addCommentaire') }}">
+    <input type="hidden" name="id" value="{{ Publications.id }}">
+
+       <input type="text" name="contenu"  class="form-outline">
+
+    <button type="submit" class="btn btn-success btn-rounded btn-sm" >
+    <a style="color: white" href="#!" role="button" 
+  ><i class="fas  fa-comment fa-lg"></i
+></a>
+</button>
+</form>
+                 </td>
+
+            </tr>
+
+          
+         
+        {% else %}
+            <tr>
+                <td colspan="2">non Publications trouvez</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+       
+function myF(a){
+               b= document.getElementsByName(a)[0];
+    
+var pub = document.getElementById(a).value;
+  
+  $.ajax({url: "http://127.0.0.1:8000/newvote?id="+a+"&rating="+b.value, success: function(result){
+location.reload();
+  }});
+
+}
+
+    </script>
+{% endblock %}

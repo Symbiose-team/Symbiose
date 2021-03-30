@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Conversation</h1>
+
+    <table  class="paginated" >
+  <tbody >
+            
+{% set  i = 0 %}
+
+<div id="div">
+        {% for message in conversation.messages %}
+        {% set  i = i+1 %}
+{% if  not(i > ((conversation.messages | length)-10)) %}
+
+<tr  id="{{message.id}}">
+            <p id="{{message.id}}" name="aa" class="note note-light" style="display:none" >
+               {{message.user.username}} : {{message.contenu}}  à {{message.date | date }}
+               {% if message.user.username == app.user.username %}
+        <button onclick="myF({{message.id}})" class="btn btn-danger btn-rounded btn-sm" >
+    <a style="color: white" href="#!" role="button" 
+  ><i class="fas  fa-trash fa-lg"></i
+></a>
+                {% endif %}
+
+               <br>
+            <tr>
+   
+{% else %}
+</div>
+
+            <tr  id="{{message.id}}">
+
+            <p id="{{message.id}}"  class="note note-light">
+               {{message.user.username}} : {{message.contenu}}  à {{message.date | date }}
+               {% if message.user.username == app.user.username %}
+        <button onclick="myF({{message.id}})" class="btn btn-danger btn-rounded btn-sm" >
+    <a style="color: white" href="#!" role="button" 
+  ><i class="fas  fa-trash fa-lg"></i
+></a>
+{% endif %}
+
+               <br>
+            <tr>
+                              {% endif %}
+         
+
+        {% endfor %}
+         <p id="p1" >
+
+    </p>
+
+
+        </tbody>
+    </table>
+                Nouveau message : <input type="text" id="msg" name="msg" onkeydown="myFunc()" >
+<button onclick="myFunction()" id="btn" disabled="true">Envoyer</button>
+<button onclick="showMore()" > <div  id ="bt" > Show more </div></button>
+
+{% block javascripts %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script>
+    function showMore(){
+
+        var y = document.getElementById(bt);
+          var xx = document.getElementsByName("aa").length;
+
+        for(i=0;i<xx ;i++) {
+var x = document.getElementsByTagName("p")[i];
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  }
+  else {
+          x.style.display = "none";
+
+  } 
+    } }
+</script>
+    <script>
+
+function myF(id) {
+    
+     $.get(
+        "http://127.0.0.1:8000/conversation/deletemessage?id="+id,
+   
+    retou, // Nous renseignons uniquement le nom de la fonction de retour.
+    'json' // Format des données reçues.
+);  
+function retou(a){
+document.getElementById(a).remove();
+
+}
+}
+</script>
+<script>
+
+
+function myFunc() {
+   if (document.getElementById("msg").value == ""){ 
+document.getElementById("btn").disabled =true ;
+
+}
+else {
+    document.getElementById("btn").disabled =false ;
+
+}
+     }
+function myFunction() {
+    
+    var msg = document.getElementById("msg").value;
+        document.getElementById("msg").value ="";
+
+     $.get(
+        "http://127.0.0.1:8000/conversation/newmessage?id="+{{conversation.id}}+"&message="+msg+"&user="+{{app.user.id}},
+    {
+        id : {{conversation.id}}  },
+    nom, // Nous renseignons uniquement le nom de la fonction de retour.
+    'json' // Format des données reçues.
+);      }
+
+function nom(texte_recu){
+
+} </script>
+<script>
+len = {{conversation.messages|length}} ;
+
+var doSth = function () {
+
+   $.get(
+        "http://127.0.0.1:8000/conversation/refresh?id="+{{conversation.id}},
+    {
+        id : {{conversation.id}}  },
+    nom_fonction_retour, // Nous renseignons uniquement le nom de la fonction de retour.
+    'json' // Format des données reçues.
+);
+function nom_fonction_retour(texte_recu){
+
+    if ( len < texte_recu.message.length ) {
+        console.log(texte_recu.message[len].id );
+                console.log(texte_recu.message[len].username );
+
+  var xd = document.getElementById("p1").innerHTML+ "<p class='note note-light' id='"+texte_recu.message[len].id + "'> <tr>"+texte_recu.message[len].username+" : "+texte_recu.message[len].contenu+" à "+texte_recu.message[len].date ;
+if (texte_recu.message[len].username == "{{app.user.username}}")    {         
+  document.getElementById("p1").innerHTML = xd+"    <button onclick='myF("+texte_recu.message[len].id +")' class='btn btn-danger btn-rounded btn-sm' ><a style='color: white' role='button' ><i class='fas  fa-trash fa-lg'></i></a></tr>";
+}
+else {
+    document.getElementById("p1").innerHTML =xd+"</tr><br>";  
+}
+ document.getElementById("p1").innerHTML = document.getElementById("p1").innerHTML+"</p>"; 
+len++
+;}
+
+    
+};
+
+
+
+};
+setInterval(doSth, 5000);//
+</script>
+{% endblock %}
+    <a href="{{ path('conversation_index') }}">Retour</a>
+
+   
+{% endblock %}

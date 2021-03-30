@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    Message : <input type="text" name="message">
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conversation index{% endblock %}
+
+{% block body %}
+    <h1>Conversation index</h1>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conversation in conversations %}
+            <tr>
+            {% if conversation.user1.username == app.user.username %}
+                <td>{{conversation.user2.username}}</td>
+                                                                        {{ include('conversation/_delete_form.html.twig') }}
+                            {% else %}
+                <td>{{conversation.user1.username}}</td>
+            {% endif %}
+
+                <td>
+                    <a href="{{ path('conversation_show', {'id': conversation.id}) }}">Envoyer un message</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('conversation_new') }}">Create new</a>
+{% endblock %}
