@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Event;
 
 use App\Entity\Event;
 use App\Entity\SpecialEvent;
