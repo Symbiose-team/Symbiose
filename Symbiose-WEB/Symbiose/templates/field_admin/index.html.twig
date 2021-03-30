@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% if  n %}
+
+        <table  id = " n " class="table">
+
+            <thead>
+            <tr>
+
+                <th scope="col">code</th>
+                <th scope="col">name</th>
+                <th scope="col">address</th>
+                <th scope="col">space</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <td>{{ n.id }}</td>
+                <th>{{ n.name }}</th>
+                <td>{{ n.address }}</td>
+                <td>{{ n.space}}</td>
+                <td>{{ n.provider }}</td>
+
+
+            </tr>
+
+
+            </tbody>
+        </table>
+        {% else %}
+        dsf;sgùp
+    {% endif %}
+    <form action="{{ path('admin',)}}">
+        <button  class="btn btn-light btn-rounded">Back</button>
+
+
+    </form>
+
+{% endblock %}

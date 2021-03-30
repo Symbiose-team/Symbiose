@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+
+{% block  body %}
+
+    {% if  test %}
+        <table  class = " table ">
+
+
+
+
+            <thead class="table-light">
+            <tr>
+
+                <th scope="col">code</th>
+                <th scope="col">name</th>
+                <th scope="col">address</th>
+                <th scope="col">space</th>
+
+
+            </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ test.id }}</td>
+                    <td>{{ test.price }}</td>
+                    <td>{{ test.address }}</td>
+                    <td>{{ test.space }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    {% else %}
+        <p> Aucun field </p>
+    {% endif %}
+    <div class="btn-group" role="group" aria-label="Basic example">
+
+    <form action="{{ path('afficheterrai',)}}">
+        <button class="btn btn-danger">Go_Back</button>
+    </form>
+    <form action="{{ path('reserve',{'id':test.id}) }}">
+
+        <button class="btn btn-dark">Réserver</button>
+    </form>
+    </div>
+{% endblock %}

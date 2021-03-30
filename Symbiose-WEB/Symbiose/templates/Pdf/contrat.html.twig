@@ -1,0 +1,95 @@
+
+
+{% block  body %}
+    <a href="{{path('provider',)}}">Go_Back</a></td>
+
+    {% if testee%}
+
+        <p>Date_Debut: {{ testee.getDateStart()| date('d/m/y')}}</p>
+        <p>Date_End: {{ testee.getDateEnd()| date('d/m/y')}}</p>
+
+        Contrat de location de terrain
+        Description:
+        La location de terrain nu, en dehors des régimes particuliers attachés à l'exploitation d'un bail rural ou commercial, relève du droit commun du louage des articles 1709 et suivants du Code civil.
+        Aux termes des dispositions de l'article 1709 du Code civil, le louage des choses est un contrat par lequel l'une des parties s'oblige à faire jouir l'autre d'une chose pendant un certain temps, et moyennant un certain prix que celle-ci s'oblige de lui payer.
+        En outre, l'article 1713 prévoit que l'on peut louer toutes sortes de biens meubles ou immeubles.
+        Notice :
+        Dans l'hypothèse où vous souhaitez mettre à disposition moyennant loyer un terrain, il convient de conclure un tel contrat de location. Précisez dans le contrat à quel usage est destiné le terrain loué, par exemple pour y exercer une activité sportive.
+        Il convient d'être attentif au fait que si l'activité prévue sur le terrain est une activité commerciale ou rurale, un tel contrat ne peut être conclu. Il faudra conclure des contrats spécifiques remplissant les conditions prévues par les statuts particuliers qui s'appliquent alors.
+        Les clauses du contrat sont données à titre d'exemple et sont à adapter selon les cas.
+        En outre, le principe applicable en la matière est celui de la liberté contractuelle.
+        Contrat de location de terrain nu
+        Les soussignés
+        Le bailleur
+        Personne physique :
+        [Madame/ Monsieur Prénom(s) NOM], [profession], [épouse/époux de Madame/Monsieur Prénom(s) NOM - partenaire lié(e) par un pacs à Madame/Monsieur Prénom(s) NOM - veuve/veuf de Madame/Monsieur Prénom(s) NOM - célibataire], demeurant à [adresse].
+        Né(e) à [lieu], le [date].
+        De nationalité [X].
+        Personne morale :
+        [Prénom(s) NOM], agissant au nom et pour le compte en qualité de [qualité du représentant] [forme, dénomination, et siège social de la personne morale, statuts en date du X et immatriculation]. Ayant tout pouvoir à l'effet des présentes en vertu de [indiquez article ou délibération].
+        Ci-après dénommé(e)(s) « LE BAILLEUR »
+        Le locataire
+        [Madame/ Monsieur Prénom(s) NOM], [profession], [épouse/époux de Madame/Monsieur Prénom(s) NOM - partenaire lié(e) par un pacs à Madame/Monsieur Prénom(s) NOM - veuve/veuf de Madame/Monsieur Prénom(s) NOM - célibataire], demeurant à [adresse].
+        Né(e) à [lieu], le [date].
+        De nationalité [X].
+        Ci-après dénommé(e)(s) « LE LOCATAIRE »
+        Ont convenu ce qui suit :
+        I. Location
+        LE BAILLEUR donne aux termes des présentes, à bail, AU LOCATAIRE qui accepte le bien immobilier dont la désignation suit.
+        Désignation 
+        Un terrain nu d'une superficie de [X], sis à [commune], [adresse/lieu-dit], cadastré section [X], numéro [X].
+        II. Jouissance
+        Le présent bail à caractère civil sera soumis aux conditions prévues aux présentes et aux dispositions particulières des articles 1709 et 1713 à 1751 du Code civil.
+        LE LOCATAIRE aura la jouissance du terrain à compter de la signature des présentes.
+        Le terrain objet des présentes est donné à bail pour un usage de [préciser l'activité à laquelle est destinée le terrain loué], à l'exclusion de toute autre activité. LE LOCATAIRE s'oblige expressément à n'utiliser le terrain donné à bail qu'à l'usage ci-dessus défini.
+        En outre, le bail étant consenti de manière strictement personnelle au LOCATAIRE, ce dernier ne pourra confier à quiconque d'autre la jouissance dudit terrain, même en vue de l'usage ci-dessus déterminé.
+        III. Durée
+        Le présent bail est consenti et accepté pour une durée de [X] années à compter du [date]. Le contrat est ensuite renouvelé d’année en année à moins que l’une des parties ne le résilie par courrier recommandé, en observant un préavis de [X] mois.
+        IV. Loyer
+        Au titre du présent bail, LE PRENEUR versera un loyer [périodicité, par exemple : mensuel] de [X en chiffres et en lettres] euros.
+        Ce loyer sera payé par mois et d'avance, avant le [date] de chaque mois, avec un premier paiement le [date].
+        V. Charges et conditions
+        Le présent bail a lieu aux charges et conditions ordinaires et de droit en pareille matière, et aux conditions suivantes :
+        LE BAILLEUR s'engage à délivrer le terrain en bon état de réparation de toute espèce et en état de servir à l'usage pour lequel il a été loué. Il devra garantie au LOCATAIRE pour tous les vices ou défauts de la chose louée qui en empêchent l'usage, quand même le bailleur ne les aurait pas connus lors de la conclusion du bail.
+        LE BAILLEUR assurera la jouissance paisible du PRENEUR pendant toute la durée du bail.
+        LE BAILLEUR fera, pendant toute la durée du bail, toutes les réparations qui peuvent devenir nécessaires, autres que les locatives.
+        LE LOCATAIRE prendra les lieux dans l'état où ils se trouveront le jour de l'entrée en jouissance et s'engage à user du terrain en bon père de famille, suivant la destination qui lui a été donnée, et à le conserver.
+        LE LOCATAIRE fera son affaire personnelle des servitudes de toute nature, administratives ou autres, qui peuvent et pourront grever la propriété louée, et à profiter de celles actives, s’il y a lieu. À cet égard, LE BAILLEUR déclare, qu’à sa connaissance, la propriété n’est grevée d’aucune autre servitude.
+        LE LOCATAIRE s'engage à payer le prix du bail aux échéances convenues.
+        LE LOCATAIRE s'engage à se faire assurer contre les risques locatifs, de recours des voisins et tous autres risques habituellement couverts par les assurances, à maintenir cette assurance pendant toute la durée du contrat, et à justifier de cette assurance et du paiement des primes lors de l'entrée en jouissance, puis chaque année auprès du BAILLEUR.
+        LE LOCATAIRE s’opposera à tout empiétement et dégradation et, le cas échéant, en préviendra immédiatement LE BAILLEUR pour qu'il agisse.
+        LE LOCATAIRE s'engage à ne pas transformer les lieux loués sans l'accord écrit du propriétaire ; à défaut de cet accord, ce dernier peut exiger DU LOCATAIRE, à son départ des lieux, leur remise en l'état ou conserver à son bénéfice les transformations effectuées sans que LE LOCATAIRE puisse réclamer une indemnisation.
+        LE LOCATAIRE s'engage à supporter sans indemnité ni diminution de loyer, quelles qu'en soient l'importance et la durée, les travaux de grosses et de petites réparations qui seraient nécessaires au maintien en état et à l'entretien normal du bien loué.
+        LE LOCATAIRE s'acquittera de tout impôt, taxe et redevance pendant la durée du présent contrat.
+        LE LOCATAIRE ne pourra ni sous-louer, ni céder, ni échanger le bien dont il s'agit, même temporairement, en totalité ou en partie.
+        Dans le cas où LE BAILLEUR viendrait à aliéner le terrain loué, l'acquéreur ne pourra expulser LE LOCATAIRE.
+        VI. Dispositions particulières
+        [indiquez le cas échéant les dispositions particulières s'appliquant à l'activité exercée]
+        VII. Clause résolutoire
+        LE BAILLEUR pourra résilier le présent contrat de plein droit, un mois après une mise en demeure par lettre recommandée avec demande d'avis de réception, au domicile désigné en tête du présent contrat, demeurée infructueuse, en cas d'inexécution par LE LOCATAIRE de l'une des conditions du présent engagement.
+        IX. Élection de domicile et frais
+        Pour l’exécution du présent contrat les parties font élection de domicile aux adresses indiquées en tête des présentes et s'engagent à informer l'autre partie de tout changement d'adresse.
+        Les frais engagés au titre des présentes sont à la charge exclusive du LOCATAIRE.
+
+        <p>Fait à [tunisie] en deux exemplaires, le [2020/2021]</p>
+
+
+
+
+        <p>[{{ testee.provider }}]
+            [SIGNATURE]</p>
+        <p>[sassi cheima]
+            [SIGNATURE]</p>
+
+
+
+
+
+
+
+
+    {% else %}
+gdg
+    {% endif %}
+
+{% endblock %}

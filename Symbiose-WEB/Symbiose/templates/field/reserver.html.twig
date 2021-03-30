@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+{% block title%}  {% endblock %}
+
+{% block  body %}
+
+        <table  id = " d "  class = " table table-striped ">
+      <thead>
+        <tr>
+            <th>9H_11H </th>
+            <th>11h_13H </th>
+            <th>13H_15H </th>
+            <th>15H_17H </th>
+            <th>17H_19H </th>
+            <th>19H_21H </th>
+            <th>21H_23H </th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>  <!-- Default checkbox -->
+                  <!-- Default checked radio -->
+                  <div class="form-check">
+                      <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault2"
+                              checked
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2">1ére</label>
+                  </div>
+              </td>
+              <td>
+                  <!-- Default checked radio -->
+                  <div class="form-check">
+                      <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault2"
+                              checked
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2"> La 2éme</label>
+                  </div>
+
+              </td>
+              <td>
+                  <!-- Default checked radio -->
+                  <div class="form-check">
+                      <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault2"
+                              checked
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2"> La 3éme</label>
+                  </div>
+              </td>
+              <td>
+                  <!-- Default checked radio -->
+                  <div class="form-check">
+                      <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault2"
+                              checked
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2"> La 5éme</label>
+                  </div>
+              </td>
+              <td>
+                  <!-- Default checked radio -->
+                  <div class="form-check">
+                      <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault2"
+                              checked
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2"> La 6éme</label>
+                  </div>
+              </td>
+              <td>
+                  <!-- Default checked radio -->
+                  <div class="form-check">
+                      <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault2"
+                              checked
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2">La 7éme</label>
+                  </div>
+              </td>
+              <td>
+                  <!-- Default checked radio -->
+                  <div class="form-check">
+                      <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault2"
+                              checked
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2"> La 8éme</label>
+                  </div>
+              </td>
+              <td> <th>
+                  <form action="{{ path('reserver',{'id':id})}}">
+                      <button class="btn btn-dark">Confirmer</button>
+                  </form>
+                  </th>
+              </td>
+
+          </tr>
+      </tbody>
+        </table>
+    <form action="{{ path('afficheterrai',)}}">
+        <button class="btn btn-danger">Go_Back</button>
+    </form>
+    </th>
+          {% endblock %}
