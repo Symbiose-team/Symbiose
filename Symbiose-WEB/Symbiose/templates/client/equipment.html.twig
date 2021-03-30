@@ -11,7 +11,7 @@
                     {% for product in products %}
                         <div class="col-md-4">
                             {% if product.filename %}
-                                <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="car-img-top" style="width: 100%; height: auto;">
+                                <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('thumb') }}" alt="car-img-top" style="width: 100%; height: auto;">
                             {% endif %}
                             <div class="card mb-5">
                                 <h3 class="card-header bg-dark text-white">{{ product.name }}</h3>
