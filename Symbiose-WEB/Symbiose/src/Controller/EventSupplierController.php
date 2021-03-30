@@ -3,20 +3,31 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Repository\EventRepository;
+use App\Repository\SpecialEventRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class EventSupplierController extends AbstractController
 {
+
+    private $event_repository;
+    private $sevent_repository;
+
     /**
-     * @Route("/event/supplier", name="event_supplier")
+     * $var ObjectManager
      */
-    public function index(): Response
+    private $em;
+
+    public function __construct(EventRepository $event_repository,
+                                SpecialEventRepository $sevent_repository,
+                                EntityManagerInterface $em)
     {
-        return $this->render('Event/event_supplier/event-event-welcome.html.twig', [
-            'controller_name' => 'EventSupplierController',
-        ]);
+        $this->event_repository = $event_repository;
+        $this->sevent_repository = $sevent_repository;
+        $this->em = $em;
     }
 
     //TODO Show only events related to the logged in supplier (Select from events where Supplier = "Connected_USER")
@@ -25,17 +36,13 @@ class EventSupplierController extends AbstractController
      */
     public function supplier_events(): Response
     {
-        $repository = $this->getDoctrine()->getRepository(Event::class);
+        //TODO based on username of logged in user should be dynamic
 
+        $name = 'Mahdi';
 
-        // look for multiple Product objects matching the supplier
-        $events = $repository->findBy(
-            ['Supplier' => 'Mahdi']
-        );
+        $events = $this->event_repository->find_by_user($name);
 
-        //$events=$this->getDoctrine()->getRepository(Event::class)->findAll();
-
-        return $this->render('Event/event_supplier/supplier_event.html.twig', array('events' => $events));
+        return $this->render('event_supplier/supplier_event.html.twig', array('events' => $events));
     }
 
     //Show event by id
@@ -44,7 +51,7 @@ class EventSupplierController extends AbstractController
      */
     public function supplierShow($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-        return $this->render('Event/event_supplier/show_supplier_event.html.twig',array('event' => $event));
+        return $this->render('event_supplier/show_supplier_event.html.twig',array('event' => $event));
     }
 
 }

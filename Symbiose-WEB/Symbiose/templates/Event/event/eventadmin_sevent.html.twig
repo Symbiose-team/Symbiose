@@ -1,0 +1,238 @@
+{% block body %}
+    <head>
+        <link
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+                rel="stylesheet"
+        />
+        <!-- Google Fonts -->
+        <link
+                href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+                rel="stylesheet"
+        />
+        <!-- MDB -->
+        <link
+                href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+                rel="stylesheet"
+        />
+
+        <link
+                href="http://localhost/pidev/style.css"
+                rel="stylesheet"
+        />
+
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js">
+        </script>
+    </head>
+    <style>
+        body {
+            background-color: #fbfbfb;
+        }
+        @media (min-width: 991.98px) {
+            main {
+                padding-left: 240px;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 58px 0 0; /* Height of navbar */
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+            width: 240px;
+            z-index: 600;
+        }
+
+        @media (max-width: 991.98px) {
+            .sidebar {
+                width: 100%;
+            }
+        }
+        .sidebar .active {
+            border-radius: 5px;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+        }
+
+        .sidebar-sticky {
+            position: relative;
+            top: 0;
+            height: calc(100vh - 48px);
+            padding-top: 0.5rem;
+            overflow-x: hidden;
+            overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        }
+    </style>
+    <nav
+            id="sidebarMenu"
+            class="collapse d-lg-block sidebar collapse bg-white"
+    >
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a
+                        href="/eventadmin"
+                        class="list-group-item list-group-item-action py-2 ripple"
+
+                >
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i
+                    ><span>Events</span>
+                </a>
+                <a
+                        href="#"
+                        class="list-group-item list-group-item-action py-2 ripple active"
+                        aria-current="true"
+                >
+                    <i class="fas fa-chart-area fa-fw me-3"></i
+                    ><span>Special events</span>
+                </a>
+                <a
+                        href="/invalidevents"
+                        class="list-group-item list-group-item-action py-2 ripple"
+                >
+                    <i class="fas fa-chart-area fa-fw me-3"></i
+                    ><span>Confirm events</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="/event-welcome">
+                <img
+                        src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                        height="25"
+                        alt=""
+                        loading="lazy"
+                />
+                <strong class="text-dark">Symbiose</strong>
+            </a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarExample01"
+                    aria-controls="navbarExample01"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+
+    <main style="margin-top: 58px">
+        <div class="container pt-4">
+            <!--Section: Manage All Special Events-->
+            <section class="mb-4">
+                <div class="card">
+                    <div class="card-header text-center py-3">
+                        <h5 class="mb-0 text-center">
+                            <strong>Manage All Special Events</strong>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            {% if Sevents %}
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Supplier</th>
+                                        <th scope="col">Players</th>
+                                        <th scope="col">Remaining</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Previs</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for Sevents in Sevents %}
+                                        <tr>
+                                            <td>{{ Sevents.name }}</td>
+                                            <td>{{ Sevents.supplier }}</td>
+                                            <td>{{ Sevents.NumParticipants }}</td>
+                                            <td>{{ Sevents.NumRemaining }}</td>
+                                            <td>{{ Sevents.type }}</td>
+                                            <td>{{ Sevents.date|date }}</td>
+                                            <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                                                     class="img-fluid rounded-circle"
+                                                     alt=""
+                                                     style="border-radius: 4px;
+                                             padding: 5px;
+                                             width: 50px;" ></td>
+                                            <td>
+                                                <a href="seventadmin/sevent/{{ Sevents.id }}" class="btn btn-dark">
+                                                    Show
+                                                </a>
+
+                                                <a href="sevent/edit/{{ Sevents.id }}" class="btn btn-light">
+                                                    Edit
+                                                </a>
+
+
+                                                <a href="sevent/delete/{{ Sevents.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                                    Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>No Special events yet !</p>
+                            {% endif %}
+
+                        </div>
+                        {# display navigation #}
+                        <div class="navigation">
+                            {{ knp_pagination_render(Sevents) }}
+                        </div>
+
+                        </div>
+                        <a class="btn btn-outline-dark" aria-current="page" href="/sevent/add">Add a Special Event</a>
+
+                </div>
+
+            </section>
+            <!--Section: Manage All Special Events-->
+
+        </div>
+        <!-- Footer -->
+        <footer>
+            <div class="text-center p-3 container" style="background-color: white">
+                © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">Symbiose Team</a>
+                <section >
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-facebook-f"></i
+                        ></a>
+
+                    <!-- Linkedin -->
+                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-linkedin-in"></i
+                        ></a>
+
+                    <!-- Github -->
+                    <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/SkanderThabet/Symbiose" role="button"
+                    ><i class="fab fa-github"></i
+                        ></a>
+                </section>
+            </div>
+        </footer>
+        <!-- Footer -->
+    </main>
+{% endblock %}
+

@@ -3,15 +3,25 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\EventSearch;
 use App\Entity\SpecialEvent;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\EventSearchType;
 use App\Repository\EventRepository;
+use App\Repository\SpecialEventRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Knp\Component\Pager\Paginator;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,14 +32,22 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class EventController extends AbstractController
 {
 
-    private $repository;
+
+    private $event_repository;
+    private $sevent_repository;
+
     /**
      * $var ObjectManager
      */
     private $em;
-    public function __construct(EventRepository $repository)
+
+    public function __construct(EventRepository $event_repository,
+                                SpecialEventRepository $sevent_repository,
+                                EntityManagerInterface $em)
     {
-        $this->repository = $repository;
+        $this->event_repository = $event_repository;
+        $this->sevent_repository = $sevent_repository;
+        $this->em = $em;
     }
 
     //Get event list
@@ -40,30 +58,56 @@ class EventController extends AbstractController
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
 
+        $search = new EventSearch();
+        $form = $this->createForm(EventSearchType::class, $search);
+        $form->handleRequest($request);
+
         $events = $paginator->paginate(
-            $this->repository->findAll(),
+            $this->event_repository->search($search),
             $request->query->getInt('page', 1),
             12
         );
 
-        $Sevents=$this->getDoctrine()->getRepository(SpecialEvent::class)->findAll();
+
+        return $this->render('event/event.html.twig', [
+            'current_menu' => 'events',
+            'events' => $events,
+            'form' => $form->createView()
+        ]);
+    }
+
+    //Get Special event list
+    /**
+     * @Route("/sevents", name="sevent_list")
+     * @Method({"GET"})
+     */
+    public function indexx(PaginatorInterface $paginator, Request $request): Response
+    {
+
+        $Sevents = $paginator->paginate(
+            $this->sevent_repository->findAll(),
+            $request->query->getInt('page', 1),
+            12
+        );
 
 
-        return $this->render('event/event.html.twig', ['current_menu' => 'events', 'events' => $events , 'SpecialEvents'=>$Sevents]);
+        return $this->render('event/Sevent.html.twig', [
+            'current_menu' => 'Sevents',
+            'Sevents' => $Sevents ,]);
     }
 
     /**
      * @Route("/success",name="success")
      */
     public function success(){
-        return $this->render('Event/event/success.html.twig');
+        return $this->render('event/success.html.twig');
     }
 
     /**
      * @Route("/error",name="error")
      */
     public function error(){
-        return $this->render('Event/event/error.html.twig');
+        return $this->render('event/error.html.twig');
     }
 
     //Paiement Stripe
@@ -83,8 +127,8 @@ class EventController extends AbstractController
                     'currency' => 'eur',
                     'unit_amount' => 2000,
                     'product_data' => [
-                        'name' => 'Events',
-                        'images' => ["https://i.imgur.com/EHyR2nP.png"],
+                        'name' => 'Event',
+                        'images' => ["http://localhost/pidev/logo-mrigel-sghir.jpg"],
                     ],
                 ],
                 'quantity' => 1,
@@ -104,31 +148,43 @@ class EventController extends AbstractController
      */
     public function join_event($id): Response
     {
-        $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-        //TODO Work on the logic (as a client i want to join an event)
-        //use sql qurries for this script (custom function in querybuilder in the repository)
-        /*
-        $remaining = $event.NumRemaining
-            if($remaining = 0) {
-                print("cant join event");
-                $event.state = "closed";
-            }
-            else
-                $event.NumRemaining = $event.NumRemaining - 1
-        */
-        return $this->render('Event/event/join_event.html.twig',array('event' => $event));
+        $event = $this->event_repository->find($id);
+        $num = $event->getNumRemaining() - 1;
+        $event->setNumRemaining($num);
+
+        $x =$event->getNumRemaining();
+        dump($x);
+
+        if ($x <= 90){
+            $event->setState(0);
+        }
+        $this->em->flush();
+        dump($event);
+
+
+        return $this->render('/event/join_event.html.twig',array('event' => $event));
     }
 
-    //TODO Work on the logic (as a client i want to join an event)
     /**
-     * @Route("/specialevent/join/{id}", name="join_special_event")
+     * @Route("/sevent/join/{id}", name="join_sevent")
      */
     public function join_specialevent($id): Response
     {
 
-        $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
+        $Sevent = $this->sevent_repository->find($id);
+        $num = $Sevent->getNumRemaining() - 1;
+        $Sevent->setNumRemaining($num);
 
-        return $this->render('Event/event/join_special_event.html.twig',array('Sevent' => $Sevent));
+        $y =$Sevent->getNumRemaining();
+        dump($y);
+
+        if ($y <= 0){
+            $Sevent->setState(0);
+        }
+        $this->em->flush();
+        dump($Sevent);
+
+        return $this->render('/event/join_special_event.html.twig',array('Sevent' => $Sevent));
     }
 
     //Order matters!
@@ -138,7 +194,16 @@ class EventController extends AbstractController
      */
     public function show($id){
         $event = $this->getDoctrine()->getRepository(Event::class)->find($id);
-        return $this->render('Event/event/show_event.html.twig',array('event' => $event));
+        return $this->render('event/show_event.html.twig',array('event' => $event));
+    }
+
+    //Show special event by id
+    /**
+     * @Route("/sevent/{id}",name="sevent_show")
+     */
+    public function sshow($id){
+        $Sevent = $this->getDoctrine()->getRepository(SpecialEvent::class)->find($id);
+        return $this->render('event/show_sevent.html.twig',array('Sevent' => $Sevent));
     }
 
 

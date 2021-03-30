@@ -19,9 +19,9 @@ class EventFixture extends Fixture
             $event->setSupplier($faker->words(1,true));
             $event->setType("Tennis");
             $event->setDate($faker->dateTime);
-            $event->setState($faker->boolean);
+            $event->setState(0);
             $event->setNumParticipants(100);
-            $event->setNumRemaining(0);
+            $event->setNumRemaining(100);
             $event->setImageFile(null);
             $event->setImageName("placeholder");
             $event->setImageSize(0);

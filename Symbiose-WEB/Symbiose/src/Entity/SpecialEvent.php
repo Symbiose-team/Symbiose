@@ -63,8 +63,8 @@ class SpecialEvent
     private $Date;
 
     /**
-     * @ORM\Column(type="boolean")
-     * @Assert\NotBlank
+     * @var boolean
+     * @ORM\Column(type="boolean", nullable=false, options={"default"=0})
      */
     private $State;
 
