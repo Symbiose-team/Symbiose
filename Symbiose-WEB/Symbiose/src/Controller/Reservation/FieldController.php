@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,11 +12,11 @@ use App\Entity\Field;
 class FieldController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/field")
      */
     public function index()
     {
-        return $this->render('field/index.html.twig', [
+        return $this->render('reservation/field/index.html.twig', [
             'controller_name' => 'FieldController',
         ]);
     }
@@ -27,7 +27,7 @@ class FieldController extends AbstractController
     public function affiche(){
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $field=$repo->findAll();
-        return $this->render('field/afficher.html.twig',['terrain'=>$field]);
+        return $this->render('reservation/field/afficher.html.twig',['terrain'=>$field]);
     }
 
 
@@ -38,7 +38,7 @@ class FieldController extends AbstractController
 
         $repo=$this->getDoctrine()->getRepository(Field::class);
         $test=$repo->find($id);
-        return $this->render('field/test.html.twig',['test'=>$test]);
+        return $this->render('reservation/field/test.html.twig',['test'=>$test]);
     }
 
     /**
@@ -46,7 +46,7 @@ class FieldController extends AbstractController
      */
 
     public function reserver($id){
-        return $this->render('paiement/Paillement.html.twig',['id'=>$id]);
+        return $this->render('reservation/paiement/Paillement.html.twig',['id'=>$id]);
 
     }
     /**
@@ -54,7 +54,7 @@ class FieldController extends AbstractController
      */
 
     public function reserve($id){
-        return $this->render('field/reserver.html.twig',['id'=>$id]);
+        return $this->render('reservation/field/reserver.html.twig',['id'=>$id]);
 
     }
 

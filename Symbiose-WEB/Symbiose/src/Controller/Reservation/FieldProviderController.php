@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 use http\Env\Request;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,7 +22,7 @@ class FieldProviderController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('field_provider/index.html.twig', [
+        return $this->render('reservation/field_provider/index.html.twig', [
             'controller_name' => 'FieldProviderController',
         ]);
     }
@@ -38,7 +38,7 @@ class FieldProviderController extends AbstractController
             ['provider' => 'wassim']
         );
         $field = $repo->findAll();
-        return $this->render('field_provider/affprovider.html.twig', ['terain' => $fields]);
+        return $this->render('reservation/field_provider/affprovider.html.twig', ['terain' => $fields]);
     }
 
     /**
@@ -59,7 +59,7 @@ class FieldProviderController extends AbstractController
             return $this->redirectToRoute('provider',[]);
 
         }
-        return $this->render('field_provider/addfield.html.twig', ['form' => $form->createView()]);
+        return $this->render('reservation/field_provider/addfield.html.twig', ['form' => $form->createView()]);
     }
 
     /**
@@ -77,7 +77,7 @@ class FieldProviderController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('provider',[]);
         }
-        else return $this->render('field_provider/error.html.twig');
+        else return $this->render('reservation/field_provider/error.html.twig');
     }
 
     /**
@@ -99,9 +99,9 @@ class FieldProviderController extends AbstractController
                 return $this->redirectToRoute('provider');
 
             }
-            return $this->render('field_provider/update.html.twig', ['form' => $form->createView()]);
+            return $this->render('reservation/field_provider/update.html.twig', ['form' => $form->createView()]);
         }
-        else return $this->render('field_provider/error.html.twig');
+        else return $this->render('reservation/field_provider/error.html.twig');
 
     }
 
@@ -117,7 +117,7 @@ class FieldProviderController extends AbstractController
         $dompdf = new Dompdf($pdfOptions);
         $repo = $this->getDoctrine()->getRepository(Field::class);
         $field = $repo->find($id);
-        $html = $this->renderView('Pdf/contrat.html.twig', ['testee' => $field]);
+        $html = $this->renderView('reservation/Pdf/contrat.html.twig', ['testee' => $field]);
        // return  $this->render('Pdf/contrat.html.twig', ['test' => $field]);
 
         // Load HTML to Dompdf

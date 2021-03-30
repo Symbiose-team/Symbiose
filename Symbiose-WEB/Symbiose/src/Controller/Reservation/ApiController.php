@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Reservation;
 
 use App\Entity\Calendar;
 use DateTime;
@@ -16,7 +16,7 @@ class ApiController extends AbstractController
      */
     public function index()
     {
-        return $this->render('api/index.html.twig', [
+        return $this->render('reservation/api/index.html.twig', [
             'controller_name' => 'ApiController',
         ]);
     }
@@ -76,7 +76,7 @@ class ApiController extends AbstractController
         }
 
 
-        return $this->render('api/index.html.twig', [
+        return $this->render('reservation/api/index.html.twig', [
             'controller_name' => 'ApiController',
         ]);
     }
