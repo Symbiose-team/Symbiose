@@ -40,6 +40,41 @@ class NotificationController extends Controller
             'count'=> $this->notificationRepository->findUnseenByUser($this->getUser())
         ]);
     }
+    /**
+     * @Route("/all", name="notification_all")
+     */
+    public function notifications()
+    {
+        return $this->render('notification/notifications.html.twig', [
+            'notifications' => $this->notificationRepository->findBy([
+                'seen' => false,
+                'user' => $this->getUser()
+            ])
+        ]);
+    }
+    /**
+     * @Route("/acknowledge/{id}", name="notification_acknowledge")
+     */
+    public function acknowledge(Notification $notification)
+    {
+        $notification->setSeen(true);
+        $this->getDoctrine()
+            ->getManager()
+            ->flush();
+
+        return $this->redirectToRoute('notification_all');
+    }
+
+    /**
+     * @Route("/acknowledge-all", name="notification_acknowledge_all")
+     */
+    public function acknowledgeAll()
+    {
+        $this->notificationRepository->markAllAsRead($this->getUser());
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('notification_all');
+    }
 
 
 }

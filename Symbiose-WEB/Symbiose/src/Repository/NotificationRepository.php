@@ -25,12 +25,26 @@ class NotificationRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('n');
         return  $qb->select('count(n)')
             ->where('n.user = :user')
+            ->andWhere('n.seen=0')
             ->setParameter('user',$user)
             ->getQuery()
             ->getSingleScalarResult();
 
 
     }
+
+    public function markAllAsRead(User $user)
+    {
+        $qb = $this->createQueryBuilder('n');
+        $query = $qb->update('App:JoinNotification', 'n')
+            ->set('n.seen', true)
+            ->where('n.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery();
+
+        return $query->execute();
+    }
+
 
     // /**
     //  * @return Notification[] Returns an array of Notification objects
