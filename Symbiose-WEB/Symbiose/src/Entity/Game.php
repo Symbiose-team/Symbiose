@@ -110,6 +110,16 @@ class Game
     }
 
     /**
+     * @param ArrayCollection $joinedBy
+     */
+    public function setJoinedBy(ArrayCollection $joinedBy): void
+    {
+        $this->joinedBy = $joinedBy;
+    }
+
+
+
+    /**
      * @param User $user
      * @return void
      */

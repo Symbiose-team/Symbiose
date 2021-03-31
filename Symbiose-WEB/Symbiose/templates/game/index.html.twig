@@ -6,6 +6,12 @@
 
 
     <div class="container mt-4">
+        <form method="POST">
+            <input type="text" name="name">
+            <input type="submit" value="Recherche">
+
+
+        </form>
         <div class="row">
             <div class="col">
 
@@ -18,7 +24,19 @@
                         </div>
                     {% endfor %}
                     <div class="room-desk">
-                        <h4 class="pull-left">Lobbies</h4>
+
+
+
+                        <button class="btn btn-primary" type="button" disabled>Notifications
+                            <span class="badge badge-light" id="notification-count" aria-hidden="true">
+                                <i class="spinner-border spinner-border-sm"></i>
+                            </span>
+                        </button>
+
+
+                        <br>
+                        <br>
+                        <h4 class="pull-left"><a href="/game">Lobbies</a></h4>
 
                         <table class="table-sm align-middle">
 
@@ -71,5 +89,27 @@
         <!-- end:lobby -->
 
     </div>
+    {% block javascripts %}
+        <script>
+                console.log('notification start');
+                function fetchNotificationCount() {
+                    console.log('notification request');
+                    console.log('{{ path('notification_unread') }}');
+                    fetch(
+                        '{{ path('notification_unread') }}',
+                        {'credentials': 'include'}
+                    ).then(function (response) {
+                        response.json().then(function (json) {
+                            document.getElementById('notification-count').innerText = json.count;
+                            setTimeout(fetchNotificationCount, 10000);
+                        });
+                    }).catch(function (reason) {
+
+                    });
+                }
+
+                fetchNotificationCount();
+            </script>
+    {% endblock %}
 
 {% endblock %}

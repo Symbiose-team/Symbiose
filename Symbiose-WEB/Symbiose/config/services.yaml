@@ -34,3 +34,7 @@ services:
         arguments:
             $senderEmail: '%app.sender_email%'
             $senderName:  '%app.sender_name%'
+
+    App\EventListener\JoinNotificationSubscriber:
+        tags:
+            - { name: doctrine.event_listener, event: onFlush, connection: default }

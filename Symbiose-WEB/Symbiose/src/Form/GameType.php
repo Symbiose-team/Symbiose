@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 class GameType extends AbstractType
 {
@@ -16,8 +17,14 @@ class GameType extends AbstractType
     {
         $builder
             ->add('name',TextareaType::class,['label'=>false])
-            ->add('save',SubmitType::class);
+            ->add('save',SubmitType::class)
+            ->add('captcha', CaptchaType::class, array(
+                'width' => 200,
+                'height' => 50,
+                'length' => 6,
+            ));
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\GameType;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,12 +22,13 @@ class GameController extends AbstractController
      */
     public function index(GameRepository $gameRepository): Response
     {
+
         return $this->render('game/index.html.twig', [
             'games' => $gameRepository->findAll(),
         ]);
     }
     /**
-     * @Route("/user/{id}", name="game_user")
+     * @Route("/game/user/{id}", name="game_user")
      * @param User $userWithGames
      * @return Response
      */
@@ -54,6 +56,7 @@ class GameController extends AbstractController
         $game = new Game();
         $game->setTime(new \DateTime());
         $game->setUser($user);
+      #  $game->setJoinedBy($user);
         $form = $this->createForm(GameType::class, $game);
         $form->handleRequest($request);
 
@@ -117,6 +120,25 @@ class GameController extends AbstractController
             'game' => $game,
         ]);
     }
+
+
+    /**
+     * @Route("/game/search", name="game_search")
+     */
+    public function searchbyname(Request $request):Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        if ($request->isMethod("POST")){
+            $name=$request->get('name');
+            $game=$entityManager->getRepository(Game::class)->findBy(array('name'=>$name));
+            return $this->render('game/recherche.html.twig', [
+                'game' => $game,
+            ]);
+        }
+
+
+    }
+
 
 
 }
