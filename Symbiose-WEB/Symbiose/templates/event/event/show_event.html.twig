@@ -10,6 +10,6 @@
         <h1>{{ event.name }}</h1>
         <p>{{ event.supplier }}</p>
         <hr>
-        <a href="/events" class="btn btn-dark">Go Back</a>
+        <a href="{{ path('event_list') }}" class="btn btn-dark">Go Back</a>
     </div>
 {% endblock %}

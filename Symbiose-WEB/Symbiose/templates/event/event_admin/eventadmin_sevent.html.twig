@@ -173,16 +173,17 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                                             <td>
-                                                <a href="seventadmin/sevent/{{ Sevents.id }}" class="btn btn-dark">
+                                                <a href="{{ path('seventadmin_show',{'id':Sevents.id}) }}" class="btn btn-dark">
                                                     Show
                                                 </a>
 
-                                                <a href="sevent/edit/{{ Sevents.id }}" class="btn btn-light">
+
+                                                <a href="{{ path('edit_sevent',{'id':Sevents.id}) }}" class="btn btn-light">
                                                     Edit
                                                 </a>
 
 
-                                                <a href="sevent/delete/{{ Sevents.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                                <a href="{{ path('delete_sevent',{'id':Sevents.id}) }}" class="btn btn-outline-danger" onclick="return confirm('Are you sure ?')">
                                                     Delete
                                                 </a>
                                             </td>
@@ -201,7 +202,7 @@
                         </div>
 
                         </div>
-                        <a class="btn btn-outline-dark" aria-current="page" href="/sevent/add">Add a Special Event</a>
+                        <a class="btn btn-outline-dark" aria-current="page" href="{{ path('add_sevent') }}">Add a Special Event</a>
 
                 </div>
 

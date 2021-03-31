@@ -45,12 +45,12 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                             <td>
-                                <a href="/sevent/{{ Sevent.id }}" class="btn btn-outline-dark">
+                                <a href="{{ path('sevent_show',{'id':Sevent.id}) }} class="btn btn-outline-dark">
                                     Show
                                 </a>
 
                                 <hr>
-                                <a href="/sevent/join/{{ Sevent.id }}" class="btn btn-warning">
+                                <a href="{{ path('join_sevent',{'id':Sevent.id}) }} class="btn btn-warning">
                                     Join This Event
                                 </a>
                             </td>
@@ -70,7 +70,7 @@
         </div>
 
         <div class="container p-3 my-3" align="center">
-            <a href="/events" class="btn btn-dark">Go back </a>
+            <a href="{{ path('event_list') }}" class="btn btn-dark">Go back </a>
         </div>
     </div>
 
