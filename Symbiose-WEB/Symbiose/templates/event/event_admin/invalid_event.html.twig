@@ -102,7 +102,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="/event-welcome">
+        <a class="navbar-brand" href="{{ path('event_welcome') }}">
             <img
                     src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                     height="25"
@@ -178,17 +178,17 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                                         <td>
-                                            <a href="/eventadmin/event/{{ event.id }}" class="btn btn-dark">
+                                            <a href="{{ path('eventadmin_show',{'id':event.id}) }}" class="btn btn-dark">
                                                 Show
                                             </a>
 
 
-                                            <a href="/invalidevents/verify/{{ event.id }}" class="btn btn-warning">
+                                            <a href="{{ path('verify_event',{'id':event.id}) }}" class="btn btn-warning">
                                                 Confirm
                                             </a>
 
 
-                                            <a href="event/delete/{{ event.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
+                                            <a href="{{ path('delete_event',{'id':event.id}) }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
                                                 Delete
                                             </a>
                                         </td>

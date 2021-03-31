@@ -144,7 +144,7 @@
             <div class="card">
                 <div class="card-header text-center py-3">
                     <h5 class="mb-0 text-center">
-                        <a class="btn btn-outline-dark " aria-current="page" href="/event/add" >Add Event</a>
+                        <a class="btn btn-outline-dark " aria-current="page" href="{{ path('add_event') }}" >Add Event</a>
                         <strong>Manage All Events</strong>
 
                     </h5>
@@ -181,21 +181,21 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                                     <td>
-                                        <a href="{{ path('admin_event_show',{'id':event.id}) }}" class="btn btn-dark">
+                                        <a href="{{ path('eventadmin_show',{'id':event.id}) }}" class="btn btn-dark">
                                             Show
                                         </a>
 
 
-                                        <a href="event/edit/{{ event.id }}" class="btn btn-light">
+                                        <a href="{{ path('edit_event',{'id':event.id}) }}" class="btn btn-light">
                                             Edit
                                         </a>
 
-                                        <a href="/eventadmin/cancel/{{ event.id }}" class="btn btn-danger">
+                                        <a href="{{ path('cancel_event',{'id':event.id}) }}" class="btn btn-danger">
                                             cancel
                                         </a>
 
 
-                                        <a href="event/delete/{{ event.id }}" class="btn btn-outline-danger" onclick="return confirm('Are you sure ?')">
+                                        <a href="{{ path('delete_event',{'id':event.id}) }}" class="btn btn-outline-danger" onclick="return confirm('Are you sure ?')">
                                             Delete
                                         </a>
                                     </td>

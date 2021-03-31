@@ -62,12 +62,12 @@
                                              padding: 5px;
                                              width: 50px;" ></td>
                             <td>
-                                <a href="/event/{{ event.id }}" class="btn btn-outline-dark">
+                                <a href="{{ path('event_show',{'id':event.id}) }}" class="btn btn-outline-dark">
                                     Show
                                 </a>
 
                                 <hr>
-                                <a href="/event/join/{{ event.id }}" class="btn btn-warning">
+                                <a href="/{{ path('join_event',{'id':event.id}) }}" class="btn btn-warning">
                                     Join This Event
                                 </a>
                             </td>
@@ -89,7 +89,7 @@
 
         <div class="container p-3 my-3" align="center">
             <h3 align="center">Check out our special events here</h3>
-            <a href="/sevents" class="btn btn-dark">Click here</a>
+            <a href="{{ path('sevent_list') }}" class="btn btn-dark">Click here</a>
         </div>
     </div>
 
