@@ -130,9 +130,9 @@ class GameController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         if ($request->isMethod("POST")){
             $name=$request->get('name');
-            $game=$entityManager->getRepository(Game::class)->findBy(array('name'=>$name));
-            return $this->render('game/recherche.html.twig', [
-                'game' => $game,
+            $games=$entityManager->getRepository(Game::class)->findBy(array('name'=>$name));
+            return $this->render('game/index.html.twig', [
+                'games' => $games,
             ]);
         }
 
