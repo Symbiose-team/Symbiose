@@ -38,7 +38,7 @@ class EventType extends AbstractType
             ->add('Date', DateTimeType::class, [
                 'placeholder' => [
                     'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
-                    'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
+                    'hour' => 'Hour', 'minute' => 'Minute',
                 ]])
             ->add('State', CheckboxType::class, ['required' => false])
             //->add('imageFile', VichImageType::class, array('required'=>false,

@@ -22,6 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use function Sodium\compare;
 
 class EventAdminController extends AbstractController
 {
@@ -63,7 +64,9 @@ class EventAdminController extends AbstractController
 
         return $this->render('event_admin/eventadmin.html.twig', [
             'current_menu' => 'events',
-            'events' => $events
+            'events' => $events,
+            'count_ev' => $count_events,
+            'count_sev' => $count_sevents
         ]);
 
     }

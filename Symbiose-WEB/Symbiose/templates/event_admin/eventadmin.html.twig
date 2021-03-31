@@ -141,11 +141,11 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between px-md-1">
                                 <div>
-                                    <h3 class="text-success"></h3>
+                                    <h3 class="text-success">{{ count_ev }}</h3>
                                     <p class="mb-0">Number of events</p>
                                 </div>
                                 <div class="align-self-center">
-                                    <i class="far fa-user text-success fa-3x"></i>
+                                    <i class="far fa-calendar-alt text-success fa-3x"></i>
                                 </div>
 
                             </div>
@@ -154,10 +154,10 @@
                                     <div
                                             class="progress-bar bg-success"
                                             role="progressbar"
-                                            style="width: 12%"
-                                            aria-valuenow="35"
+                                            style="width: 50%"
+                                            aria-valuenow="{{ count_ev }}"
                                             aria-valuemin="0"
-                                            aria-valuemax="100"
+                                            aria-valuemax="200"
                                     ></div>
                                 </div>
                             </div>
@@ -169,21 +169,21 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between px-md-1">
                                 <div>
-                                    <h3 class="text-info"></h3>
+                                    <h3 class="text-warning">{{ count_sev }}</h3>
                                     <p class="mb-0">Number of special events</p>
                                 </div>
                                 <div class="align-self-center">
-                                    <i class="far fa-calendar text-info fa-3x"></i>
+                                    <i class="far fa-calendar text-warning fa-3x"></i>
                                 </div>
 
                             </div>
                             <div class="px-md-1">
                                 <div class="progress mt-3 mb-1 rounded" style="height: 7px">
                                     <div
-                                            class="progress-bar bg-info"
+                                            class="progress-bar bg-warning"
                                             role="progressbar"
-                                            style="width: 65%"
-                                            aria-valuenow="35"
+                                            style="width: 50%"
+                                            aria-valuenow="{{ count_sev }}"
                                             aria-valuemin="0"
                                             aria-valuemax="100"
                                     ></div>
