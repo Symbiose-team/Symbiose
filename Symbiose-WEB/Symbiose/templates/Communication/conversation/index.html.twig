@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'Communication/base.html.twig' %}
 
 {% block title %}Conversation index{% endblock %}
 
@@ -19,7 +19,7 @@
             <tr>
             {% if conversation.user1.username == app.user.username %}
                 <td>{{conversation.user2.username}}</td>
-                                                                        {{ include('conversation/_delete_form.html.twig') }}
+                                                                        {{ include('Communication/conversation/_delete_form.html.twig') }}
                             {% else %}
                 <td>{{conversation.user1.username}}</td>
             {% endif %}

@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use App\Entity\Commentaire;
+use App\Entity\Conversation;
+use App\Entity\Message;
 use App\Repository\UserRepository;
 use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -168,6 +171,28 @@ class User implements UserInterface
      */
     private ?bool $isEnabled;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="User")
+     */
+    private $commentaires;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Conversation::class, mappedBy="User1", orphanRemoval=true)
+     */
+    private $conversations;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Conversation::class, mappedBy="User2", orphanRemoval=true)
+     */
+    private $conversationsRecus;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $messages;
+
+
+
 
     public function __construct()
     {
@@ -177,6 +202,10 @@ class User implements UserInterface
         $this->isVerified=false;
         $this->registeredAt=new \DateTimeImmutable('now');
         $this->accountMustBeVerifiedBefore=(new \DateTimeImmutable('now'))->add(new \DateInterval("P1D"));
+        $this->commentaires = new ArrayCollection();
+        $this->conversations = new ArrayCollection();
+        $this->conversationsRecus = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
 
     public function getFullname(){
@@ -513,4 +542,126 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getUser() === $this) {
+                $commentaire->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Conversation[]
+     */
+    public function getConversations(): Collection
+    {
+        return $this->conversations;
+    }
+
+    public function addConversation(Conversation $conversation): self
+    {
+        if (!$this->conversations->contains($conversation)) {
+            $this->conversations[] = $conversation;
+            $conversation->setUser1($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConversation(Conversation $conversation): self
+    {
+        if ($this->conversations->removeElement($conversation)) {
+            // set the owning side to null (unless already changed)
+            if ($conversation->getUser1() === $this) {
+                $conversation->setUser1(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Conversation[]
+     */
+    public function getConversationsRecus(): Collection
+    {
+        return $this->conversationsRecus;
+    }
+
+    public function addConversationsRecu(Conversation $conversationsRecu): self
+    {
+        if (!$this->conversationsRecus->contains($conversationsRecu)) {
+            $this->conversationsRecus[] = $conversationsRecu;
+            $conversationsRecu->setUser2($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConversationsRecu(Conversation $conversationsRecu): self
+    {
+        if ($this->conversationsRecus->removeElement($conversationsRecu)) {
+            // set the owning side to null (unless already changed)
+            if ($conversationsRecu->getUser2() === $this) {
+                $conversationsRecu->setUser2(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getUser() === $this) {
+                $message->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

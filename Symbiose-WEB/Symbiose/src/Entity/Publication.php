@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Communication;
+namespace App\Entity;
 
 use App\Repository\Communication\PublicationRepository;
 use Doctrine\Common\Collections\ArrayCollection;

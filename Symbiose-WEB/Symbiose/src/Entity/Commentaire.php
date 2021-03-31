@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Communication;
+namespace App\Entity;
 
 use App\Repository\Communication\CommentaireRepository;
 use Doctrine\ORM\Mapping as ORM;

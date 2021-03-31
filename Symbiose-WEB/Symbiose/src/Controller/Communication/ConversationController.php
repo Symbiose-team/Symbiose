@@ -2,7 +2,7 @@
 
 namespace App\Controller\Communication;
 
-use App\Entity\Communication\Conversation;
+use App\Entity\Conversation;
 use App\Entity\User;
 
 use App\Form\Conversation1Type;
@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Communication\Message;
+use App\Entity\Message;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
@@ -51,9 +51,10 @@ class ConversationController extends AbstractController
      */
     public function refsh(ConversationRepository $conversationRepository,Request $request): Response
     {
+        header('Access-Control-Allow-Origin: *');
         $test1 = $conversationRepository->find($request->query->get('id'));
-       
-       
+
+
             $message = array();
             foreach ($test1->getMessages() as $area) {
                 $areasArray[] = array(

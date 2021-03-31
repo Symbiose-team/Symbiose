@@ -7,7 +7,7 @@ use App\Entity\Role;
 use App\Entity\User;
 use App\Form\AccountType;
 use App\Form\PasswordUpdateType;
-use App\Form\RegistrationType;
+use App\Form\ContactType;
 use App\Services\SendEmail;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -74,7 +74,7 @@ class AccountController extends AbstractController
         $em=$this->getDoctrine()->getManager();
 
 
-    $form = $this->createForm(RegistrationType::class,$user);
+    $form = $this->createForm(ContactType::class,$user);
 
     $form->handleRequest($request);
 

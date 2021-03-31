@@ -3,8 +3,8 @@
 namespace App\Controller\Communication;
 
 use App\Entity\User;
-use App\Entity\Communication\Commentaire;
-use App\Entity\Communication\Publication;
+use App\Entity\Commentaire;
+use App\Entity\Publication;
 
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthAuthenticator;

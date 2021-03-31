@@ -3,7 +3,7 @@
 namespace App\Controller\Communication;
 
 use App\Entity\User;
-use App\Entity\Communication\Publication;
+use App\Entity\Publication;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,7 +43,7 @@ class PublicationController extends AbstractController
     }
 
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/admin/publication", name="admin_publication")
      */
     public function admin(PublicationRepository $PublicationRepository): Response
     {

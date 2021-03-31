@@ -7,6 +7,7 @@
         <title>Symbiose -{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="/css/app.css">
 {#        <link rel="stylesheet" href="/css/bootstrap.min.css">#}
+
         <!-- Font Awesome -->
         <link
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -19,11 +20,13 @@
         <link
                 href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
                 rel="stylesheet"/>
+
         {% block stylesheets %}{% endblock %}
 
 
     </head>
     <body>
+
     {% include 'partials/header.html.twig' %}
         {% block body %}{% endblock %}
     {% include 'partials/footer.html.twig' %}
@@ -39,6 +42,7 @@
 {#          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>#}
 {#        <script src="/js/vendor/jquery-3.5.1.slim.min.js"></script>#}
 {#        <script src="/js/bootstrap.min.js"></script>#}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

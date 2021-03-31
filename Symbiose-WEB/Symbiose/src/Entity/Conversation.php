@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Communication;
+namespace App\Entity;
 
 use App\Repository\Communication\ConversationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -102,7 +102,4 @@ class Conversation
 
         return $this;
     }
-
-
-
 }

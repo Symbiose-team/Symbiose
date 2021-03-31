@@ -2,7 +2,7 @@
 
 namespace App\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use App\Entity\Communication\Conversation;
+use App\Entity\Conversation;
 use App\Entity\User;
 
 use Symfony\Component\Form\AbstractType;
@@ -30,7 +30,7 @@ class Conversation1Type extends AbstractType
             'class' => User::class,
             'query_builder' => function (EntityRepository $entityRepository) {
                 return $entityRepository->createQueryBuilder('gv')
-                    ->where('gv.email != :defaultGroup')
+                    ->where('gv.Email != :defaultGroup')
                     ->setParameters(['defaultGroup' => $this->security->getUser()->getEmail()]);
             },
             'choice_label' => 'username',
