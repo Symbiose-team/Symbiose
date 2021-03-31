@@ -1,8 +1,8 @@
 <?php
 namespace App\Entity;
 
-class EventSearch{
-
+class EventSearch
+{
     /**
      * @var string|null
      */
@@ -25,10 +25,4 @@ class EventSearch{
         $this->Type = $Type;
         return $this;
     }
-
-
-
-
-
-
 }

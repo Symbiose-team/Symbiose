@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <!--
-    <a class="btn btn-outline-primary" aria-current="page" href="/event/add">Add Event</a>
-    -->
     <style>
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
@@ -14,50 +11,76 @@
 
 
         {% if Sevents %}
-            <div class="table-responsive">
-                <table id="events" class="table table-hover table-bordered table-sm table-warning border-light">
-                    <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Supplier</th>
-                        <th scope="col">Players</th>
-                        <th scope="col">Remaining</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Previs</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for Sevent in Sevents %}
-                        <tr>
-                            <td>{{ Sevent.name }}</td>
-                            <td>{{ Sevent.supplier }}</td>
-                            <td>{{ Sevent.NumParticipants }}</td>
-                            <td>{{ Sevent.NumRemaining }}</td>
-                            <td>{{ Sevent.type }}</td>
-                            <td>{{ Sevent.date|date }}</td>
-                            {# TODO add dynamic images based on url in DB Events#}
-                            <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                     class="img-fluid rounded-circle"
-                                     alt=""
-                                     style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
-                            <td>
-                                <a href="/sevent/{{ Sevent.id }}" class="btn btn-outline-dark">
-                                    Show
-                                </a>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for Sevent in Sevents %}
 
-                                <hr>
-                                <a href="/sevent/join/{{ Sevent.id }}" class="btn btn-warning">
-                                    Join This Event
+                    <div class="col-sm-6">
+                        <div class="card text-center border border-warning  shadow-0 mb-3" >
+                            <!--
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img
+                                        src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                                        class="card-img-top"
+                                        style="border-radius: 4px;
+                                                         padding: 5px;
+                                                         width: 120px;"
+                                />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                                 </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                            </div>
+                            -->
+                            <div class="card-header text-center">Featured</div>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ Sevent.name }}</h5>
+
+                                {% set type = Sevent.type %}
+                                {% if type == 'Tennis'  %}
+                                    <span class="badge bg-success">{{ Sevent.type }}</span>
+
+                                {% elseif type == 'Football' %}
+                                    <span class="badge bg-light text-dark">{{ Sevent.type }}</span>
+
+                                {% elseif type == 'Basketball' %}
+                                    <span class="badge bg-warning text-dark">{{ Sevent.type }}</span>
+
+                                {% elseif type == 'Paintball' %}
+                                    <span class="badge bg-secondary">{{ Sevent.type }}</span>
+
+                                {% elseif type == 'LaserTag' %}
+                                    <span class="badge bg-light text-dark">{{ Sevent.type }}</span>
+
+                                {% else %}
+                                    <span class="badge rounded-pill bg-warning text-dark">{{ Sevent.type }}</span>
+                                {% endif %}
+
+                                <p class="card-text">
+                                <div class="progress" style="height: 20px">
+                                    <div
+                                            class="progress-bar progress-bar-striped progress-bar-animated"
+                                            role="progressbar"
+                                            aria-valuenow="{{ Sevent.NumRemaining }}"
+                                            aria-valuemin="0"
+                                            aria-valuemax="{{ Sevent.NumParticipants }}"
+                                            style="width: 100%"
+                                    >{{ Sevent.NumRemaining }} Places left</div>
+                                </div>
+                                </p>
+
+                                <div class="text-center">
+                                    <a href="/sevent/{{ Sevent.id }}" class="btn btn-outline-dark">
+                                        Show
+                                    </a>
+                                    <a href="/sevent/join/{{ Sevent.id }}" class="btn btn-warning btn-outline-dark">
+                                        Join This Event
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">{{ Sevent.date|date }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+
             </div>
 
         {% else %}

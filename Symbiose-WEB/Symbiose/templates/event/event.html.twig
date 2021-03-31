@@ -1,81 +1,101 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <!--
-    <a class="btn btn-outline-primary" aria-current="page" href="/event/add">Add Event</a>
-    -->
     <style>
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
 
     <div class="container p-3 my-3">
-        <h3 align="center">All your events in one place!</h3>
+        <div align="center">
+                <h3>Event list</h3>
+                <p>All your events in one place!</p>
 
-        <div  class="container p-3 my-3" align="center">
-            <div class="form-row">
-                {{ form_start(form) }}
-                <div >
-                    <div class="col">
+                <!-- Search form -->
+                <div class="container p-3 my-3" align="center">
+                    <div class="form-row">
+                        {{ form_start(form) }}
                         {{ form_row(form.Type) }}
-                    </div>
-                    <div class="col">
-                        <button class="btn-outline-primary">Search</button>
+                        <button class="btn-outline-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        {{ form_end(form) }}
                     </div>
                 </div>
-                {{ form_end(form) }}
-            </div>
         </div>
 
-        <h1 align="center">Events</h1>
 
 
         {% if events %}
-            <div class="table-responsive">
-                <table id="events" class="table table-hover table-bordered table-sm table-primary border-light">
-                    <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Supplier</th>
-                        <th scope="col">Players</th>
-                        <th scope="col">Remaining</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Previs</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for event in events %}
-                        <tr>
-                            <td>{{ event.name }}</td>
-                            <td>{{ event.supplier }}</td>
-                            <td>{{ event.NumParticipants }}</td>
-                            <td>{{ event.NumRemaining }}</td>
-                            <td>{{ event.type }}</td>
-                            <td>{{ event.date|date }}</td>
-                            {# TODO add dynamic images based on url in DB Events#}
-                            <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                     class="img-fluid rounded-circle"
-                                     alt=""
-                                     style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
-                            <td>
-                                <a href="/event/{{ event.id }}" class="btn btn-outline-dark">
-                                    Show
-                                </a>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for event in events %}
 
-                                <hr>
-                                <a href="/event/join/{{ event.id }}" class="btn btn-warning">
-                                    Join This Event
-                                </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+            <div class="col-sm-6">
+                <div class="card text-center border border-primary shadow-0 mb-3" >
+                    <!--
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img
+                                src="http://localhost/pidev/logo-mrigel-sghir.jpg"
+                                class="card-img-top"
+                                style="border-radius: 4px;
+                                                 padding: 5px;
+                                                 width: 120px;"
+                        />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    -->
+                    <div class="card-header text-center">From {{ event.supplier }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ event.name }}</h5>
+
+                        {% set type = event.type %}
+                        {% if type == 'Tennis'  %}
+                            <span class="badge bg-success">{{ event.type }}</span>
+
+                        {% elseif type == 'Football' %}
+                            <span class="badge bg-light text-dark">{{ event.type }}</span>
+
+                        {% elseif type == 'Basketball' %}
+                            <span class="badge bg-warning text-dark">{{ event.type }}</span>
+
+                        {% elseif type == 'Paintball' %}
+                            <span class="badge bg-secondary">{{ event.type }}</span>
+
+                        {% elseif type == 'LaserTag' %}
+                            <span class="badge bg-light text-dark">{{ event.type }}</span>
+                        {% endif %}
+
+                        <p class="card-text">
+                        <div class="progress" style="height: 20px">
+                            <div
+                                    class="progress-bar progress-bar-striped progress-bar-animated"
+                                    role="progressbar"
+                                    aria-valuenow="{{ event.NumRemaining }}"
+                                    aria-valuemin="0"
+                                    aria-valuemax="{{ event.NumParticipants }}"
+                                    style="width: 100%"
+                            >{{ event.NumRemaining }} Places left</div>
+                        </div>
+                        </p>
+
+                        <div class="text-center">
+                        <a href="/event/{{ event.id }}" class="btn btn-outline-dark">
+                            Show
+                        </a>
+                        <a href="/event/join/{{ event.id }}" class="btn btn-warning btn-outline-dark">
+                            Join This Event
+                        </a>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">{{ event.date|date }}</div>
+                </div>
             </div>
+            {% endfor %}
+
+        </div>
+
 
         {% else %}
             <p>No events yet !</p>
@@ -87,21 +107,13 @@
             {{ knp_pagination_render(events) }}
         </div>
 
-        <div class="container p-3 my-3" align="center">
-            <h3 align="center">Check out our special events here</h3>
-            <a href="/sevents" class="btn btn-dark">Click here</a>
+        <div align="center">
+            <h3>Or</h3>
+            <h5>Check out our special events here</h5>
+            <div class="container p-3 my-3" align="center">
+                <a href="/sevents" class="btn btn-warning">Click here</a>
+            </div>
         </div>
     </div>
-
-
-    <!--
-    {% block Javascripts %}
-        <script
-                type="text/javascript"
-                src="/js/delete_event.js">
-        </script>
-    {% endblock %}
-    -->
-
 {% endblock %}
 

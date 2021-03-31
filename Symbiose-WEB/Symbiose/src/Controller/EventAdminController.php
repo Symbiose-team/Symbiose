@@ -51,6 +51,9 @@ class EventAdminController extends AbstractController
     public function event_admin(PaginatorInterface $paginator, Request $request): Response
     {
 
+        $count_events= $this->em->createQuery('SELECT COUNT(e) from App\Entity\Event e')->getSingleScalarResult();
+        $count_sevents= $this->em->createQuery('SELECT COUNT(e) from App\Entity\SpecialEvent e')->getSingleScalarResult();
+
         //event pagination
         $events = $paginator->paginate(
             $this->event_repository->status_true(),
@@ -58,7 +61,10 @@ class EventAdminController extends AbstractController
             12
         );
 
-        return $this->render('event_admin/eventadmin.html.twig', ['current_menu' => 'events', 'events' => $events]);
+        return $this->render('event_admin/eventadmin.html.twig', [
+            'current_menu' => 'events',
+            'events' => $events
+        ]);
 
     }
 

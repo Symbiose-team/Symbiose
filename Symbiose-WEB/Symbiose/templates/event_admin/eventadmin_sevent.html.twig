@@ -140,7 +140,10 @@
                         <h5 class="mb-0 text-center">
                             <strong>Manage All Special Events</strong>
                         </h5>
+
                     </div>
+                    <a class="btn btn-outline-dark" aria-current="page" href="/sevent/add">Add a Special Event</a>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             {% if Sevents %}
@@ -153,8 +156,7 @@
                                         <th scope="col">Remaining</th>
                                         <th scope="col">Type</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Previs</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -166,12 +168,6 @@
                                             <td>{{ Sevents.NumRemaining }}</td>
                                             <td>{{ Sevents.type }}</td>
                                             <td>{{ Sevents.date|date }}</td>
-                                            <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                                     class="img-fluid rounded-circle"
-                                                     alt=""
-                                                     style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
                                             <td>
                                                 <a href="seventadmin/sevent/{{ Sevents.id }}" class="btn btn-dark">
                                                     Show
@@ -180,7 +176,6 @@
                                                 <a href="sevent/edit/{{ Sevents.id }}" class="btn btn-light">
                                                     Edit
                                                 </a>
-
 
                                                 <a href="sevent/delete/{{ Sevents.id }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
                                                     Delete
@@ -201,7 +196,6 @@
                         </div>
 
                         </div>
-                        <a class="btn btn-outline-dark" aria-current="page" href="/sevent/add">Add a Special Event</a>
 
                 </div>
 
@@ -209,30 +203,6 @@
             <!--Section: Manage All Special Events-->
 
         </div>
-        <!-- Footer -->
-        <footer>
-            <div class="text-center p-3 container" style="background-color: white">
-                © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">Symbiose Team</a>
-                <section >
-                    <!-- Facebook -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-facebook-f"></i
-                        ></a>
-
-                    <!-- Linkedin -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-linkedin-in"></i
-                        ></a>
-
-                    <!-- Github -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/SkanderThabet/Symbiose" role="button"
-                    ><i class="fab fa-github"></i
-                        ></a>
-                </section>
-            </div>
-        </footer>
-        <!-- Footer -->
     </main>
 {% endblock %}
 

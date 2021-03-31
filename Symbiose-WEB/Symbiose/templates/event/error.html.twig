@@ -1,15 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
-
-    <div class="container p-3 my-3">
-        <section>
-            <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
-        </section>
-        <a href="/events">Go Back</a>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div>
+                <div class="card text-center">
+                    <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
+                    <a href="/events">Go Back</a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

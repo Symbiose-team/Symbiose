@@ -161,7 +161,6 @@ class EventController extends AbstractController
         $this->em->flush();
         dump($event);
 
-
         return $this->render('/event/join_event.html.twig',array('event' => $event));
     }
 

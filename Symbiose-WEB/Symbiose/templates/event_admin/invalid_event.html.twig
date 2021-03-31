@@ -158,8 +158,7 @@
                                     <th scope="col">Remaining</th>
                                     <th scope="col">Type</th>
                                     <th scope="col">Date</th>
-                                    <th scope="col">Previs</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -171,19 +170,13 @@
                                         <td>{{ event.NumRemaining }}</td>
                                         <td>{{ event.type }}</td>
                                         <td>{{ event.date|date }}</td>
-                                        <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                                 class="img-fluid rounded-circle"
-                                                 alt=""
-                                                 style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
                                         <td>
                                             <a href="/eventadmin/event/{{ event.id }}" class="btn btn-dark">
                                                 Show
                                             </a>
 
 
-                                            <a href="/invalidevents/verify/{{ event.id }}" class="btn btn-warning">
+                                            <a href="/invalidevents/verify/{{ event.id }}" class="btn btn-success">
                                                 Confirm
                                             </a>
 
@@ -211,29 +204,5 @@
         <!--Section: Manage All Events-->
 
     </div>
-    <!-- Footer -->
-    <footer>
-        <div class="text-center p-3 container" style="background-color: white">
-            © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">Symbiose Team</a>
-            <section >
-                <!-- Facebook -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-facebook-f"></i
-                    ></a>
-
-                <!-- Linkedin -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-linkedin-in"></i
-                    ></a>
-
-                <!-- Github -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/SkanderThabet/Symbiose" role="button"
-                ><i class="fab fa-github"></i
-                    ></a>
-            </section>
-        </div>
-    </footer>
-    <!-- Footer -->
 </main>
 {% endblock %}

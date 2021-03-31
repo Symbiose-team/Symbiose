@@ -22,10 +22,6 @@ class EventFixture extends Fixture
             $event->setState(0);
             $event->setNumParticipants(100);
             $event->setNumRemaining(100);
-            $event->setImageFile(null);
-            $event->setImageName("placeholder");
-            $event->setImageSize(0);
-            $event->setUpdatedAt($faker->dateTime);
             $manager->persist($event);
         }
         $manager->flush();

@@ -26,7 +26,6 @@ class EventRepository extends ServiceEntityRepository
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */
-
     public function findPlayersRemaining() : array
     {
         return $this->createQueryBuilder('e')
@@ -35,11 +34,9 @@ class EventRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */
-
     public function status_false() : array
     {
         return $this->createQueryBuilder('e')
@@ -69,19 +66,6 @@ class EventRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getResult();
     }
-
-
-    /*
-    public function findOneBySomeField($value): ?Event
-    {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 
     /*
      * @return Query

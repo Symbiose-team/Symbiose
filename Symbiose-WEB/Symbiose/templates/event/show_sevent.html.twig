@@ -1,15 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
-
-    <div class="container p-3 my-3">
-        <h1>{{ Sevent.name }}</h1>
-        <p>{{ Sevent.supplier }}</p>
-        <hr>
-        <a href="/sevents" class="btn btn-dark">Go Back</a>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div>
+                <div class="card text-center">
+                    <h1>{{ Sevent.name }}</h1>
+                    <h3>{{ Sevent.supplier }}</h3>
+                    <p>Number of reservations left : {{ Sevent.NumRemaining }}</p>
+                    <p>{{ Sevent.Date | date }}</p>
+                    <a href="/sevents" class="btn btn-dark">Go Back</a>
+                    <a href="/sevent/join/{{ Sevent.id }}" class="btn btn-warning btn-outline-dark">
+                        Join This Event
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
