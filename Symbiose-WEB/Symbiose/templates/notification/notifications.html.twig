@@ -18,12 +18,12 @@
                     <li class="list-group-item">
                         <a href="{{ path('notification_acknowledge', {'id': notification.id}) }}"
                            class="btn btn-sm btn-primary float-right">
-                            OK
+                            Mark As Seen
                         </a>
                             <a href="{{ path('game_user', {'id': notification.joinedBy.username}) }}">
                                 {{ notification.joinedBy.username }}
                             </a>
-                            likes your
+                            joined your
                             <a href="{{ path('game_show', {'id': notification.game.id}) }}">game</a>
                     </li>
                 {% endfor %}
@@ -31,6 +31,7 @@
         {% else %}
             <div class="card-body">
                 You don't have any notifications
+                <a href="/game"> <button class="btn-secondary">Go Back</button></a>
             </div>
         {% endif %}
     </div>
