@@ -39,7 +39,7 @@ class ClientController extends AbstractController
         $products = $paginator->paginate(
             $this->repository->findVisibleEquipmentQuery(),
             $request->query->getInt('page', 1),
-            6
+            8
         );
         return $this->render('client/equipment.html.twig', array('products' => $products));
     }

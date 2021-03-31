@@ -38,7 +38,7 @@ class ProductController extends AbstractController
         $products = $paginator->paginate(
             $this->repository->findAllVisibleQuery($search),
             $request->query->getInt('page', 1),
-            6
+            8
         );
         return $this->render('products/index.html.twig',
             array(

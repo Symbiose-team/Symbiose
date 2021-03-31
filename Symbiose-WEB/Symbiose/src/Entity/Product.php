@@ -36,13 +36,14 @@ class Product
     private $id;
 
     /**
-     * @var string
+     * @var string|null
      * @ORM\Column(type="string", length=255)
      */
     private $filename;
 
     /**
      * @var File|null
+     * @Assert\Image(mimeTypes="image/jpeg")
      * @Vich\UploadableField(mapping="products_image", fileNameProperty="filename")
      */
     private $imageFile;
