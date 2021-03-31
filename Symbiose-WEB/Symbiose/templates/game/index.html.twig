@@ -29,15 +29,19 @@
 
                                 <th>Name</th>
                                 <th>Time</th>
+                                <th>Number of Players</th>
+
 
                             </tr>
                             </thead>
                             <tbody>
                             {% for game in games %}
                                 <tr>
-                                    <td>{{ game.user.fullname }} </td>
+                                    <td>   <a href="{{ path('game_user', {'id':game.user.id}) }}">{{ game.user.fullname }}</a></td>
                                     <td>{{ game.name }}</td>
                                     <td>{{ game.time|date("d/m/Y") }}</td>
+                                    <td>{{ game.getJoinedBy.count }}</td>
+
                                     <td>   <a class="btn btn-primary" href="{{ path('game_show', {'id':game.id}) }}">Show Lobby</a></td>
                                     {% if is_granted('edit',game) %}
                                     <td>   <a class="btn btn-secondary" href="{{ path('game_edit', {'id':game.id}) }}">Edit Lobby</a></td>

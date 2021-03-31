@@ -26,6 +26,26 @@ class GameController extends AbstractController
         ]);
     }
     /**
+     * @Route("/user/{id}", name="game_user")
+     * @param User $userWithGames
+     * @return Response
+     */
+    public function userPosts(User $userWithGames, GameRepository $gameRepository)
+    {
+        return $this->render(
+            'game/index.html.twig', [
+                'games' => $gameRepository->findBy(
+                    ['user' => $userWithGames],
+                    ['time' => 'DESC']
+                ),
+                'user' => $userWithGames
+            ]
+        );
+    }
+
+
+
+    /**
      * @Route("/game/add", name="game_add", methods={"GET","POST"})
      */
     public function new(Request $request, TokenStorageInterface $tokenStorage): Response

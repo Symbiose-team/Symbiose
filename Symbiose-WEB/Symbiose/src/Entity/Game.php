@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\GameRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass=GameRepository::class)
@@ -37,6 +39,22 @@ class Game
      */
     private $user;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="gameJoined")
+     * @ORM\JoinTable(name="game_joines",
+     *     joinColumns={@ORM\JoinColumn(name="game_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}
+     * )
+     */
+    private $joinedBy;
+
+    /**
+     * MicroPost constructor.
+     */
+    public function __construct()
+    {
+        $this->joinedBy = new ArrayCollection();
+    }
     /**
      * @return User
      */
@@ -83,4 +101,26 @@ class Game
 
         return $this;
     }
+    /**
+     * @return Collection
+     */
+    public function getJoinedBy()
+    {
+        return $this->joinedBy;
+    }
+
+    /**
+     * @param User $user
+     * @return void
+     */
+    public function join(User $user)
+    {
+        if ($this->joinedBy->contains($user)) {
+            return;
+        }
+
+        $this->joinedBy->add($user);
+    }
+
+
 }

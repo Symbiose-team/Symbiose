@@ -173,9 +173,15 @@ class User implements UserInterface
      */
     private $games;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="joinedBy")
+     */
+    private $gamesJoined;
+
 
     public function __construct()
     {
+        $this->gamesJoined = new ArrayCollection();
         $this->games = new ArrayCollection();
         $this->userRoles = new ArrayCollection();
         //add this new if error undo below
@@ -184,6 +190,16 @@ class User implements UserInterface
         $this->registeredAt=new \DateTimeImmutable('now');
         $this->accountMustBeVerifiedBefore=(new \DateTimeImmutable('now'))->add(new \DateInterval("P1D"));
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGameJoined(): ArrayCollection
+    {
+        return $this->gamesJoined;
+    }
+
+
 
     /**
      * @return ArrayCollection
