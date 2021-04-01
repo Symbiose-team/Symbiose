@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        {% if notifications|length %}
+            <div class="card-body">
+                <h5>Unread notifications</h5>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a class="btn btn-block btn-default btn-link btn-outline-info"
+                       href="{{ path('notification_acknowledge_all') }}">
+                        Mark all as read
+                    </a>
+                </li>
+                {% for notification in notifications %}
+                    <li class="list-group-item">
+                        <a href="{{ path('notification_acknowledge', {'id': notification.id}) }}"
+                           class="btn btn-sm btn-primary float-right">
+                            Mark As Seen
+                        </a>
+                            <a href="{{ path('game_user', {'id': notification.joinedBy.username}) }}">
+                                {{ notification.joinedBy.username }}
+                            </a>
+                            joined your
+                            <a href="{{ path('game_show', {'id': notification.game.id}) }}">game</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="card-body">
+                You don't have any notifications
+                <a href="/game"> <button class="btn-secondary">Go Back</button></a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

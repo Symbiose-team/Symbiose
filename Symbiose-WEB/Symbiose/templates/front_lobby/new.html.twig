@@ -1,0 +1,18 @@
+{% extends 'Lobbyfront.html.twig' %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container p-3 my-3">
+        <h3>Add a new Lobby</h3>
+     <!--   {{ form_start(form) }}-->
+        {{ form_widget(form.name) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+        <!--    {{ form_end(form) }}-->
+        <a href="/front/lobby">Go Back</a>
+    </div>
+
+{% endblock %}

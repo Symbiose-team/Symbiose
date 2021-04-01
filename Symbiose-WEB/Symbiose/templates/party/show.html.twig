@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Party{% endblock %}
+
+{% block body %}
+    <h1>Party</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ party.id }}</td>
+            </tr>
+            <tr>
+                <th>Maxnumber</th>
+                <td>{{ party.maxnumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('party_index') }}">back to list</a>
+
+    <a href="{{ path('party_edit', {'id': party.id}) }}">edit</a>
+
+    {{ include('party/_delete_form.html.twig') }}
+{% endblock %}

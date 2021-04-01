@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container p-3 my-3">
+        <h3>Lobby</h3>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+          {{ form_end(form) }}
+        <a href="/game">Go Back</a>
+    </div>
+
+{% endblock %}

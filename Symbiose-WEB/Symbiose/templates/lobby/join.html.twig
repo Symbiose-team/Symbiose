@@ -1,0 +1,19 @@
+{% extends 'Lobbyfront.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <div>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">Accept</button>
+    {{ form_end(form) }}
+        <a class="btn btn-primary" href="{{ path('front_lobby') }}">Cancel</a>
+
+    </div>
+
+
+{% endblock %}

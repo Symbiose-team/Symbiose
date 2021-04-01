@@ -172,6 +172,16 @@ class User implements UserInterface
     private ?bool $isEnabled;
 
     /**
+     * @ORM\OneToMany (targetEntity="App\Entity\Game", mappedBy="user")
+     */
+    private $games;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="joinedBy")
+     */
+    private $gamesJoined;
+
+    /**
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="User")
      */
     private $commentaires;
@@ -196,6 +206,8 @@ class User implements UserInterface
 
     public function __construct()
     {
+        $this->gamesJoined = new ArrayCollection();
+        $this->games = new ArrayCollection();
         $this->userRoles = new ArrayCollection();
         //add this new if error undo below
         $this->isEnabled=true;
@@ -206,6 +218,24 @@ class User implements UserInterface
         $this->conversations = new ArrayCollection();
         $this->conversationsRecus = new ArrayCollection();
         $this->messages = new ArrayCollection();
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGameJoined(): ArrayCollection
+    {
+        return $this->gamesJoined;
+    }
+
+
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGames(): ArrayCollection
+    {
+        return $this->games;
     }
 
     public function getFullname(){

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client Lobby{% endblock %}
+
+{% block body %}
+
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+
+                        <!-- end:aside lobby kiri -->
+                        <!-- start:aside lobby tengah -->
+                        <aside >
+                            <div class="chat-room-head">
+
+
+                            </div>
+                            <div class="room-desk">
+                                <h4 class="pull-left">Lobbies</h4>
+
+                                    <table class="table align-middle">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Owner</th>
+                                            <th>Nbplayers</th>
+                                            <th>Maxplayers</th>
+                                            <th>Fillable</th>
+                                            <th>Join</th>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for lobby in lobbies %}
+                                            <tr>
+
+                                                <td>{{ lobby.name }}</td>
+                                                <td>{{ lobby.owner }}</td>
+                                                <td>{{ lobby.nbplayers }}</td>
+                                                <td>{{ lobby.maxplayers }}</td>
+                                                <td>{{ lobby.status ? 'Yes' : 'No' }}</td>
+                                     <td><a class="btn btn-primary" href="{{ path('user_join',{'id':lobby.id} )}}">Join</a></td>
+                                   <td><a class="btn btn-danger" onclick="return confirm('Are you sure ?')" href="{{ path('front_lobby_delete',{'id':lobby.id} )}} ">Delete</a></td>
+
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="7">No Lobbies Yet</td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                <a class="btn btn-primary" href="{{ path('front_lobby_new') }}">Add new Lobby</a>
+
+                            </div>
+                        </aside>
+                        <!-- end:aside lobby kanan -->
+                    </div>
+                </div>
+                <!-- end:lobby -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('party_delete', {'id': party.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="POST">
+    <a href="{{ path('party_show', {'id': party.id}) }}" class="btn btn-primary">show</a>
+    <a href="{{ path('party_edit', {'id': party.id}) }}" class="btn btn-secondary">edit</a>
+    <button class="btn btn-danger">Delete</button>
+</form>

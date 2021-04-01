@@ -23,8 +23,8 @@
                             <h1 class="mb-3">Bienvenue sur Symbiose !</h1>
                             {% if is_granted("ROLE_CLIENT") %}
                                 <h5 class="mb-4">Vous êtes participant ? Et vous voulez réserver un match de foot ?</h5>
-                                <a class="btn btn-outline-light btn-lg m-2" href="#"
-                                   role="button" rel="nofollow" target="_blank">Réservez Maintenant !</a>
+                                <a class="btn btn-outline-light btn-lg m-2" href="{{ path('game_index') }}"
+                                   role="button" rel="nofollow" target="_self">Réservez Maintenant !</a>
 
                             {% elseif is_granted("ROLE_FOURNISSEUR") %}
                                 <h5 class="mb-4">Vous êtes Founisseur ? Et vous voulez gagner de l'argent ?</h5>

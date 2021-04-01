@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client Lobby{% endblock %}
+
+{% block body %}
+
+
+    <div class="container mt-4">
+        <form method="POST" action="{{ path('game_search') }}">
+            <input type="text" name="name">
+            <input type="submit" value="Recherche">
+
+
+        </form>
+        <br>
+        <div class="row">
+            <div class="col">
+
+                <!-- end:aside lobby kiri -->
+                <!-- start:aside lobby tengah -->
+                <aside >
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert alert-success" >
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    <div class="room-desk">
+
+
+
+                        <a href="{{ path('notification_all') }}"><button class="btn btn-primary" type="button" disabled>Notifications
+                                <span class="badge badge-light" id="notification-count" aria-hidden="true">
+                                <i class="spinner-border spinner-border-sm"></i>
+                            </span>
+
+                            </button></a>
+
+
+
+
+                        <br>
+                        <br>
+                        <h4 class="pull-left"><a href="/game">Lobbies</a></h4>
+
+                        <table class="table-sm align-middle">
+
+                            <thead>
+
+                            <tr>
+                                <th>Owner</th>
+
+                                <th>Name</th>
+                                <th>Time</th>
+                                <th>Number of Players</th>
+
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for game in games %}
+                                <tr>
+                                    <td>   <a href="{{ path('game_user', {'id':game.user.id}) }}">{{ game.user.fullname }}</a></td>
+                                    <td>{{ game.name }}</td>
+                                    <td>{{ game.time|date("d/m/Y") }}</td>
+                                    <td>{{ game.getJoinedBy.count }}</td>
+
+                                    <td>   <a class="btn btn-primary" href="{{ path('game_show', {'id':game.id}) }}">Show Lobby</a></td>
+                                    {% if is_granted('edit',game) %}
+                                    <td>   <a class="btn btn-secondary" href="{{ path('game_edit', {'id':game.id}) }}">Edit Lobby</a></td>
+                                   {% endif %}
+                                    {% if is_granted('delete',game) %}
+                                    <td>   <a class="btn btn-danger" onclick="return confirm('Are you sure ?')" href="{{ path('game_delete', {'id':game.id}) }}">Delete Lobby</a></td>
+                                    {% endif %}
+
+
+
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">No Lobbies Yet</td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                        <a class="btn btn-primary" href="{{ path('game_add') }}">Add a new Lobby</a>
+
+                    </div>
+                </aside>
+                <!-- end:aside lobby kanan -->
+            </div>
+        </div>
+        <!-- end:lobby -->
+
+    </div>
+    {% block javascripts %}
+        <script>
+                console.log('notification start');
+                function fetchNotificationCount() {
+                    console.log('notification request');
+                    console.log('{{ path('notification_unread') }}');
+                    fetch(
+                        '{{ path('notification_unread') }}',
+                        {'credentials': 'include'}
+                    ).then(function (response) {
+                        response.json().then(function (json) {
+                            document.getElementById('notification-count').innerText = json.count;
+                            setTimeout(fetchNotificationCount, 10000);
+                        });
+                    }).catch(function (reason) {
+
+                    });
+                }
+
+                fetchNotificationCount();
+            </script>
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lobby{% endblock %}
+
+{% block body %}
+    <h1>Lobby</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lobby.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ lobby.name }}</td>
+            </tr>
+            <tr>
+                <th>Owner</th>
+                <td>{{ lobby.owner }}</td>
+            </tr>
+            <tr>
+                <th>Nbplayers</th>
+                <td>{{ lobby.nbplayers }}</td>
+            </tr>
+            <tr>
+                <th>Maxplayers</th>
+                <td>{{ lobby.maxplayers }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ lobby.status ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('lobby_index') }}">Go back</a>
+
+
+{% endblock %}

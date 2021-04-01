@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Game;
 use App\Entity\Role;
 use App\Entity\User;
 use Cocur\Slugify\Slugify;
@@ -99,15 +100,28 @@ class AppFixtures extends Fixture
                 ->setRole($r);
             if ($r == 'Fournisseur') {
                 $user->addUserRole($fournisseurRole);
+                    #    $this->addReference($user->getUsername(),$user);
+                $this->addReference($user->getUsername(),$user);
                 $manager->persist($user);
                 $users[] = $user;
             } else {
                 $user->addUserRole($clientRole);
+                $this->addReference($user->getUsername(),$user);
                 $manager->persist($user);
                 $users[] = $user;
             }
 
 
+            $manager->flush();
+            for ($i = 1; $i <= 10; $i++) {
+                $game = new Game();
+                $game->setName("Match".rand(0,100));
+                $game->setTime(new \DateTime('2021-03-15'));
+                $game->setUser($this->getReference($user->getUsername()));
+
+                $manager->persist($game);
+
+            }
             $manager->flush();
         }
     }

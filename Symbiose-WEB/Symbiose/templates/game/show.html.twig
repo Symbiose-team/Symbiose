@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container p-3 my-3">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ game.name }}</h5>
+                {{  game.time|date('Y-m-d') }}
+                {% set isJoined = game.getJoinedBy.contains(app.user) %}
+
+                <div class="pt-2">
+                    <button style="display: {% if not isJoined %}block{% else %}none{% endif %}" type="button" class="btn btn-primary" id="join">
+                        Join
+                        <span  class="badge bg-danger ms-2" id="joines-join">{{ game.getJoinedBy.count }}</span>
+                    </button>
+
+                    <button style="display: {% if isJoined %}block{% else %}none{% endif %}" type="button" class="btn btn-danger" id="unjoin">
+                        Unjoin
+                        <span class="badge bg-primary" id="joines-unjoin">{{ game.getJoinedBy.count }}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <a href="/game" class="btn btn-dark">Go Back</a>
+    </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script>
+            let joinButton = document.getElementById('join');
+            let unjoinButton = document.getElementById('unjoin');
+
+            addOnClick(
+                joinButton,
+                unjoinButton,
+                document.getElementById('joines-unjoin'),
+                '{{ path('joines_join', {'id': game.id}) }}'
+            );
+
+            addOnClick(
+                unjoinButton,
+                joinButton,
+                document.getElementById('joines-join'),
+                '{{ path('unjoines_unjoin', {'id': game.id}) }}'
+            );
+
+            function switchButtons(button, oppositeButton) {
+                button.disabled = false;
+                button.style.display = 'none';
+                oppositeButton.style.display = 'block';
+            }
+
+            function addOnClick(button, oppositeButton, joinCount, path) {
+                button.addEventListener('click', function (event) {
+
+                    button.disabled = true;
+
+                    fetch(path, {'credentials': 'include'}).then(function (response) {
+                        response.json().then(function (json) {
+                            joinCount.innerText = json.count;
+                            switchButtons(button, oppositeButton);
+                        })
+                    }).catch(function () {
+                        switchButtons(button, oppositeButton);
+                    });
+
+                    event.preventDefault();
+                });
+            }
+        </script>
+    {% endblock %}
+
+
+
+{% endblock %}
