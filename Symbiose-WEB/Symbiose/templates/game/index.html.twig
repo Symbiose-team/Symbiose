@@ -68,6 +68,7 @@
                                     {% if is_granted('edit',game) %}
                                     <td>   <a class="btn btn-secondary" href="{{ path('game_edit', {'id':game.id}) }}">Edit Lobby</a></td>
                                    {% endif %}
+
                                     {% if is_granted('delete',game) %}
                                     <td>   <a class="btn btn-danger" onclick="return confirm('Are you sure ?')" href="{{ path('game_delete', {'id':game.id}) }}">Delete Lobby</a></td>
                                     {% endif %}
@@ -84,6 +85,7 @@
                             </tbody>
                         </table>
                         <a class="btn btn-primary" href="{{ path('game_add') }}">Add a new Lobby</a>
+                        <div class="pagination">{{ knp_pagination_render(games) }}</div>
 
                     </div>
                 </aside>
@@ -105,7 +107,7 @@
                     ).then(function (response) {
                         response.json().then(function (json) {
                             document.getElementById('notification-count').innerText = json.count;
-                            setTimeout(fetchNotificationCount, 10000);
+                            setTimeout(fetchNotificationCount, 1000);
                         });
                     }).catch(function (reason) {
 

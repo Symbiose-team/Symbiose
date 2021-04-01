@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Game;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,6 +20,19 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
+    public function findAllVisibleQuery()
+    {
+        return $this->findAllVisibleQuery()
+            ->getQuery();
+    }
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('g')
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Game[] Returns an array of Game objects
     //  */

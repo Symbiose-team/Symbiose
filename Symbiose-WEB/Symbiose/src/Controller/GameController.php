@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Form\GameType;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,17 +16,31 @@ use App\Repository\UserRepository;
 use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class GameController extends AbstractController
 {
+    private $repository;
+
+    public function __construct(GameRepository $repository)
+    {
+        $this->repository = $repository;
+    }
     /**
      * @Route("/game", name="game_index")
      */
-    public function index(GameRepository $gameRepository): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
 
+        $game = $paginator->paginate(
+            $this->repository->findAll(),
+            $request->query->getInt('page',1),
+            12
+        );
         return $this->render('game/index.html.twig', [
-            'games' => $gameRepository->findAll(),
+            'current_menu' => 'games',
+            'games' => $game
         ]);
     }
     /**
@@ -125,16 +141,22 @@ class GameController extends AbstractController
     /**
      * @Route("/game/search", name="game_search")
      */
-    public function searchbyname(Request $request):Response
+    public function searchbyname(PaginatorInterface $paginator,Request $request):Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         if ($request->isMethod("POST")){
             $name=$request->get('name');
-            $games=$entityManager->getRepository(Game::class)->findBy(array('name'=>$name));
-            return $this->render('game/index.html.twig', [
-                'games' => $games,
-            ]);
-        }
+       #     $games=$entityManager->
+            $game = $paginator->paginate(
+                $this->repository->findBy(array('name'=>$name)),
+            $request->query->getInt('page',1),
+            12
+        );
+        return $this->render('game/index.html.twig', [
+            'current_menu' => 'games',
+            'games' => $game
+        ]);
+    }
 
 
     }

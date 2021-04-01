@@ -68,6 +68,7 @@ class GameVoter extends Voter
     {
 
 
+
         $authenticatedUser = $token->getUser();
 
         if (!$authenticatedUser instanceof User) {
