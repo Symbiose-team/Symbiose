@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 mt-5 text-center text-white overflow-hidden" style="border-radius: 21px 21px 0 0;">
+        <div class="my-3 py-3">
+            <div align="left">
+                <a href="/products">
+                    <button type="button" class="btn btn-light btn-rounded" data-mdb-ripple-color="dark">
+                        Go back
+                    </button>
+                </a>
+            </div>
+            <h2 class="display-5">{{ product.name }}</h2>
+            <p class="lead">{{ product.description }}.</p>
+            <div class="text-warning mb-2" style="font-weight: bold; font-size: 2rem">{{ product.formattedPrice }} (dt)</div>
+            <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                {% if product.filename %}
+                    <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('thumb') }}" class="img-thumbnail img-fluid rounded" style="width: auto; height: auto;"/>
+                    <a>
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit product!{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+
+        {{ form_start(form) }}
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6 col-xl-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="mb-0">Edit Product</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-md">{{ form_row(form.Name) }}</div>
+                        <div class="col-md">{{ form_row(form.Type) }}</div>
+                        <div class="col-md">{{ form_row(form.Price) }}</div>
+                        <div class="col-md">{{ form_row(form.Description) }}</div>
+                        <div class="col-md mt-3">State : {{ form_row(form.State) }}</div>
+                        <div class="col-md">{{ form_row(form.imageFile) }}</div>
+                    </div>
+                    <div class="card-footer">
+                        {{ form_widget(form) }}
+                        {{ form_end(form) }}
+                        <a href="/products" class="btn btn-block btn-primary mt-3">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

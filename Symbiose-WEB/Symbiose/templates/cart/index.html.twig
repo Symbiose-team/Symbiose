@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Cart !{% endblock %}
+
+{% block body %}
+    <div class="container mt-3">
+        <div class="bg-light up-3">
+            <h1>Your Cart</h1>
+        </div>
+        <div class="container-fluid mt-4">
+            {% if items | length > 0 %}
+                <div class="row">
+                    {% for item in items %}
+
+                        <div class="col-md-8">
+                            <h3 class="card-header bg-dark text-white">
+                                {{ item.product.name }}
+                            </h3>
+                            <div class="card mb-5 ">
+                                <div class="card-body">
+                                    <div class="row">
+                                            <div class="col-md-4 d-flex">
+                                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                                    {% if item.product.filename %}
+                                                        <img src="{{ vich_uploader_asset(item.product, 'imageFile') | imagine_filter('thumb') }}" class="img-fluid rounded" style="width: 100%; height: auto;">
+                                                        <a href="#!">
+                                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                                        </a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="col d-flex flex-column align-self-center">
+                                                <h3>Description : </h3>
+                                                <p class="card_text">{{ item.product.description[:25] | nl2br }}...</p>
+                                            </div>
+                                            <div class="offset-md-1 col-md-4 mt-2">
+                                                <h3 class="text-warning">Price : {{ item.product.formattedPrice }} (dt)</h3>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mt-4 mt-md-0">
+                                <h3 class="card-header bg-dark text-white d-flex">Summary</h3>
+                                <div class="card-body">
+                                    <div class="input-group input-group-lg justify-content-center mt-2">
+                                        <a href="{{ path("cart_decrease_quantity", { id: item.product.id }) }}" class="btn">
+                                            <span class="fas fa-minus"></span>
+                                        </a>
+
+                                        <span class="input-group-text bg-white border-top border-bottom"><b>{{ item.quantity }}</b></span>
+
+                                        <a href="{{ path('cart_increase_quantity', { id: item.product.id}) }}" class="btn">
+                                            <span class="fas fa-plus"></span>
+                                        </a>
+                                    </div>
+
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item d-flex justify-content-center mt-3 mb-1">
+                                            <h4>Total :</h4>
+                                            <h4>{{ item.product.price * item.quantity }} (dt)</h4>
+                                        </div>
+                                        <a href="{{ path('cart_remove', {'id': item.product.id})}}" class="btn btn-danger w-100"
+                                           onclick="return confirm('Are you sure ?')"><i class="fas fa-trash"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <hr class="m-0" />
+
+                    <div class="card-footer">
+                        <div class="col-12">
+                            <div class="row justify-content-md-center mt-4 mb-4">
+                                <div class="col col-lg-2">
+                                    <a href="/clientPage" class="btn btn-lg">CONTINUE SHOPPING</a>
+                                </div>
+                                <div class="col-md-auto align-self-center ">
+                                    <h2>Cart Total : {{ total }} (dt)</h2>
+                                </div>
+                                <div class="col col-lg-2">
+                                    <button href="#" class="btn btn-warning btn-lg">CONTINUE TO CHECKOUT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            {% else %}
+                <p>Your cart is empty !</p>
+
+                <hr class="m-0" />
+
+                <div class="card-footer">
+                    <div class="col-12">
+                        <div class="row justify-content-md-center mt-4 mb-4">
+                            <div class="col col-lg-2">
+                                <a href="/clientPage" class="btn btn-lg">CONTINUE SHOPPING</a>
+                            </div>
+                            <div class="col-md-auto align-self-center ">
+                                <h2>Cart Total : {{ total }} (dt)</h2>
+                            </div>
+                            <div class="col col-lg-2">
+                                <button href="#" class="btn btn-warning btn-lg">CONTINUE TO CHECKOUT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

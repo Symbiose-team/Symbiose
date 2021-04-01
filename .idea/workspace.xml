@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1p4M1CJsklRjiCy04lG04wLDa60" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/eventadmin.html.twig" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Downloads/eventadmin.html.twig" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="" />
+      <created>1614437693920</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614437693920</updated>
+      <workItem from="1614437694926" duration="2992000" />
+      <workItem from="1614514008840" duration="21270000" />
+      <workItem from="1614619236573" duration="12640000" />
+      <workItem from="1614711773611" duration="10907000" />
+      <workItem from="1614725348959" duration="5615000" />
+      <workItem from="1614781171479" duration="17108000" />
+      <workItem from="1614852809738" duration="9231000" />
+      <workItem from="1614889500139" duration="969000" />
+      <workItem from="1615216371257" duration="7666000" />
+      <workItem from="1615224137585" duration="338000" />
+      <workItem from="1615224495818" duration="4654000" />
+      <workItem from="1615240322445" duration="595000" />
+      <workItem from="1615317971573" duration="20110000" />
+      <workItem from="1615385616295" duration="3776000" />
+      <workItem from="1615402417377" duration="233000" />
+      <workItem from="1615413136909" duration="16990000" />
+      <workItem from="1615459531282" duration="9609000" />
+      <workItem from="1616254898963" duration="85000" />
+      <workItem from="1616438616444" duration="7332000" />
+      <workItem from="1616508831077" duration="14209000" />
+      <workItem from="1616595254187" duration="7927000" />
+      <workItem from="1616678677010" duration="14874000" />
+      <workItem from="1616765171052" duration="16141000" />
+      <workItem from="1616944150105" duration="2167000" />
+      <workItem from="1616946350750" duration="8728000" />
+      <workItem from="1616969854567" duration="1511000" />
+      <workItem from="1617022902382" duration="10000000" />
+      <workItem from="1617051349186" duration="7508000" />
+      <workItem from="1617195114695" duration="29254000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2631" y="343" key="#Notifications" timestamp="1614530856539">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2631" y="343" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614530856539" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617212367811">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617212367811" />
+    <state x="744" y="220" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1617212336843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="744" y="220" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617212336843" />
+    <state x="753" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1617212527791">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2673" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615421494901" />
+    <state x="753" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617212527791" />
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617212567387">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617212567387" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1615461619474">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615461619474" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1615461151061">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1615461151061" />
+    <state x="622" y="242" key="NewPhpClassDialog" timestamp="1616779780553">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="622" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616779780553" />
+    <state x="734" y="240" key="RollbackChangesDialog" timestamp="1616946252432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="734" y="240" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616946252432" />
+    <state x="320" y="151" width="998" height="708" key="SettingsEditor" timestamp="1617213399664">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2623" y="141" width="998" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614530417557" />
+    <state x="320" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617213399664" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1615222529293">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1615222529293" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1617213379143">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617213379143" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1615335122111">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615335122111" />
+    <state x="699" y="446" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog" timestamp="1617212242601">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="699" y="446" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617212242601" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617230638923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617230638923" />
+    <state x="677" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1616540517553">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="677" y="291" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616540517553" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1617230544647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2536" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615433218612" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617230544647" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1616955868497">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616955868497" />
+  </component>
+</project>
