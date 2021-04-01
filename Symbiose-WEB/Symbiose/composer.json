@@ -18,6 +18,7 @@
         "gregwar/captcha-bundle": "^2.1",
         "knplabs/knp-paginator-bundle": "^5.4",
         "knplabs/knp-snappy-bundle": "^1.8",
+        "liip/imagine-bundle": "^2.5",
         "odolbeau/phone-number-bundle": "^3.3",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^6.1",

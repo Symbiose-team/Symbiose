@@ -132,6 +132,8 @@
       <excludeFolder url="file://$MODULE_DIR$/Symbiose/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/Symbiose/vendor/gregwar/captcha-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/Symbiose/vendor/gregwar/captcha" />
+      <excludeFolder url="file://$MODULE_DIR$/Symbiose/vendor/imagine/imagine" />
+      <excludeFolder url="file://$MODULE_DIR$/Symbiose/vendor/liip/imagine-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

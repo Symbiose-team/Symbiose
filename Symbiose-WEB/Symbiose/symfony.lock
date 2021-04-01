@@ -122,6 +122,7 @@
     },
     "gregwar/captcha-bundle": {
         "version": "v2.1.4"
+    },
     "imagine/imagine": {
         "version": "1.2.4"
     },
@@ -643,7 +644,6 @@
             "branch": "master",
             "version": "1.5",
             "ref": "c4f5755b37fb65b9c6a3cbdae91205c15a137ed4"
-        }
         },
         "files": [
             "./config/packages/vich_uploader.yaml"
