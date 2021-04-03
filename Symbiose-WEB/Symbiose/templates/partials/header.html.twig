@@ -25,16 +25,13 @@
 
 
         <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+        <div class="collapse navbar-collapse" id="navbarLeftRightExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto d-flex flex-row">
 
                 <!-- Navbar dropdown -->
                 <ul class="navbar-nav ml-auto">
                     {% if app.user %}
-                        <li class="nav-item ml-auto d-flex flex-row">
-                            <a href="{{ path('afficheterrai') }}">Terrain</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle " data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
                                 <img src="{{ app.user.picture }}" class="avatar avatar-mini" alt="Avatar de {{ app.user.fullname }}">
@@ -46,11 +43,54 @@
                                 <a href="{{ path('account_profile') }}" class="dropdown-item">Modifier mon profile</a>
                                 <div class="dropdown-divider"></div>
                                 <a href="{{ path('account_logout') }}" class="dropdown-item">Déconnecter</a>
-
                             </div>
 
                         </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle " data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
+                                <strong class="text-dark">Terrains</strong>
+                            </a>
 
+                            <div class="dropdown-menu" aria-labelledby="accountDropdownLink">
+                                <a href="{{ path('afficheterrai') }}" class="dropdown-item">Terrains</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle " data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
+                                <strong class="text-dark">Evenements</strong>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="accountDropdownLink">
+                                <a href="{{ path('event_list') }}" class="dropdown-item">Evenements</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle " data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
+                                <strong class="text-dark">Produits</strong>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="accountDropdownLink">
+                                <a href="{{ path('products') }}" class="dropdown-item">Produits</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle " data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
+                                <strong class="text-dark">Communication</strong>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="accountDropdownLink">
+                                <a href="{{ path('publication') }}" class="dropdown-item">Communication</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle " data-mdb-toggle="dropdown" data-mdb-display="static" id="accountDropdownLink">
+                                <strong class="text-dark">Match</strong>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="accountDropdownLink">
+                                <a href="{{ path('game_index') }}" class="dropdown-item">Match</a>
+                            </div>
+                        </li>
 
                     {% else %}
                         <li class="nav-item ms-auto">
