@@ -31,12 +31,6 @@ class SpecialEvent
     private $Name;
 
     /**
-     * @ORM\Column(type="text", length=100)
-     * @Assert\NotBlank(message="should not be blank")
-     */
-    private $Supplier;
-
-    /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="invalid input")
      * @Assert\NotNull(message="value is null")
@@ -99,6 +93,16 @@ class SpecialEvent
      * @var \DateTimeInterface|null
      */
     private $updatedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="specialEvents")
+     */
+    private $Participants;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="suppliersevents")
+     */
+    private $Supplier;
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -187,21 +191,7 @@ class SpecialEvent
         $this->Name = $Name;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSupplier()
-    {
-        return $this->Supplier;
-    }
 
-    /**
-     * @param mixed $Supplier
-     */
-    public function setSupplier($Supplier): void
-    {
-        $this->Supplier = $Supplier;
-    }
 
     /**
      * @return mixed
@@ -281,6 +271,30 @@ class SpecialEvent
     public function setState($State): void
     {
         $this->State = $State;
+    }
+
+    public function getParticipants(): ?User
+    {
+        return $this->Participants;
+    }
+
+    public function setParticipants(?User $Participants): self
+    {
+        $this->Participants = $Participants;
+
+        return $this;
+    }
+
+    public function getSupplier(): ?User
+    {
+        return $this->Supplier;
+    }
+
+    public function setSupplier(?User $Supplier): self
+    {
+        $this->Supplier = $Supplier;
+
+        return $this;
     }
 
 

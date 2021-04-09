@@ -29,7 +29,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/EventUser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Field.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/SpecialEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/SpecialEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

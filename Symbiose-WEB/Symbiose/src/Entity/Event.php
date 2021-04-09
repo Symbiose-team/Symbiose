@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\EventRepository;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Nullable;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -31,11 +33,7 @@ class Event
      */
     private $Name;
 
-    /**
-     * @ORM\Column(type="text", length=100)
-     * @Assert\NotBlank(message="should not be blank")
-     */
-    private $Supplier;
+
 
     /**
      * @ORM\Column(type="integer")
@@ -102,6 +100,21 @@ class Event
      * @var \DateTimeInterface|null
      */
     private $updatedAt;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="events")
+     */
+    private $Participants;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="supplierevents")
+     */
+    private $Supplier;
+
+    public function __construct()
+    {
+        $this->Participants = new ArrayCollection();
+    }
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -193,22 +206,6 @@ class Event
     /**
      * @return mixed
      */
-    public function getSupplier()
-    {
-        return $this->Supplier;
-    }
-
-    /**
-     * @param mixed $Supplier
-     */
-    public function setSupplier($Supplier): void
-    {
-        $this->Supplier = $Supplier;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getNumParticipants()
     {
         return $this->NumParticipants;
@@ -284,6 +281,42 @@ class Event
     public function setState($State): void
     {
         $this->State = $State;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getParticipants(): Collection
+    {
+        return $this->Participants;
+    }
+
+    public function addParticipant(User $participant): self
+    {
+        if (!$this->Participants->contains($participant)) {
+            $this->Participants[] = $participant;
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(User $participant): self
+    {
+        $this->Participants->removeElement($participant);
+
+        return $this;
+    }
+
+    public function getSupplier(): ?User
+    {
+        return $this->Supplier;
+    }
+
+    public function setSupplier(?User $Supplier): self
+    {
+        $this->Supplier = $Supplier;
+
+        return $this;
     }
 
 

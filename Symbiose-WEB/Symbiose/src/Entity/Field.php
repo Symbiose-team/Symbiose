@@ -136,6 +136,11 @@ class Field
     private $Date_end;
 
     /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="fields")
+     */
+    private $Booker;
+
+    /**
      * @return mixed
      */
     public function getDateStart()
@@ -234,5 +239,17 @@ class Field
     public function __toString()
     {
 return($this->name) ;
+    }
+
+    public function getBooker(): ?User
+    {
+        return $this->Booker;
+    }
+
+    public function setBooker(?User $Booker): self
+    {
+        $this->Booker = $Booker;
+
+        return $this;
     }
 }

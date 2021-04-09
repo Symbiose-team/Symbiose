@@ -201,6 +201,36 @@ class User implements UserInterface
      */
     private $messages;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Event::class, mappedBy="Participants")
+     */
+    private $events;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="Supplier")
+     */
+    private $supplierevents;
+
+    /**
+     * @ORM\OneToMany(targetEntity=SpecialEvent::class, mappedBy="Participants")
+     */
+    private $specialEvents;
+
+    /**
+     * @ORM\OneToMany(targetEntity=SpecialEvent::class, mappedBy="Supplier")
+     */
+    private $suppliersevents;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="Supplier")
+     */
+    private $productowner;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Field::class, mappedBy="Booker")
+     */
+    private $fields;
+
 
 
 
@@ -218,6 +248,12 @@ class User implements UserInterface
         $this->conversations = new ArrayCollection();
         $this->conversationsRecus = new ArrayCollection();
         $this->messages = new ArrayCollection();
+        $this->events = new ArrayCollection();
+        $this->supplierevents = new ArrayCollection();
+        $this->specialEvents = new ArrayCollection();
+        $this->suppliersevents = new ArrayCollection();
+        $this->productowner = new ArrayCollection();
+        $this->fields = new ArrayCollection();
     }
 
     /**
@@ -687,6 +723,183 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($message->getUser() === $this) {
                 $message->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Event[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->removeElement($event)) {
+            $event->removeParticipant($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Event[]
+     */
+    public function getSupplierevents(): Collection
+    {
+        return $this->supplierevents;
+    }
+
+    public function addSupplierevent(Event $supplierevent): self
+    {
+        if (!$this->supplierevents->contains($supplierevent)) {
+            $this->supplierevents[] = $supplierevent;
+            $supplierevent->setSupplier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSupplierevent(Event $supplierevent): self
+    {
+        if ($this->supplierevents->removeElement($supplierevent)) {
+            // set the owning side to null (unless already changed)
+            if ($supplierevent->getSupplier() === $this) {
+                $supplierevent->setSupplier(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SpecialEvent[]
+     */
+    public function getSpecialEvents(): Collection
+    {
+        return $this->specialEvents;
+    }
+
+    public function addSpecialEvent(SpecialEvent $specialEvent): self
+    {
+        if (!$this->specialEvents->contains($specialEvent)) {
+            $this->specialEvents[] = $specialEvent;
+            $specialEvent->setParticipants($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpecialEvent(SpecialEvent $specialEvent): self
+    {
+        if ($this->specialEvents->removeElement($specialEvent)) {
+            // set the owning side to null (unless already changed)
+            if ($specialEvent->getParticipants() === $this) {
+                $specialEvent->setParticipants(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SpecialEvent[]
+     */
+    public function getSuppliersevents(): Collection
+    {
+        return $this->suppliersevents;
+    }
+
+    public function addSuppliersevent(SpecialEvent $suppliersevent): self
+    {
+        if (!$this->suppliersevents->contains($suppliersevent)) {
+            $this->suppliersevents[] = $suppliersevent;
+            $suppliersevent->setSupplier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSuppliersevent(SpecialEvent $suppliersevent): self
+    {
+        if ($this->suppliersevents->removeElement($suppliersevent)) {
+            // set the owning side to null (unless already changed)
+            if ($suppliersevent->getSupplier() === $this) {
+                $suppliersevent->setSupplier(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProductowner(): Collection
+    {
+        return $this->productowner;
+    }
+
+    public function addProductowner(Product $productowner): self
+    {
+        if (!$this->productowner->contains($productowner)) {
+            $this->productowner[] = $productowner;
+            $productowner->setSupplier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductowner(Product $productowner): self
+    {
+        if ($this->productowner->removeElement($productowner)) {
+            // set the owning side to null (unless already changed)
+            if ($productowner->getSupplier() === $this) {
+                $productowner->setSupplier(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Field[]
+     */
+    public function getFields(): Collection
+    {
+        return $this->fields;
+    }
+
+    public function addField(Field $field): self
+    {
+        if (!$this->fields->contains($field)) {
+            $this->fields[] = $field;
+            $field->setBooker($this);
+        }
+
+        return $this;
+    }
+
+    public function removeField(Field $field): self
+    {
+        if ($this->fields->removeElement($field)) {
+            // set the owning side to null (unless already changed)
+            if ($field->getBooker() === $this) {
+                $field->setBooker(null);
             }
         }
 

@@ -86,12 +86,23 @@ class Product
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="productowner")
+     */
+    private $Supplier;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="productcomment")
+     */
+    private $comments;
+
 
     //THESE HERE ARE THE GETTERS AND SETTERS
 
     public function __construct()
     {
         $this->created_at = new \DateTime();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -231,6 +242,48 @@ class Product
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getSupplier(): ?User
+    {
+        return $this->Supplier;
+    }
+
+    public function setSupplier(?User $Supplier): self
+    {
+        $this->Supplier = $Supplier;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Commentaire $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setProductcomment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Commentaire $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getProductcomment() === $this) {
+                $comment->setProductcomment(null);
+            }
+        }
 
         return $this;
     }
