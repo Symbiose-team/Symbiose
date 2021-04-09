@@ -1,3 +1,3 @@
 # Symbiose
 
-<h2>Gestion user</h2>
+<h2>Final Product</h2>
