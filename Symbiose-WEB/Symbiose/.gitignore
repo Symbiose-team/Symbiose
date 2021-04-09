@@ -19,11 +19,10 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-/migrations/
-/public/images/
-
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
 
 /node_modules/
+/migrations/
+/public/images/
