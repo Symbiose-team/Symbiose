@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\SpecialEventRepository;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Nullable;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -62,109 +64,15 @@ class SpecialEvent
      */
     private $State;
 
-
-    //IMAGE UPLOAD BUNDLE
     /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     *
-     * @Vich\UploadableField(mapping="SpecialEvents", fileNameProperty="imageName", size="imageSize")
-     *
-     * @var File|null
-     */
-    private $imageFile;
-
-    /**
-     * @ORM\Column(type="string")
-     *
-     * @var string|null
-     */
-    private $imageName;
-
-    /**
-     * @ORM\Column(type="integer")
-     *
-     * @var int|null
-     */
-    private $imageSize;
-
-    /**
-     * @ORM\Column(type="datetime")
-     *
-     * @var \DateTimeInterface|null
-     */
-    private $updatedAt;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="specialEvents")
+     * @ORM\ManyToMany(targetEntity=User::class)
      */
     private $Participants;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="suppliersevents")
-     */
-    private $Supplier;
-
-    /**
-     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
-     * of 'UploadedFile' is injected into this setter to trigger the update. If this
-     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
-     * must be able to accept an instance of 'File' as the bundle will inject one here
-     * during Doctrine hydration.
-     *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
-     */
-    public function setImageFile(?File $imageFile): void
+    public function __construct()
     {
-        $this->imageFile = $imageFile;
-
-        if (null !== $imageFile) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTimeImmutable();
-        }
+        $this->Participants = new ArrayCollection();
     }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    public function setImageName(?string $imageName): void
-    {
-        $this->imageName = $imageName;
-    }
-
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
-
-    public function setImageSize(?int $imageSize): void
-    {
-        $this->imageSize = $imageSize;
-    }
-
-    public function getImageSize(): ?int
-    {
-        return $this->imageSize;
-    }
-
-    /**
-     * @return \DateTimeInterface|null
-     */
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTimeInterface|null $updatedAt
-     */
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
 
 
 
@@ -273,29 +181,30 @@ class SpecialEvent
         $this->State = $State;
     }
 
-    public function getParticipants(): ?User
+    /**
+     * @return Collection|User[]
+     */
+    public function getParticipants(): Collection
     {
         return $this->Participants;
     }
 
-    public function setParticipants(?User $Participants): self
+    public function addParticipant(User $participant): self
     {
-        $this->Participants = $Participants;
+        if (!$this->Participants->contains($participant)) {
+            $this->Participants[] = $participant;
+        }
 
         return $this;
     }
 
-    public function getSupplier(): ?User
+    public function removeParticipant(User $participant): self
     {
-        return $this->Supplier;
-    }
-
-    public function setSupplier(?User $Supplier): self
-    {
-        $this->Supplier = $Supplier;
+        $this->Participants->removeElement($participant);
 
         return $this;
     }
+
 
 
 

@@ -30,13 +30,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/DataFixtures/EventFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/DataFixtures/EventFixture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/DataFixtures/SEventFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/DataFixtures/SEventFixture.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/EventUser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Field.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/SpecialEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/SpecialEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/EventType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/SpecialEventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/SpecialEventType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +166,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/eventadmin.html.twig" />
@@ -218,6 +218,12 @@
       <workItem from="1617022902382" duration="10000000" />
       <workItem from="1617051349186" duration="7508000" />
       <workItem from="1617195114695" duration="29254000" />
+      <workItem from="1618052170593" duration="2647000" />
+      <workItem from="1618071947588" duration="1553000" />
+      <workItem from="1618502491915" duration="1067000" />
+      <workItem from="1618520893398" duration="2003000" />
+      <workItem from="1618750833368" duration="168000" />
+      <workItem from="1618751122938" duration="3576000" />
     </task>
     <servers />
   </component>
