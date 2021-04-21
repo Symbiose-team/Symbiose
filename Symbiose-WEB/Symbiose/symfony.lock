@@ -637,6 +637,9 @@
     "twig/twig": {
         "version": "v3.3.0"
     },
+    "twilio/sdk": {
+        "version": "6.21.0"
+    },
     "vich/uploader-bundle": {
         "version": "1.5",
         "recipe": {

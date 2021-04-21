@@ -72,25 +72,25 @@
     <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4">
             <a
-                    href="/eventadmin"
+                    href="{{ path('event_adminV2') }}"
                     class="list-group-item list-group-item-action py-2 ripple"
                     aria-current="true"
             >
-                <i class="fas fa-tachometer-alt fa-fw me-3"></i
+                <i class="fas fa-calendar-alt fa-fw me-3"></i
                 ><span>Events</span>
             </a>
             <a
-                    href="/seventadmin"
+                    href="{{ path('sevent_admin') }}"
                     class="list-group-item list-group-item-action py-2 ripple"
             >
-                <i class="fas fa-chart-area fa-fw me-3"></i
+                <i class="fas fa-calendar-alt fa-fw me-3"></i
                 ><span>Special events</span>
             </a>
             <a
                     href="#"
                     class="list-group-item list-group-item-action py-2 ripple active"
             >
-                <i class="fas fa-chart-area fa-fw me-3"></i
+                <i class="fas fa-calendar-alt fa-fw me-3"></i
                 ><span>Confirm events</span>
             </a>
         </div>
@@ -102,7 +102,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="{{ path('event_welcome') }}">
+        <a class="navbar-brand" href="{{ path('event-welcome') }}">
             <img
                     src="http://localhost/pidev/logo-mrigel-sghir.jpg"
                     height="25"
@@ -158,8 +158,7 @@
                                     <th scope="col">Remaining</th>
                                     <th scope="col">Type</th>
                                     <th scope="col">Date</th>
-                                    <th scope="col">Previs</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -171,12 +170,6 @@
                                         <td>{{ event.NumRemaining }}</td>
                                         <td>{{ event.type }}</td>
                                         <td>{{ event.date|date }}</td>
-                                        <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                                 class="img-fluid rounded-circle"
-                                                 alt=""
-                                                 style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
                                         <td>
                                             <a href="{{ path('eventadmin_show',{'id':event.id}) }}" class="btn btn-dark">
                                                 Show
@@ -211,29 +204,5 @@
         <!--Section: Manage All Events-->
 
     </div>
-    <!-- Footer -->
-    <footer>
-        <div class="text-center p-3 container" style="background-color: white">
-            © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">Symbiose Team</a>
-            <section >
-                <!-- Facebook -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-facebook-f"></i
-                    ></a>
-
-                <!-- Linkedin -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-linkedin-in"></i
-                    ></a>
-
-                <!-- Github -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/SkanderThabet/Symbiose" role="button"
-                ><i class="fab fa-github"></i
-                    ></a>
-            </section>
-        </div>
-    </footer>
-    <!-- Footer -->
 </main>
 {% endblock %}

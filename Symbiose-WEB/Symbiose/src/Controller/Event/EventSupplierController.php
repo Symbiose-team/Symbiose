@@ -9,6 +9,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use App\Form\SupplierType;
+use App\Form\EventType;
 
 class EventSupplierController extends AbstractController
 {
@@ -43,6 +47,35 @@ class EventSupplierController extends AbstractController
         $events = $this->event_repository->find_by_user($name);
 
         return $this->render('Event/event_supplier/supplier_event.html.twig', array('events' => $events));
+    }
+
+    //Add an event
+    /**
+     * @Route("/eventsupplier/add", name="add_supplier_event")
+     * @Method({"GET","POST"})
+     */
+    public function new(Request $request){
+        $event = new Event();
+        $name = 'Mahdi';
+
+        $form= $this->createForm(SupplierType::class, $event);
+        $event->setState(0);
+        $event->setSupplier($name);
+        $form->handleRequest($request);
+
+
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $event = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('event_supplier');
+        }
+        return $this->render('Event/event_supplier/new_event.html.twig', array('form'=>$form->createView()));
     }
 
     //Show event by id

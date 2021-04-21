@@ -8,18 +8,17 @@
             <div class="col-12 col-lg-6 col-xl-4">
                 <div class="card">
                     <div class="card-header">
-                        <h1 class="mb-0">Add a new Special Event</h1>
+                        <h1 class="mb-0">Add a your Event</h1>
                     </div>
                     <div class="card-body">
                         <div class="col-md">{{ form_row(form.Name) }}</div>
                         <div class="col-md">{{ form_row(form.Type) }}</div>
                         <div class="col-md">{{ form_row(form.Date) }}</div>
-                        <div class="col-md mt-3">{{ form_row(form.State) }}</div>
                     </div>
                     <div class="card-footer">
                         {{ form_widget(form) }}
                         {{ form_end(form) }}
-                    <a href="{{ path('sevent_admin') }}>Go Back</a>
+                        <a href="{{ path('event_supplier') }}" class="btn btn-block btn-danger mt-3">Cancel</a>
                     </div>
                 </div>
             </div>

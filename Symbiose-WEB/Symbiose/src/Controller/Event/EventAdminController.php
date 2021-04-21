@@ -22,6 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use function Sodium\compare;
 
 class EventAdminController extends AbstractController
 {
@@ -51,6 +52,9 @@ class EventAdminController extends AbstractController
     public function event_admin(PaginatorInterface $paginator, Request $request): Response
     {
 
+        $count_events= $this->em->createQuery('SELECT COUNT(e) from App\Entity\Event e')->getSingleScalarResult();
+        $count_sevents= $this->em->createQuery('SELECT COUNT(e) from App\Entity\SpecialEvent e')->getSingleScalarResult();
+
         //event pagination
         $events = $paginator->paginate(
             $this->event_repository->status_true(),
@@ -58,7 +62,12 @@ class EventAdminController extends AbstractController
             12
         );
 
-        return $this->render('Event/event_admin/eventadmin.html.twig', ['current_menu' => 'events', 'events' => $events]);
+        return $this->render('Event/event_admin/eventadmin.html.twig', [
+            'current_menu' => 'events',
+            'events' => $events,
+            'count_ev' => $count_events,
+            'count_sev' => $count_sevents
+        ]);
 
     }
 
@@ -123,7 +132,7 @@ class EventAdminController extends AbstractController
         $this->em->flush();
         dump($event);
 
-        return $this->redirectToRoute('event_admin');
+        return $this->redirectToRoute('event_adminV2');
     }
 
     //Add an event
@@ -147,7 +156,7 @@ class EventAdminController extends AbstractController
             $entityManager->persist($event);
             $entityManager->flush();
 
-            return $this->redirectToRoute('event_admin');
+            return $this->redirectToRoute('event_adminV2');
         }
 
         return $this->render('Event/event_admin/new_event.html.twig', array('form'=>$form->createView()));
@@ -170,7 +179,7 @@ class EventAdminController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
-            return $this->redirectToRoute('event_admin');
+            return $this->redirectToRoute('event_adminV2');
         }
 
         return $this->render('Event/event_admin/edit_event.html.twig', array('form'=>$form->createView()));
@@ -186,7 +195,7 @@ class EventAdminController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($event);
         $entityManager->flush();
-        return $this->redirectToRoute('event_admin');
+        return $this->redirectToRoute('event_adminV2');
 
     }
 

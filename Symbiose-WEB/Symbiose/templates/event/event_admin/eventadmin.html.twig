@@ -76,21 +76,21 @@
                         class="list-group-item list-group-item-action py-2 ripple active"
                         aria-current="true"
                 >
-                    <i class="fas fa-tachometer-alt fa-fw me-3"></i
+                    <i class="fas fa-calendar-alt fa-fw me-3"></i
                     ><span>Events</span>
                 </a>
                 <a
                         href="{{ path('sevent_admin') }}"
                         class="list-group-item list-group-item-action py-2 ripple"
                 >
-                    <i class="fas fa-chart-area fa-fw me-3"></i
+                    <i class="fas fa-calendar-alt fa-fw me-3"></i
                     ><span>Special events</span>
                 </a>
                 <a
                         href="{{ path('invalid_event') }}"
                         class="list-group-item list-group-item-action py-2 ripple"
                 >
-                    <i class="fas fa-chart-area fa-fw me-3"></i
+                    <i class="fas fa-calendar-alt fa-fw me-3"></i
                     ><span>Confirm events</span>
                 </a>
             </div>
@@ -124,12 +124,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarExample01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <!--
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/events">Home</a>
-                </li>
-                -->
-                <!-- Navbar dropdown -->
             </ul>
         </div>
     </div>
@@ -138,18 +132,82 @@
 
     <main style="margin-top: 58px">
     <div class="container pt-4">
-        <h3 align="center">You are an admin you have all the power!</h3>
+
+        <!--Section: Minimal statistics cards-->
+
+        <section>
+            <div class="row">
+                <div class="col-xl-6 col-md-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between px-md-1">
+                                <div>
+                                    <h3 class="text-success">10</h3>
+                                    <p class="mb-0">Number of events</p>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="far fa-calendar-alt text-success fa-3x"></i>
+                                </div>
+
+                            </div>
+                            <div class="px-md-1">
+                                <div class="progress mt-3 mb-1 rounded" style="height: 7px">
+                                    <div
+                                            class="progress-bar bg-success"
+                                            role="progressbar"
+                                            style="width: 50%"
+                                            aria-valuenow="10"
+                                            aria-valuemin="0"
+                                            aria-valuemax="200"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between px-md-1">
+                                <div>
+                                    <h3 class="text-warning">5</h3>
+                                    <p class="mb-0">Number of special events</p>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="far fa-calendar text-warning fa-3x"></i>
+                                </div>
+
+                            </div>
+                            <div class="px-md-1">
+                                <div class="progress mt-3 mb-1 rounded" style="height: 7px">
+                                    <div
+                                            class="progress-bar bg-warning"
+                                            role="progressbar"
+                                            style="width: 50%"
+                                            aria-valuenow="5"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Section: Minimal statistics cards-->
+
         <!--Section: Manage All Events-->
         <section class="mb-4">
             <div class="card">
                 <div class="card-header text-center py-3">
                     <h5 class="mb-0 text-center">
-                        <a class="btn btn-outline-dark " aria-current="page" href="{{ path('add_event') }}" >Add Event</a>
                         <strong>Manage All Events</strong>
-
                     </h5>
                 </div>
+                <a class="btn btn-outline-dark " aria-current="page" href="{{ path('add_event') }}" >Add Event</a>
                 <div class="card-body">
+
                     <div class="table-responsive">
                         {% if events %}
                         <table class="table table-hover text-nowrap">
@@ -161,8 +219,7 @@
                                 <th scope="col">Remaining</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Previs</th>
-                                <th scope="col">Actions</th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -174,12 +231,6 @@
                                     <td>{{ event.NumRemaining }}</td>
                                     <td>{{ event.type }}</td>
                                     <td>{{ event.date|date }}</td>
-                                    <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                             class="img-fluid rounded-circle"
-                                             alt="no_image :("
-                                             style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
                                     <td>
                                         <a href="{{ path('eventadmin_show',{'id':event.id}) }}" class="btn btn-dark">
                                             Show
@@ -215,36 +266,11 @@
 
                 </div>
 
-
             </div>
         </section>
         <!--Section: Manage All Events-->
 
     </div>
-        <!-- Footer -->
-        <footer>
-            <div class="text-center p-3 container" style="background-color: white">
-                © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">Symbiose Team</a>
-                <section >
-                    <!-- Facebook -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-facebook-f"></i
-                        ></a>
-
-                    <!-- Linkedin -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-linkedin-in"></i
-                        ></a>
-
-                    <!-- Github -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/SkanderThabet/Symbiose" role="button"
-                    ><i class="fab fa-github"></i
-                        ></a>
-                </section>
-            </div>
-        </footer>
-        <!-- Footer -->
     </main>
 {% endblock %}
 

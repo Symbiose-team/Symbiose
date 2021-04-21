@@ -72,11 +72,11 @@
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
                 <a
-                        href="/eventadmin"
+                        href="{{ path('event_adminV2') }}"
                         class="list-group-item list-group-item-action py-2 ripple"
 
                 >
-                    <i class="fas fa-tachometer-alt fa-fw me-3"></i
+                    <i class="fas fa-calendar-alt fa-fw me-3"></i
                     ><span>Events</span>
                 </a>
                 <a
@@ -84,14 +84,14 @@
                         class="list-group-item list-group-item-action py-2 ripple active"
                         aria-current="true"
                 >
-                    <i class="fas fa-chart-area fa-fw me-3"></i
+                    <i class="fas fa-calendar-alt fa-fw me-3"></i
                     ><span>Special events</span>
                 </a>
                 <a
-                        href="/invalidevents"
+                        href="{{ path('invalid_event') }}"
                         class="list-group-item list-group-item-action py-2 ripple"
                 >
-                    <i class="fas fa-chart-area fa-fw me-3"></i
+                    <i class="fas fa-calendar-alt fa-fw me-3"></i
                     ><span>Confirm events</span>
                 </a>
             </div>
@@ -140,7 +140,10 @@
                         <h5 class="mb-0 text-center">
                             <strong>Manage All Special Events</strong>
                         </h5>
+
                     </div>
+                    <a class="btn btn-outline-dark" aria-current="page" href="{{ path('add_sevent') }}">Add a Special Event</a>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             {% if Sevents %}
@@ -148,40 +151,29 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Supplier</th>
                                         <th scope="col">Players</th>
                                         <th scope="col">Remaining</th>
                                         <th scope="col">Type</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Previs</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {% for Sevents in Sevents %}
                                         <tr>
                                             <td>{{ Sevents.name }}</td>
-                                            <td>{{ Sevents.supplier }}</td>
                                             <td>{{ Sevents.NumParticipants }}</td>
                                             <td>{{ Sevents.NumRemaining }}</td>
                                             <td>{{ Sevents.type }}</td>
                                             <td>{{ Sevents.date|date }}</td>
-                                            <td><img src="http://localhost/pidev/logo-mrigel-sghir.jpg"
-                                                     class="img-fluid rounded-circle"
-                                                     alt=""
-                                                     style="border-radius: 4px;
-                                             padding: 5px;
-                                             width: 50px;" ></td>
                                             <td>
                                                 <a href="{{ path('seventadmin_show',{'id':Sevents.id}) }}" class="btn btn-dark">
                                                     Show
                                                 </a>
 
-
                                                 <a href="{{ path('edit_sevent',{'id':Sevents.id}) }}" class="btn btn-light">
                                                     Edit
                                                 </a>
-
 
                                                 <a href="{{ path('delete_sevent',{'id':Sevents.id}) }}" class="btn btn-outline-danger" onclick="return confirm('Are you sure ?')">
                                                     Delete
@@ -202,38 +194,12 @@
                         </div>
 
                         </div>
-                        <a class="btn btn-outline-dark" aria-current="page" href="{{ path('add_sevent') }}">Add a Special Event</a>
 
                 </div>
 
             </section>
             <!--Section: Manage All Special Events-->
-
         </div>
-        <!-- Footer -->
-        <footer>
-            <div class="text-center p-3 container" style="background-color: white">
-                © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">Symbiose Team</a>
-                <section >
-                    <!-- Facebook -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-facebook-f"></i
-                        ></a>
-
-                    <!-- Linkedin -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-linkedin-in"></i
-                        ></a>
-
-                    <!-- Github -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/SkanderThabet/Symbiose" role="button"
-                    ><i class="fab fa-github"></i
-                        ></a>
-                </section>
-            </div>
-        </footer>
-        <!-- Footer -->
     </main>
 {% endblock %}
 

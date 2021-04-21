@@ -27,6 +27,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Twilio\Rest\Client;
 
 
 class EventController extends AbstractController
@@ -148,6 +149,21 @@ class EventController extends AbstractController
      */
     public function join_event($id): Response
     {
+
+        $sid = "AC38bb5bb69de3b58061c6ee92458101b0"; // Your Account SID from www.twilio.com/console
+        $token = "7d695374171c0eba1950eebe694d3df5"; // Your Auth Token from www.twilio.com/console
+
+        $twilio_number = "+12245019002";
+
+        $client = new Client($sid, $token);
+        $message = $client->messages->create(
+            '+21694325950', // Text this number
+            [
+                'from' => $twilio_number, // From a valid Twilio number
+                'body' => 'Hello from Symbiose, Thank you for joining this event'
+            ]
+        );
+
         $event = $this->event_repository->find($id);
         $num = $event->getNumRemaining() - 1;
         $event->setNumRemaining($num);
@@ -170,6 +186,20 @@ class EventController extends AbstractController
      */
     public function join_specialevent($id): Response
     {
+
+        $sid = "AC38bb5bb69de3b58061c6ee92458101b0"; // Your Account SID from www.twilio.com/console
+        $token = "7d695374171c0eba1950eebe694d3df5"; // Your Auth Token from www.twilio.com/console
+
+        $twilio_number = "+12245019002";
+
+        $client = new Client($sid, $token);
+        $message = $client->messages->create(
+            '+21694325950', // Text this number
+            [
+                'from' => $twilio_number, // From a valid Twilio number
+                'body' => 'Hello from Symbiose, Thank you for joining this event'
+            ]
+        );
 
         $Sevent = $this->sevent_repository->find($id);
         $num = $Sevent->getNumRemaining() - 1;

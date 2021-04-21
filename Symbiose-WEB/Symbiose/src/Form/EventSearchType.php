@@ -17,6 +17,7 @@ class EventSearchType extends AbstractType
         $builder
             ->add('Type', ChoiceType::class, [
                 'choices' => [
+                    'All' => '',
                     'Football' => 'Football',
                     'Basketball' =>'Basketball',
                     'Tennis' => 'Tennis',

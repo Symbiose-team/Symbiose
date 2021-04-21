@@ -23,8 +23,6 @@ class EventType extends AbstractType
     {
         $builder
             ->add('Name',TextType::class,array('attr' => array('class'=> 'form-control')))
-            ->add('Supplier',TextType::class,array('required'=>false,
-                'attr' => array('class'=>'form-control')))
             ->add('Type', ChoiceType::class, [
                 'choices' => [
                     'Football' => 'Football',
@@ -38,7 +36,7 @@ class EventType extends AbstractType
             ->add('Date', DateTimeType::class, [
                 'placeholder' => [
                     'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
-                    'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
+                    'hour' => 'Hour', 'minute' => 'Minute',
                 ]])
             ->add('State', CheckboxType::class, ['required' => false])
             ->add('save',SubmitType::class, array('label'=>'Create',

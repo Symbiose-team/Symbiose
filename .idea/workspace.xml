@@ -30,12 +30,39 @@
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/DataFixtures/EventFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/DataFixtures/EventFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/DataFixtures/SEventFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/DataFixtures/SEventFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/SpecialEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/SpecialEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event/EventAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event/EventAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event/EventSupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event/EventSupplierController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/EventSearchType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/EventSearchType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/EventType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/SpecialEventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Form/SpecialEventType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/EventRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/EventUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/EventUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/SpecialEventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/SpecialEventRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/admin/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/admin/partials/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/Sevent.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/Sevent.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/error.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/show_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/show_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/show_sevent.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/show_sevent.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/success.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event/success.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/edit_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/edit_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/edit_special_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/edit_special_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/eventadmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/eventadmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/eventadmin_sevent.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/eventadmin_sevent.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/invalid_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/invalid_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/new_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/new_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/new_special_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/new_special_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/show_admin_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/show_admin_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/show_special_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_admin/show_special_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_supplier/show_supplier_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_supplier/show_supplier_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_supplier/supplier_event.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/event_supplier/supplier_event.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/shared/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event/shared/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/partials/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +250,8 @@
       <workItem from="1618502491915" duration="1067000" />
       <workItem from="1618520893398" duration="2003000" />
       <workItem from="1618750833368" duration="168000" />
-      <workItem from="1618751122938" duration="3576000" />
+      <workItem from="1618751122938" duration="3643000" />
+      <workItem from="1618992189500" duration="7973000" />
     </task>
     <servers />
   </component>
