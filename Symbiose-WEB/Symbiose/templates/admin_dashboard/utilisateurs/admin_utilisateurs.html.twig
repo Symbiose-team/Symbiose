@@ -32,6 +32,7 @@
                             <th scope="col">Status</th>
                             <th scope="col">Prénom & Nom</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Genre</th>
                             <th scope="col">Verification</th>
                             <th scope="col">CIN</th>
                             <th scope="col">Date de naissance</th>
@@ -55,6 +56,7 @@
                             </td>
                             <td>{{ user.fullname }}</td>
                             <td>{{ user.email }}</td>
+                            <td>{{ user.genre }}</td>
                             <td>{% if user.isVerified==true %}
                                 <button type="button" class="btn btn-success btn-rounded">Vérifié <i class="fas fa-check"></i></button>
                                 {% else %}

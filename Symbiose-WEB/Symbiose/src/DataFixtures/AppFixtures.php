@@ -24,7 +24,8 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('fr-FR');
-
+        $genres=['male','female'];
+        $genre = $faker->randomElement($genres);
         $adminRole = new Role();
         $fournisseurRole = new Role();
         $clientRole = new Role();
@@ -48,6 +49,7 @@ class AppFixtures extends Fixture
             ->setPhoneNumber(258965418)
             ->setIsVerified(true)
             ->setIsEnabled(true)
+            ->setGenre("Homme")
             ->addUserRole($adminRole);
         $manager->persist($adminUser);
 
@@ -64,6 +66,7 @@ class AppFixtures extends Fixture
             ->setPhoneNumber(214455875)
             ->setIsVerified(true)
             ->setIsEnabled(true)
+            ->setGenre("Femme")
             ->addUserRole($adminRole);
         $manager->persist($adminUserV2);
 
@@ -73,6 +76,7 @@ class AppFixtures extends Fixture
         $users = [];
         $genres = ['male', 'female'];
         $lesroles = ['Fournisseur', 'Client'];
+        $registeredAt=DateTime::date("now");
         $isVerified=[true,false];
         for ($i = 1; $i <= 10; $i++) {
             $user = new User();
@@ -92,6 +96,7 @@ class AppFixtures extends Fixture
                 ->setAdresse($faker->address)
                 ->setBirthday($faker->dateTime)
                 ->setCin($faker->randomDigit)
+                ->setGenre($genre)
                 ->setPhoneNumber($faker->regexify('(216)?[0-9]{8}'))
                 ->setHash($hash)
                 ->setPicture($picture)
@@ -109,6 +114,14 @@ class AppFixtures extends Fixture
                 $this->addReference($user->getUsername(),$user);
                 $manager->persist($user);
                 $users[] = $user;
+            }
+            if($genre=='female'){
+                $user->setGenre('Femme');
+                $manager->persist($user);
+            }
+            else{
+                $user->setGenre("Homme");
+                $manager->persist($user);
             }
 
 

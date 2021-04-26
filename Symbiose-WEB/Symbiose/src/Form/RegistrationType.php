@@ -46,7 +46,11 @@ class RegistrationType extends AbstractType
             ->add('passwordConfirm',PasswordType::class,$this->Configuration("Confirmation de mot de passe","Veuillez confirmer votre mot de passe"))
             ->add('cin',NumberType::class,$this->Configuration("Cin","Votre numéro CIN"))
             ->add('birthday',DateType::class,['widget' => 'single_text'])
-
+            ->add('genre', ChoiceType::class, [
+                'choices' => ['Homme' => 'Homme', 'Femme' => 'Femme'],
+                'expanded' => true,
+                'multiple' => false
+                ])
             ->add('role',ChoiceType::class,[
                 'choices'  => [
                     'Fournisseur'=>"Fournisseur",

@@ -33,5 +33,6 @@ class AccountCheckerController implements UserCheckerInterface
             throw new CustomUserMessageAuthenticationException("Votre compte n'est pas actif , veuillez l'activer depuis l'email qu'on vous a envoyé ");
         }
 
+
     }
 }

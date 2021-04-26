@@ -231,6 +231,11 @@ class User implements UserInterface
      */
     private $fields;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $genre;
+
 
 
 
@@ -665,6 +670,18 @@ class User implements UserInterface
                 $conversation->setUser1(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(string $genre): self
+    {
+        $this->genre = $genre;
 
         return $this;
     }

@@ -1,50 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="Communication fixed problems V1">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mdb.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Contact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
+    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="Add changes">
       <change beforePath="$PROJECT_DIR$/.idea/Symbiose.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Symbiose.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210325230838.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210327105455.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210328161241.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210328183855.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210328185021.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AccountCheckerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountCheckerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Communication/CommentaireController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Communication/CommentaireController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Communication/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Communication/ConversationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Communication/PublicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Communication/PublicationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Communication/RegistrationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Communication/SecurityController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Communication/Commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commentaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Communication/Conversation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Conversation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Communication/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Communication/Publication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Publication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Communication/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Contact.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Conversation1Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Conversation1Type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ConversationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ConversationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Communication/CommentaireRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Communication/CommentaireRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Communication/ConversationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Communication/ConversationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Communication/MessageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Communication/MessageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Communication/PublicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Communication/PublicationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserAuthAuthenticator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Communication/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Communication/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Communication/conversation/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Communication/conversation/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Communication/conversation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Communication/conversation/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Communication/conversation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Communication/conversation/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Communication/conversation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Communication/conversation/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Communication/registration/register.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Communication/security/login.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Reservation/api/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/api/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Reservation/availibility_provider/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/availibility_provider/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Reservation/field_provider/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Reservation/map/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/map/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Reservation/paiement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/paiement/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/conf_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/conf_email.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_dashboard/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin_dashboard/utilisateurs/admin_utilisateurs.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_dashboard/utilisateurs/admin_utilisateurs.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +172,15 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
       <path value="$PROJECT_DIR$/vendor/tattali/calendar-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/vendor/liip/imagine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha" />
+      <path value="$PROJECT_DIR$/vendor/imagine/imagine" />
     </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1p89HJdnnQzhV4tTV2s09zeZMrA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -207,7 +196,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -221,11 +210,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\src\Controller" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\public\css" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\src\Entity" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\src\Form" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\public\Assets\Test_section" />
-      <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\templates\Communication" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\templates\Reservation" />
@@ -234,11 +223,13 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="s make:entity User" />
-      <command value="s doctrine:migrations:migrate" />
       <command value="s make:form Contact" />
-      <command value="s make:migration" />
       <command value="s make:controller Contact" />
+      <command value="s make:entity User" />
+      <command value="s make:migration" />
+      <command value="s doctrine:migrations:migrate" />
+      <command value="s doctrine:load:fixture" />
+      <command value="s doctrine:fixture:load" />
     </option>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -268,7 +259,13 @@
       <workItem from="1616838083703" duration="20071000" />
       <workItem from="1616955419606" duration="6738000" />
       <workItem from="1617007892246" duration="27308000" />
-      <workItem from="1617206905003" duration="19846000" />
+      <workItem from="1617206905003" duration="24563000" />
+      <workItem from="1617276041181" duration="8425000" />
+      <workItem from="1617407503679" duration="8785000" />
+      <workItem from="1618169825481" duration="567000" />
+      <workItem from="1618174109413" duration="143000" />
+      <workItem from="1618878837584" duration="3565000" />
+      <workItem from="1619390336466" duration="5753000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -466,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617146964092</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Add changes">
+      <created>1617233198145</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1617233198145</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="config" />
     <MESSAGE value="entity field(terrain)" />
     <MESSAGE value="entity Availability.php" />
     <MESSAGE value="crud admin/client et lien entre les page" />
@@ -511,6 +514,7 @@
     <MESSAGE value="Event fixed" />
     <MESSAGE value="Integration communication" />
     <MESSAGE value="Communication fixed problems V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Communication fixed problems V1" />
+    <MESSAGE value="Add changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add changes" />
   </component>
 </project>

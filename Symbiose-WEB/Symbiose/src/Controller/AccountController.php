@@ -7,7 +7,7 @@ use App\Entity\Role;
 use App\Entity\User;
 use App\Form\AccountType;
 use App\Form\PasswordUpdateType;
-use App\Form\ContactType;
+use App\Form\RegistrationType;
 use App\Services\SendEmail;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -74,7 +74,7 @@ class AccountController extends AbstractController
         $em=$this->getDoctrine()->getManager();
 
 
-    $form = $this->createForm(ContactType::class,$user);
+    $form = $this->createForm(RegistrationType::class,$user);
 
     $form->handleRequest($request);
 
@@ -203,11 +203,13 @@ class AccountController extends AbstractController
      * @return RedirectResponse
      */
     public function verifyUserAccount(EntityManagerInterface $em,User $user, string $token){
-
-        if(($user->getRegistrationToken()=== null) || ($user->getRegistrationToken() !==$token) || ($this->isNotRequestedInTime($user->getAccountMustBeVerifiedBefore()))){
+        // j'ai du l'enlever pour regler le probleme de vérification pour java !!a corriger !! ($this->isNotRequestedInTime($user->getAccountMustBeVerifiedBefore()))
+        // * /{id<\d+>} a rajouter en cas d'erreur
+        if(($user->getRegistrationToken()=== null) || ($user->getRegistrationToken() !==$token)){
             throw new AccessDeniedException();
         }
         $user->setIsVerified(true);
+        $user->setIsEnabled(true);
         $user->setAccountVerifiedAt(new \DateTimeImmutable('now'));
 
         $em->flush();
@@ -220,6 +222,7 @@ class AccountController extends AbstractController
     {
         return (new \DateTimeImmutable('now')> $getAccountMustBeVerifiedBefore);
     }
+
 
 
 }
