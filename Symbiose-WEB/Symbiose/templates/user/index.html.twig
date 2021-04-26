@@ -8,10 +8,10 @@
         <div class="col-3 text-center">
             <img src="{{ user.picture }}" class="avatar mb-3" alt="Avatar de {{ user.fullname }}">
             <br>
-            {% if is_granted("ROLE_FOURNISSEUR") or app.user.role == "Fournisseur" %}
+            {% if is_granted("ROLE_FOURNISSEUR") %}
             <span class="badge bg-primary">Annonces</span>
             {% endif %}
-            {% if is_granted('ROLE_CLIENT') or app.user.role == "Client"%}
+            {% if is_granted('ROLE_CLIENT') %}
             <span class="badge bg-info">Joueur</span>
             <span class="badge bg-warning">MVP</span>
             {% endif %}
@@ -33,7 +33,7 @@
     <div class="text-center mt-3">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias culpa cum, dolores et explicabo fuga impedit incidunt magni minus nihil nobis numquam optio pariatur porro quas quia quisquam repellendus reprehenderit sed sequi totam vero. Aliquid, aut blanditiis, deleniti enim, esse facilis molestiae molestias mollitia pariatur saepe unde voluptates voluptatum.</p></div>
     <hr>
-    {% if is_granted("ROLE_FOURNISSEUR") or app.user.role == ('Fournisseur')%}
+    {% if is_granted("ROLE_FOURNISSEUR") %}
         <h2>Les annonces de {{ user.fullname }}</h2>
     <div class="row">
         <!--Premier produit-->
@@ -93,7 +93,7 @@
             </div>
         </div>
     </div>
-        {% elseif is_granted("ROLE_CLIENT") or app.user.role == ('Client') %}
+        {% elseif is_granted("ROLE_CLIENT") %}
             <h2>Les matchs de {{ user.fullname }}</h2>
             <table class="table table-hover">
                 <thead>

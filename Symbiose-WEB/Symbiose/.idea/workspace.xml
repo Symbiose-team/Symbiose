@@ -1,30 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="Add changes">
-      <change beforePath="$PROJECT_DIR$/.idea/Symbiose.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Symbiose.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="Add Role condition to adapt with java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccountCheckerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountCheckerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Contact.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/api/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/api/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/availibility_provider/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/availibility_provider/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/field_provider/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/field_provider/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/map/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/map/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Reservation/paiement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Reservation/paiement/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/conf_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/conf_email.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin_dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_dashboard/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin_dashboard/utilisateurs/admin_utilisateurs.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_dashboard/utilisateurs/admin_utilisateurs.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ResetPasswordController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,7 +245,8 @@
       <workItem from="1618169825481" duration="567000" />
       <workItem from="1618174109413" duration="143000" />
       <workItem from="1618878837584" duration="3565000" />
-      <workItem from="1619390336466" duration="5753000" />
+      <workItem from="1619390336466" duration="6087000" />
+      <workItem from="1619448030342" duration="4865000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -470,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617233198145</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Add Role condition to adapt with java">
+      <created>1619400386905</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1619400386905</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +478,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="entity field(terrain)" />
     <MESSAGE value="entity Availability.php" />
     <MESSAGE value="crud admin/client et lien entre les page" />
     <MESSAGE value="formulaire d'ajout" />
@@ -515,6 +502,7 @@
     <MESSAGE value="Integration communication" />
     <MESSAGE value="Communication fixed problems V1" />
     <MESSAGE value="Add changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add changes" />
+    <MESSAGE value="Add Role condition to adapt with java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Role condition to adapt with java" />
   </component>
 </project>

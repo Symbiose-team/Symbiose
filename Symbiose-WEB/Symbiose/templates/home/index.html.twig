@@ -21,12 +21,12 @@
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
                             <h1 class="mb-3">Bienvenue sur Symbiose !</h1>
-                            {% if is_granted("ROLE_CLIENT") or app.user.role == ('Client') %}
+                            {% if is_granted("ROLE_CLIENT") %}
                                 <h5 class="mb-4">Vous êtes participant ? Et vous voulez réserver un match de foot ?</h5>
                                 <a class="btn btn-outline-light btn-lg m-2" href="{{ path('game_index') }}"
                                    role="button" rel="nofollow" target="_self">Réservez Maintenant !</a>
 
-                            {% elseif is_granted("ROLE_FOURNISSEUR") or app.user.role == ("Fournisseur") %}
+                            {% elseif is_granted("ROLE_FOURNISSEUR") %}
                                 <h5 class="mb-4">Vous êtes Founisseur ? Et vous voulez gagner de l'argent ?</h5>
                                 <a class="btn btn-outline-light btn-lg m-2" href="#"
                                    role="button" rel="nofollow" target="_blank">Déposez votre produit !</a>
@@ -148,7 +148,7 @@
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consectetur deserunt
                                     id sapiente ullam! Dicta distinctio dolorem molestias nihil sapiente!
                                 </p>
-                                {% if is_granted('ROLE_CLIENT') or app.user.role == ('Client') %}
+                                {% if is_granted('ROLE_CLIENT') %}
                                     <a href="#" class="btn btn-secondary">En savoir plus</a>
                                     <a href="#" class="btn btn-danger">Réservez ce terrain</a>
                                 {% endif %}
@@ -173,7 +173,7 @@
                                 {% if is_granted("ROLE_FOURNISSEUR") and app.user.fullname==('Kyler Walter') %}
                                     <a href="#!" class="btn btn-primary">Button</a>
                                 {% endif %}
-                                {% if is_granted('ROLE_CLIENT') or app.user.role == ('Client') %}
+                                {% if is_granted('ROLE_CLIENT') %}
                                     <a href="#" class="btn btn-secondary">En savoir plus</a>
                                     <a href="#" class="btn btn-danger">Réservez ce terrain</a>
                                 {% endif %}
@@ -195,7 +195,7 @@
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias fugiat natus nemo
                                     nihil numquam provident repellendus sed temporibus ut!
                                 </p>
-                                {% if is_granted('ROLE_CLIENT') or app.user.role == "Client" %}
+                                {% if is_granted('ROLE_CLIENT') %}
                                     <a href="#" class="btn btn-secondary">En savoir plus</a>
                                     <a href="#" class="btn btn-danger">Réservez ce terrain</a>
                                 {% endif %}
