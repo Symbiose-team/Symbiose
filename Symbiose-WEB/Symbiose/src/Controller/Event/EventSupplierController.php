@@ -37,6 +37,7 @@ class EventSupplierController extends AbstractController
     //TODO Show only events related to the logged in supplier (Select from events where Supplier = "Connected_USER")
     /**
      * @Route("/eventsupplier", name="event_supplier")
+     * @Method({"GET"})
      */
     public function supplier_events(): Response
     {
