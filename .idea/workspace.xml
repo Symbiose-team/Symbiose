@@ -29,16 +29,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event_json/allEventsJSON.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/.idea/Symbiose-WEB.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event/EventSupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event/EventSupplierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/Reservation/calendar/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/Reservation/calendar/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +167,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/eventadmin.html.twig" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -184,6 +178,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/Downloads/eventadmin.html.twig" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mahdi\Coding\Symfony\Symbiose\Symbiose-WEB\Symbiose\src\Controller\Event" />
+      <recent name="C:\Users\Mahdi\Coding\Symfony\Symbiose\Symbiose-WEB\Symbiose\templates\event" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mahdi\Coding\Symfony\Symbiose\Symbiose-WEB\Symbiose\templates\event_json" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -233,7 +236,10 @@
       <workItem from="1619009066509" duration="559000" />
       <workItem from="1619122914333" duration="3755000" />
       <workItem from="1619438236553" duration="5372000" />
-      <workItem from="1619692306230" duration="336000" />
+      <workItem from="1619692306230" duration="1148000" />
+      <workItem from="1619856881899" duration="846000" />
+      <workItem from="1619858988054" duration="26000" />
+      <workItem from="1619866816823" duration="643000" />
     </task>
     <servers />
   </component>

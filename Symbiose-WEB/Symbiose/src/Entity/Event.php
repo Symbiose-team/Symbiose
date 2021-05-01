@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Nullable;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -24,12 +25,14 @@ class Event
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="text", length=100)
      * @Assert\NotBlank(message="should not be blank")
+     * @Groups("post:read")
      */
     private $Name;
 
@@ -39,6 +42,7 @@ class Event
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="invalid input")
      * @Assert\NotNull(message="value is null")
+     * @Groups("post:read")
      */
     private $NumParticipants = 100;
 
@@ -46,12 +50,14 @@ class Event
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="invalid input")
      * @Assert\NotNull(message="value is null")
+     * @Groups("post:read")
      */
     private $NumRemaining = 100;
 
     /**
      * @ORM\Column(type="text", length=100)
      * @Assert\NotBlank(message="invalid input")
+     * @Groups("post:read")
      */
     private $Type;
 
@@ -59,12 +65,14 @@ class Event
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank
      * @Assert\DateTime()
+     * @Groups("post:read")
      */
     private $Date;
 
     /**
      * @var boolean
      * @ORM\Column(type="boolean", nullable=false, options={"default"=0})
+     * @Groups("post:read")
      */
     private $State;
 
