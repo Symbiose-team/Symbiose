@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use Faker\Factory;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,13 +56,15 @@ class EventJSONController extends AbstractController
      */
     public function AddEventJSON(Request $request, NormalizerInterface $Normalizer): Response
     {
-
+        $faker = Factory::create('fr_FR');
         $em = $this->getDoctrine()->getManager();
         $event = new Event();
         $event->setName($request->get('name'));
-        $event->setDate($request->get('date'));
+        $event->setDate($faker->dateTime);
         $event->setNumParticipants($request->get('num_participants'));
         $event->setNumRemaining($request->get('num_remaining'));
+        $event->setType($request->get('type'));
+        $event->setState($request->get('state'));
         $em->persist($event);
         $em->flush();
         $json = $Normalizer ->normalize($event, 'json',['groups'=>'post:read']);
@@ -81,6 +84,8 @@ class EventJSONController extends AbstractController
         $event->setDate($request->get('date'));
         $event->setNumParticipants($request->get('num_participants'));
         $event->setNumRemaining($request->get('num_remaining'));
+        $event->setType($request->get('type'));
+        $event->setState($request->get('state'));
         $em->flush();
         $json = $Normalizer ->normalize($event, 'json',['groups'=>'post:read']);
 

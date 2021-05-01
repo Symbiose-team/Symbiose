@@ -62,10 +62,11 @@ class Event
     private $Type;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @Assert\NotBlank
      * @Assert\DateTime()
      * @Groups("post:read")
+     *
      */
     private $Date;
 

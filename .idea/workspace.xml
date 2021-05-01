@@ -29,9 +29,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/event_json/allEventsJSON.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/87f48363-64e8-461a-8d8f-893317e02203.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/87f48363-64e8-461a-8d8f-893317e02203.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/EventJSONController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/EventJSONController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +175,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/Downloads/eventadmin.html.twig" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -239,7 +239,8 @@
       <workItem from="1619692306230" duration="1148000" />
       <workItem from="1619856881899" duration="846000" />
       <workItem from="1619858988054" duration="26000" />
-      <workItem from="1619866816823" duration="643000" />
+      <workItem from="1619866816823" duration="3600000" />
+      <workItem from="1619877286710" duration="7540000" />
     </task>
     <servers />
   </component>
