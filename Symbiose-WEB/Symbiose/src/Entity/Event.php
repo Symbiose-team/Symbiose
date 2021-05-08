@@ -83,7 +83,7 @@ class Event
     private $Supplier;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class)
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="events")
      */
     private $Participants;
 

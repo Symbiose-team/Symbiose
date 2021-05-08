@@ -27,7 +27,7 @@ class Field
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Calendar", mappedBy="Field")
+     * @ORM\OneToMany(targetEntity="App\Entity\Calendar", mappedBy="field")
      */
     private $calendar;
 

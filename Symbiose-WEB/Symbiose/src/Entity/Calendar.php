@@ -23,7 +23,7 @@ class Calendar
      */
     private $id;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Field", inversedBy="Calendar")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Field", inversedBy="calendar")
      */
     private $field;
 

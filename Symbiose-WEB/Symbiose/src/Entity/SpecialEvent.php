@@ -65,7 +65,7 @@ class SpecialEvent
     private $State;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class)
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="specialEvents")
      */
     private $Participants;
 

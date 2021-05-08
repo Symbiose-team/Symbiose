@@ -167,7 +167,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/Event" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Symbiose-WEB/Symbiose" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -241,6 +241,7 @@
       <workItem from="1619858988054" duration="26000" />
       <workItem from="1619866816823" duration="3600000" />
       <workItem from="1619877286710" duration="7540000" />
+      <workItem from="1620313001108" duration="63000" />
     </task>
     <servers />
   </component>

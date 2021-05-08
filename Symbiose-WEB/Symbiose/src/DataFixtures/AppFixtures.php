@@ -94,8 +94,8 @@ class AppFixtures extends Fixture
                 ->setLastName($faker->lastName)
                 ->setEmail($faker->email)
                 ->setAdresse($faker->address)
-                ->setBirthday($faker->dateTime)
-                ->setCin($faker->randomDigit)
+                ->setBirthday($faker->dateTime('now',null))
+                ->setCin($faker->randomNumber(8))
                 ->setGenre($genre)
                 ->setPhoneNumber($faker->regexify('(216)?[0-9]{8}'))
                 ->setHash($hash)
@@ -126,16 +126,16 @@ class AppFixtures extends Fixture
 
 
             $manager->flush();
-            for ($i = 1; $i <= 10; $i++) {
-                $game = new Game();
-                $game->setName("Match".rand(0,100));
-                $game->setTime(new \DateTime('2021-03-15'));
-                $game->setUser($this->getReference($user->getUsername()));
-
-                $manager->persist($game);
-
-            }
-            $manager->flush();
+//            for ($i = 1; $i <= 10; $i++) {
+//                $game = new Game();
+//                $game->setName("Match".rand(0,100));
+//                $game->setTime(new \DateTime('2021-03-15'));
+//                $game->setUser($this->getReference($user->getUsername()));
+//
+//                $manager->persist($game);
+//
+//            }
+//            $manager->flush();
         }
     }
 }

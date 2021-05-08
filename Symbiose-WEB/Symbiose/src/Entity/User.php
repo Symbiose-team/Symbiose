@@ -10,6 +10,8 @@ use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
+use Faker\Factory;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -33,42 +35,36 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("post:read")
      */
     private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez renseinger votre prénom")
-     * @Groups("post:read")
      */
     private ?string $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez renseigner votre nom de famille")
-     * @Groups("post:read")
      */
     private ?string $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
-     * @Groups("post:read")
      */
     private ?string $Email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url(message="Veuillez donner un URL valide pour votre avatar")
-     * @Groups("post:read")
      */
     private ?string $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8",minMessage="Votre mot de passe doit faire au moins 8 caracteres ! ")
-     *
      */
     private ?string $hash;
     /**
@@ -76,16 +72,14 @@ class User implements UserInterface
      */
     public $passwordConfirm;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=8)
      * @Assert\Length(min="8",minMessage="Votre numéro de cin doit faire 8 caracteres !")
-     * @Groups("post:read")
      */
-    private ?int $Cin;
+    private ?string $Cin;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Veuillez selectionner votre date de naissance")
-     * @Groups("post:read")
      */
     private ?\DateTimeInterface $Birthday;
 
@@ -96,21 +90,18 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("post:read")
      */
     private ?string $role;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="16",max="32",maxMessage="Vous avez dépasser les 32 caracteres !",minMessage="l'Adresse ne peut avoir moins de 16 caracteres !")
-     * @Groups("post:read")
      */
     private ?string $Adresse;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=8)
      * @Assert\Length(min="8",minMessage="Votre numéro doit faire au moins 8 chiffres !")
-     * @Groups("post:read")
      */
     private $Phone_Number;
 
@@ -167,7 +158,6 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="boolean")
-     * @Groups("post:read")
      */
     private ?bool $isEnabled;
 
@@ -212,14 +202,9 @@ class User implements UserInterface
     private $supplierevents;
 
     /**
-     * @ORM\OneToMany(targetEntity=SpecialEvent::class, mappedBy="Participants")
+     * @ORM\ManyToMany(targetEntity=SpecialEvent::class, mappedBy="Participants")
      */
     private $specialEvents;
-
-    /**
-     * @ORM\OneToMany(targetEntity=SpecialEvent::class, mappedBy="Supplier")
-     */
-    private $suppliersevents;
 
     /**
      * @ORM\OneToMany(targetEntity=Product::class, mappedBy="Supplier")
@@ -235,7 +220,6 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $genre;
-
 
 
 
@@ -256,15 +240,17 @@ class User implements UserInterface
         $this->events = new ArrayCollection();
         $this->supplierevents = new ArrayCollection();
         $this->specialEvents = new ArrayCollection();
-        $this->suppliersevents = new ArrayCollection();
+//        $this->suppliersevents = new ArrayCollection();
         $this->productowner = new ArrayCollection();
         $this->fields = new ArrayCollection();
+        $faker= Factory::create('fr-FR');
+        $this->Birthday=$faker->datetime('now',null);
     }
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection|PersistentCollection
      */
-    public function getGameJoined(): ArrayCollection
+    public function getGameJoined()
     {
         return $this->gamesJoined;
     }
@@ -272,9 +258,9 @@ class User implements UserInterface
 
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection|PersistentCollection
      */
-    public function getGames(): ArrayCollection
+    public function getGames()
     {
         return $this->games;
     }
@@ -361,12 +347,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getCin(): ?int
+    public function getCin(): ?string
     {
         return $this->Cin;
     }
 
-    public function setCin(int $Cin): self
+    public function setCin(string $Cin): self
     {
         $this->Cin = $Cin;
 
@@ -421,12 +407,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPhoneNumber(): ?int
+    public function getPhoneNumber(): ?string
     {
         return $this->Phone_Number;
     }
 
-    public function setPhoneNumber(int $Phone_Number): self
+    public function setPhoneNumber(string $Phone_Number): self
     {
         $this->Phone_Number = $Phone_Number;
 
@@ -827,36 +813,6 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($specialEvent->getParticipants() === $this) {
                 $specialEvent->setParticipants(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|SpecialEvent[]
-     */
-    public function getSuppliersevents(): Collection
-    {
-        return $this->suppliersevents;
-    }
-
-    public function addSuppliersevent(SpecialEvent $suppliersevent): self
-    {
-        if (!$this->suppliersevents->contains($suppliersevent)) {
-            $this->suppliersevents[] = $suppliersevent;
-            $suppliersevent->setSupplier($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSuppliersevent(SpecialEvent $suppliersevent): self
-    {
-        if ($this->suppliersevents->removeElement($suppliersevent)) {
-            // set the owning side to null (unless already changed)
-            if ($suppliersevent->getSupplier() === $this) {
-                $suppliersevent->setSupplier(null);
             }
         }
 

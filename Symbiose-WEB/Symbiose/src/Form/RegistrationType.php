@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use libphonenumber\PhoneNumberFormat;
 use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -45,7 +46,7 @@ class RegistrationType extends AbstractType
             ->add('hash',PasswordType::class,$this->Configuration("Mot de passe","Entrez un bon mot de passe"))
             ->add('passwordConfirm',PasswordType::class,$this->Configuration("Confirmation de mot de passe","Veuillez confirmer votre mot de passe"))
             ->add('cin',NumberType::class,$this->Configuration("Cin","Votre numéro CIN"))
-            ->add('birthday',DateType::class,['widget' => 'single_text'])
+            ->add('birthday',BirthdayType::class,['widget' => 'single_text'])
             ->add('genre', ChoiceType::class, [
                 'choices' => ['Homme' => 'Homme', 'Femme' => 'Femme'],
                 'expanded' => true,
