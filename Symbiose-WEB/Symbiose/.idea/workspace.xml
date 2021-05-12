@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="little changes">
-      <change afterPath="$PROJECT_DIR$/src/Controller/LoginJSONController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/RegistrationJSONController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/UserJSONController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login_json/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration_json/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user_json/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="Add some fixes for Mobile API , add crud, login &amp; reg features">
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/GamesFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Calendar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Field.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Game.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/SpecialEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/SpecialEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LoginJSONController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginJSONController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationJSONController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationJSONController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserJSONController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserJSONController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +179,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/DataFixtures" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -200,16 +188,16 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\src\DataFixtures" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\src\Controller" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\public\css" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\src\Entity" />
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\src\Form" />
-      <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\public\Assets\Test_section" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\msdal\Documents\GitHub\Vermin\Symbiose-WEB\Symbiose\templates\Reservation" />
@@ -227,8 +215,8 @@
       <command value="s make:controller LoginJSON" />
       <command value="s doctrine:fixture:load" />
       <command value="s doctrine:schema:validate" />
-      <command value="s doctrine:migrations:migrate" />
       <command value="s make:migration" />
+      <command value="s doctrine:migrations:migrate" />
     </option>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -272,7 +260,9 @@
       <workItem from="1620308230867" duration="1430000" />
       <workItem from="1620313068739" duration="23896000" />
       <workItem from="1620385498821" duration="3079000" />
-      <workItem from="1620411250337" duration="10223000" />
+      <workItem from="1620411250337" duration="10675000" />
+      <workItem from="1620742587197" duration="17722000" />
+      <workItem from="1620824682393" duration="6211000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -491,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619458764760</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Add some fixes for Mobile API , add crud, login &amp; reg features">
+      <created>1620442407316</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1620442407316</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,7 +508,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="crud admin/client et lien entre les page" />
     <MESSAGE value="formulaire d'ajout" />
     <MESSAGE value="client admin" />
     <MESSAGE value="provider" />
@@ -536,6 +532,7 @@
     <MESSAGE value="Add changes" />
     <MESSAGE value="Add Role condition to adapt with java" />
     <MESSAGE value="little changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="little changes" />
+    <MESSAGE value="Add some fixes for Mobile API , add crud, login &amp; reg features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add some fixes for Mobile API , add crud, login &amp; reg features" />
   </component>
 </project>

@@ -88,11 +88,15 @@ class User implements UserInterface
      */
     private ?string $slug;
 
+
     /**
      * @ORM\Column(type="string", length=255)
      */
     private ?string $role;
-
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $dob;
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="16",max="32",maxMessage="Vous avez dépasser les 32 caracteres !",minMessage="l'Adresse ne peut avoir moins de 16 caracteres !")
@@ -876,6 +880,24 @@ class User implements UserInterface
             }
         }
 
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDob(): ?string
+    {
+        return $this->dob;
+    }
+
+    /**
+     * @param string|null $dob
+     * @return User
+     */
+    public function setDob(?string $dob): User
+    {
+        $this->dob = $dob;
         return $this;
     }
 

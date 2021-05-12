@@ -60,11 +60,11 @@ class LoginJSONController extends AbstractController
                 return new JsonResponse(array($formatted));
             } else {
 
-                return new Response("failed");
+                return new Response("failed1");
             }
         } else {
 
-            return new Response("failed");
+            return new Response("failed2");
         }
     }
 }
