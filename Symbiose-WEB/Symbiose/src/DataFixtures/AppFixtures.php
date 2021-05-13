@@ -44,6 +44,7 @@ class AppFixtures extends Fixture
             ->setPicture('https://unavatar.now.sh/skander.thabet@esprit.tn')
             ->setCin(125478963)
             ->setBirthday($faker->dateTime)
+            ->setDob($adminUser->getBirthday()->format("yyyy-MM-dddd"))
             ->setRole('Admin')
             ->setAdresse('Tunis Ariana')
             ->setPhoneNumber(258965418)
@@ -61,6 +62,7 @@ class AppFixtures extends Fixture
             ->setPicture('https://unavatar.now.sh/reddit.com')
             ->setCin(666888774)
             ->setBirthday($faker->dateTime)
+            ->setDob($adminUserV2->getBirthday()->format("yyyy-MM-dddd"))
             ->setRole('Admin')
             ->setAdresse('Tunis Ariana')
             ->setPhoneNumber(214455875)
@@ -95,6 +97,7 @@ class AppFixtures extends Fixture
                 ->setEmail($faker->email)
                 ->setAdresse($faker->address)
                 ->setBirthday($faker->dateTime('now',null))
+                ->setDob($user->getBirthday()->format("yyyy-MM-dddd"))
                 ->setCin($faker->randomNumber(8))
                 ->setGenre($genre)
                 ->setPhoneNumber($faker->regexify('(216)?[0-9]{8}'))
@@ -123,9 +126,15 @@ class AppFixtures extends Fixture
                 $user->setGenre("Homme");
                 $manager->persist($user);
             }
+            $game = new Game();
+            $game->setName("Match".rand(0,100));
+            $game->setTime(new \DateTime('2021-03-15'));
+            $game->setUser($this->getReference($user->getUsername()));
 
+            $manager->persist($game);
 
             $manager->flush();
+            //code below is wrong and trigger error while loading fixture
 //            for ($i = 1; $i <= 10; $i++) {
 //                $game = new Game();
 //                $game->setName("Match".rand(0,100));
@@ -133,7 +142,7 @@ class AppFixtures extends Fixture
 //                $game->setUser($this->getReference($user->getUsername()));
 //
 //                $manager->persist($game);
-//
+//                $manager->flush();
 //            }
 //            $manager->flush();
         }

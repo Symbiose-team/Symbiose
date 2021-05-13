@@ -84,7 +84,7 @@ class User implements UserInterface
     private ?\DateTimeInterface $Birthday;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,nullable=true)
      */
     private ?string $slug;
 
@@ -94,7 +94,7 @@ class User implements UserInterface
      */
     private ?string $role;
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,nullable=true)
      */
     private ?string $dob;
     /**
@@ -116,12 +116,12 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable",nullable=true)
      */
     private ?\DateTimeImmutable $registeredAt;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable",nullable=true)
      */
     private ?\DateTimeImmutable $accountMustBeVerifiedBefore;
 
@@ -145,20 +145,20 @@ class User implements UserInterface
      */
     private ?string $forgotPasswordToken;
 
-    /**
-     * @ORM\Column(type="datetime_immutable", nullable=true)
-     */
-    private ?\DateTimeImmutable $forgotPasswordTokenRequestedAt;
-
-    /**
-     * @ORM\Column(type="datetime_immutable", nullable=true)
-     */
-    private ?\DateTimeImmutable $forgotPasswordTokenMustBeVerifiedBefore;
-
-    /**
-     * @ORM\Column(type="datetime_immutable", nullable=true)
-     */
-    private ?\DateTimeImmutable $ForgotPasswordTokenVerifiedAt;
+//    /**
+//     * @ORM\Column(type="datetime_immutable", nullable=true)
+//     */
+//    private ?\DateTimeImmutable $forgotPasswordTokenRequestedAt;
+//
+//    /**
+//     * @ORM\Column(type="datetime_immutable", nullable=true)
+//     */
+//    private ?\DateTimeImmutable $forgotPasswordTokenMustBeVerifiedBefore;
+//
+//    /**
+//     * @ORM\Column(type="datetime_immutable", nullable=true)
+//     */
+//    private ?\DateTimeImmutable $ForgotPasswordTokenVerifiedAt;
 
     /**
      * @ORM\Column(type="boolean")
@@ -484,35 +484,56 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRegisteredAt(): \DateTimeImmutable
+    /**
+     * @return \DateTimeImmutable|null
+     */
+    public function getRegisteredAt(): ?\DateTimeImmutable
     {
         return $this->registeredAt;
     }
 
-    public function setRegisteredAt(\DateTimeImmutable $registeredAt): self
+    /**
+     * @param \DateTimeImmutable|null $registeredAt
+     * @return $this
+     */
+    public function setRegisteredAt(?\DateTimeImmutable $registeredAt): self
     {
         $this->registeredAt = $registeredAt;
 
         return $this;
     }
 
-    public function getAccountMustBeVerifiedBefore(): \DateTimeImmutable
+    /**
+     * @return \DateTimeImmutable|null
+     */
+    public function getAccountMustBeVerifiedBefore(): ?\DateTimeImmutable
     {
         return $this->accountMustBeVerifiedBefore;
     }
 
-    public function setAccountMustBeVerifiedBefore(\DateTimeImmutable $accountMustBeVerifiedBefore): self
+    /**
+     * @param \DateTimeImmutable|null $accountMustBeVerifiedBefore
+     * @return $this
+     */
+    public function setAccountMustBeVerifiedBefore(?\DateTimeImmutable $accountMustBeVerifiedBefore): self
     {
         $this->accountMustBeVerifiedBefore = $accountMustBeVerifiedBefore;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getRegistrationToken(): ?string
     {
         return $this->registrationToken;
     }
 
+    /**
+     * @param string|null $registrationToken
+     * @return $this
+     */
     public function setRegistrationToken(?string $registrationToken): self
     {
         $this->registrationToken = $registrationToken;
@@ -532,11 +553,18 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return \DateTimeImmutable|null
+     */
     public function getAccountVerifiedAt(): ?\DateTimeImmutable
     {
         return $this->accountVerifiedAt;
     }
 
+    /**
+     * @param \DateTimeImmutable|null $accountVerifiedAt
+     * @return $this
+     */
     public function setAccountVerifiedAt(?\DateTimeImmutable $accountVerifiedAt): self
     {
         $this->accountVerifiedAt = $accountVerifiedAt;
@@ -544,53 +572,60 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getForgotPasswordToken(): ?string
     {
         return $this->forgotPasswordToken;
     }
 
+    /**
+     * @param string|null $forgotPasswordToken
+     * @return $this
+     */
     public function setForgotPasswordToken(?string $forgotPasswordToken): self
     {
         $this->forgotPasswordToken = $forgotPasswordToken;
 
         return $this;
     }
-
-    public function getForgotPasswordTokenRequestedAt(): ?\DateTimeImmutable
-    {
-        return $this->forgotPasswordTokenRequestedAt;
-    }
-
-    public function setForgotPasswordTokenRequestedAt(?\DateTimeImmutable $forgotPasswordTokenRequestedAt): self
-    {
-        $this->forgotPasswordTokenRequestedAt = $forgotPasswordTokenRequestedAt;
-
-        return $this;
-    }
-
-    public function getForgotPasswordTokenMustBeVerifiedBefore(): ?\DateTimeImmutable
-    {
-        return $this->forgotPasswordTokenMustBeVerifiedBefore;
-    }
-
-    public function setForgotPasswordTokenMustBeVerifiedBefore(?\DateTimeImmutable $forgotPasswordTokenMustBeVerifiedBefore): self
-    {
-        $this->forgotPasswordTokenMustBeVerifiedBefore = $forgotPasswordTokenMustBeVerifiedBefore;
-
-        return $this;
-    }
-
-    public function getForgotPasswordTokenVerifiedAt(): ?\DateTimeImmutable
-    {
-        return $this->ForgotPasswordTokenVerifiedAt;
-    }
-
-    public function setForgotPasswordTokenVerifiedAt(?\DateTimeImmutable $ForgotPasswordTokenVerifiedAt): self
-    {
-        $this->ForgotPasswordTokenVerifiedAt = $ForgotPasswordTokenVerifiedAt;
-
-        return $this;
-    }
+//
+//    public function getForgotPasswordTokenRequestedAt(): ?\DateTimeImmutable
+//    {
+//        return $this->forgotPasswordTokenRequestedAt;
+//    }
+//
+//    public function setForgotPasswordTokenRequestedAt(?\DateTimeImmutable $forgotPasswordTokenRequestedAt): self
+//    {
+//        $this->forgotPasswordTokenRequestedAt = $forgotPasswordTokenRequestedAt;
+//
+//        return $this;
+//    }
+//
+//    public function getForgotPasswordTokenMustBeVerifiedBefore(): ?\DateTimeImmutable
+//    {
+//        return $this->forgotPasswordTokenMustBeVerifiedBefore;
+//    }
+//
+//    public function setForgotPasswordTokenMustBeVerifiedBefore(?\DateTimeImmutable $forgotPasswordTokenMustBeVerifiedBefore): self
+//    {
+//        $this->forgotPasswordTokenMustBeVerifiedBefore = $forgotPasswordTokenMustBeVerifiedBefore;
+//
+//        return $this;
+//    }
+//
+//    public function getForgotPasswordTokenVerifiedAt(): ?\DateTimeImmutable
+//    {
+//        return $this->ForgotPasswordTokenVerifiedAt;
+//    }
+//
+//    public function setForgotPasswordTokenVerifiedAt(?\DateTimeImmutable $ForgotPasswordTokenVerifiedAt): self
+//    {
+//        $this->ForgotPasswordTokenVerifiedAt = $ForgotPasswordTokenVerifiedAt;
+//
+//        return $this;
+//    }
 
     public function getIsEnabled(): ?bool
     {
