@@ -29,10 +29,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/87f48363-64e8-461a-8d8f-893317e02203.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/87f48363-64e8-461a-8d8f-893317e02203.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/GameJSONController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/EventJSONController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/EventJSONController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/.env" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/assets/controllers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/game/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/templates/game/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

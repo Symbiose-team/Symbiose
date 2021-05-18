@@ -19,7 +19,7 @@
                 <!-- end:aside lobby kiri -->
                 <!-- start:aside lobby tengah -->
                 <aside >
-                    {% for message in app.flashes('notice') %}
+                    {% for message in app.flashes('success') %}
                         <div class="alert alert-success" >
                             {{ message }}
                         </div>
@@ -65,10 +65,10 @@
                                     <td>{{ game.getJoinedBy.count }}</td>
 
                                     <td>   <a class="btn btn-primary" href="{{ path('game_show', {'id':game.id}) }}">Show Lobby</a></td>
-                                    {% if is_granted('edit',game) %}
+                                    {% if is_granted('edit',game) or is_granted('ROLE_ADMIN') %}
                                     <td>   <a class="btn btn-secondary" href="{{ path('game_edit', {'id':game.id}) }}">Edit Lobby</a></td>
                                    {% endif %}
-                                    {% if is_granted('delete',game) %}
+                                    {% if is_granted('delete',game) or is_granted('ROLE_ADMIN') %}
                                     <td>   <a class="btn btn-danger" onclick="return confirm('Are you sure ?')" href="{{ path('game_delete', {'id':game.id}) }}">Delete Lobby</a></td>
                                     {% endif %}
 

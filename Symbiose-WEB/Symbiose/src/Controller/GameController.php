@@ -103,7 +103,7 @@ class GameController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($game);
         $entityManager->flush();
-        $this->addFlash('notice','Lobby was deleted');
+        $this->addFlash('success','Lobby was deleted');
 
         return $this->redirectToRoute('game_index');
     }
