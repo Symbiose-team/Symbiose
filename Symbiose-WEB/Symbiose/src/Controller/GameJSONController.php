@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class GameJSONController extends AbstractController
 {
@@ -28,10 +31,19 @@ class GameJSONController extends AbstractController
     {
 
         $repo = $this->getDoctrine()->getRepository(Game::class);
-        $events = $repo->findAll();
-        $json = $Normalizer ->normalize($events, 'json',['groups'=>'post:read']);
+        $games = $repo->findAll();
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers);
 
-        return new Response(json_encode($json));
+        $json = $serializer->normalize($games, 'json', [
+        'circular_reference_handler' => function ($object) {
+            return $object->getId();
+        }
+    ]);
+
+        return new JsonResponse(array($json));
+
+
 
     }
 
