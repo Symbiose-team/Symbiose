@@ -65,7 +65,6 @@ class Event
      * @ORM\Column(type="datetime", nullable=true)
      * @Assert\NotBlank
      * @Assert\DateTime()
-     * @Groups("post:read")
      *
      */
     private $Date;

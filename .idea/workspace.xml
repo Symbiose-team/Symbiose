@@ -29,10 +29,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3667ebd8-e8ec-43fd-a3bb-be04ec22c5f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/87f48363-64e8-461a-8d8f-893317e02203.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/87f48363-64e8-461a-8d8f-893317e02203.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/EventJSONController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Controller/EventJSONController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Entity/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Symbiose-WEB/Symbiose/src/Repository/EventRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,6 +242,11 @@
       <workItem from="1619866816823" duration="3600000" />
       <workItem from="1619877286710" duration="7540000" />
       <workItem from="1620313001108" duration="63000" />
+      <workItem from="1620929306718" duration="9196000" />
+      <workItem from="1621197702828" duration="14119000" />
+      <workItem from="1621342161326" duration="1766000" />
+      <workItem from="1621362342506" duration="2564000" />
+      <workItem from="1621415950117" duration="1291000" />
     </task>
     <servers />
   </component>

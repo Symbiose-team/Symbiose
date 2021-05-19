@@ -56,6 +56,19 @@ class EventRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function find_by_name($name){
+        $qb = $this->createQueryBuilder('e');
+
+        $qb
+            ->where('e.State = 1')
+            ->andWhere('e.Name like :Name')
+            ->setParameter('Name',$name);
+
+        dump($qb->getQuery()->getResult());
+
+        return $qb->getQuery()->getResult();
+    }
+
     public function find_by_user($name)
     {
         $qb = $this->createQueryBuilder('e');
