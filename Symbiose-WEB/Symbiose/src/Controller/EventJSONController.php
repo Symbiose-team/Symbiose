@@ -127,17 +127,19 @@ class EventJSONController extends AbstractController
 
     /**
      * @param $id
-     * @Route ("/Event/put/{id}/{name}",name="put")
+     * @Route ("/Event/put/{id}/{name}/{date}/{type}",name="put")
      * @return string
      */
-    public function put(Request $request,$id,$name,$date,$type,SerializerInterface $serializer)
+    public function put(Request $request,$id,$name,SerializerInterface $serializer)
     {
+        $date = $request->query->get("date");
 
         $em = $this->getDoctrine()->getManager();
         $event = $em->getRepository(Event::class)->find($id);
         $event->setName($name);
         $event->setDate(new \DateTime($date));
-        $event->setType($type);
+        $event->setType($request->get('type'));
+
         $json=$serializer->serialize($event,'json',['groups'=>'post:read']);
         $em->flush();
         return new Response("updated ".json_encode($json));
