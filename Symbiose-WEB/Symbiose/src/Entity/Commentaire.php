@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\Communication\CommentaireRepository;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=CommentaireRepository::class)
@@ -14,33 +16,33 @@ class Commentaire
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups ("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups ("post:read")
      */
     private $contenu;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
+     * @Groups ("post:read")
      */
     private $User;
 
     /**
      * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="commentaires")
+     * @Groups ("post:read")
      */
     private $Publication;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups ("post:read")
      */
     private $date;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="comments")
-     */
-    private $productcomment;
 
     public function getId(): ?int
     {
@@ -91,18 +93,6 @@ class Commentaire
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getProductcomment(): ?Product
-    {
-        return $this->productcomment;
-    }
-
-    public function setProductcomment(?Product $productcomment): self
-    {
-        $this->productcomment = $productcomment;
 
         return $this;
     }

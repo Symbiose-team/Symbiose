@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Field;
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use Faker\Factory;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -7,8 +7,9 @@ use App\Entity\Commentaire;
 use App\Entity\Publication;
 
 use App\Form\RegistrationFormType;
-use App\Security\UserAuthAuthenticator;
+use App\Controller\GuardAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,6 +17,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use App\Repository\Communication\CommentaireRepository;
 use App\Repository\Communication\PublicationRepository;
+use symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 
 class CommentaireController extends AbstractController
@@ -31,8 +33,8 @@ class CommentaireController extends AbstractController
         $id = $request->get('id');
         $contenu = $request->get('contenu');
 
-         $pub =  $PublicationRepository->find($id);
-         $user = $this->getUser();
+        $pub =  $PublicationRepository->find($id);
+        $user = $this->getUser();
 
         $commentaire = new Commentaire();
         $commentaire->setUser($user);
@@ -46,18 +48,18 @@ class CommentaireController extends AbstractController
 
 
     }
-        /**
+    /**
      * @Route("/removeCommentaire", name="removeCommentaire")
      */
     public function removeCommentaire(Request $request,PublicationRepository $PublicationRepository,CommentaireRepository $CommentaireRepository)
     {
         $id = $request->get('id');
 
-         $commentaire =  $CommentaireRepository->find($id);
-         $entityManager = $this->getDoctrine()->getManager();
-         $entityManager->remove($commentaire);
-         $entityManager->flush();
-         return $this->redirect($this->generateUrl('publication'));
+        $commentaire =  $CommentaireRepository->find($id);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($commentaire);
+        $entityManager->flush();
+        return $this->redirect($this->generateUrl('publication'));
 
     }
     /**
@@ -74,21 +76,34 @@ class CommentaireController extends AbstractController
         return $this->redirect($this->generateUrl('admin'));
 
     }
-        /**
+    /**
      * @Route("/updateCommentaire", name="updateCommentaire")
      */
     public function updateCommentaire(Request $request,PublicationRepository $PublicationRepository,CommentaireRepository $CommentaireRepository)
     {
-         $id = $request->get('id');
-         $contenu = $request->get('contenu');
-         $commentaire =  $CommentaireRepository->find($id);
-         $commentaire->setContenu($contenu);
-         $commentaire->setDate(new \DateTime());
-         $entityManager = $this->getDoctrine()->getManager();
-         $entityManager->persist($commentaire);
-         $entityManager->flush();
-         return $this->redirect($this->generateUrl('admin'));
+        $id = $request->get('id');
+        $contenu = $request->get('contenu');
+        $commentaire =  $CommentaireRepository->find($id);
+        $commentaire->setContenu($contenu);
+        $commentaire->setDate(new \DateTime());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($commentaire);
+        $entityManager->flush();
+        return $this->redirect($this->generateUrl('admin'));
 
     }
-    
+
+    /**
+     * @Route ("/findAll", name="findallCommentaire")
+     * @param NormalizerInterface $normalizer
+     * @return Response
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
+    public function allCommentaire (NormalizerInterface $normalizer) : Response
+    {
+        $repository= $this->getDoctrine()->getRepository(Commentaire::class);
+        $comment=$repository->findAll();
+        $jsonContent=$normalizer->normalize($comment,'json',['groups'=>'post:read']);
+        return new JsonResponse($jsonContent);
+    }
 }

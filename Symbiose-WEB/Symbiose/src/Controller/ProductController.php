@@ -26,7 +26,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/products", name="products")
+     * @Route("/admin/products", name="admin_products")
      * @Method ({"GET"})
      */
     public function index(PaginatorInterface $paginator, Request $request): Response
@@ -50,7 +50,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/new", name="new_product")
+     * @Route("/admin/product/new", name="new_product")
      * @Method({"GET", "POST"})
      */
     public function new(Request $request)
@@ -68,7 +68,7 @@ class ProductController extends AbstractController
             $entityManager -> persist($product);
             $entityManager -> flush();
 
-            return $this->redirectToRoute('products');
+            return $this->redirectToRoute('admin_products');
 
         }
 
@@ -76,7 +76,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/edit/{id}", name="edit_product")
+     * @Route("/admin/product/edit/{id}", name="edit_product")
      * @Method({"GET", "POST"})
      */
     public function edit(Request $request, $id)
@@ -95,14 +95,14 @@ class ProductController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
-            return $this->redirectToRoute('products');
+            return $this->redirectToRoute('admin_products');
         }
 
         return $this->render('products/edit.html.twig', array('form'=>$form->createView()));
     }
 
     /**
-     * @Route ("/product/{id}", name="product_show")
+     * @Route ("/admin/product/{id}", name="product_show")
      */
     public function show($id)
     {
@@ -112,7 +112,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/delete/{id}", name="delete_product")
+     * @Route("/admin/product/delete/{id}", name="delete_product")
      * @Method({"DELETE"})
      */
     public function delete(Request $request, $id)
@@ -126,7 +126,7 @@ class ProductController extends AbstractController
         $response = new Response();
         $response->send();
 
-        return $this->redirectToRoute('products');
+        return $this->redirectToRoute('admin_products');
     }
 
 
