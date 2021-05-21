@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Event;
 use App\Entity\Field;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -63,26 +64,23 @@ class FieldJSONController extends AbstractController
     /**
      * @Route("/addFieldJSON/new", name="AddFieldJSON")
      */
-    public function AddEventJSON(\Symfony\Component\HttpFoundation\Request $request, NormalizerInterface $Normalizer): Response
+    public function AddFieldJSON(Request $request, NormalizerInterface $Normalizer): Response
     {
 
         $em = $this->getDoctrine()->getManager();
-        $event = new Field();
-        $event->setName($request->get('name'));
-        $event->setAddress($request->get('address'));
-        $event->setProvider($request->get('provider'));
-        $event->setDateStart($request->get('debut'));
-
-
-
-
-
-
-        $em->persist($event);
+        $field = new Field();
+        $field->setSerialNumber($request->get('serial_number'));
+        $field->setName($request->get('name'));
+        $field->setAddress($request->get('address'));
+        $field->setProvider($request->get('provider'));
+        $field->setDateEnd(new \DateTime($request->get('end')));
+        $field->setDateStart(new \DateTime($request->get('start')));
+        $em->persist($field);
         $em->flush();
       //  $json = $Normalizer ->normalize($event, 'json',['groups'=>'post:read']);
-        return new Response($event->getId());
+        return new Response($field->getId());
     }
+
     /**
      * @param $id
      * @Route ("/put/{id}/{name}",name="put")
@@ -100,9 +98,9 @@ class FieldJSONController extends AbstractController
 
     }
     /**
-     * @Route("/updateFieldJSON/{id}", name="UpdateEventJSON")
+     * @Route("/updateFieldJSON/{id}", name="UpdateFieldJSON")
      */
-    public function UpdateEventJSON(\Symfony\Component\HttpFoundation\Request $request, SerializerInterface $serializer, $id): Response
+    public function UpdateFieldJSON(Request $request, SerializerInterface $serializer, $id): Response
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -115,9 +113,9 @@ class FieldJSONController extends AbstractController
     }
 
     /**
-     * @Route("/deleteandroid/{id}", name="DeleteEventJSON")
+     * @Route("/deleteandroid/{id}", name="DeleteFieldJSON")
      */
-    public function DeleteEventJSON(\Symfony\Component\HttpFoundation\Request $request, NormalizerInterface $Normalizer, $id): Response
+    public function DeleteFieldJSON(\Symfony\Component\HttpFoundation\Request $request, NormalizerInterface $Normalizer, $id): Response
     {
 
         $em = $this->getDoctrine()->getManager();

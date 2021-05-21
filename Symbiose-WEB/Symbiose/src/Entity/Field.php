@@ -6,12 +6,9 @@ use App\Repository\FieldRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\OneToOne;
-
-
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=FieldRepository::class)
  * @ORM\Table(name="Field")
@@ -22,12 +19,14 @@ class Field
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
+     * @Groups("field")
      * @ORM\Column(type="integer")
+
      */
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Calendar", mappedBy="field")
+     * @ORM\OneToMany(targetEntity="App\Entity\Calendar", mappedBy="Field")
      */
     private $calendar;
 
@@ -52,6 +51,7 @@ class Field
 
     /**
      * @ORM\Column(type="integer", length=255)
+     * @Groups("field")
      */
     private $serialNumber;
 
@@ -75,6 +75,7 @@ class Field
     /**
      * @ORM\Column(type="string",length=255)
      * @Assert\NotBlank(message="wrong input")
+     *  @Groups("field")
      * */
     private $name;
 
@@ -96,23 +97,27 @@ class Field
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("field")
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="wrong input!")
+
      */
     private $space;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *  @Assert\NotBlank(message="wrong input!")
+
      */
     private $provider;
 
     /**
      * @ORM\Column(type="float")
+
      */
     private $price;
 
@@ -123,11 +128,13 @@ class Field
     /**
      * @ORM\Column(type="date")
      * @Assert\GreaterThan("today")
+     * @Groups("field")
      */
     private $Date_start;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups("field")
      *   @Assert\Expression(
      *     "this.getDateStart() < this.getDateEnd()",
      *     message="La date fin ne doit pas être antérieure à la date début"
@@ -238,7 +245,7 @@ class Field
 
     public function __toString()
     {
-return($this->name) ;
+        return($this->name) ;
     }
 
     public function getBooker(): ?User
