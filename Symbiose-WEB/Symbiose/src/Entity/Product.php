@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -32,6 +33,7 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("prod")
      */
     private $id;
 
@@ -51,28 +53,33 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      *@Assert\NotBlank(message="Veuillez donner un nom a votre produit")
+     *@Groups("prod")
      */
     private $Name;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez donner une description a votre produit")
+     * @Groups("prod")
      */
     private $Description;
 
     /**
      * @ORM\Column(type="decimal", nullable=false)
      * @Assert\NotBlank(message="Veuillez préciser un PRIX !")
+     * @Groups("prod")
      */
     private $Price;
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Veuillez specifier le type de votre produit")
+     * @Groups("prod")
      */
     public $Type;
 
     /**
      * @ORM\Column(type="boolean" ,options={"default" = false})
+     * @Groups("prod")
      */
     private $State = false;
 

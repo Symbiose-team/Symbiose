@@ -61,6 +61,22 @@ class FieldJSONController extends AbstractController
         $em->flush();
         return new Response("ajouter".json_encode($data));
     }
+
+    /**
+     * @Route("/androidafl",name="androidafl")
+     */
+    public function getFields(SerializerInterface $serializerInterface,Request $request)
+    {
+        $repo=$this->getDoctrine()->getRepository(Field::class);
+        $id=$request->get('id');
+        $fields=$repo->find($id);
+        $json=$serializerInterface->serialize($fields ,'json',[ 'groups'=>'field']);
+        // dump($json);
+        // die;
+        return  JsonResponse::fromJsonString($json);
+
+    }
+
     /**
      * @Route("/addFieldJSON/new", name="AddFieldJSON")
      */
@@ -97,6 +113,27 @@ class FieldJSONController extends AbstractController
         return new Response("deja fait ".json_encode($json));
 
     }
+
+    /**
+     * @param $id
+     * @Route ("/putt",name="putt")
+     * @return string
+     */
+    public function putt(\Symfony\Component\HttpFoundation\Request $request,SerializerInterface $serializer)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $id=$request->get('id');
+        $status=$request->get('status');
+
+        $field = $em->getRepository(Field::class)->find($id);
+        $field->setStatus($status);
+        $json=$serializer->serialize($field,'json',['groups'=>'field']);
+        $em->flush();
+        return new Response("deja fait ".json_encode($json));
+
+    }
+
     /**
      * @Route("/updateFieldJSON/{id}", name="UpdateFieldJSON")
      */
@@ -120,10 +157,8 @@ class FieldJSONController extends AbstractController
 
         $em = $this->getDoctrine()->getManager();
         $field = $em->getRepository(Field::class)->find($id);
-
         $em->remove($field);
         $em->flush();
-      //  $json = $Normalizer ->normalize($field, 'json',['groups'=>'field']);
 
         return new Response($field->getId());
     }
