@@ -11,46 +11,31 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class GameJSONController extends AbstractController
 {
-    /**
-     * @Route("/event/j/s/o/n", name="event_j_s_o_n")
-     */
-    public function index(): Response
-    {
-        return $this->render('event_json/index.html.twig', [
-            'controller_name' => 'EventJSONController',
-        ]);
-    }
+
 
     /**
      * @Route("/AllGames", name="AllGames")
      */
-    public function AllGames(NormalizerInterface $Normalizer): Response
+    public function AllGames(NormalizerInterface $Normalizer,SerializerInterface $serializerInterface): Response
     {
 
-        $repo = $this->getDoctrine()->getRepository(Game::class);
-        $games = $repo->findAll();
-        $normalizers = [new ObjectNormalizer()];
-        $serializer = new Serializer($normalizers);
-
-        $json = $serializer->normalize($games, 'json', [
-        'circular_reference_handler' => function ($object) {
-            return $object->getId();
-        }
-    ]);
-
-        return new JsonResponse(array($json));
-
-
+        $repo=$this->getDoctrine()->getRepository(Game::class);
+        $fields=$repo->findAll();
+        $json=$serializerInterface->serialize($fields ,'json',[ 'groups'=>'post:read']);
+        dump($json);
+        // die;
+        return  JsonResponse::fromJsonString($json);
 
     }
 
     /**
      * @Route("/GameJSON/{id}", name="GameJSON")
      */
-    public function EventJSONbyID(Request $request, $id, NormalizerInterface $Normalizer): Response
+    public function GameJSONbyID(Request $request, $id, NormalizerInterface $Normalizer): Response
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -60,6 +45,8 @@ class GameJSONController extends AbstractController
         return new Response(json_encode($json));
 
     }
+
+
 
     /**
      * @Route("/addGameJSON/new", name="AddGameJSON")
