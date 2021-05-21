@@ -1,4 +1,4 @@
-# SymbioseMobile
+# SymbioseWeb
 
 <br/>
 <p align="center">
