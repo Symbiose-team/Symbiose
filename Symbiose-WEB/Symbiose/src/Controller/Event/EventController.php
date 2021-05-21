@@ -156,13 +156,15 @@ class EventController extends AbstractController
         $twilio_number = "+12245019002";
 
         $client = new Client($sid, $token);
+        /*
         $message = $client->messages->create(
-            '+21694325950', // Text this number
+            '', // Text this number
             [
                 'from' => $twilio_number, // From a valid Twilio number
                 'body' => 'Hello from Symbiose, Thank you for joining this event'
             ]
         );
+        */
 
         $event = $this->event_repository->find($id);
         $num = $event->getNumRemaining() - 1;
@@ -192,14 +194,16 @@ class EventController extends AbstractController
 
         $twilio_number = "+12245019002";
 
+        /*
         $client = new Client($sid, $token);
         $message = $client->messages->create(
-            '+21694325950', // Text this number
+            '', // Text this number
             [
                 'from' => $twilio_number, // From a valid Twilio number
                 'body' => 'Hello from Symbiose, Thank you for joining this event'
             ]
         );
+        */
 
         $Sevent = $this->sevent_repository->find($id);
         $num = $Sevent->getNumRemaining() - 1;

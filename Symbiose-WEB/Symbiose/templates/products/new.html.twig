@@ -1,9 +1,7 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New product!{% endblock %}
+{% extends "admin/base.html.twig" %}
 
 {% block body %}
-    <div class="container mt-4">
+    <div class="mt-5 container py-lg-4">
 
         {{ form_start(form) }}
         <div class="row justify-content-center">
@@ -23,7 +21,7 @@
                     <div class="card-footer">
                         {{ form_widget(form) }}
                         {{ form_end(form) }}
-                        <a href="/products" class="btn btn-block btn-primary mt-3">Cancel</a>
+                        <a href="{{ path('admin_products') }}" class="btn btn-block btn-primary mt-3">Cancel</a>
                     </div>
                 </div>
             </div>

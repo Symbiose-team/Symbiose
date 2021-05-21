@@ -4,13 +4,10 @@ namespace App\Controller\Communication;
 
 use App\Entity\Conversation;
 use App\Entity\User;
-
 use App\Form\Conversation1Type;
 use App\Repository\Communication\ConversationRepository;
 use App\Repository\UserRepository;
 use App\Repository\Communication\MessageRepository;
-
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,18 +20,18 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class ConversationController extends AbstractController
 {
-        /**
+    /**
      * @Route("/deletemessage", name="deletemessage", methods={"GET"})
      */
     public function deleteMessage(Request $request,MessageRepository $MessageRepository): Response
     {
         $user = $MessageRepository->find($request->query->get('id'));
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
-            $r = new Response($request->query->get('id'));
-            return $r;
-            
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($user);
+        $entityManager->flush();
+        $r = new Response($request->query->get('id'));
+        return $r;
+
     }
     /**
      * @Route("/", name="conversation_index", methods={"GET"})
@@ -46,7 +43,7 @@ class ConversationController extends AbstractController
         ]);
     }
 
-  /**
+    /**
      * @Route("/refresh", name="refresh", methods={"GET"})
      */
     public function refsh(ConversationRepository $conversationRepository,Request $request): Response
@@ -55,50 +52,50 @@ class ConversationController extends AbstractController
         $test1 = $conversationRepository->find($request->query->get('id'));
 
 
-            $message = array();
-            foreach ($test1->getMessages() as $area) {
-                $areasArray[] = array(
-                    'id' =>$area->getId(),
-                    'username' => $area->getUser()->getUsername(),
-                    'contenu' => $area->getContenu(),
-                    'date' =>$result = $area->getDate()->format('F d,Y H:i')
-                    ,
+        $message = array();
+        foreach ($test1->getMessages() as $area) {
+            $areasArray[] = array(
+                'id' =>$area->getId(),
+                'username' => $area->getUser()->getUsername(),
+                'contenu' => $area->getContenu(),
+                'date' =>$result = $area->getDate()->format('F d,Y H:i')
+            ,
 
-                );
-            }
-    
-    
-        
+            );
+        }
+
+
+
         $response = new JsonResponse([
             'id' => $test1->getId(),
             'user1' => $test1->getUser1()->getUsername(),
             'user2' =>$test1->getUser2()->getUsername(),
             'message' => $areasArray,
         ]);
-        
-        // Use the JSON_PRETTY_PRINT 
+
+        // Use the JSON_PRETTY_PRINT
         $response->setEncodingOptions( $response->getEncodingOptions() | JSON_PRETTY_PRINT );
-        
-        return $response;   
+
+        return $response;
     }
-      /**
+    /**
      * @Route("/newmessage", name="newmessage", methods={"GET","POST"})
      */
     public function newmessage(Request $request,UserRepository $UserRepository,conversationRepository $conversationRepository): Response
     {
-            $entityManager = $this->getDoctrine()->getManager();
-            $test1 = $conversationRepository->find($request->query->get('id'));
-            $Message = new Message();
-            $Message->setDate(new \DateTime);
-            $Message->setContenu($request->query->get('message'));
-            $user = $UserRepository->find($request->query->get('user'));
-            $Message->setUser($user);
-           
-                    $Message->setConversation($test1);
-                    $test1->addMessage($Message);
-                    $entityManager->persist($Message);
-                    $entityManager->flush();
-        
+        $entityManager = $this->getDoctrine()->getManager();
+        $test1 = $conversationRepository->find($request->query->get('id'));
+        $Message = new Message();
+        $Message->setDate(new \DateTime);
+        $Message->setContenu($request->query->get('message'));
+        $user = $UserRepository->find($request->query->get('user'));
+        $Message->setUser($user);
+
+        $Message->setConversation($test1);
+        $test1->addMessage($Message);
+        $entityManager->persist($Message);
+        $entityManager->flush();
+
     }
 
     /**
@@ -117,9 +114,9 @@ class ConversationController extends AbstractController
             $Message->setContenu($request->request->get('message'));
             $Message->setUser($this->getUser());
 
-            $test1 = $this->getDoctrine()->getRepository(Conversation::class)->findOneBy(   
+            $test1 = $this->getDoctrine()->getRepository(Conversation::class)->findOneBy(
                 array('User1' => $this->getUser(),'User2' => $conversation->getUser2()));
-            $test2 = $this->getDoctrine()->getRepository(Conversation::class)->findOneBy(   
+            $test2 = $this->getDoctrine()->getRepository(Conversation::class)->findOneBy(
                 ['User2' => $this->getUser(),'User1' => $conversation->getUser2()]);
             if (!($test1) && !($test2)) {
                 $conversation->setUser1($this->getUser());
@@ -142,11 +139,11 @@ class ConversationController extends AbstractController
                     $entityManager->persist($Message);
                     $entityManager->flush();
                 }
-                
+
             }
-            
-        
-           
+
+
+
 
             return $this->render('/Communication/conversation/show.html.twig', [
                 'conversation' => $conversation,
@@ -167,13 +164,13 @@ class ConversationController extends AbstractController
             'conversation' => $conversation,
         ]);
     }
-      /**
+    /**
      * @Route("/show", name="show", methods={"POST"})
      */
     public function sho(Conversation $conversation, Request $request): Response
     {
         $test1 = $this->getDoctrine()->getRepository(Conversation::class)->find();
-        
+
         $response = new JsonResponse([
             'id' => $test1->getId(),
             'user1' => $test1->getUser1()->getUsername(),
@@ -183,11 +180,11 @@ class ConversationController extends AbstractController
                 'contenu' => $test1->getMessages()->getContenu(),
             ]
         ]);
-        
-        // Use the JSON_PRETTY_PRINT 
-     //   $response->setEncodingOptions( $response->getEncodingOptions() | JSON_PRETTY_PRINT );
-        
-        return $response;   
+
+        // Use the JSON_PRETTY_PRINT
+        //   $response->setEncodingOptions( $response->getEncodingOptions() | JSON_PRETTY_PRINT );
+
+        return $response;
 
     }
 

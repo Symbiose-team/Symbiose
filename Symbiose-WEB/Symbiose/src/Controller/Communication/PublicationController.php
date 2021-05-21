@@ -3,9 +3,9 @@
 namespace App\Controller\Communication;
 
 use App\Entity\User;
-use App\Entity\Publication;
 use App\Form\RegistrationFormType;
-use App\Security\UserAuthAuthenticator;
+use App\Controller\GuardAuthenticator;
+use phpDocumentor\Reflection\DocBlock\Serializer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use App\Repository\Communication\PublicationRepository;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class PublicationController extends AbstractController
 {
@@ -30,7 +31,7 @@ class PublicationController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('publication');
 
-        
+
     }
     /**
      * @Route("/publication", name="publication")
@@ -51,5 +52,5 @@ class PublicationController extends AbstractController
             'Publications' => $PublicationRepository->findAll(),
         ]);
     }
-    
+
 }

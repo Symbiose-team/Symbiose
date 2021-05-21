@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="Did some changes &amp; fixed json part">
+    <list default="true" id="e20427be-f80e-4414-ae10-7b54656ae05f" name="Default Changelist" comment="add nullable to some fields &amp; fixed fixture related to chedly's module">
+      <change afterPath="$PROJECT_DIR$/src/Controller/Communication/CMobileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Communication/PMobileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/GamesFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Communication/CommentaireController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Communication/CommentaireController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Communication/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Communication/ConversationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Communication/PublicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Communication/PublicationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FieldJSONController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FieldJSONController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserJSONController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserJSONController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Communication/conversation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Communication/conversation/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/partials/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_dashboard/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +41,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/SkanderThabet/Symbiose" />
+      </set>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -261,7 +284,11 @@
       <workItem from="1620411250337" duration="10675000" />
       <workItem from="1620742587197" duration="17722000" />
       <workItem from="1620824682393" duration="7393000" />
-      <workItem from="1620921981606" duration="2588000" />
+      <workItem from="1620921981606" duration="2689000" />
+      <workItem from="1620928254504" duration="350000" />
+      <workItem from="1620929099152" duration="581000" />
+      <workItem from="1621371918200" duration="2999000" />
+      <workItem from="1621521077768" duration="13288000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <created>1614588803564</created>
@@ -494,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620842904123</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="add nullable to some fields &amp; fixed fixture related to chedly's module">
+      <created>1620925960672</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1620925960672</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +539,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Symfony" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -514,7 +560,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="client admin" />
     <MESSAGE value="provider" />
     <MESSAGE value="disponibilite" />
     <MESSAGE value="dfdvf" />
@@ -539,6 +584,7 @@
     <MESSAGE value="little changes" />
     <MESSAGE value="Add some fixes for Mobile API , add crud, login &amp; reg features" />
     <MESSAGE value="Did some changes &amp; fixed json part" />
-    <option name="LAST_COMMIT_MESSAGE" value="Did some changes &amp; fixed json part" />
+    <MESSAGE value="add nullable to some fields &amp; fixed fixture related to chedly's module" />
+    <option name="LAST_COMMIT_MESSAGE" value="add nullable to some fields &amp; fixed fixture related to chedly's module" />
   </component>
 </project>

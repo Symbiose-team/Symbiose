@@ -45,7 +45,8 @@ class EventSupplierController extends AbstractController
 
         $name = 'Mahdi';
 
-        $events = $this->event_repository->find_by_user($name);
+        //$events = $this->event_repository->find_by_user($name);
+        $events = $this->event_repository->findAll();
 
         return $this->render('Event/event_supplier/supplier_event.html.twig', array('events' => $events));
     }
